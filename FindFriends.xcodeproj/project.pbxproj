@@ -13,11 +13,10 @@
 		D853CC322B7567B100DA58D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D853CC302B7567B100DA58D5 /* LaunchScreen.storyboard */; };
 		D853CC3B2B756C2F00DA58D5 /* TmpScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D853CC3A2B756C2F00DA58D5 /* TmpScreenViewController.swift */; };
 		DD3A2E9F2B7D2F65006A3B8E /* UIView+AutoresizingMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A2E9E2B7D2F65006A3B8E /* UIView+AutoresizingMask.swift */; };
-		DD3A2EA22B7E7829006A3B8E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A2EA12B7E7829006A3B8E /* Colors.swift */; };
-		DD3A2EA42B7E7832006A3B8E /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A2EA32B7E7832006A3B8E /* Fonts.swift */; };
 		DD3A2EA62B7E9447006A3B8E /* PrimeOrangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A2EA52B7E9447006A3B8E /* PrimeOrangeButton.swift */; };
 		DD3A2EA82B7E9836006A3B8E /* CaptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A2EA72B7E9836006A3B8E /* CaptionButton.swift */; };
 		DDCAC7C42B83C0BF00EC7D15 /* WhiteBorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCAC7C32B83C0BF00EC7D15 /* WhiteBorderButton.swift */; };
+		DDCAC7C72B84FB7900EC7D15 /* UIFont+CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCAC7C62B84FB7900EC7D15 /* UIFont+CustomFonts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,11 +28,10 @@
 		D853CC332B7567B100DA58D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D853CC3A2B756C2F00DA58D5 /* TmpScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmpScreenViewController.swift; sourceTree = "<group>"; };
 		DD3A2E9E2B7D2F65006A3B8E /* UIView+AutoresizingMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AutoresizingMask.swift"; sourceTree = "<group>"; };
-		DD3A2EA12B7E7829006A3B8E /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		DD3A2EA32B7E7832006A3B8E /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		DD3A2EA52B7E9447006A3B8E /* PrimeOrangeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimeOrangeButton.swift; sourceTree = "<group>"; };
 		DD3A2EA72B7E9836006A3B8E /* CaptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionButton.swift; sourceTree = "<group>"; };
 		DDCAC7C32B83C0BF00EC7D15 /* WhiteBorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteBorderButton.swift; sourceTree = "<group>"; };
+		DDCAC7C62B84FB7900EC7D15 /* UIFont+CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+CustomFonts.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				DD67CE3B2B769EC1008B2A9C /* App */,
-				DD3A2EA02B7E7807006A3B8E /* DesignSystem */,
+				DD3A2EA02B7E7807006A3B8E /* Common */,
 				DD0C09A22B79019700792C29 /* Extensions */,
 				D853CC392B756BB500DA58D5 /* Screens */,
 				DD67CE3C2B769ED8008B2A9C /* Resources */,
@@ -87,11 +85,12 @@
 			isa = PBXGroup;
 			children = (
 				DD3A2E9E2B7D2F65006A3B8E /* UIView+AutoresizingMask.swift */,
+				DDCAC7C62B84FB7900EC7D15 /* UIFont+CustomFonts.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		DD0C09A32B7901AB00792C29 /* ReusableComponents */ = {
+		DD0C09A32B7901AB00792C29 /* Components */ = {
 			isa = PBXGroup;
 			children = (
 				DD3A2EA52B7E9447006A3B8E /* PrimeOrangeButton.swift */,
@@ -99,17 +98,15 @@
 				DD3A2EA72B7E9836006A3B8E /* CaptionButton.swift */,
 				DD0C09A02B79004A00792C29 /* RegistrationTextField.swift */,
 			);
-			path = ReusableComponents;
+			path = Components;
 			sourceTree = "<group>";
 		};
-		DD3A2EA02B7E7807006A3B8E /* DesignSystem */ = {
+		DD3A2EA02B7E7807006A3B8E /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				DD3A2EA12B7E7829006A3B8E /* Colors.swift */,
-				DD3A2EA32B7E7832006A3B8E /* Fonts.swift */,
-				DD0C09A32B7901AB00792C29 /* ReusableComponents */,
+				DD0C09A32B7901AB00792C29 /* Components */,
 			);
-			path = DesignSystem;
+			path = Common;
 			sourceTree = "<group>";
 		};
 		DD67CE3B2B769EC1008B2A9C /* App */ = {
@@ -203,13 +200,12 @@
 			files = (
 				D853CC3B2B756C2F00DA58D5 /* TmpScreenViewController.swift in Sources */,
 				DD3A2EA62B7E9447006A3B8E /* PrimeOrangeButton.swift in Sources */,
-				DD3A2EA42B7E7832006A3B8E /* Fonts.swift in Sources */,
 				D853CC262B7567AF00DA58D5 /* AppDelegate.swift in Sources */,
-				DD3A2EA22B7E7829006A3B8E /* Colors.swift in Sources */,
 				DD3A2EA82B7E9836006A3B8E /* CaptionButton.swift in Sources */,
 				DD3A2E9F2B7D2F65006A3B8E /* UIView+AutoresizingMask.swift in Sources */,
 				DDCAC7C42B83C0BF00EC7D15 /* WhiteBorderButton.swift in Sources */,
 				D853CC282B7567AF00DA58D5 /* SceneDelegate.swift in Sources */,
+				DDCAC7C72B84FB7900EC7D15 /* UIFont+CustomFonts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
