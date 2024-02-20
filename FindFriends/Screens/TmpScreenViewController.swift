@@ -16,6 +16,7 @@ class TmpScreenViewController: UIViewController {
         
         let tmpLabel = UILabel()
         tmpLabel.text = "Временный текст"
+        tmpLabel.font = .Regular.large
         tmpLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tmpLabel)
         tmpLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true

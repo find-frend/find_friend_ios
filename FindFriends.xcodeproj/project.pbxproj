@@ -9,21 +9,29 @@
 /* Begin PBXBuildFile section */
 		D853CC262B7567AF00DA58D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D853CC252B7567AF00DA58D5 /* AppDelegate.swift */; };
 		D853CC282B7567AF00DA58D5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D853CC272B7567AF00DA58D5 /* SceneDelegate.swift */; };
-		D853CC2A2B7567AF00DA58D5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D853CC292B7567AF00DA58D5 /* ViewController.swift */; };
 		D853CC2F2B7567B100DA58D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D853CC2E2B7567B100DA58D5 /* Assets.xcassets */; };
 		D853CC322B7567B100DA58D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D853CC302B7567B100DA58D5 /* LaunchScreen.storyboard */; };
 		D853CC3B2B756C2F00DA58D5 /* TmpScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D853CC3A2B756C2F00DA58D5 /* TmpScreenViewController.swift */; };
+		DD3A2E9F2B7D2F65006A3B8E /* UIView+AutoresizingMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A2E9E2B7D2F65006A3B8E /* UIView+AutoresizingMask.swift */; };
+		DD3A2EA62B7E9447006A3B8E /* PrimeOrangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A2EA52B7E9447006A3B8E /* PrimeOrangeButton.swift */; };
+		DD3A2EA82B7E9836006A3B8E /* CaptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A2EA72B7E9836006A3B8E /* CaptionButton.swift */; };
+		DDCAC7C42B83C0BF00EC7D15 /* WhiteBorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCAC7C32B83C0BF00EC7D15 /* WhiteBorderButton.swift */; };
+		DDCAC7C72B84FB7900EC7D15 /* UIFont+CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCAC7C62B84FB7900EC7D15 /* UIFont+CustomFonts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D853CC222B7567AF00DA58D5 /* FindFriends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindFriends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D853CC252B7567AF00DA58D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D853CC272B7567AF00DA58D5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D853CC292B7567AF00DA58D5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D853CC2E2B7567B100DA58D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D853CC312B7567B100DA58D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D853CC332B7567B100DA58D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D853CC3A2B756C2F00DA58D5 /* TmpScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmpScreenViewController.swift; sourceTree = "<group>"; };
+		DD3A2E9E2B7D2F65006A3B8E /* UIView+AutoresizingMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AutoresizingMask.swift"; sourceTree = "<group>"; };
+		DD3A2EA52B7E9447006A3B8E /* PrimeOrangeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimeOrangeButton.swift; sourceTree = "<group>"; };
+		DD3A2EA72B7E9836006A3B8E /* CaptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionButton.swift; sourceTree = "<group>"; };
+		DDCAC7C32B83C0BF00EC7D15 /* WhiteBorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteBorderButton.swift; sourceTree = "<group>"; };
+		DDCAC7C62B84FB7900EC7D15 /* UIFont+CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+CustomFonts.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,13 +64,11 @@
 		D853CC242B7567AF00DA58D5 /* FindFriends */ = {
 			isa = PBXGroup;
 			children = (
+				DD67CE3B2B769EC1008B2A9C /* App */,
+				DD3A2EA02B7E7807006A3B8E /* Common */,
+				DD0C09A22B79019700792C29 /* Extensions */,
 				D853CC392B756BB500DA58D5 /* Screens */,
-				D853CC252B7567AF00DA58D5 /* AppDelegate.swift */,
-				D853CC272B7567AF00DA58D5 /* SceneDelegate.swift */,
-				D853CC292B7567AF00DA58D5 /* ViewController.swift */,
-				D853CC2E2B7567B100DA58D5 /* Assets.xcassets */,
-				D853CC302B7567B100DA58D5 /* LaunchScreen.storyboard */,
-				D853CC332B7567B100DA58D5 /* Info.plist */,
+				DD67CE3C2B769ED8008B2A9C /* Resources */,
 			);
 			path = FindFriends;
 			sourceTree = "<group>";
@@ -73,6 +79,53 @@
 				D853CC3A2B756C2F00DA58D5 /* TmpScreenViewController.swift */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		DD0C09A22B79019700792C29 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DD3A2E9E2B7D2F65006A3B8E /* UIView+AutoresizingMask.swift */,
+				DDCAC7C62B84FB7900EC7D15 /* UIFont+CustomFonts.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DD0C09A32B7901AB00792C29 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				DD3A2EA52B7E9447006A3B8E /* PrimeOrangeButton.swift */,
+				DDCAC7C32B83C0BF00EC7D15 /* WhiteBorderButton.swift */,
+				DD3A2EA72B7E9836006A3B8E /* CaptionButton.swift */,
+				DD0C09A02B79004A00792C29 /* RegistrationTextField.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		DD3A2EA02B7E7807006A3B8E /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				DD0C09A32B7901AB00792C29 /* Components */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		DD67CE3B2B769EC1008B2A9C /* App */ = {
+			isa = PBXGroup;
+			children = (
+				D853CC252B7567AF00DA58D5 /* AppDelegate.swift */,
+				D853CC272B7567AF00DA58D5 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		DD67CE3C2B769ED8008B2A9C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D853CC302B7567B100DA58D5 /* LaunchScreen.storyboard */,
+				D853CC2E2B7567B100DA58D5 /* Assets.xcassets */,
+				D853CC332B7567B100DA58D5 /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,9 +199,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D853CC3B2B756C2F00DA58D5 /* TmpScreenViewController.swift in Sources */,
-				D853CC2A2B7567AF00DA58D5 /* ViewController.swift in Sources */,
+				DD3A2EA62B7E9447006A3B8E /* PrimeOrangeButton.swift in Sources */,
 				D853CC262B7567AF00DA58D5 /* AppDelegate.swift in Sources */,
+				DD3A2EA82B7E9836006A3B8E /* CaptionButton.swift in Sources */,
+				DD3A2E9F2B7D2F65006A3B8E /* UIView+AutoresizingMask.swift in Sources */,
+				DDCAC7C42B83C0BF00EC7D15 /* WhiteBorderButton.swift in Sources */,
 				D853CC282B7567AF00DA58D5 /* SceneDelegate.swift in Sources */,
+				DDCAC7C72B84FB7900EC7D15 /* UIFont+CustomFonts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,12 +350,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = FindFriends/Info.plist;
+				INFOPLIST_FILE = FindFriends/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -325,12 +381,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = FindFriends/Info.plist;
+				INFOPLIST_FILE = FindFriends/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
