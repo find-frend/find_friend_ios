@@ -96,7 +96,6 @@
 				DD3A2EA52B7E9447006A3B8E /* PrimeOrangeButton.swift */,
 				DDCAC7C32B83C0BF00EC7D15 /* WhiteBorderButton.swift */,
 				DD3A2EA72B7E9836006A3B8E /* CaptionButton.swift */,
-				DD0C09A02B79004A00792C29 /* RegistrationTextField.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
