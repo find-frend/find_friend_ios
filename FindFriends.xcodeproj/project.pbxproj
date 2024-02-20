@@ -19,6 +19,9 @@
 		DDCAC7C72B84FB7900EC7D15 /* UIFont+CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCAC7C62B84FB7900EC7D15 /* UIFont+CustomFonts.swift */; };
 		DDCAC7CC2B851EF500EC7D15 /* RegistrationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCAC7CB2B851EF500EC7D15 /* RegistrationTextField.swift */; };
 		DDCAC7CF2B851F7700EC7D15 /* TextValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCAC7CE2B851F7700EC7D15 /* TextValidator.swift */; };
+		DDCAC7D22B852B7B00EC7D15 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCAC7D12B852B7B00EC7D15 /* RegistrationViewController.swift */; };
+		DDCAC7D42B852B8600EC7D15 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCAC7D32B852B8600EC7D15 /* RegistrationView.swift */; };
+		DDCAC7D62B8531EC00EC7D15 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCAC7D52B8531EC00EC7D15 /* RegistrationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		DDCAC7C62B84FB7900EC7D15 /* UIFont+CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+CustomFonts.swift"; sourceTree = "<group>"; };
 		DDCAC7CB2B851EF500EC7D15 /* RegistrationTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationTextField.swift; sourceTree = "<group>"; };
 		DDCAC7CE2B851F7700EC7D15 /* TextValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextValidator.swift; sourceTree = "<group>"; };
+		DDCAC7D12B852B7B00EC7D15 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		DDCAC7D32B852B8600EC7D15 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		DDCAC7D52B8531EC00EC7D15 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				D853CC3A2B756C2F00DA58D5 /* TmpScreenViewController.swift */,
+				DDCAC7D02B852B6600EC7D15 /* RegistrationScreen */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -139,6 +146,16 @@
 				DDCAC7CE2B851F7700EC7D15 /* TextValidator.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		DDCAC7D02B852B6600EC7D15 /* RegistrationScreen */ = {
+			isa = PBXGroup;
+			children = (
+				DDCAC7D12B852B7B00EC7D15 /* RegistrationViewController.swift */,
+				DDCAC7D32B852B8600EC7D15 /* RegistrationView.swift */,
+				DDCAC7D52B8531EC00EC7D15 /* RegistrationViewModel.swift */,
+			);
+			path = RegistrationScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,10 +229,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D853CC3B2B756C2F00DA58D5 /* TmpScreenViewController.swift in Sources */,
+				DDCAC7D42B852B8600EC7D15 /* RegistrationView.swift in Sources */,
+				DDCAC7D62B8531EC00EC7D15 /* RegistrationViewModel.swift in Sources */,
 				DD3A2EA62B7E9447006A3B8E /* PrimeOrangeButton.swift in Sources */,
 				D853CC262B7567AF00DA58D5 /* AppDelegate.swift in Sources */,
 				DDCAC7CF2B851F7700EC7D15 /* TextValidator.swift in Sources */,
 				DD3A2EA82B7E9836006A3B8E /* CaptionButton.swift in Sources */,
+				DDCAC7D22B852B7B00EC7D15 /* RegistrationViewController.swift in Sources */,
 				DD3A2E9F2B7D2F65006A3B8E /* UIView+AutoresizingMask.swift in Sources */,
 				DDCAC7CC2B851EF500EC7D15 /* RegistrationTextField.swift in Sources */,
 				DDCAC7C42B83C0BF00EC7D15 /* WhiteBorderButton.swift in Sources */,
