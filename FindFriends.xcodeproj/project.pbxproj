@@ -22,6 +22,11 @@
 		DDCAC7D22B852B7B00EC7D15 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCAC7D12B852B7B00EC7D15 /* RegistrationViewController.swift */; };
 		DDCAC7D42B852B8600EC7D15 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCAC7D32B852B8600EC7D15 /* RegistrationView.swift */; };
 		DDCAC7D62B8531EC00EC7D15 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCAC7D52B8531EC00EC7D15 /* RegistrationViewModel.swift */; };
+		F36F40782B85503F00B2082B /* RegistrationNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36F40772B85503F00B2082B /* RegistrationNavigationController.swift */; };
+		F36F407A2B85562800B2082B /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36F40792B85562800B2082B /* UIViewController+Extensions.swift */; };
+		F3BC5D392B8514D700562C08 /* BaseRegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC5D382B8514D700562C08 /* BaseRegistrationView.swift */; };
+		F3BC5D3D2B8514F700562C08 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC5D3C2B8514F700562C08 /* LoginView.swift */; };
+		F3BC5D402B853D1C00562C08 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC5D3F2B853D1C00562C08 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +47,11 @@
 		DDCAC7D12B852B7B00EC7D15 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		DDCAC7D32B852B8600EC7D15 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		DDCAC7D52B8531EC00EC7D15 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		F36F40772B85503F00B2082B /* RegistrationNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationNavigationController.swift; sourceTree = "<group>"; };
+		F36F40792B85562800B2082B /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		F3BC5D382B8514D700562C08 /* BaseRegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRegistrationView.swift; sourceTree = "<group>"; };
+		F3BC5D3C2B8514F700562C08 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		F3BC5D3F2B853D1C00562C08 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,8 +96,8 @@
 		D853CC392B756BB500DA58D5 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				F3BC5D3A2B8514DD00562C08 /* Registration */,
 				D853CC3A2B756C2F00DA58D5 /* TmpScreenViewController.swift */,
-				DDCAC7D02B852B6600EC7D15 /* RegistrationScreen */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -97,6 +107,7 @@
 			children = (
 				DD3A2E9E2B7D2F65006A3B8E /* UIView+AutoresizingMask.swift */,
 				DDCAC7C62B84FB7900EC7D15 /* UIFont+CustomFonts.swift */,
+				F36F40792B85562800B2082B /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -148,14 +159,34 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		DDCAC7D02B852B6600EC7D15 /* RegistrationScreen */ = {
+		F36F407B2B855FAE00B2082B /* Register */ = {
 			isa = PBXGroup;
 			children = (
 				DDCAC7D12B852B7B00EC7D15 /* RegistrationViewController.swift */,
 				DDCAC7D32B852B8600EC7D15 /* RegistrationView.swift */,
 				DDCAC7D52B8531EC00EC7D15 /* RegistrationViewModel.swift */,
 			);
-			path = RegistrationScreen;
+			path = Register;
+			sourceTree = "<group>";
+		};
+		F3BC5D3A2B8514DD00562C08 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				F36F407B2B855FAE00B2082B /* Register */,
+				F3BC5D3E2B853D0E00562C08 /* LogIn */,
+				F36F40772B85503F00B2082B /* RegistrationNavigationController.swift */,
+				F3BC5D382B8514D700562C08 /* BaseRegistrationView.swift */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		F3BC5D3E2B853D0E00562C08 /* LogIn */ = {
+			isa = PBXGroup;
+			children = (
+				F3BC5D3C2B8514F700562C08 /* LoginView.swift */,
+				F3BC5D3F2B853D1C00562C08 /* LoginViewController.swift */,
+			);
+			path = LogIn;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +263,7 @@
 				DDCAC7D42B852B8600EC7D15 /* RegistrationView.swift in Sources */,
 				DDCAC7D62B8531EC00EC7D15 /* RegistrationViewModel.swift in Sources */,
 				DD3A2EA62B7E9447006A3B8E /* PrimeOrangeButton.swift in Sources */,
+				F36F407A2B85562800B2082B /* UIViewController+Extensions.swift in Sources */,
 				D853CC262B7567AF00DA58D5 /* AppDelegate.swift in Sources */,
 				DDCAC7CF2B851F7700EC7D15 /* TextValidator.swift in Sources */,
 				DD3A2EA82B7E9836006A3B8E /* CaptionButton.swift in Sources */,
@@ -240,6 +272,10 @@
 				DDCAC7CC2B851EF500EC7D15 /* RegistrationTextField.swift in Sources */,
 				DDCAC7C42B83C0BF00EC7D15 /* WhiteBorderButton.swift in Sources */,
 				D853CC282B7567AF00DA58D5 /* SceneDelegate.swift in Sources */,
+				F3BC5D402B853D1C00562C08 /* LoginViewController.swift in Sources */,
+				F3BC5D392B8514D700562C08 /* BaseRegistrationView.swift in Sources */,
+				F36F40782B85503F00B2082B /* RegistrationNavigationController.swift in Sources */,
+				F3BC5D3D2B8514F700562C08 /* LoginView.swift in Sources */,
 				DDCAC7C72B84FB7900EC7D15 /* UIFont+CustomFonts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

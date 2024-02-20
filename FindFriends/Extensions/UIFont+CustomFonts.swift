@@ -17,6 +17,7 @@ extension UIFont {
     }
     
     enum Semibold {
+        static var small: UIFont { UIFont.systemFont(ofSize: 12, weight: .semibold) }
         static var medium: UIFont { UIFont.systemFont(ofSize: 17, weight: .semibold) }
     }
 }
