@@ -18,6 +18,8 @@ final class RegistrationNavigationController: UINavigationController {
         navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationBar.shadowImage = UIImage()
         navigationBar.tintColor = .primeDark
+        navigationBar.backIndicatorImage = .back
+        navigationBar.backIndicatorTransitionMaskImage = .back
     }
 
 }
