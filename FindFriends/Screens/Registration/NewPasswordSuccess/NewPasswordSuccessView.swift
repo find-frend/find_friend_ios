@@ -1,5 +1,5 @@
 //
-//  ChangePasswordSuccessView.swift
+//  NewPasswordSuccessView.swift
 //  FindFriends
 //
 //  Created by Artem Novikov on 21.02.2024.
@@ -8,17 +8,17 @@
 import UIKit
 
 
-// - MARK: ChangePasswordSuccessViewDelegate
-protocol ChangePasswordSuccessViewDelegate: AnyObject {
+// - MARK: NewPasswordSuccessViewDelegate
+protocol NewPasswordSuccessViewDelegate: AnyObject {
     func didTapLogInButton()
 }
 
 
-// - MARK: ChangePasswordSuccessView
-final class ChangePasswordSuccessView: BaseRegistrationView {
+// - MARK: NewPasswordSuccessView
+final class NewPasswordSuccessView: BaseRegistrationView {
 
     // MARK: - Public properties
-    weak var delegate: ChangePasswordSuccessViewDelegate?
+    weak var delegate: NewPasswordSuccessViewDelegate?
 
     // MARK: - Private properties
     private enum Constants {

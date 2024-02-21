@@ -45,8 +45,9 @@ extension LoginViewController: LoginViewDelegate {
     }
 
     func didTapLoginButton() {
-        // TODO: handle action
-        print("didTapLoginButton")
+        // TODO: handle action. Current state is only for testing.
+        let viewController = NewPasswordViewController()
+        navigationController?.pushViewController(viewController, animated: true)
     }
 
     func didTapForgotPasswordButton() {
