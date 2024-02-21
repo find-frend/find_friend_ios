@@ -60,7 +60,7 @@ final class RegistrationView: UIView, RegistrationViewProtocol {
         text.addAttributes(
             [
                 .font: UIFont.systemFont(ofSize: 13, weight: .regular),
-                .foregroundColor: UIColor.black,
+                .foregroundColor: UIColor.primeDark,
                 .paragraphStyle: paragraphStyle
             ],
             range: NSRange(location: 0, length: text.length)

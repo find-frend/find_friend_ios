@@ -29,7 +29,6 @@ final class LoginViewController: UIViewController {
     // MARK: - Private methods
     private func configureNavigationBar() {
         navigationItem.title = "Вход"
-        navigationController?.navigationItem.largeTitleDisplayMode = .always
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Назад", 
                                                            style: .plain,
                                                            target: nil,

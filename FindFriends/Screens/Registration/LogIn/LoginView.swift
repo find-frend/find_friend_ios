@@ -220,7 +220,7 @@ fileprivate class UnderlinedButton: UIButton {
         super.init(frame: .zero)
         let attributes: [NSAttributedString.Key: Any] = [
             .font: UIFont.Semibold.small,
-            .foregroundColor: UIColor.black,
+            .foregroundColor: UIColor.primeDark,
             .underlineStyle: NSUnderlineStyle.single.rawValue
         ]
         let attributeString = NSMutableAttributedString(

@@ -17,7 +17,7 @@ final class RegistrationNavigationController: UINavigationController {
         navigationBar.prefersLargeTitles = true
         navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationBar.shadowImage = UIImage()
-        navigationBar.tintColor = .black
+        navigationBar.tintColor = .primeDark
     }
 
 }
