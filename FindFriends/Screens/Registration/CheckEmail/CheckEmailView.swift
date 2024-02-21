@@ -84,10 +84,14 @@ final class CheckEmailView: BaseRegistrationView {
         label.textAlignment = .center
         label.numberOfLines = 0
         let attributedText = NSMutableAttributedString(string: Constants.Caption.text)
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 8
+        style.alignment = .center
         attributedText.addAttributes(
             [
                 .font: UIFont.Regular.small13,
                 .foregroundColor: UIColor.primeDark,
+                .paragraphStyle: style
             ],
             range: NSRange(location: 0, length: attributedText.length)
         )

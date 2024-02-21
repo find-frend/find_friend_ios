@@ -91,7 +91,6 @@ final class RegistrationView: UIView, RegistrationViewProtocol {
     
     private func setupViews() {
         backgroundColor = .white
-        directionalLayoutMargins = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16)
         registrationButton
             .addTarget(
                 self,

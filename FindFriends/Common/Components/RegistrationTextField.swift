@@ -86,7 +86,8 @@ final class RegistrationTextField: UITextField {
         addSubviewWithoutAutoresizingMask(warningLabel)
         
         NSLayoutConstraint.activate([
-            separator.widthAnchor.constraint(equalTo: widthAnchor),
+            separator.leadingAnchor.constraint(equalTo: leadingAnchor),
+            separator.trailingAnchor.constraint(equalTo: trailingAnchor),
             separator.heightAnchor.constraint(equalToConstant: 1),
             separator.bottomAnchor.constraint(equalTo: bottomAnchor),
             warningLabel.topAnchor.constraint(equalTo: bottomAnchor, constant: 2),

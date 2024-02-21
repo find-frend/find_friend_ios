@@ -19,7 +19,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let navigationController = RegistrationNavigationController()
         let viewController = LoginViewController()
         navigationController.viewControllers = [viewController]
-        #warning("Изменить root vc во время разработки своего экрана")
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
