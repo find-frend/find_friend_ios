@@ -29,10 +29,7 @@ final class LoginViewController: UIViewController {
     // MARK: - Private methods
     private func configureNavigationBar() {
         navigationItem.title = "Вход"
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Назад", 
-                                                           style: .plain,
-                                                           target: nil,
-                                                           action: nil)
+        navigationItem.backButtonTitle = "Назад"
     }
 
 }
