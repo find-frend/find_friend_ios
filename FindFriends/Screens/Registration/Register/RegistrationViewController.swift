@@ -8,10 +8,10 @@
 import UIKit
 
 final class RegistrationViewController: UIViewController {
-    private var registrationView: RegistrationViewProtocol
+    private var registrationView: RegistrationView
 
     override func loadView() {
-        self.view = registrationView as? UIView
+        self.view = registrationView
     }
     
     override func viewDidLoad() {
@@ -21,7 +21,7 @@ final class RegistrationViewController: UIViewController {
         registrationView.delegate = self
     }
     
-    init(registrationView: RegistrationViewProtocol) {
+    init(registrationView: RegistrationView) {
         self.registrationView = registrationView
         super.init(nibName: nil, bundle: nil)
     }
@@ -41,7 +41,7 @@ final class RegistrationViewController: UIViewController {
 }
 
 extension RegistrationViewController: RegistrationViewDelegate {
-    func backToSignInScreen() {
+    func backToLogInScreen() {
         navigationController?.popViewController(animated: true)
     }
 }
