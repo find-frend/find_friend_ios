@@ -16,13 +16,13 @@ protocol ResetPasswordViewDelegate: AnyObject {
 
 // - MARK: ResetPasswordView
 final class ResetPasswordView: BaseRegistrationView {
-    
+
     // MARK: - Public properties
     weak var delegate: ResetPasswordViewDelegate?
 
     // MARK: - Private properties
     private enum Constants {
-        enum TextView {
+        enum Label {
             static let topInset: CGFloat = 32
         }
         enum TextField {
@@ -34,20 +34,15 @@ final class ResetPasswordView: BaseRegistrationView {
         }
     }
 
-    private let textView: UITextView = {
-        let textView = UITextView()
-        textView.isEditable = false
-        textView.isScrollEnabled = false
-        textView.sizeToFit()
-        textView.font = .Regular.medium
-        textView.textColor = .primeDark
-        textView.textContainerInset = .zero
-        textView.textContainer.lineFragmentPadding = .zero
-        textView.text = "Укажите электронную почту, связанную с вашей учетной записью. " +
-                        "Мы отправим вам письмо с инструкциями по сбросу пароля."
-        return textView
+    private let label: UILabel = {
+        let label = UILabel()
+        label.textColor = .primeDark
+        label.numberOfLines = 0
+        label.font = .Regular.medium
+        label.text = "Укажите электронную почту, связанную с вашей учетной записью. " +
+                     "Мы отправим вам письмо с инструкциями по сбросу пароля."
+        return label
     }()
-
     private let emailTextField = RegistrationTextField(
         placeholder: "Электронная почта", type: .email
     )
@@ -66,7 +61,7 @@ final class ResetPasswordView: BaseRegistrationView {
 
     // MARK: - Private methods
     private func setupViews() {
-        scrollView.addSubviewWithoutAutoresizingMask(textView)
+        scrollView.addSubviewWithoutAutoresizingMask(label)
         scrollView.addSubviewWithoutAutoresizingMask(emailTextField)
         scrollView.addSubviewWithoutAutoresizingMask(emailTextField)
         scrollView.addSubviewWithoutAutoresizingMask(sendInstructionButton)
@@ -80,18 +75,18 @@ final class ResetPasswordView: BaseRegistrationView {
 
     private func setupLayout() {
         NSLayoutConstraint.activate([
-            textView.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
-            textView.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
-            textView.topAnchor.constraint(
+            label.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
+            label.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
+            label.topAnchor.constraint(
                 equalTo: topDecoration.bottomAnchor,
-                constant: Constants.TextView.topInset
+                constant: Constants.Label.topInset
             ),
 
             emailTextField.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
             emailTextField.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
             emailTextField.heightAnchor.constraint(equalToConstant: Constants.TextField.height),
             emailTextField.topAnchor.constraint(
-                equalTo: textView.bottomAnchor,
+                equalTo: label.bottomAnchor,
                 constant: Constants.TextField.topInset
             ),
 

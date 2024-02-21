@@ -38,8 +38,8 @@ final class ResetPasswordViewController: UIViewController {
 extension ResetPasswordViewController: ResetPasswordViewDelegate {
 
     func didTapSendInstructionButton() {
-        // TODO: handle action
-        print("didTapSendInstructionButton")
+        let viewController = CheckEmailViewController()
+        navigationController?.pushViewController(viewController, animated: true)
     }
 
 }
