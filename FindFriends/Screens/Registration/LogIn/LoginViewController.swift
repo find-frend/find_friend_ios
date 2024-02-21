@@ -50,8 +50,8 @@ extension LoginViewController: LoginViewDelegate {
     }
 
     func didTapForgotPasswordButton() {
-        // TODO: handle action
-        print("didTapForgotPasswordButton")
+        let viewController = ResetPasswordViewController()
+        navigationController?.pushViewController(viewController, animated: true)
     }
 
 }
