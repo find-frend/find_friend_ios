@@ -54,6 +54,7 @@ final class ResetPasswordView: BaseRegistrationView {
         super.init(frame: frame)
         setupViews()
         setupLayout()
+        emailTextField.delegate = self
     }
 
     required init?(coder: NSCoder) {
@@ -62,9 +63,9 @@ final class ResetPasswordView: BaseRegistrationView {
 
     // MARK: - Private methods
     private func setupViews() {
-        scrollView.addSubviewWithoutAutoresizingMask(label)
-        scrollView.addSubviewWithoutAutoresizingMask(emailTextField)
-        scrollView.addSubviewWithoutAutoresizingMask(sendInstructionButton)
+        contentView.addSubviewWithoutAutoresizingMask(label)
+        contentView.addSubviewWithoutAutoresizingMask(emailTextField)
+        contentView.addSubviewWithoutAutoresizingMask(sendInstructionButton)
 
         sendInstructionButton.addTarget(
             self,
@@ -93,7 +94,7 @@ final class ResetPasswordView: BaseRegistrationView {
             sendInstructionButton.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
             sendInstructionButton.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
             sendInstructionButton.heightAnchor.constraint(equalToConstant: Constants.Button.height),
-            scrollView.safeAreaLayoutGuide.bottomAnchor.constraint(
+            contentView.safeAreaLayoutGuide.bottomAnchor.constraint(
                 equalTo: sendInstructionButton.bottomAnchor,
                 constant: Constants.Button.bottomInset
             )
@@ -102,6 +103,17 @@ final class ResetPasswordView: BaseRegistrationView {
 
     @objc private func sendInstructionButtonTapped() {
         delegate?.didTapSendInstructionButton()
+    }
+
+}
+
+
+// - MARK: UITextFieldDelegate
+extension ResetPasswordView: UITextFieldDelegate {
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        endEditing(true)
+        return true
     }
 
 }

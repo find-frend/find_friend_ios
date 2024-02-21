@@ -21,6 +21,9 @@ final class RegistrationNavigationController: UINavigationController {
         navigationBar.largeTitleTextAttributes = [
             .foregroundColor: UIColor.primeDark
         ]
+        navigationBar.titleTextAttributes = [
+            .foregroundColor: UIColor.primeDark
+        ]
         navigationBar.backIndicatorImage = .back
         navigationBar.backIndicatorTransitionMaskImage = .back
     }

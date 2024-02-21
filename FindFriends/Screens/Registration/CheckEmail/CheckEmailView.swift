@@ -39,7 +39,7 @@ final class CheckEmailView: BaseRegistrationView {
             static let height: CGFloat = 48
         }
         enum Caption {
-            static let topInset: CGFloat = 34
+            static let topInset: CGFloat = 25
             static let bottomInset: CGFloat = 21
             static let text = """
                             Не получили письмо? Проверьте папку Спам
@@ -125,11 +125,11 @@ final class CheckEmailView: BaseRegistrationView {
 
     // MARK: - Private methods
     private func setupViews() {
-        scrollView.addSubviewWithoutAutoresizingMask(imageView)
-        scrollView.addSubviewWithoutAutoresizingMask(titleLabel)
-        scrollView.addSubviewWithoutAutoresizingMask(subtitleLabel)
-        scrollView.addSubviewWithoutAutoresizingMask(backToLogInButton)
-        scrollView.addSubviewWithoutAutoresizingMask(caption)
+        contentView.addSubviewWithoutAutoresizingMask(imageView)
+        contentView.addSubviewWithoutAutoresizingMask(titleLabel)
+        contentView.addSubviewWithoutAutoresizingMask(subtitleLabel)
+        contentView.addSubviewWithoutAutoresizingMask(backToLogInButton)
+        contentView.addSubviewWithoutAutoresizingMask(caption)
 
         backToLogInButton.addTarget(
             self,
@@ -144,10 +144,10 @@ final class CheckEmailView: BaseRegistrationView {
 
     private func setupLayout() {
         NSLayoutConstraint.activate([
-            imageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            imageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             imageView.widthAnchor.constraint(equalToConstant: Constants.ImageView.widthAndHeight),
             imageView.heightAnchor.constraint(equalToConstant: Constants.ImageView.widthAndHeight),
-            scrollView.centerYAnchor.constraint(
+            contentView.centerYAnchor.constraint(
                 equalTo: imageView.centerYAnchor,
                 constant: Constants.ImageView.widthAndHeight / 2
             ),
@@ -176,7 +176,7 @@ final class CheckEmailView: BaseRegistrationView {
 
             caption.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
             caption.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
-            scrollView.safeAreaLayoutGuide.bottomAnchor.constraint(
+            contentView.safeAreaLayoutGuide.bottomAnchor.constraint(
                 equalTo: caption.bottomAnchor,
                 constant: Constants.Caption.bottomInset
             )

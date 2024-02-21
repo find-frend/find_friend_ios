@@ -30,6 +30,7 @@ final class LoginViewController: UIViewController {
     private func configureNavigationBar() {
         navigationItem.title = "Вход"
         navigationItem.backButtonTitle = "Назад"
+        navigationItem.largeTitleDisplayMode = .always
     }
 
 }

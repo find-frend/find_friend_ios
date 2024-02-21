@@ -81,6 +81,8 @@ final class LoginView: BaseRegistrationView {
         super.init(frame: frame)
         setupViews()
         setupLayout()
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
     }
 
     required init?(coder: NSCoder) {
@@ -89,13 +91,13 @@ final class LoginView: BaseRegistrationView {
 
     // MARK: - Private methods
     private func setupViews() {
-        scrollView.addSubviewWithoutAutoresizingMask(bigCircleView)
-        scrollView.addSubviewWithoutAutoresizingMask(smallCircleView)
-        scrollView.addSubviewWithoutAutoresizingMask(emailTextField)
-        scrollView.addSubviewWithoutAutoresizingMask(passwordTextField)
-        scrollView.addSubviewWithoutAutoresizingMask(logInButton)
-        scrollView.addSubviewWithoutAutoresizingMask(registrationButton)
-        scrollView.addSubviewWithoutAutoresizingMask(forgotPasswordButton)
+        contentView.addSubviewWithoutAutoresizingMask(bigCircleView)
+        contentView.addSubviewWithoutAutoresizingMask(smallCircleView)
+        contentView.addSubviewWithoutAutoresizingMask(emailTextField)
+        contentView.addSubviewWithoutAutoresizingMask(passwordTextField)
+        contentView.addSubviewWithoutAutoresizingMask(logInButton)
+        contentView.addSubviewWithoutAutoresizingMask(registrationButton)
+        contentView.addSubviewWithoutAutoresizingMask(forgotPasswordButton)
 
         logInButton.addTarget(
             self,
@@ -130,8 +132,8 @@ final class LoginView: BaseRegistrationView {
             emailTextField.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
             emailTextField.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
             emailTextField.heightAnchor.constraint(equalToConstant: Constants.TextField.height),
-            scrollView.centerYAnchor.constraint(
-                equalTo: emailTextField.centerYAnchor, 
+            contentView.centerYAnchor.constraint(
+                equalTo: emailTextField.centerYAnchor,
                 constant: Constants.TextField.Email.inset
             ),
 
@@ -172,9 +174,9 @@ final class LoginView: BaseRegistrationView {
                 constant: Constants.Button.LogIn.bottomInset
             ),
 
-            registrationButton.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            registrationButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             registrationButton.heightAnchor.constraint(equalToConstant: Constants.TextField.height),
-            scrollView.safeAreaLayoutGuide.bottomAnchor.constraint(
+            contentView.safeAreaLayoutGuide.bottomAnchor.constraint(
                 equalTo: registrationButton.bottomAnchor,
                 constant: Constants.Button.Registration.bottomInset
             )
@@ -191,6 +193,22 @@ final class LoginView: BaseRegistrationView {
 
     @objc private func forgotPasswordButtonTapped() {
         delegate?.didTapForgotPasswordButton()
+    }
+
+}
+
+
+// - MARK: UITextFieldDelegate
+extension LoginView: UITextFieldDelegate {
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == emailTextField {
+            textField.resignFirstResponder()
+            passwordTextField.becomeFirstResponder()
+        } else {
+            endEditing(true)
+        }
+        return false
     }
 
 }

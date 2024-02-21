@@ -36,7 +36,7 @@ final class NewPasswordSuccessView: BaseRegistrationView {
         }
         enum Button {
             static let height: CGFloat = 48
-            static let bottomInset: CGFloat = 89
+            static let bottomInset: CGFloat = 85
         }
     }
 
@@ -80,10 +80,10 @@ final class NewPasswordSuccessView: BaseRegistrationView {
 
     // MARK: - Private methods
     private func setupViews() {
-        scrollView.addSubviewWithoutAutoresizingMask(imageView)
-        scrollView.addSubviewWithoutAutoresizingMask(titleLabel)
-        scrollView.addSubviewWithoutAutoresizingMask(subtitleLabel)
-        scrollView.addSubviewWithoutAutoresizingMask(logInButton)
+        contentView.addSubviewWithoutAutoresizingMask(imageView)
+        contentView.addSubviewWithoutAutoresizingMask(titleLabel)
+        contentView.addSubviewWithoutAutoresizingMask(subtitleLabel)
+        contentView.addSubviewWithoutAutoresizingMask(logInButton)
 
         logInButton.addTarget(
             self,
@@ -94,11 +94,11 @@ final class NewPasswordSuccessView: BaseRegistrationView {
 
     private func setupLayout() {
         NSLayoutConstraint.activate([
-            scrollView.centerYAnchor.constraint(
+            contentView.centerYAnchor.constraint(
                 equalTo: imageView.centerYAnchor,
                 constant: Constants.ImageView.widthAndHeight / 2
             ),
-            imageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            imageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             imageView.widthAnchor.constraint(equalToConstant: Constants.ImageView.widthAndHeight),
             imageView.heightAnchor.constraint(equalToConstant: Constants.ImageView.widthAndHeight),
 
@@ -119,7 +119,7 @@ final class NewPasswordSuccessView: BaseRegistrationView {
             logInButton.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
             logInButton.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
             logInButton.heightAnchor.constraint(equalToConstant: Constants.Button.height),
-            scrollView.safeAreaLayoutGuide.bottomAnchor.constraint(
+            contentView.safeAreaLayoutGuide.bottomAnchor.constraint(
                 equalTo: logInButton.bottomAnchor,
                 constant: Constants.Button.bottomInset
             )

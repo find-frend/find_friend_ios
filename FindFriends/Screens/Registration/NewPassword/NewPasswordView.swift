@@ -57,6 +57,8 @@ final class NewPasswordView: BaseRegistrationView {
         super.init(frame: frame)
         setupViews()
         setupLayout()
+        passwordTextField.delegate = self
+        passwordConfirmationTextField.delegate = self
     }
 
     required init?(coder: NSCoder) {
@@ -65,10 +67,10 @@ final class NewPasswordView: BaseRegistrationView {
 
     // MARK: - Private methods
     private func setupViews() {
-        scrollView.addSubviewWithoutAutoresizingMask(label)
-        scrollView.addSubviewWithoutAutoresizingMask(passwordTextField)
-        scrollView.addSubviewWithoutAutoresizingMask(passwordConfirmationTextField)
-        scrollView.addSubviewWithoutAutoresizingMask(savePasswordButton)
+        contentView.addSubviewWithoutAutoresizingMask(label)
+        contentView.addSubviewWithoutAutoresizingMask(passwordTextField)
+        contentView.addSubviewWithoutAutoresizingMask(passwordConfirmationTextField)
+        contentView.addSubviewWithoutAutoresizingMask(savePasswordButton)
 
         savePasswordButton.addTarget(
             self,
@@ -105,7 +107,7 @@ final class NewPasswordView: BaseRegistrationView {
             savePasswordButton.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
             savePasswordButton.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
             savePasswordButton.heightAnchor.constraint(equalToConstant: Constants.Button.height),
-            scrollView.safeAreaLayoutGuide.bottomAnchor.constraint(
+            contentView.safeAreaLayoutGuide.bottomAnchor.constraint(
                 equalTo: savePasswordButton.bottomAnchor,
                 constant: Constants.Button.bottomInset
             )
@@ -114,6 +116,22 @@ final class NewPasswordView: BaseRegistrationView {
 
     @objc private func savePasswordButtonTapped() {
         delegate?.didTapSavePasswordButton()
+    }
+
+}
+
+
+// - MARK: UITextFieldDelegate
+extension NewPasswordView: UITextFieldDelegate {
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == passwordTextField{
+            textField.resignFirstResponder()
+            passwordConfirmationTextField.becomeFirstResponder()
+        } else {
+            endEditing(true)
+        }
+        return false
     }
 
 }
