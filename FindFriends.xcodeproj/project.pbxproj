@@ -29,6 +29,8 @@
 		F36F40832B861ADE00B2082B /* CheckEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36F40822B861ADE00B2082B /* CheckEmailView.swift */; };
 		F36F40852B861AE400B2082B /* CheckEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36F40842B861AE400B2082B /* CheckEmailViewController.swift */; };
 		F36F40872B86287D00B2082B /* UITapGestureRecognizer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36F40862B86287D00B2082B /* UITapGestureRecognizer+Extensions.swift */; };
+		F36F408C2B86434C00B2082B /* ChangePasswordSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36F408B2B86434C00B2082B /* ChangePasswordSuccessView.swift */; };
+		F36F408E2B86435500B2082B /* ChangePasswordSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36F408D2B86435500B2082B /* ChangePasswordSuccessViewController.swift */; };
 		F3BC5D392B8514D700562C08 /* BaseRegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC5D382B8514D700562C08 /* BaseRegistrationView.swift */; };
 		F3BC5D3D2B8514F700562C08 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC5D3C2B8514F700562C08 /* LoginView.swift */; };
 		F3BC5D402B853D1C00562C08 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BC5D3F2B853D1C00562C08 /* LoginViewController.swift */; };
@@ -59,6 +61,8 @@
 		F36F40822B861ADE00B2082B /* CheckEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckEmailView.swift; sourceTree = "<group>"; };
 		F36F40842B861AE400B2082B /* CheckEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckEmailViewController.swift; sourceTree = "<group>"; };
 		F36F40862B86287D00B2082B /* UITapGestureRecognizer+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITapGestureRecognizer+Extensions.swift"; sourceTree = "<group>"; };
+		F36F408B2B86434C00B2082B /* ChangePasswordSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordSuccessView.swift; sourceTree = "<group>"; };
+		F36F408D2B86435500B2082B /* ChangePasswordSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordSuccessViewController.swift; sourceTree = "<group>"; };
 		F3BC5D382B8514D700562C08 /* BaseRegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRegistrationView.swift; sourceTree = "<group>"; };
 		F3BC5D3C2B8514F700562C08 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		F3BC5D3F2B853D1C00562C08 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -198,9 +202,19 @@
 			path = CheckEmail;
 			sourceTree = "<group>";
 		};
+		F36F408A2B86433A00B2082B /* ChangePasswordSuccess */ = {
+			isa = PBXGroup;
+			children = (
+				F36F408B2B86434C00B2082B /* ChangePasswordSuccessView.swift */,
+				F36F408D2B86435500B2082B /* ChangePasswordSuccessViewController.swift */,
+			);
+			path = ChangePasswordSuccess;
+			sourceTree = "<group>";
+		};
 		F3BC5D3A2B8514DD00562C08 /* Registration */ = {
 			isa = PBXGroup;
 			children = (
+				F36F408A2B86433A00B2082B /* ChangePasswordSuccess */,
 				F36F40812B861ACA00B2082B /* CheckEmail */,
 				F36F407C2B86127800B2082B /* ResetPassword */,
 				F36F407B2B855FAE00B2082B /* Register */,
@@ -305,8 +319,10 @@
 				DDCAC7CC2B851EF500EC7D15 /* RegistrationTextField.swift in Sources */,
 				DDCAC7C42B83C0BF00EC7D15 /* WhiteBorderButton.swift in Sources */,
 				F36F40852B861AE400B2082B /* CheckEmailViewController.swift in Sources */,
+				F36F408C2B86434C00B2082B /* ChangePasswordSuccessView.swift in Sources */,
 				D853CC282B7567AF00DA58D5 /* SceneDelegate.swift in Sources */,
 				F36F407E2B86129300B2082B /* ResetPasswordViewController.swift in Sources */,
+				F36F408E2B86435500B2082B /* ChangePasswordSuccessViewController.swift in Sources */,
 				F3BC5D402B853D1C00562C08 /* LoginViewController.swift in Sources */,
 				F3BC5D392B8514D700562C08 /* BaseRegistrationView.swift in Sources */,
 				F36F40872B86287D00B2082B /* UITapGestureRecognizer+Extensions.swift in Sources */,

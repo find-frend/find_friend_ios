@@ -30,7 +30,7 @@ final class ResetPasswordView: BaseRegistrationView {
             static let topInset: CGFloat = 12
         }
         enum Button {
-            static let bottomInset: CGFloat = 21
+            static let bottomInset: CGFloat = 85
         }
     }
 

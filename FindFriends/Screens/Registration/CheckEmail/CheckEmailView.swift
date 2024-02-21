@@ -39,7 +39,7 @@ final class CheckEmailView: BaseRegistrationView {
             static let height: CGFloat = 48
         }
         enum Caption {
-            static let topInset: CGFloat = 16
+            static let topInset: CGFloat = 34
             static let bottomInset: CGFloat = 21
             static let text = """
                             Не получили письмо? Проверьте папку Спам
@@ -83,8 +83,7 @@ final class CheckEmailView: BaseRegistrationView {
         let label = UILabel()
         label.textAlignment = .center
         label.numberOfLines = 0
-        let text = Constants.Caption.text
-        let attributedText = NSMutableAttributedString(string: text)
+        let attributedText = NSMutableAttributedString(string: Constants.Caption.text)
         attributedText.addAttributes(
             [
                 .font: UIFont.Regular.small13,
@@ -141,13 +140,13 @@ final class CheckEmailView: BaseRegistrationView {
 
     private func setupLayout() {
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(
-                equalTo: topDecoration.bottomAnchor,
-                constant: Constants.ImageView.topInset
-            ),
             imageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             imageView.widthAnchor.constraint(equalToConstant: Constants.ImageView.widthAndHeight),
             imageView.heightAnchor.constraint(equalToConstant: Constants.ImageView.widthAndHeight),
+            scrollView.centerYAnchor.constraint(
+                equalTo: imageView.centerYAnchor,
+                constant: Constants.ImageView.widthAndHeight / 2
+            ),
 
             titleLabel.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
