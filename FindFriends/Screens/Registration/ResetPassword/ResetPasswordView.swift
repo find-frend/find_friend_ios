@@ -30,6 +30,7 @@ final class ResetPasswordView: BaseRegistrationView {
             static let topInset: CGFloat = 12
         }
         enum Button {
+            static let height: CGFloat = 48
             static let bottomInset: CGFloat = 85
         }
     }
@@ -63,7 +64,6 @@ final class ResetPasswordView: BaseRegistrationView {
     private func setupViews() {
         scrollView.addSubviewWithoutAutoresizingMask(label)
         scrollView.addSubviewWithoutAutoresizingMask(emailTextField)
-        scrollView.addSubviewWithoutAutoresizingMask(emailTextField)
         scrollView.addSubviewWithoutAutoresizingMask(sendInstructionButton)
 
         sendInstructionButton.addTarget(
@@ -92,7 +92,7 @@ final class ResetPasswordView: BaseRegistrationView {
 
             sendInstructionButton.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
             sendInstructionButton.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
-            sendInstructionButton.heightAnchor.constraint(equalToConstant: Constants.TextField.height),
+            sendInstructionButton.heightAnchor.constraint(equalToConstant: Constants.Button.height),
             scrollView.safeAreaLayoutGuide.bottomAnchor.constraint(
                 equalTo: sendInstructionButton.bottomAnchor,
                 constant: Constants.Button.bottomInset

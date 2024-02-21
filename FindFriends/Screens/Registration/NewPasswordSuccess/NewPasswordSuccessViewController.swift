@@ -1,5 +1,5 @@
 //
-//  ChangePasswordSuccessViewController.swift
+//  NewPasswordSuccessViewController.swift
 //  FindFriends
 //
 //  Created by Artem Novikov on 21.02.2024.
@@ -9,21 +9,21 @@
 import UIKit
 
 
-// MARK: - ChangePasswordSuccessViewController
-final class ChangePasswordSuccessViewController: UIViewController {
+// MARK: - NewPasswordSuccessViewController
+final class NewPasswordSuccessViewController: UIViewController {
 
     // MARK: - Private properties
-    private let сhangePasswordSuccessView = ChangePasswordSuccessView()
+    private let newPasswordSuccessView = NewPasswordSuccessView()
 
     // MARK: - Overridden methods
     override func loadView() {
-        view = сhangePasswordSuccessView
+        view = newPasswordSuccessView
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
-        сhangePasswordSuccessView.delegate = self
+        newPasswordSuccessView.delegate = self
     }
 
     // MARK: - Private methods
@@ -34,8 +34,8 @@ final class ChangePasswordSuccessViewController: UIViewController {
 }
 
 
-// MARK: - ChangePasswordSuccessViewDelegate
-extension ChangePasswordSuccessViewController: ChangePasswordSuccessViewDelegate {
+// MARK: - NewPasswordSuccessViewDelegate
+extension NewPasswordSuccessViewController: NewPasswordSuccessViewDelegate {
 
     func didTapLogInButton() {
         navigationController?.popToRootViewController(animated: true)
