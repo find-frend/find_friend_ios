@@ -18,10 +18,53 @@ final class RegistrationViewModel {
     @Published var password = ""
     @Published var confirmPassword = ""
     
-   
-    private let textValidator = TextValidator()
+    @Published var errorTextForName = ""
+    @Published var errorTextForLastName = ""
+    @Published var errorTextForEmail = ""
+    @Published var errorTextForPassword = ""
+    @Published var errorTextForConfirmPassword = ""
     
     init() {
+        setupPipline()
+    }
+    
+    func registrationButtonTapepd() {
+        if let nameError = TextValidator.validate(name, with: .name) {
+            errorTextForName = nameError
+        } else {
+            errorTextForName = ""
+        } 
+        
+        if let lastNameError = TextValidator.validate(lastName, with: .lastName) {
+            errorTextForLastName = lastNameError
+        } else {
+            errorTextForLastName = ""
+        }
+        
+        if let emailError = TextValidator.validate(email, with: .email) {
+            errorTextForEmail = emailError
+        } else {
+            errorTextForEmail = ""
+        }  
+        
+        if let passwordError = TextValidator.validate(password, with: .password) {
+            errorTextForPassword = passwordError
+        } else {
+            errorTextForPassword = ""
+        }
+        
+        if password != confirmPassword {
+            errorTextForConfirmPassword = "Пароли не совпадают"
+        } else {
+            if let confirmPasswordError = TextValidator.validate(confirmPassword, with: .confirmPassword) {
+                errorTextForConfirmPassword = confirmPasswordError
+            } else {
+                errorTextForConfirmPassword = ""
+            }
+        }
+    }
+    
+    private func setupPipline() {
         let personal = Publishers.CombineLatest3($name, $lastName, $email)
         let password = Publishers.CombineLatest($password, $confirmPassword)
         
@@ -42,6 +85,5 @@ final class RegistrationViewModel {
         $personalIsFilling.combineLatest($passwordIsFilling)
             .map { $0.0 && $0.1 }
             .assign(to: &$allFieldsAreFilling)
-            
     }
 }

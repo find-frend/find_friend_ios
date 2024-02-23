@@ -16,31 +16,31 @@ final class RegistrationView: UIView {
     let viewModel = RegistrationViewModel()
     weak var delegate: RegistrationViewDelegate?
     
-    let nameTextField: RegistrationTextField = {
-        let textField = RegistrationTextField( placeholder: "Имя", type: .personal)
+    lazy var nameTextField: RegistrationTextField = {
+        let textField = RegistrationTextField( placeholder: "Имя", type: .name)
         textField.addTarget(self, action: #selector(nameDidChange), for: .editingChanged)
         return textField
     }()
     
-    let lastnameTextField: RegistrationTextField = {
-        let textField = RegistrationTextField(placeholder: "Фамилия", type: .personal)
+    lazy var lastnameTextField: RegistrationTextField = {
+        let textField = RegistrationTextField(placeholder: "Фамилия", type: .lastName)
         textField.addTarget(self, action: #selector(lastNameDidChange), for: .editingChanged)
         return textField
     }()
     
-    let emailTextField: RegistrationTextField = {
+    lazy var emailTextField: RegistrationTextField = {
         let textField = RegistrationTextField(placeholder: "Электронная почта", type: .email)
         textField.addTarget(self, action: #selector(emailDidChange), for: .editingChanged)
         return textField
     }()
     
-    let passwordTextField: RegistrationTextField = {
+    lazy var passwordTextField: RegistrationTextField = {
         let textField = RegistrationTextField(placeholder: "Пароль", type: .password)
         textField.addTarget(self, action: #selector(passwordDidChange), for: .editingChanged)
         return textField
     }()  
     
-    let passwordConfirmationTextField: RegistrationTextField = {
+    lazy var passwordConfirmationTextField: RegistrationTextField = {
         let textField = RegistrationTextField(placeholder: "Повторите пароль", type: .confirmPassword)
         textField.addTarget(self, action: #selector(confirmPasswordDidChange), for: .editingChanged)
         return textField
@@ -104,6 +104,58 @@ final class RegistrationView: UIView {
                 self?.registrationButton.backgroundColor = isFilling ? .mainOrange : .lightOrange
             }
             .store(in: &cancellables)
+        
+        viewModel.$errorTextForName
+            .sink { [unowned self] error in
+                if error.isEmpty {
+                    nameTextField.hideWarningLabel()
+                } else {
+                    nameTextField.showWarningLabel(error)
+                }
+            }
+            .store(in: &cancellables) 
+        
+        viewModel.$errorTextForLastName
+            .sink { [unowned self] error in
+                if error.isEmpty {
+                    lastnameTextField.hideWarningLabel()
+                } else {
+                    lastnameTextField.showWarningLabel(error)
+                }
+            }
+            .store(in: &cancellables) 
+        
+        viewModel.$errorTextForEmail
+            .sink { [unowned self] error in
+                if error.isEmpty {
+                    emailTextField.hideWarningLabel()
+                } else {
+                    emailTextField.showWarningLabel(error)
+                }
+            }
+            .store(in: &cancellables)
+        
+        viewModel.$errorTextForPassword
+            .sink { [unowned self] error in
+                if error.isEmpty {
+                    passwordTextField.hideWarningLabel()
+                } else {
+                    passwordTextField.showWarningLabel(error)
+                }
+            }
+            .store(in: &cancellables)
+        
+        viewModel.$errorTextForConfirmPassword
+            .sink { [unowned self] error in
+                if error.isEmpty {
+                    passwordConfirmationTextField.hideWarningLabel()
+                } else {
+                    passwordConfirmationTextField.showWarningLabel(error)
+                }
+            }
+            .store(in: &cancellables)
+        
+        
     }
     
     private func setupViews() {
@@ -184,26 +236,41 @@ extension RegistrationView {
     @objc private func nameDidChange() {
         guard let name = nameTextField.text else { return }
         viewModel.name = name
+        if name.isEmpty {
+            nameTextField.hideWarningLabel()
+        }
     }
     @objc private func lastNameDidChange() {
         guard let lastName = lastnameTextField.text else { return }
         viewModel.lastName = lastName
+        if lastName.isEmpty {
+            lastnameTextField.hideWarningLabel()
+        }
     }
     @objc private func emailDidChange() {
         guard let email = emailTextField.text else { return }
         viewModel.email = email
+        if email.isEmpty {
+            emailTextField.hideWarningLabel()
+        }
     }
     @objc private func passwordDidChange() {
         guard let password = passwordTextField.text else { return }
         viewModel.password = password
+        if password.isEmpty {
+            passwordTextField.hideWarningLabel()
+        }
     }
     @objc private func confirmPasswordDidChange() {
         guard let confirmPassword = passwordConfirmationTextField.text else { return }
         viewModel.confirmPassword = confirmPassword
+        if confirmPassword.isEmpty {
+            passwordConfirmationTextField.hideWarningLabel()
+        }
     }
 
     @objc private func registrationButtonTapped() {
-        print("test")
+        viewModel.registrationButtonTapepd()
     }
     
     @objc private func enterButtonTapped() {

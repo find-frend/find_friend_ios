@@ -8,7 +8,8 @@
 import UIKit
 
 enum TextFieldType {
-    case personal
+    case name
+    case lastName
     case email
     case password
     case confirmPassword
