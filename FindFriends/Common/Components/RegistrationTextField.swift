@@ -8,7 +8,8 @@
 import UIKit
 
 enum TextFieldType {
-    case personal
+    case name
+    case lastName
     case email
     case password
     case confirmPassword
@@ -22,6 +23,7 @@ final class RegistrationTextField: UITextField {
         let label = UILabel()
         label.font = .Regular.small11
         label.textColor = .warning
+        label.numberOfLines = 0
         return label
     }()
     
