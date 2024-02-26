@@ -6,8 +6,10 @@
 //
 import Combine
 import Foundation
+import SafariServices
 
 final class RegistrationViewModel {
+   
     @Published var allFieldsAreFilling = false
     @Published var personalIsFilling = false
     @Published var passwordIsFilling = false
@@ -24,44 +26,31 @@ final class RegistrationViewModel {
     @Published var errorTextForPassword = ""
     @Published var errorTextForConfirmPassword = ""
     
+    @Published var webPage: SFSafariViewController?
+    
+    private var allFieldsAreValidate: Bool {
+        errorTextForName.isEmpty &&
+        errorTextForLastName.isEmpty &&
+        errorTextForEmail.isEmpty &&
+        errorTextForPassword.isEmpty &&
+        errorTextForConfirmPassword.isEmpty
+    }
+    
     init() {
         setupPipline()
     }
     
-    func registrationButtonTapepd() {
-        if let nameError = TextValidator.validate(name, with: .name) {
-            errorTextForName = nameError
-        } else {
-            errorTextForName = ""
-        } 
-        
-        if let lastNameError = TextValidator.validate(lastName, with: .lastName) {
-            errorTextForLastName = lastNameError
-        } else {
-            errorTextForLastName = ""
+    func registrationButtonTapped() {
+        validateFields()
+        if allFieldsAreValidate {
+            print("ушел запрос в сеть")
         }
-        
-        if let emailError = TextValidator.validate(email, with: .email) {
-            errorTextForEmail = emailError
-        } else {
-            errorTextForEmail = ""
-        }  
-        
-        if let passwordError = TextValidator.validate(password, with: .password) {
-            errorTextForPassword = passwordError
-        } else {
-            errorTextForPassword = ""
-        }
-        
-        if password != confirmPassword {
-            errorTextForConfirmPassword = "Пароли не совпадают"
-        } else {
-            if let confirmPasswordError = TextValidator.validate(confirmPassword, with: .confirmPassword) {
-                errorTextForConfirmPassword = confirmPasswordError
-            } else {
-                errorTextForConfirmPassword = ""
-            }
-        }
+    }
+    
+    func agreementDidTapped() {
+        guard let url = URL(string: "https://practicum.yandex.ru") else { return }
+        let webPage = SFSafariViewController(url: url)
+        self.webPage = webPage
     }
     
     private func setupPipline() {
@@ -85,5 +74,46 @@ final class RegistrationViewModel {
         $personalIsFilling.combineLatest($passwordIsFilling)
             .map { $0.0 && $0.1 }
             .assign(to: &$allFieldsAreFilling)
+    }
+    
+    private func validateFields() {
+        switch TextValidator.validate(name, with: .name) {
+        case .success(_):
+            errorTextForName = ValidateMessages.emptyMessage.rawValue
+        case .failure(let message):
+            errorTextForName = message.rawValue
+        }
+        
+        switch TextValidator.validate(lastName, with: .lastName) {
+        case .success(_):
+            errorTextForLastName = ValidateMessages.emptyMessage.rawValue
+        case .failure(let message):
+            errorTextForLastName = message.rawValue
+        }
+        
+        switch TextValidator.validate(email, with: .email) {
+        case .success(_):
+            errorTextForEmail = ValidateMessages.emptyMessage.rawValue
+        case .failure(let message):
+            errorTextForEmail = message.rawValue
+        }
+        
+        switch TextValidator.validate(password, with: .password) {
+        case .success(_):
+            errorTextForPassword = ValidateMessages.emptyMessage.rawValue
+        case .failure(let message):
+            errorTextForPassword = message.rawValue
+        }
+        
+        if password != confirmPassword {
+            errorTextForConfirmPassword = ValidateMessages.passwordsNotEqual.rawValue
+        } else {
+            switch TextValidator.validate(confirmPassword, with: .confirmPassword) {
+            case .success(_):
+                errorTextForConfirmPassword = ValidateMessages.emptyMessage.rawValue
+            case .failure(let message):
+                errorTextForConfirmPassword = message.rawValue
+            }
+        }
     }
 }

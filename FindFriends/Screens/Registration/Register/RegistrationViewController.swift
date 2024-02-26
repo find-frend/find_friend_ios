@@ -4,7 +4,7 @@
 //
 //  Created by Вадим Шишков on 20.02.2024.
 //
-
+import SafariServices
 import UIKit
 
 final class RegistrationViewController: UIViewController {
@@ -41,7 +41,7 @@ final class RegistrationViewController: UIViewController {
 }
 
 extension RegistrationViewController: RegistrationViewDelegate {
-    func backToLogInScreen() {
-        navigationController?.popViewController(animated: true)
+    func presentWebPage(_ page: SFSafariViewController) {
+        present(page, animated: true)
     }
 }

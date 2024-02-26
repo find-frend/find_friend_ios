@@ -23,6 +23,7 @@ final class RegistrationTextField: UITextField {
         let label = UILabel()
         label.font = .Regular.small11
         label.textColor = .warning
+        label.numberOfLines = 0
         return label
     }()
     

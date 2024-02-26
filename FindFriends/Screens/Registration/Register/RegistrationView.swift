@@ -6,10 +6,11 @@
 //
 
 import Combine
+import SafariServices
 import UIKit
 
 protocol RegistrationViewDelegate: AnyObject {
-    func backToLogInScreen()
+    func presentWebPage(_ page: SFSafariViewController)
 }
 
 final class RegistrationView: UIView {
@@ -48,11 +49,13 @@ final class RegistrationView: UIView {
     
     
     let registrationButton = PrimeOrangeButton(text: "Зарегистрироваться")
-    let enterButton = CaptionButton(text: "Войти")
     
-    let agreementLabel: UILabel = {
+    lazy var agreementLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
+        label.isUserInteractionEnabled = true
+        label.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(agreementDidTapped)))
+        
         let text = NSMutableAttributedString(
             string: "Создавая учетную запись, вы принимаете\nУсловия использования"
         )
@@ -69,7 +72,6 @@ final class RegistrationView: UIView {
         )
         
         text.addAttribute(.underlineStyle, value: 1, range: NSRange(location: 39, length: 21))
-        
         label.attributedText = text
         return label
     }()
@@ -95,13 +97,11 @@ final class RegistrationView: UIView {
     }
     
     private func bind() {
-        viewModel.$allFieldsAreFilling
-            .assign(to: \.isEnabled, on: registrationButton)
-            .store(in: &cancellables)
         
         viewModel.$allFieldsAreFilling
             .sink { [weak self] isFilling in
                 self?.registrationButton.backgroundColor = isFilling ? .mainOrange : .lightOrange
+                self?.registrationButton.isEnabled = isFilling
             }
             .store(in: &cancellables)
         
@@ -155,7 +155,12 @@ final class RegistrationView: UIView {
             }
             .store(in: &cancellables)
         
-        
+        viewModel.$webPage
+            .sink { [weak self] page in
+                guard let page else { return }
+                self?.delegate?.presentWebPage(page)
+            }
+            .store(in: &cancellables)
     }
     
     private func setupViews() {
@@ -164,12 +169,6 @@ final class RegistrationView: UIView {
             .addTarget(
                 self,
                 action: #selector(registrationButtonTapped),
-                for: .touchUpInside
-            )
-        enterButton
-            .addTarget(
-                self,
-                action: #selector(enterButtonTapped),
                 for: .touchUpInside
             )
     }
@@ -182,7 +181,6 @@ final class RegistrationView: UIView {
         addSubviewWithoutAutoresizingMask(passwordTextField)
         addSubviewWithoutAutoresizingMask(passwordConfirmationTextField)
         addSubviewWithoutAutoresizingMask(registrationButton)
-        addSubviewWithoutAutoresizingMask(enterButton)
         addSubviewWithoutAutoresizingMask(agreementLabel)
         
         NSLayoutConstraint.activate([
@@ -221,12 +219,7 @@ final class RegistrationView: UIView {
             registrationButton.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
             registrationButton.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
             registrationButton.heightAnchor.constraint(equalToConstant: 48),
-            registrationButton.topAnchor.constraint(equalTo: agreementLabel.bottomAnchor, constant: 16),
-            
-            enterButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            enterButton.heightAnchor.constraint(equalToConstant: 48),
-            enterButton.widthAnchor.constraint(equalToConstant: 92),
-            enterButton.topAnchor.constraint(equalTo: registrationButton.bottomAnchor, constant: 16)
+            registrationButton.topAnchor.constraint(equalTo: agreementLabel.bottomAnchor, constant: 16)
         ])
     }
 }
@@ -270,10 +263,10 @@ extension RegistrationView {
     }
 
     @objc private func registrationButtonTapped() {
-        viewModel.registrationButtonTapepd()
+        viewModel.registrationButtonTapped()
     }
     
-    @objc private func enterButtonTapped() {
-        delegate?.backToLogInScreen()
+    @objc private func agreementDidTapped() {
+        viewModel.agreementDidTapped()
     }
 }
