@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 // - MARK: LoginViewDelegate
 protocol LoginViewDelegate: AnyObject {
     func didTapRegistrationButton()
@@ -16,12 +15,17 @@ protocol LoginViewDelegate: AnyObject {
     func didTapForgotPasswordButton()
 }
 
-
 // - MARK: LoginView
 final class LoginView: BaseRegistrationView {
 
     // MARK: - Public Properties
     weak var delegate: LoginViewDelegate?
+    var model: LoginModel {
+        LoginModel(
+            email: emailTextField.text ?? "",
+            password: passwordTextField.text ?? ""
+        )
+    }
 
     // MARK: - Private Properties
     private enum Constants {
@@ -197,7 +201,6 @@ final class LoginView: BaseRegistrationView {
 
 }
 
-
 // - MARK: UITextFieldDelegate
 extension LoginView: UITextFieldDelegate {
 
@@ -212,7 +215,6 @@ extension LoginView: UITextFieldDelegate {
     }
 
 }
-
 
 // - MARK: CircleView
 fileprivate class CircleView: UIView {
@@ -229,7 +231,6 @@ fileprivate class CircleView: UIView {
     }
 
 }
-
 
 // - MARK: UnderlinedButton
 fileprivate class UnderlinedButton: UIButton {

@@ -48,7 +48,7 @@ struct DefaultNetworkClient: NetworkClient {
                 return
             }
             
-            let strData = String(decoding: data!, as: UTF8.self)
+//            let strData = String(decoding: data!, as: UTF8.self)
 //            print("response: \(strData)")
 //            print("response: \(response.statusCode)")
             
@@ -87,7 +87,6 @@ struct DefaultNetworkClient: NetworkClient {
     }
 
     // MARK: - Private
-
     private func create(request: NetworkRequest) -> URLRequest? {
         guard let endpoint = request.endpoint else {
             assertionFailure("Empty endpoint")
@@ -96,9 +95,9 @@ struct DefaultNetworkClient: NetworkClient {
 
         var urlRequest = URLRequest(url: endpoint)
         urlRequest.httpMethod = request.httpMethod.rawValue
-        
-        if request.token != "" {
-            urlRequest.setValue("Token \(request.token)", forHTTPHeaderField: "Authorization")
+
+        if let token = request.token {
+            urlRequest.setValue("Token \(token)", forHTTPHeaderField: "Authorization")
         }
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
@@ -119,4 +118,5 @@ struct DefaultNetworkClient: NetworkClient {
             onResponse(.failure(NetworkClientError.parsingError))
         }
     }
+
 }

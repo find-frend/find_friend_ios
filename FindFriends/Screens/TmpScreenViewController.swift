@@ -15,9 +15,9 @@ class TmpScreenViewController: UIViewController {
     let password =  "4379dfdfd44"
     
     var getFriendsNetworkService = FriendsServiceProvider()
-    var usersServiceProvider = UsersServiceProvider()
+    var usersServiceProvider = RegistrationService()
     
-    var oAuthTokenStorage = OAuthTokenStorage()
+    var oAuthTokenStorage = OAuthTokenStorage.shared
     
     let tmpLabel = UILabel()
     let tmpButton = UIButton()
@@ -100,15 +100,13 @@ class TmpScreenViewController: UIViewController {
     
     @objc
     private func createUser() {
-        usersServiceProvider.createUser(first_name: self.firstName,
-                                        last_name: self.lastName,
-                                        email: self.email,
-                                        password: self.password) { [weak self] result in
+        let model = CreateUserRequestDto(firstName: firstName, lastName: lastName, email: email, password: password)
+        usersServiceProvider.createUser(model) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case let .success(data):
                 print("[net]  usersServiceProvider.createUser() data: \(data)")
-                self.tmpLabel.text = "Created user '\(data.first_name)'"
+                self.tmpLabel.text = "Created user '\(data.firstName)'"
     
             case let .failure(error):
                 self.tmpLabel.text = error.localizedDescription
@@ -119,13 +117,13 @@ class TmpScreenViewController: UIViewController {
     
     @objc
     private func loginUser() {
-        usersServiceProvider.userLogin(email: self.email,
-                                       password: self.password) { [weak self] result in
+        let model = LoginRequestDto(email: email, password: password)
+        usersServiceProvider.loginUser(model) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case let .success(data):
                 print("[net]  usersServiceProvider.userLogin() data: \(data)")
-                self.tmpLabel.text = "Created user '\(data.auth_token)'"
+                self.tmpLabel.text = "Created user '\(data.authToken)'"
                 
     
             case let .failure(error):
