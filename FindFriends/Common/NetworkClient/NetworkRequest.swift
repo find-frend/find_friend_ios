@@ -10,13 +10,6 @@ enum HttpMethod: String {
 protocol NetworkRequest {
     var endpoint: URL? { get }
     var httpMethod: HttpMethod { get }
-    var token: String { get set }
+    var token: String? { get }
     var dto: Encodable? { get }
 }
-
-// default values
-//extension NetworkRequest {
-//    var httpMethod: HttpMethod { .get }
-//    var dto: Encodable? { nil }
-//    var token: String { "" }
-//}

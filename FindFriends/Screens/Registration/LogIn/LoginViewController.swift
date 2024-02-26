@@ -7,12 +7,34 @@
 
 import UIKit
 
+// MARK: - LoginViewControllerDelegate
+protocol LoginViewControllerDelegate: AnyObject {
+    func didAuthenticate()
+}
 
 // MARK: - LoginViewController
 final class LoginViewController: UIViewController {
 
+    // MARK: - Public properties
+    weak var delegate: LoginViewControllerDelegate?
+
     // MARK: - Private properties
-    private let loginView = LoginView()
+    private let loginView: LoginView
+    private let viewModel: LoginViewModelProtocol
+
+    // MARK: - Initializers
+    init(
+        viewModel: LoginViewModelProtocol = LoginViewModel(),
+        loginView: LoginView = LoginView()
+    ) {
+        self.viewModel = viewModel
+        self.loginView = loginView
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     // MARK: - Overridden methods
     override func loadView() {
@@ -35,7 +57,6 @@ final class LoginViewController: UIViewController {
 
 }
 
-
 // MARK: - LoginViewDelegate
 extension LoginViewController: LoginViewDelegate {
 
@@ -46,9 +67,21 @@ extension LoginViewController: LoginViewDelegate {
     }
 
     func didTapLoginButton() {
-        // TODO: handle action. Current state is only for testing.
-        let viewController = NewPasswordViewController()
-        navigationController?.pushViewController(viewController, animated: true)
+        UIBlockingProgressHUD.show()
+        viewModel.loginUser(model: loginView.model) { [weak self] result in
+            guard let self else { return }
+            switch result {
+            case .success:
+                UIBlockingProgressHUD.dismiss()
+                self.delegate?.didAuthenticate()
+            case .failure(let error):
+                UIBlockingProgressHUD.dismiss()
+                AlertPresenter.show(
+                    in: self,
+                    model: .loginError(message: error.localizedDescription)
+                )
+            }
+        }
     }
 
     func didTapForgotPasswordButton() {
