@@ -11,6 +11,18 @@
 		D853CC282B7567AF00DA58D5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D853CC272B7567AF00DA58D5 /* SceneDelegate.swift */; };
 		D853CC2F2B7567B100DA58D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D853CC2E2B7567B100DA58D5 /* Assets.xcassets */; };
 		D853CC322B7567B100DA58D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D853CC302B7567B100DA58D5 /* LaunchScreen.storyboard */; };
+		D853CC3B2B756C2F00DA58D5 /* TmpScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D853CC3A2B756C2F00DA58D5 /* TmpScreenViewController.swift */; };
+		D86387C32B87A16400692535 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86387BE2B87A16400692535 /* NetworkClient.swift */; };
+		D86387C42B87A16400692535 /* NetworkTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86387BF2B87A16400692535 /* NetworkTask.swift */; };
+		D86387C62B87A16400692535 /* DefaultNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86387C12B87A16400692535 /* DefaultNetworkRequest.swift */; };
+		D86387C72B87A16400692535 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86387C22B87A16400692535 /* NetworkRequest.swift */; };
+		D86387CA2B89F9A600692535 /* FriendDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86387C92B89F9A600692535 /* FriendDto.swift */; };
+		D86387CD2B89FD2200692535 /* FriendsNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86387CC2B89FD2200692535 /* FriendsNetworkService.swift */; };
+		D86387CF2B8A74A500692535 /* CreateUserDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86387CE2B8A74A500692535 /* CreateUserDto.swift */; };
+		D86387D22B8A754100692535 /* UserNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86387D12B8A754100692535 /* UserNetworkService.swift */; };
+		D86387D42B8A7E4F00692535 /* TokenStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86387D32B8A7E4F00692535 /* TokenStorageService.swift */; };
+		D86387D72B8A7ECA00692535 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = D86387D62B8A7ECA00692535 /* SwiftKeychainWrapper */; };
+		D86387D92B8A7FF500692535 /* UserLoginDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86387D82B8A7FF500692535 /* UserLoginDto.swift */; };
 		DD3A2E9F2B7D2F65006A3B8E /* UIView+AutoresizingMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A2E9E2B7D2F65006A3B8E /* UIView+AutoresizingMask.swift */; };
 		DD3A2EA62B7E9447006A3B8E /* PrimeOrangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A2EA52B7E9447006A3B8E /* PrimeOrangeButton.swift */; };
 		DD3A2EA82B7E9836006A3B8E /* CaptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A2EA72B7E9836006A3B8E /* CaptionButton.swift */; };
@@ -44,6 +56,17 @@
 		D853CC2E2B7567B100DA58D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D853CC312B7567B100DA58D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D853CC332B7567B100DA58D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D853CC3A2B756C2F00DA58D5 /* TmpScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmpScreenViewController.swift; sourceTree = "<group>"; };
+		D86387BE2B87A16400692535 /* NetworkClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		D86387BF2B87A16400692535 /* NetworkTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTask.swift; sourceTree = "<group>"; };
+		D86387C12B87A16400692535 /* DefaultNetworkRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultNetworkRequest.swift; sourceTree = "<group>"; };
+		D86387C22B87A16400692535 /* NetworkRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
+		D86387C92B89F9A600692535 /* FriendDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDto.swift; sourceTree = "<group>"; };
+		D86387CC2B89FD2200692535 /* FriendsNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsNetworkService.swift; sourceTree = "<group>"; };
+		D86387CE2B8A74A500692535 /* CreateUserDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserDto.swift; sourceTree = "<group>"; };
+		D86387D12B8A754100692535 /* UserNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworkService.swift; sourceTree = "<group>"; };
+		D86387D32B8A7E4F00692535 /* TokenStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorageService.swift; sourceTree = "<group>"; };
+		D86387D82B8A7FF500692535 /* UserLoginDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginDto.swift; sourceTree = "<group>"; };
 		DD3A2E9E2B7D2F65006A3B8E /* UIView+AutoresizingMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AutoresizingMask.swift"; sourceTree = "<group>"; };
 		DD3A2EA52B7E9447006A3B8E /* PrimeOrangeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimeOrangeButton.swift; sourceTree = "<group>"; };
 		DD3A2EA72B7E9836006A3B8E /* CaptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionButton.swift; sourceTree = "<group>"; };
@@ -75,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D86387D72B8A7ECA00692535 /* SwiftKeychainWrapper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,8 +137,39 @@
 			isa = PBXGroup;
 			children = (
 				F3BC5D3A2B8514DD00562C08 /* Registration */,
+				D853CC3A2B756C2F00DA58D5 /* TmpScreenViewController.swift */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		D86387BD2B87A16400692535 /* NetworkClient */ = {
+			isa = PBXGroup;
+			children = (
+				D86387BE2B87A16400692535 /* NetworkClient.swift */,
+				D86387BF2B87A16400692535 /* NetworkTask.swift */,
+				D86387C12B87A16400692535 /* DefaultNetworkRequest.swift */,
+				D86387C22B87A16400692535 /* NetworkRequest.swift */,
+			);
+			path = NetworkClient;
+			sourceTree = "<group>";
+		};
+		D86387C82B89F98700692535 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D86387C92B89F9A600692535 /* FriendDto.swift */,
+				D86387CE2B8A74A500692535 /* CreateUserDto.swift */,
+				D86387D82B8A7FF500692535 /* UserLoginDto.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D86387CB2B89FCE900692535 /* NetworkServices */ = {
+			isa = PBXGroup;
+			children = (
+				D86387CC2B89FD2200692535 /* FriendsNetworkService.swift */,
+				D86387D12B8A754100692535 /* UserNetworkService.swift */,
+			);
+			path = NetworkServices;
 			sourceTree = "<group>";
 		};
 		DD0C09A22B79019700792C29 /* Extensions */ = {
@@ -143,7 +198,11 @@
 			isa = PBXGroup;
 			children = (
 				DDCAC7CD2B851F4200EC7D15 /* Services */,
+				D86387CB2B89FCE900692535 /* NetworkServices */,
+				D86387C82B89F98700692535 /* Models */,
+				D86387BD2B87A16400692535 /* NetworkClient */,
 				DD0C09A32B7901AB00792C29 /* Components */,
+				D86387D32B8A7E4F00692535 /* TokenStorageService.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -261,6 +320,9 @@
 			dependencies = (
 			);
 			name = FindFriends;
+			packageProductDependencies = (
+				D86387D62B8A7ECA00692535 /* SwiftKeychainWrapper */,
+			);
 			productName = FindFriends;
 			productReference = D853CC222B7567AF00DA58D5 /* FindFriends.app */;
 			productType = "com.apple.product-type.application";
@@ -289,6 +351,9 @@
 				Base,
 			);
 			mainGroup = D853CC192B7567AF00DA58D5;
+			packageReferences = (
+				D86387D52B8A7ECA00692535 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
+			);
 			productRefGroup = D853CC232B7567AF00DA58D5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -318,19 +383,30 @@
 				F36F40832B861ADE00B2082B /* CheckEmailView.swift in Sources */,
 				DDCAC7D42B852B8600EC7D15 /* RegistrationView.swift in Sources */,
 				DDCAC7D62B8531EC00EC7D15 /* RegistrationViewModel.swift in Sources */,
+				D86387D42B8A7E4F00692535 /* TokenStorageService.swift in Sources */,
+				D86387C72B87A16400692535 /* NetworkRequest.swift in Sources */,
+				D853CC3B2B756C2F00DA58D5 /* TmpScreenViewController.swift in Sources */,
+				D86387C42B87A16400692535 /* NetworkTask.swift in Sources */,
 				DD3A2EA62B7E9447006A3B8E /* PrimeOrangeButton.swift in Sources */,
 				F36F407A2B85562800B2082B /* UIViewController+Extensions.swift in Sources */,
 				D853CC262B7567AF00DA58D5 /* AppDelegate.swift in Sources */,
 				DDCAC7CF2B851F7700EC7D15 /* TextValidator.swift in Sources */,
 				F36F40802B86129900B2082B /* ResetPasswordView.swift in Sources */,
+				D86387D92B8A7FF500692535 /* UserLoginDto.swift in Sources */,
 				DD3A2EA82B7E9836006A3B8E /* CaptionButton.swift in Sources */,
 				DDCAC7D22B852B7B00EC7D15 /* RegistrationViewController.swift in Sources */,
+				D86387C62B87A16400692535 /* DefaultNetworkRequest.swift in Sources */,
+				D86387CA2B89F9A600692535 /* FriendDto.swift in Sources */,
 				DD3A2E9F2B7D2F65006A3B8E /* UIView+AutoresizingMask.swift in Sources */,
 				F36F40932B864B2300B2082B /* NewPasswordViewController.swift in Sources */,
 				DDCAC7CC2B851EF500EC7D15 /* RegistrationTextField.swift in Sources */,
+				D86387CF2B8A74A500692535 /* CreateUserDto.swift in Sources */,
+				D86387C32B87A16400692535 /* NetworkClient.swift in Sources */,
+				D86387CD2B89FD2200692535 /* FriendsNetworkService.swift in Sources */,
 				DDCAC7C42B83C0BF00EC7D15 /* WhiteBorderButton.swift in Sources */,
 				F36F40852B861AE400B2082B /* CheckEmailViewController.swift in Sources */,
 				F36F408C2B86434C00B2082B /* NewPasswordSuccessView.swift in Sources */,
+				D86387D22B8A754100692535 /* UserNetworkService.swift in Sources */,
 				D853CC282B7567AF00DA58D5 /* SceneDelegate.swift in Sources */,
 				F36F407E2B86129300B2082B /* ResetPasswordViewController.swift in Sources */,
 				F36F408E2B86435500B2082B /* NewPasswordSuccessViewController.swift in Sources */,
@@ -561,6 +637,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D86387D52B8A7ECA00692535 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jrendel/SwiftKeychainWrapper.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D86387D62B8A7ECA00692535 /* SwiftKeychainWrapper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D86387D52B8A7ECA00692535 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */;
+			productName = SwiftKeychainWrapper;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D853CC1A2B7567AF00DA58D5 /* Project object */;
 }
