@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Endpoint {
+enum Endpoints {
 
     case login
     case createUser
@@ -26,10 +26,9 @@ enum Endpoint {
 
     var url: URL? {
         switch self {
-        case .login: return URL(string: Endpoint.login.path, relativeTo: Endpoint.baseURL)
-        case .createUser: return URL(string: Endpoint.createUser.path, relativeTo: Endpoint.baseURL)
-        case .getFriends: return URL(string: Endpoint.getFriends.path, relativeTo: Endpoint.baseURL)
+        case .login: return URL(string: Endpoints.login.path, relativeTo: Endpoints.baseURL)
+        case .createUser: return URL(string: Endpoints.createUser.path, relativeTo: Endpoints.baseURL)
+        case .getFriends: return URL(string: Endpoints.getFriends.path, relativeTo: Endpoints.baseURL)
         }
     }
-
 }

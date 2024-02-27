@@ -20,7 +20,7 @@
 		D86387D22B8A754100692535 /* RegistrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86387D12B8A754100692535 /* RegistrationService.swift */; };
 		D86387D42B8A7E4F00692535 /* TokenStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86387D32B8A7E4F00692535 /* TokenStorageService.swift */; };
 		D86387D72B8A7ECA00692535 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = D86387D62B8A7ECA00692535 /* SwiftKeychainWrapper */; };
-		D86387D92B8A7FF500692535 /* UserLoginDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86387D82B8A7FF500692535 /* UserLoginDto.swift */; };
+		D86387D92B8A7FF500692535 /* LoginUserDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86387D82B8A7FF500692535 /* LoginUserDto.swift */; };
 		DD3A2E9F2B7D2F65006A3B8E /* UIView+AutoresizingMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A2E9E2B7D2F65006A3B8E /* UIView+AutoresizingMask.swift */; };
 		DD3A2EA62B7E9447006A3B8E /* PrimeOrangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A2EA52B7E9447006A3B8E /* PrimeOrangeButton.swift */; };
 		DD3A2EA82B7E9836006A3B8E /* CaptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A2EA72B7E9836006A3B8E /* CaptionButton.swift */; };
@@ -31,7 +31,7 @@
 		DDCAC7D22B852B7B00EC7D15 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCAC7D12B852B7B00EC7D15 /* RegistrationViewController.swift */; };
 		DDCAC7D42B852B8600EC7D15 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCAC7D32B852B8600EC7D15 /* RegistrationView.swift */; };
 		DDCAC7D62B8531EC00EC7D15 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCAC7D52B8531EC00EC7D15 /* RegistrationViewModel.swift */; };
-		F30170652B8CDCA300A6921A /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30170642B8CDCA300A6921A /* Configuration.swift */; };
+		F30170652B8CDCA300A6921A /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30170642B8CDCA300A6921A /* Endpoints.swift */; };
 		F30170672B8CDD1C00A6921A /* LoginUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30170662B8CDD1C00A6921A /* LoginUserRequest.swift */; };
 		F30170692B8CDF5C00A6921A /* CreateUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30170682B8CDF5C00A6921A /* CreateUserRequest.swift */; };
 		F301706D2B8CE07000A6921A /* TmpScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F301706C2B8CE07000A6921A /* TmpScreenViewController.swift */; };
@@ -77,7 +77,7 @@
 		D86387CE2B8A74A500692535 /* CreateUserDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserDto.swift; sourceTree = "<group>"; };
 		D86387D12B8A754100692535 /* RegistrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationService.swift; sourceTree = "<group>"; };
 		D86387D32B8A7E4F00692535 /* TokenStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorageService.swift; sourceTree = "<group>"; };
-		D86387D82B8A7FF500692535 /* UserLoginDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginDto.swift; sourceTree = "<group>"; };
+		D86387D82B8A7FF500692535 /* LoginUserDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserDto.swift; sourceTree = "<group>"; };
 		DD3A2E9E2B7D2F65006A3B8E /* UIView+AutoresizingMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AutoresizingMask.swift"; sourceTree = "<group>"; };
 		DD3A2EA52B7E9447006A3B8E /* PrimeOrangeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimeOrangeButton.swift; sourceTree = "<group>"; };
 		DD3A2EA72B7E9836006A3B8E /* CaptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionButton.swift; sourceTree = "<group>"; };
@@ -88,7 +88,7 @@
 		DDCAC7D12B852B7B00EC7D15 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		DDCAC7D32B852B8600EC7D15 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		DDCAC7D52B8531EC00EC7D15 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
-		F30170642B8CDCA300A6921A /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		F30170642B8CDCA300A6921A /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		F30170662B8CDD1C00A6921A /* LoginUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserRequest.swift; sourceTree = "<group>"; };
 		F30170682B8CDF5C00A6921A /* CreateUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserRequest.swift; sourceTree = "<group>"; };
 		F301706C2B8CE07000A6921A /* TmpScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmpScreenViewController.swift; sourceTree = "<group>"; };
@@ -177,6 +177,7 @@
 				D86387BE2B87A16400692535 /* NetworkClient.swift */,
 				D86387BF2B87A16400692535 /* NetworkTask.swift */,
 				D86387C22B87A16400692535 /* NetworkRequest.swift */,
+				F30170642B8CDCA300A6921A /* Endpoints.swift */,
 			);
 			path = NetworkClient;
 			sourceTree = "<group>";
@@ -256,7 +257,6 @@
 		F30170632B8CDC9700A6921A /* Requests */ = {
 			isa = PBXGroup;
 			children = (
-				F30170642B8CDCA300A6921A /* Configuration.swift */,
 				F30170662B8CDD1C00A6921A /* LoginUserRequest.swift */,
 				F30170682B8CDF5C00A6921A /* CreateUserRequest.swift */,
 				F30170842B8D191000A6921A /* GetFriendsRequest.swift */,
@@ -270,7 +270,7 @@
 				F30170632B8CDC9700A6921A /* Requests */,
 				D86387C92B89F9A600692535 /* FriendDto.swift */,
 				D86387CE2B8A74A500692535 /* CreateUserDto.swift */,
-				D86387D82B8A7FF500692535 /* UserLoginDto.swift */,
+				D86387D82B8A7FF500692535 /* LoginUserDto.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -495,7 +495,7 @@
 				D853CC262B7567AF00DA58D5 /* AppDelegate.swift in Sources */,
 				DDCAC7CF2B851F7700EC7D15 /* TextValidator.swift in Sources */,
 				F36F40802B86129900B2082B /* ResetPasswordView.swift in Sources */,
-				D86387D92B8A7FF500692535 /* UserLoginDto.swift in Sources */,
+				D86387D92B8A7FF500692535 /* LoginUserDto.swift in Sources */,
 				F30170832B8CF6EB00A6921A /* SplashView.swift in Sources */,
 				DD3A2EA82B7E9836006A3B8E /* CaptionButton.swift in Sources */,
 				DDCAC7D22B852B7B00EC7D15 /* RegistrationViewController.swift in Sources */,
@@ -505,7 +505,7 @@
 				DDCAC7CC2B851EF500EC7D15 /* RegistrationTextField.swift in Sources */,
 				D86387CF2B8A74A500692535 /* CreateUserDto.swift in Sources */,
 				D86387C32B87A16400692535 /* NetworkClient.swift in Sources */,
-				F30170652B8CDCA300A6921A /* Configuration.swift in Sources */,
+				F30170652B8CDCA300A6921A /* Endpoints.swift in Sources */,
 				F30170672B8CDD1C00A6921A /* LoginUserRequest.swift in Sources */,
 				D86387CD2B89FD2200692535 /* FriendsNetworkService.swift in Sources */,
 				DDCAC7C42B83C0BF00EC7D15 /* WhiteBorderButton.swift in Sources */,

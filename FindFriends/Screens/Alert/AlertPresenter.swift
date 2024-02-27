@@ -30,5 +30,4 @@ final class AlertPresenter {
             controller.present(alert, animated: true, completion: nil)
         }
     }
-
 }

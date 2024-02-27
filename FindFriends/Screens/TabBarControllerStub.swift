@@ -14,5 +14,4 @@ final class TabBarControllerStub: UITabBarController {
         super.viewDidLoad()
         view.backgroundColor = .red
     }
-
 }

@@ -70,7 +70,6 @@ struct DefaultNetworkClient: NetworkClient {
         }
 
         task.resume()
-
         return DefaultNetworkTask(dataTask: task)
     }
 

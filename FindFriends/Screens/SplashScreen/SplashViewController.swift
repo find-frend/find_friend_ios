@@ -53,9 +53,7 @@ final class SplashViewController: UIViewController {
 
 // MARK: - LoginViewControllerDelegate
 extension SplashViewController: LoginViewControllerDelegate {
-
     func didAuthenticate() {
         presentTabBarController()
     }
-
 }

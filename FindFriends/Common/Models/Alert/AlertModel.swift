@@ -29,5 +29,4 @@ struct AlertModel {
             preferredStyle: .alert
         )
     }
-
 }

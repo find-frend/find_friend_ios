@@ -27,5 +27,4 @@ extension UIFont {
         static let small = UIFont.systemFont(ofSize: 12, weight: .bold)
         static let large = UIFont.systemFont(ofSize: 34, weight: .bold)
     }
-
 }

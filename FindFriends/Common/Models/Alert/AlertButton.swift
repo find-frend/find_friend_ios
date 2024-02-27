@@ -26,6 +26,5 @@ struct AlertButton<T> {
         self.completion = completion
         self.isPreferredAction = isPreferredAction
     }
-
 }
 

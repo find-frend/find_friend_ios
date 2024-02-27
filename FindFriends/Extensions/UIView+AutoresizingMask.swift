@@ -8,12 +8,6 @@
 import UIKit
 
 extension UIView {
-
-    func addSubviewWithoutAutoresizingMask(_ view: UIView) {
-        addSubview(view)
-        view.translatesAutoresizingMaskIntoConstraints = false
-    }
-
     var parentViewController: UIViewController? {
         // Starts from next (As we know self is not a UIViewController).
         var parentResponder: UIResponder? = self.next
@@ -25,5 +19,9 @@ extension UIView {
         }
         return nil
     }
-
+    
+    func addSubviewWithoutAutoresizingMask(_ view: UIView) {
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+    }
 }
