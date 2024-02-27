@@ -46,6 +46,7 @@
 		F30170872B8D1F3100A6921A /* TabBarControllerStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30170862B8D1F3100A6921A /* TabBarControllerStub.swift */; };
 		F30170892B8D290700A6921A /* UIBlockingProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30170882B8D290700A6921A /* UIBlockingProgressHUD.swift */; };
 		F301708C2B8D292100A6921A /* ProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = F301708B2B8D292100A6921A /* ProgressHUD */; };
+		F30DA5A22B8E7B2100E6571B /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30DA5A12B8E7B2100E6571B /* ResetPasswordViewModel.swift */; };
 		F30DA5A42B8E862300E6571B /* NewPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30DA5A32B8E862300E6571B /* NewPasswordViewModel.swift */; };
 		F30DA5A62B8E86D200E6571B /* NewPasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30DA5A52B8E86D200E6571B /* NewPasswordModel.swift */; };
 		F36F40782B85503F00B2082B /* RegistrationNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36F40772B85503F00B2082B /* RegistrationNavigationController.swift */; };
@@ -104,6 +105,7 @@
 		F30170842B8D191000A6921A /* GetFriendsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFriendsRequest.swift; sourceTree = "<group>"; };
 		F30170862B8D1F3100A6921A /* TabBarControllerStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerStub.swift; sourceTree = "<group>"; };
 		F30170882B8D290700A6921A /* UIBlockingProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBlockingProgressHUD.swift; sourceTree = "<group>"; };
+		F30DA5A12B8E7B2100E6571B /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
 		F30DA5A32B8E862300E6571B /* NewPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordViewModel.swift; sourceTree = "<group>"; };
 		F30DA5A52B8E86D200E6571B /* NewPasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordModel.swift; sourceTree = "<group>"; };
 		F36F40772B85503F00B2082B /* RegistrationNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationNavigationController.swift; sourceTree = "<group>"; };
@@ -353,6 +355,7 @@
 			children = (
 				F36F407F2B86129900B2082B /* ResetPasswordView.swift */,
 				F36F407D2B86129300B2082B /* ResetPasswordViewController.swift */,
+				F30DA5A12B8E7B2100E6571B /* ResetPasswordViewModel.swift */,
 			);
 			path = ResetPassword;
 			sourceTree = "<group>";
@@ -495,6 +498,7 @@
 				F30170872B8D1F3100A6921A /* TabBarControllerStub.swift in Sources */,
 				DDCAC7D42B852B8600EC7D15 /* RegistrationView.swift in Sources */,
 				F30170762B8CF22F00A6921A /* Credentials.swift in Sources */,
+				F30DA5A22B8E7B2100E6571B /* ResetPasswordViewModel.swift in Sources */,
 				DDCAC7D62B8531EC00EC7D15 /* RegistrationViewModel.swift in Sources */,
 				D86387D42B8A7E4F00692535 /* TokenStorageService.swift in Sources */,
 				D86387C72B87A16400692535 /* NetworkRequest.swift in Sources */,

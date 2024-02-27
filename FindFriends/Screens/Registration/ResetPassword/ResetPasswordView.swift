@@ -11,6 +11,7 @@ import UIKit
 // - MARK: ResetPasswordViewDelegate
 protocol ResetPasswordViewDelegate: AnyObject {
     func didTapSendInstructionButton()
+    func didChangeTextField()
 }
 
 
@@ -19,6 +20,9 @@ final class ResetPasswordView: BaseRegistrationView {
 
     // MARK: - Public properties
     weak var delegate: ResetPasswordViewDelegate?
+    var email: String {
+        emailTextField.text ?? ""
+    }
 
     // MARK: - Private properties
     private enum Constants {
@@ -61,6 +65,19 @@ final class ResetPasswordView: BaseRegistrationView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - Public methods
+    func setSendInstructionButton(enabled: Bool) {
+        sendInstructionButton.setEnabled(enabled)
+    }
+
+    func setEmailTextFieldError(message: String) {
+        if message.isEmpty {
+            emailTextField.hideWarningLabel()
+        } else {
+            emailTextField.showWarningLabel(message)
+        }
+    }
+
     // MARK: - Private methods
     private func setupViews() {
         contentView.addSubviewWithoutAutoresizingMask(label)
@@ -71,6 +88,11 @@ final class ResetPasswordView: BaseRegistrationView {
             self,
             action: #selector(sendInstructionButtonTapped),
             for: .touchUpInside
+        )
+        emailTextField.addTarget(
+            self,
+            action: #selector(textFieldChanged),
+            for: .editingChanged
         )
     }
 
@@ -103,6 +125,10 @@ final class ResetPasswordView: BaseRegistrationView {
 
     @objc private func sendInstructionButtonTapped() {
         delegate?.didTapSendInstructionButton()
+    }
+
+    @objc private func textFieldChanged() {
+        delegate?.didChangeTextField()
     }
 
 }
