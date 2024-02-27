@@ -16,8 +16,13 @@ final class PrimeOrangeButton: UIButton {
         backgroundColor = .lightOrange
         setTitle(text, for: .normal)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    func setEnabled(_ enabled: Bool) {
+        isEnabled = enabled
+        backgroundColor = enabled ? .mainOrange : .lightOrange
     }
 }

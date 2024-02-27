@@ -13,7 +13,22 @@ import UIKit
 final class NewPasswordViewController: UIViewController {
 
     // MARK: - Private properties
-    private let newPasswordView = NewPasswordView()
+    private let newPasswordView: NewPasswordView
+    private var viewModel: NewPasswordViewModelProtocol
+
+    // MARK: - Initializers
+    init(
+        viewModel: NewPasswordViewModelProtocol = NewPasswordViewModel(),
+        newPasswordView: NewPasswordView = NewPasswordView()
+    ) {
+        self.viewModel = viewModel
+        self.newPasswordView = newPasswordView
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     // MARK: - Overridden methods
     override func loadView() {
@@ -24,6 +39,7 @@ final class NewPasswordViewController: UIViewController {
         super.viewDidLoad()
         configureNavigationBar()
         hideKeyboardWhenTappedAround()
+        bind()
         newPasswordView.delegate = self
     }
 
@@ -32,15 +48,38 @@ final class NewPasswordViewController: UIViewController {
         navigationItem.title = "Новый пароль"
     }
 
-}
+    private func bind() {
+        viewModel.onSavePasswordAllowedStateChange = { [weak self] isAllowed in
+            self?.newPasswordView.setSavePasswordButton(enabled: isAllowed)
+        }
+        viewModel.onPasswordErrorStateChange = { [weak self] message in
+            self?.newPasswordView.setPasswordTextFieldError(message: message)
+        }
+        viewModel.onPasswordConfirmationErrorStateChange = { [weak self] message in
+            self?.newPasswordView.setPasswordConfirmationTextFieldError(message: message)
+        }
+    }
 
+    private func savePassword() {
+        // TODO: request
+        let viewController = NewPasswordSuccessViewController()
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+
+}
 
 // MARK: - NewPasswordViewDelegate
 extension NewPasswordViewController: NewPasswordViewDelegate {
 
+    func didChangeTextField() {
+        viewModel.newPasswordModel = newPasswordView.newPasswordModel
+    }
+
     func didTapSavePasswordButton() {
-        let viewController = NewPasswordSuccessViewController()
-        navigationController?.pushViewController(viewController, animated: true)
+        let isFieldsValid = viewModel.validateFields()
+        if isFieldsValid {
+            savePassword()
+        }
     }
 
 }
