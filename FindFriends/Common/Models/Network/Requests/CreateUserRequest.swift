@@ -9,7 +9,7 @@ import Foundation
 
 struct CreateUserRequest: NetworkRequest {
     let httpMethod: HttpMethod = .post
-    let endpoint = Endpoints.createUser.url
+    let endpoint = Endpoint.createUser.url
     let dto: Encodable?
     let token: String? = nil
 }

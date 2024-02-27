@@ -26,7 +26,7 @@ final class FriendsServiceProvider: FriendsServiceProviderProtocol {
 
     /// Функция возвращает список друзей у текущего пользователя
     func getFriends(completion: @escaping (Result<[FriendDto], Error>) -> Void) {
-        guard let token = OAuthTokenStorage.shared.token else { return }
+        guard let token = oAuthTokenStorage.token else { return }
         let request = GetFriendsRequest(token: token)
         networkClient.send(request: request, type: [FriendDto].self) { result in
             DispatchQueue.main.async {

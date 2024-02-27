@@ -20,7 +20,7 @@ final class LoginViewController: UIViewController {
 
     // MARK: - Private properties
     private let loginView: LoginView
-    private let viewModel: LoginViewModelProtocol
+    private var viewModel: LoginViewModelProtocol
 
     // MARK: - Initializers
     init(
@@ -30,6 +30,10 @@ final class LoginViewController: UIViewController {
         self.viewModel = viewModel
         self.loginView = loginView
         super.init(nibName: nil, bundle: nil)
+    }
+
+    deinit {
+        print("LoginViewController deinited")
     }
 
     required init?(coder: NSCoder) {
@@ -45,6 +49,7 @@ final class LoginViewController: UIViewController {
         super.viewDidLoad()
         configureNavigationBar()
         hideKeyboardWhenTappedAround()
+        bind()
         loginView.delegate = self
     }
 
@@ -55,20 +60,21 @@ final class LoginViewController: UIViewController {
         navigationItem.largeTitleDisplayMode = .always
     }
 
-}
-
-// MARK: - LoginViewDelegate
-extension LoginViewController: LoginViewDelegate {
-
-    func didTapRegistrationButton() {
-        let view = RegistrationView()
-        let viewController = RegistrationViewController(registrationView: view)
-        navigationController?.pushViewController(viewController, animated: true)
+    private func bind() {
+        viewModel.onLoginAllowedStateChange = { [weak self] isLoginAllowed in
+            self?.loginView.setLoginButton(enabled: isLoginAllowed)
+        }
+        viewModel.onEmailErrorStateChange = { [weak self] message in
+            self?.loginView.setEmailTextFieldError(message: message)
+        }
+        viewModel.onPasswordErrorStateChange = { [weak self] message in
+            self?.loginView.setPasswordTextFieldError(message: message)
+        }
     }
 
-    func didTapLoginButton() {
+    private func loginUser() {
         UIBlockingProgressHUD.show()
-        viewModel.loginUser(model: loginView.model) { [weak self] result in
+        self.viewModel.loginUser { [weak self] result in
             guard let self else { return }
             switch result {
             case .success:
@@ -81,6 +87,28 @@ extension LoginViewController: LoginViewDelegate {
                     model: .loginError(message: error.localizedDescription)
                 )
             }
+        }
+    }
+
+}
+
+// MARK: - LoginViewDelegate
+extension LoginViewController: LoginViewDelegate {
+
+    func didChangeTextField() {
+        viewModel.credentials = loginView.credentials
+    }
+
+    func didTapRegistrationButton() {
+        let view = RegistrationView()
+        let viewController = RegistrationViewController(registrationView: view)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+
+    func didTapLoginButton() {
+        let isFieldsValid = viewModel.validateFields()
+        if isFieldsValid {
+            loginUser()
         }
     }
 
