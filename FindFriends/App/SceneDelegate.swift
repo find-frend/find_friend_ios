@@ -16,9 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         
         window = UIWindow(windowScene: scene)
-        let onboardingVC = TmpScreenViewController()
-        #warning("Изменить root vc во время разработки своего экрана")
-        window?.rootViewController = onboardingVC
+        window?.rootViewController = SplashViewController()
         window?.makeKeyAndVisible()
     }
 }
