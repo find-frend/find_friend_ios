@@ -15,7 +15,7 @@ struct AlertModel {
     let buttons: [AlertButton<Void>]
     let preferredStyle: UIAlertController.Style
 
-    static func loginError(message: String) -> AlertModel {
+    static func loginError(message: String = "") -> AlertModel {
         AlertModel(
             title: "Не удалось авторизоваться",
             message: message,

@@ -36,7 +36,7 @@
 		F30170692B8CDF5C00A6921A /* CreateUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30170682B8CDF5C00A6921A /* CreateUserRequest.swift */; };
 		F301706D2B8CE07000A6921A /* TmpScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F301706C2B8CE07000A6921A /* TmpScreenViewController.swift */; };
 		F30170732B8CED2C00A6921A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30170722B8CED2C00A6921A /* LoginViewModel.swift */; };
-		F30170762B8CF22F00A6921A /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30170752B8CF22F00A6921A /* LoginModel.swift */; };
+		F30170762B8CF22F00A6921A /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30170752B8CF22F00A6921A /* Credentials.swift */; };
 		F30170792B8CF2D600A6921A /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30170782B8CF2D600A6921A /* AlertPresenter.swift */; };
 		F301707C2B8CF2FF00A6921A /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F301707B2B8CF2FF00A6921A /* AlertModel.swift */; };
 		F301707E2B8CF32500A6921A /* AlertButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F301707D2B8CF32500A6921A /* AlertButton.swift */; };
@@ -93,7 +93,7 @@
 		F30170682B8CDF5C00A6921A /* CreateUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserRequest.swift; sourceTree = "<group>"; };
 		F301706C2B8CE07000A6921A /* TmpScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmpScreenViewController.swift; sourceTree = "<group>"; };
 		F30170722B8CED2C00A6921A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		F30170752B8CF22F00A6921A /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		F30170752B8CF22F00A6921A /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		F30170782B8CF2D600A6921A /* AlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenter.swift; sourceTree = "<group>"; };
 		F301707B2B8CF2FF00A6921A /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
 		F301707D2B8CF32500A6921A /* AlertButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertButton.swift; sourceTree = "<group>"; };
@@ -295,7 +295,7 @@
 		F30170742B8CF22300A6921A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F30170752B8CF22F00A6921A /* LoginModel.swift */,
+				F30170752B8CF22F00A6921A /* Credentials.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -480,7 +480,7 @@
 				F36F40832B861ADE00B2082B /* CheckEmailView.swift in Sources */,
 				F30170872B8D1F3100A6921A /* TabBarControllerStub.swift in Sources */,
 				DDCAC7D42B852B8600EC7D15 /* RegistrationView.swift in Sources */,
-				F30170762B8CF22F00A6921A /* LoginModel.swift in Sources */,
+				F30170762B8CF22F00A6921A /* Credentials.swift in Sources */,
 				DDCAC7D62B8531EC00EC7D15 /* RegistrationViewModel.swift in Sources */,
 				D86387D42B8A7E4F00692535 /* TokenStorageService.swift in Sources */,
 				D86387C72B87A16400692535 /* NetworkRequest.swift in Sources */,

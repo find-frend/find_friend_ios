@@ -13,6 +13,7 @@ protocol LoginViewDelegate: AnyObject {
     func didTapRegistrationButton()
     func didTapLoginButton()
     func didTapForgotPasswordButton()
+    func didChangeTextField()
 }
 
 // - MARK: LoginView
@@ -20,8 +21,8 @@ final class LoginView: BaseRegistrationView {
 
     // MARK: - Public Properties
     weak var delegate: LoginViewDelegate?
-    var model: LoginModel {
-        LoginModel(
+    var credentials: Credentials {
+        Credentials(
             email: emailTextField.text ?? "",
             password: passwordTextField.text ?? ""
         )
@@ -93,7 +94,28 @@ final class LoginView: BaseRegistrationView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    func setLoginButton(enabled: Bool) {
+        logInButton.isEnabled = enabled
+        logInButton.backgroundColor = enabled ? .mainOrange : .lightOrange
+    }
+
+    func setEmailTextFieldError(message: String) {
+        setError(for: emailTextField, message: message)
+    }
+
+    func setPasswordTextFieldError(message: String) {
+        setError(for: passwordTextField, message: message)
+    }
+
     // MARK: - Private methods
+    private func setError(for textField: RegistrationTextField, message: String) {
+        if message.isEmpty {
+            textField.hideWarningLabel()
+        } else {
+            textField.showWarningLabel(message)
+        }
+    }
+
     private func setupViews() {
         contentView.addSubviewWithoutAutoresizingMask(bigCircleView)
         contentView.addSubviewWithoutAutoresizingMask(smallCircleView)
@@ -118,6 +140,13 @@ final class LoginView: BaseRegistrationView {
             action: #selector(forgotPasswordButtonTapped),
             for: .touchUpInside
         )
+        for textField in [emailTextField, passwordTextField] {
+            textField.addTarget(
+                self,
+                action: #selector(textFieldChanged),
+                for: .editingChanged
+            )
+        }
     }
 
     private func setupLayout() {
@@ -197,6 +226,10 @@ final class LoginView: BaseRegistrationView {
 
     @objc private func forgotPasswordButtonTapped() {
         delegate?.didTapForgotPasswordButton()
+    }
+
+    @objc private func textFieldChanged() {
+        delegate?.didChangeTextField()
     }
 
 }

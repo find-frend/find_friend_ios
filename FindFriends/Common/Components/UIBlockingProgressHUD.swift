@@ -10,6 +10,7 @@ import ProgressHUD
 
 // MARK: - UIBlockingProgressHUD
 struct UIBlockingProgressHUD {
+
     private static var window: UIWindow? {
         (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first
     }
@@ -23,5 +24,6 @@ struct UIBlockingProgressHUD {
         window?.isUserInteractionEnabled = true
         ProgressHUD.dismiss()
     }
+
 }
 
