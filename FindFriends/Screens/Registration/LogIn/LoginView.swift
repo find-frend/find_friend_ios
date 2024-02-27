@@ -95,8 +95,7 @@ final class LoginView: BaseRegistrationView {
     }
 
     func setLoginButton(enabled: Bool) {
-        logInButton.isEnabled = enabled
-        logInButton.backgroundColor = enabled ? .mainOrange : .lightOrange
+        logInButton.setEnabled(enabled)
     }
 
     func setEmailTextFieldError(message: String) {

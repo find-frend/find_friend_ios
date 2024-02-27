@@ -100,8 +100,7 @@ final class RegistrationView: UIView {
         
         viewModel.$allFieldsAreFilling
             .sink { [weak self] isFilling in
-                self?.registrationButton.backgroundColor = isFilling ? .mainOrange : .lightOrange
-                self?.registrationButton.isEnabled = isFilling
+                self?.registrationButton.setEnabled(isFilling)
             }
             .store(in: &cancellables)
         
