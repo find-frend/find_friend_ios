@@ -44,4 +44,17 @@ extension RegistrationViewController: RegistrationViewDelegate {
     func presentWebPage(_ page: SFSafariViewController) {
         present(page, animated: true)
     }
+    
+    func showAlert(_ model: AlertModel) {
+        AlertPresenter.show(in: self, model: model)
+    }
+    
+    func goToGenderScreen() {
+        guard
+            let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+            let window = scene.windows.first
+        else { fatalError("Invalid Configuration") }
+        // let genderScreen = GenderScreen()
+        // window.rootViewController = genderScreen
+    }
 }
