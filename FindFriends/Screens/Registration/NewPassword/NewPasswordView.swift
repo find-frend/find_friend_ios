@@ -11,6 +11,7 @@ import UIKit
 // - MARK: NewPasswordViewDelegate
 protocol NewPasswordViewDelegate: AnyObject {
     func didTapSavePasswordButton()
+    func didChangeTextField()
 }
 
 
@@ -19,6 +20,12 @@ final class NewPasswordView: BaseRegistrationView {
 
     // MARK: - Public properties
     weak var delegate: NewPasswordViewDelegate?
+    var newPasswordModel: NewPasswordModel {
+        NewPasswordModel(
+            password: passwordTextField.text ?? "",
+            passwordConfirmation: passwordConfirmationTextField.text ?? ""
+        )
+    }
 
     // MARK: - Private properties
     private enum Constants {
@@ -65,7 +72,28 @@ final class NewPasswordView: BaseRegistrationView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - Public methods
+    func setSavePasswordButton(enabled: Bool) {
+        savePasswordButton.setEnabled(enabled)
+    }
+
+    func setPasswordTextFieldError(message: String) {
+        setError(for: passwordTextField, message: message)
+    }
+
+    func setPasswordConfirmationTextFieldError(message: String) {
+        setError(for: passwordConfirmationTextField, message: message)
+    }
+
     // MARK: - Private methods
+    private func setError(for textField: RegistrationTextField, message: String) {
+        if message.isEmpty {
+            textField.hideWarningLabel()
+        } else {
+            textField.showWarningLabel(message)
+        }
+    }
+
     private func setupViews() {
         contentView.addSubviewWithoutAutoresizingMask(label)
         contentView.addSubviewWithoutAutoresizingMask(passwordTextField)
@@ -77,6 +105,13 @@ final class NewPasswordView: BaseRegistrationView {
             action: #selector(savePasswordButtonTapped),
             for: .touchUpInside
         )
+        for textField in [passwordTextField, passwordConfirmationTextField] {
+            textField.addTarget(
+                self,
+                action: #selector(textFieldChanged),
+                for: .editingChanged
+            )
+        }
     }
 
     private func setupLayout() {
@@ -116,6 +151,10 @@ final class NewPasswordView: BaseRegistrationView {
 
     @objc private func savePasswordButtonTapped() {
         delegate?.didTapSavePasswordButton()
+    }
+
+    @objc private func textFieldChanged() {
+        delegate?.didChangeTextField()
     }
 
 }
