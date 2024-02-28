@@ -172,6 +172,19 @@ final class RegistrationView: UIView {
     
     private func setupViews() {
         backgroundColor = .white
+        
+        nameTextField.delegate = self
+        lastnameTextField.delegate = self
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        passwordConfirmationTextField.delegate = self
+        
+        nameTextField.returnKeyType = .done
+        lastnameTextField.returnKeyType = .done
+        emailTextField.returnKeyType = .done
+        passwordTextField.returnKeyType = .done
+        passwordConfirmationTextField.returnKeyType = .done
+        
         registrationButton
             .addTarget(
                 self,
@@ -275,5 +288,12 @@ extension RegistrationView {
     
     @objc private func agreementDidTapped() {
         viewModel.agreementDidTapped()
+    }
+}
+
+extension RegistrationView: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

@@ -19,6 +19,7 @@ final class RegistrationViewController: UIViewController {
         
         setupNavigationItem()
         registrationView.delegate = self
+        hideKeyboardWhenTappedAround()
     }
     
     init(registrationView: RegistrationView) {
