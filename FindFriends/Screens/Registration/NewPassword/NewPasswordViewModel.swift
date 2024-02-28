@@ -14,6 +14,7 @@ protocol NewPasswordViewModelProtocol {
     var onPasswordConfirmationErrorStateChange: Binding<String>? { get set }
     var newPasswordModel: NewPasswordModel { get set }
 
+    func setNewPassword(completion: @escaping (Result<NewPasswordDto, Error>) -> Void)
     func validateFields() -> Bool
 }
 
@@ -47,6 +48,19 @@ final class NewPasswordViewModel: NewPasswordViewModelProtocol {
     }
 
     // MARK: - Public methods
+    func setNewPassword(completion: @escaping (Result<NewPasswordDto, Error>) -> Void) {
+        // TODO: wait till backend be done
+        let dto = NewPasswordDto(uid: "", token: "", new_password: newPasswordModel.password)
+        registrationService.setNewPassword(dto) { result in
+            switch result {
+            case .success(let model):
+                completion(.success(model))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+
     func validateFields() -> Bool {
         let isPasswordValid = validatePassword()
         let isPasswordConfirmationValid = validatePasswordConfirmation()
