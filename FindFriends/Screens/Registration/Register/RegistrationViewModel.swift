@@ -10,6 +10,8 @@ import SafariServices
 
 final class RegistrationViewModel {
    
+    let registrationService: RegistrationServiceProtocol
+    
     @Published var allFieldsAreFilling = false
     @Published var personalIsFilling = false
     @Published var passwordIsFilling = false
@@ -27,6 +29,7 @@ final class RegistrationViewModel {
     @Published var errorTextForConfirmPassword = ""
     
     @Published var webPage: SFSafariViewController?
+    @Published var alert: AlertModel?
     
     private var allFieldsAreValidate: Bool {
         errorTextForName.isEmpty &&
@@ -36,14 +39,28 @@ final class RegistrationViewModel {
         errorTextForConfirmPassword.isEmpty
     }
     
-    init() {
+    init(registrationService: RegistrationServiceProtocol) {
+        self.registrationService = registrationService
         setupPipline()
     }
     
     func registrationButtonTapped() {
         validateFields()
         if allFieldsAreValidate {
-            print("ушел запрос в сеть")
+            let user = CreateUserRequestDto(firstName: name, lastName: lastName, email: email, password: confirmPassword)
+            UIBlockingProgressHUD.show()
+            registrationService.createUser(user) { [unowned self] result in
+                switch result {
+                case .success(_):
+                    registrationService.loginUser(
+                        LoginRequestDto(email: email, password: confirmPassword)) { [unowned self] _ in
+                            switchToGenderScreen()
+                        }
+                case .failure(let error):
+                    showAlert(error)
+                }
+                UIBlockingProgressHUD.dismiss()
+            }
         }
     }
     
@@ -115,5 +132,28 @@ final class RegistrationViewModel {
                 errorTextForConfirmPassword = message.rawValue
             }
         }
+    }
+    
+    private func showAlert(_ error: Error) {
+        let alert = AlertModel(
+            title: "Внимание",
+            message: error.localizedDescription,
+            buttons: [AlertButton(
+                text: "Ок",
+                style: .cancel,
+                completion: { _ in })
+            ],
+            preferredStyle: .alert
+        )
+        self.alert = alert
+    }
+    
+    private func switchToGenderScreen() {
+        guard
+            let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+            let window = scene.windows.first
+        else { fatalError("Invalid Configuration") }
+        let tabBarController = TabBarControllerStub()
+        window.rootViewController = tabBarController
     }
 }

@@ -44,4 +44,8 @@ extension RegistrationViewController: RegistrationViewDelegate {
     func presentWebPage(_ page: SFSafariViewController) {
         present(page, animated: true)
     }
+    
+    func showAlert(_ model: AlertModel) {
+        AlertPresenter.show(in: self, model: model)
+    }
 }
