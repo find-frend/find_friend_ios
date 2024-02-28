@@ -30,7 +30,6 @@ final class RegistrationViewModel {
     
     @Published var webPage: SFSafariViewController?
     @Published var alert: AlertModel?
-    @Published var successRegistration = false
     
     private var allFieldsAreValidate: Bool {
         errorTextForName.isEmpty &&
@@ -53,7 +52,10 @@ final class RegistrationViewModel {
             registrationService.createUser(user) { [unowned self] result in
                 switch result {
                 case .success(_):
-                    successRegistration = true
+                    registrationService.loginUser(
+                        LoginRequestDto(email: email, password: confirmPassword)) { [unowned self] _ in
+                            switchToGenderScreen()
+                        }
                 case .failure(let error):
                     showAlert(error)
                 }
@@ -144,5 +146,14 @@ final class RegistrationViewModel {
             preferredStyle: .alert
         )
         self.alert = alert
+    }
+    
+    private func switchToGenderScreen() {
+        guard
+            let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+            let window = scene.windows.first
+        else { fatalError("Invalid Configuration") }
+        let tabBarController = TabBarControllerStub()
+        window.rootViewController = tabBarController
     }
 }

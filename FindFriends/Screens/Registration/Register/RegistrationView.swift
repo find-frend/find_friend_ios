@@ -12,7 +12,6 @@ import UIKit
 protocol RegistrationViewDelegate: AnyObject {
     func presentWebPage(_ page: SFSafariViewController)
     func showAlert(_ model: AlertModel)
-    func goToGenderScreen()
 }
 
 final class RegistrationView: UIView {
@@ -168,14 +167,6 @@ final class RegistrationView: UIView {
             .sink { [unowned self] model in
                 guard let model else { return }
                 delegate?.showAlert(model)
-            }
-            .store(in: &cancellables)
-        
-        viewModel.$successRegistration
-            .sink { [unowned self] success in
-                if success {
-                    delegate?.goToGenderScreen()
-                }
             }
             .store(in: &cancellables)
     }
