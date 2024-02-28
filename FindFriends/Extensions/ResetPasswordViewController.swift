@@ -57,9 +57,22 @@ final class ResetPasswordViewController: UIViewController {
     }
 
     private func sendInstruction() {
-        // TODO: request
-        let viewController = CheckEmailViewController()
-        navigationController?.pushViewController(viewController, animated: true)
+        UIBlockingProgressHUD.show()
+        self.viewModel.resetPassword { [weak self] result in
+            guard let self else { return }
+            switch result {
+            case .success:
+                UIBlockingProgressHUD.dismiss()
+                let viewController = CheckEmailViewController()
+                self.navigationController?.pushViewController(viewController, animated: true)
+            case .failure(let error):
+                UIBlockingProgressHUD.dismiss()
+                AlertPresenter.show(
+                    in: self,
+                    model: .resetPasswordError(message: error.localizedDescription)
+                )
+            }
+        }
     }
 
 }

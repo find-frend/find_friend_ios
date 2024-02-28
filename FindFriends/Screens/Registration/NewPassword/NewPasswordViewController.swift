@@ -61,9 +61,22 @@ final class NewPasswordViewController: UIViewController {
     }
 
     private func savePassword() {
-        // TODO: request
-        let viewController = NewPasswordSuccessViewController()
-        navigationController?.pushViewController(viewController, animated: true)
+        UIBlockingProgressHUD.show()
+        self.viewModel.setNewPassword { [weak self] result in
+            guard let self else { return }
+            switch result {
+            case .success:
+                UIBlockingProgressHUD.dismiss()
+                let viewController = NewPasswordSuccessViewController()
+                self.navigationController?.pushViewController(viewController, animated: true)
+            case .failure(let error):
+                UIBlockingProgressHUD.dismiss()
+                AlertPresenter.show(
+                    in: self,
+                    model: .resetPasswordError(message: error.localizedDescription)
+                )
+            }
+        }
     }
 
 }

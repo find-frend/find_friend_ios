@@ -8,13 +8,14 @@
 import UIKit
 
 final class PrimeOrangeButton: UIButton {
-    init(text: String) {
+    init(text: String, isEnabled: Bool = false) {
         super.init(frame: .zero)
         layer.cornerRadius = 10
         titleLabel?.font = .Semibold.medium
         setTitleColor(.white, for: .normal)
-        backgroundColor = .lightOrange
+        backgroundColor = isEnabled ? .mainOrange : .lightOrange
         setTitle(text, for: .normal)
+        self.isEnabled = isEnabled
     }
 
     required init?(coder: NSCoder) {

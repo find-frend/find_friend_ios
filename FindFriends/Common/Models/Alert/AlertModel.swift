@@ -16,8 +16,20 @@ struct AlertModel {
     let preferredStyle: UIAlertController.Style
 
     static func loginError(message: String = "") -> AlertModel {
+        baseError(title: "Не удалось авторизоваться", message: message)
+    }
+
+    static func resetPasswordError(message: String = "") -> AlertModel {
+        baseError(title: "Проверьте введенный e-mail", message: message)
+    }
+
+    static func newPasswordError(message: String = "") -> AlertModel {
+        baseError(title: "При изменении пароля произошла ошибка", message: message)
+    }
+
+    private static func baseError(title: String, message: String = "") -> AlertModel {
         AlertModel(
-            title: "Не удалось авторизоваться",
+            title: title,
             message: message,
             buttons: [
                 AlertButton(

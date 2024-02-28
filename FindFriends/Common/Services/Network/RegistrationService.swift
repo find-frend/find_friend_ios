@@ -17,6 +17,14 @@ protocol RegistrationServiceProtocol {
         _ dto: LoginRequestDto,
         completion: @escaping (Result<LoginResponseDto, Error>) -> Void
     )
+    func resetPassword(
+        _ dto: ResetPasswordDto,
+        completion: @escaping (Result<ResetPasswordDto, Error>) -> Void
+    )
+    func setNewPassword(
+        _ dto: NewPasswordDto,
+        completion: @escaping (Result<NewPasswordDto, Error>) -> Void
+    )
 }
 
 // MARK: - RegistrationService
@@ -70,4 +78,39 @@ final class RegistrationService: RegistrationServiceProtocol {
             }
         }
     }
+
+    func resetPassword(
+        _ dto: ResetPasswordDto,
+        completion: @escaping (Result<ResetPasswordDto, Error>) -> Void
+    ) {
+        let request = ResetPasswordRequest(dto: dto)
+        networkClient.send(request: request, type: ResetPasswordDto.self) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case let .success(data):
+                    completion(.success(data))
+                case let .failure(error):
+                    completion(.failure(error))
+                }
+            }
+        }
+    }
+
+    func setNewPassword(
+        _ dto: NewPasswordDto,
+        completion: @escaping (Result<NewPasswordDto, Error>) -> Void
+    ) {
+        let request = NewPasswordRequest(dto: dto)
+        networkClient.send(request: request, type: NewPasswordDto.self) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case let .success(data):
+                    completion(.success(data))
+                case let .failure(error):
+                    completion(.failure(error))
+                }
+            }
+        }
+    }
+
 }

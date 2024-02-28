@@ -66,6 +66,7 @@ final class LoginViewModel: LoginViewModelProtocol {
         return isLoginValid && isPasswordValid
     }
 
+    // MARK: - Private methods
     private func validateLogin() -> Bool {
         switch TextValidator.validate(credentials.email, with: .email) {
         case .success:
