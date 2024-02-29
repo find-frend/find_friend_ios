@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CECC80E12B91253A00F4312B /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC80DE2B91253A00F4312B /* TabBar.swift */; };
+		CECC80E22B91253A00F4312B /* TabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC80DF2B91253A00F4312B /* TabBarButton.swift */; };
+		CECC80E32B91253A00F4312B /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC80E02B91253A00F4312B /* TabBarViewController.swift */; };
 		D853CC262B7567AF00DA58D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D853CC252B7567AF00DA58D5 /* AppDelegate.swift */; };
 		D853CC282B7567AF00DA58D5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D853CC272B7567AF00DA58D5 /* SceneDelegate.swift */; };
 		D853CC2F2B7567B100DA58D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D853CC2E2B7567B100DA58D5 /* Assets.xcassets */; };
@@ -70,6 +73,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CECC80DE2B91253A00F4312B /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		CECC80DF2B91253A00F4312B /* TabBarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarButton.swift; sourceTree = "<group>"; };
+		CECC80E02B91253A00F4312B /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		D853CC222B7567AF00DA58D5 /* Найди друга.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Найди друга.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D853CC252B7567AF00DA58D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D853CC272B7567AF00DA58D5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +151,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CECC80D72B911E6A00F4312B /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				CECC80DE2B91253A00F4312B /* TabBar.swift */,
+				CECC80DF2B91253A00F4312B /* TabBarButton.swift */,
+				CECC80E02B91253A00F4312B /* TabBarViewController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
 		D853CC192B7567AF00DA58D5 = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +192,7 @@
 		D853CC392B756BB500DA58D5 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				CECC80D72B911E6A00F4312B /* TabBar */,
 				F30170772B8CF2CE00A6921A /* Alert */,
 				F3BC5D3A2B8514DD00562C08 /* Registration */,
 				F301707F2B8CF55E00A6921A /* SplashScreen */,
@@ -534,11 +551,13 @@
 				DDCAC7CF2B851F7700EC7D15 /* TextValidator.swift in Sources */,
 				F36F40802B86129900B2082B /* ResetPasswordView.swift in Sources */,
 				D86387D92B8A7FF500692535 /* LoginUserDto.swift in Sources */,
+				CECC80E12B91253A00F4312B /* TabBar.swift in Sources */,
 				F30170832B8CF6EB00A6921A /* SplashView.swift in Sources */,
 				DD3A2EA82B7E9836006A3B8E /* CaptionButton.swift in Sources */,
 				DDCAC7D22B852B7B00EC7D15 /* RegistrationViewController.swift in Sources */,
 				D86387CA2B89F9A600692535 /* FriendDto.swift in Sources */,
 				DD3A2E9F2B7D2F65006A3B8E /* UIView+AutoresizingMask.swift in Sources */,
+				CECC80E32B91253A00F4312B /* TabBarViewController.swift in Sources */,
 				F36F40932B864B2300B2082B /* NewPasswordViewController.swift in Sources */,
 				F33B4C8E2B8FBA19002D27B5 /* NewPasswordDto.swift in Sources */,
 				DDCAC7CC2B851EF500EC7D15 /* RegistrationTextField.swift in Sources */,
@@ -549,6 +568,7 @@
 				D86387CD2B89FD2200692535 /* FriendsNetworkService.swift in Sources */,
 				F33B4C892B8FB989002D27B5 /* NewPasswordRequest.swift in Sources */,
 				DDCAC7C42B83C0BF00EC7D15 /* WhiteBorderButton.swift in Sources */,
+				CECC80E22B91253A00F4312B /* TabBarButton.swift in Sources */,
 				F36F40852B861AE400B2082B /* CheckEmailViewController.swift in Sources */,
 				F36F408C2B86434C00B2082B /* NewPasswordSuccessView.swift in Sources */,
 				F33B4C8C2B8FBA0C002D27B5 /* ResetPasswordDto.swift in Sources */,
