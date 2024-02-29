@@ -33,6 +33,7 @@ final class BirthdayView: UIView {
         textField.borderStyle = UITextField.BorderStyle.none
         textField.delegate = self
         textField.backgroundColor = .clear
+        textField.clearButtonMode = .whileEditing
         
         return textField
     }()
