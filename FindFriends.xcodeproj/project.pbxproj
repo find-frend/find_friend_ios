@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CECC80C52B910E2700F4312B /* SearchFieldText.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC80C42B910E2700F4312B /* SearchFieldText.swift */; };
+		CECC80C72B910E3000F4312B /* SearchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC80C62B910E3000F4312B /* SearchButton.swift */; };
+		CECC80CF2B910ED400F4312B /* SelectCityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC80CB2B910ED400F4312B /* SelectCityTableViewCell.swift */; };
+		CECC80D02B910ED400F4312B /* SelectCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC80CD2B910ED400F4312B /* SelectCityViewController.swift */; };
+		CECC80D12B910ED400F4312B /* CityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC80CE2B910ED400F4312B /* CityViewController.swift */; };
+		CECC80D52B910F0900F4312B /* SelectPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC80D32B910F0800F4312B /* SelectPhotoViewController.swift */; };
+		CECC80D62B910F0900F4312B /* AcceptPhotoVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC80D42B910F0900F4312B /* AcceptPhotoVIewController.swift */; };
 		D853CC262B7567AF00DA58D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D853CC252B7567AF00DA58D5 /* AppDelegate.swift */; };
 		D853CC282B7567AF00DA58D5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D853CC272B7567AF00DA58D5 /* SceneDelegate.swift */; };
 		D853CC2F2B7567B100DA58D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D853CC2E2B7567B100DA58D5 /* Assets.xcassets */; };
@@ -70,6 +77,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CECC80C42B910E2700F4312B /* SearchFieldText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFieldText.swift; sourceTree = "<group>"; };
+		CECC80C62B910E3000F4312B /* SearchButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchButton.swift; sourceTree = "<group>"; };
+		CECC80CB2B910ED400F4312B /* SelectCityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCityTableViewCell.swift; sourceTree = "<group>"; };
+		CECC80CD2B910ED400F4312B /* SelectCityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCityViewController.swift; sourceTree = "<group>"; };
+		CECC80CE2B910ED400F4312B /* CityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityViewController.swift; sourceTree = "<group>"; };
+		CECC80D32B910F0800F4312B /* SelectPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPhotoViewController.swift; sourceTree = "<group>"; };
+		CECC80D42B910F0900F4312B /* AcceptPhotoVIewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptPhotoVIewController.swift; sourceTree = "<group>"; };
 		D853CC222B7567AF00DA58D5 /* Найди друга.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Найди друга.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D853CC252B7567AF00DA58D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D853CC272B7567AF00DA58D5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +159,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CECC80C82B910E4000F4312B /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				CECC80C92B910E4C00F4312B /* SelectCity */,
+				CECC80D22B910EFD00F4312B /* SelectPhoto */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		CECC80C92B910E4C00F4312B /* SelectCity */ = {
+			isa = PBXGroup;
+			children = (
+				CECC80CC2B910ED400F4312B /* View */,
+				CECC80CA2B910ED400F4312B /* Cell */,
+			);
+			path = SelectCity;
+			sourceTree = "<group>";
+		};
+		CECC80CA2B910ED400F4312B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CECC80CB2B910ED400F4312B /* SelectCityTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		CECC80CC2B910ED400F4312B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CECC80CE2B910ED400F4312B /* CityViewController.swift */,
+				CECC80CD2B910ED400F4312B /* SelectCityViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CECC80D22B910EFD00F4312B /* SelectPhoto */ = {
+			isa = PBXGroup;
+			children = (
+				CECC80D32B910F0800F4312B /* SelectPhotoViewController.swift */,
+				CECC80D42B910F0900F4312B /* AcceptPhotoVIewController.swift */,
+			);
+			path = SelectPhoto;
+			sourceTree = "<group>";
+		};
 		D853CC192B7567AF00DA58D5 = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +234,7 @@
 		D853CC392B756BB500DA58D5 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				CECC80C82B910E4000F4312B /* Profile */,
 				F30170772B8CF2CE00A6921A /* Alert */,
 				F3BC5D3A2B8514DD00562C08 /* Registration */,
 				F301707F2B8CF55E00A6921A /* SplashScreen */,
@@ -224,6 +283,8 @@
 				DD3A2EA72B7E9836006A3B8E /* CaptionButton.swift */,
 				DDCAC7CB2B851EF500EC7D15 /* RegistrationTextField.swift */,
 				F30170882B8D290700A6921A /* UIBlockingProgressHUD.swift */,
+				CECC80C42B910E2700F4312B /* SearchFieldText.swift */,
+				CECC80C62B910E3000F4312B /* SearchButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -515,8 +576,10 @@
 			files = (
 				F301706D2B8CE07000A6921A /* TmpScreenViewController.swift in Sources */,
 				F36F40832B861ADE00B2082B /* CheckEmailView.swift in Sources */,
+				CECC80C52B910E2700F4312B /* SearchFieldText.swift in Sources */,
 				F30170872B8D1F3100A6921A /* TabBarControllerStub.swift in Sources */,
 				DDCAC7D42B852B8600EC7D15 /* RegistrationView.swift in Sources */,
+				CECC80D62B910F0900F4312B /* AcceptPhotoVIewController.swift in Sources */,
 				F30170762B8CF22F00A6921A /* Credentials.swift in Sources */,
 				F30DA5A22B8E7B2100E6571B /* ResetPasswordViewModel.swift in Sources */,
 				DDCAC7D62B8531EC00EC7D15 /* RegistrationViewModel.swift in Sources */,
@@ -553,12 +616,17 @@
 				F36F408C2B86434C00B2082B /* NewPasswordSuccessView.swift in Sources */,
 				F33B4C8C2B8FBA0C002D27B5 /* ResetPasswordDto.swift in Sources */,
 				F30170792B8CF2D600A6921A /* AlertPresenter.swift in Sources */,
+				CECC80D52B910F0900F4312B /* SelectPhotoViewController.swift in Sources */,
+				CECC80D02B910ED400F4312B /* SelectCityViewController.swift in Sources */,
 				F30170732B8CED2C00A6921A /* LoginViewModel.swift in Sources */,
 				D86387D22B8A754100692535 /* RegistrationService.swift in Sources */,
 				D853CC282B7567AF00DA58D5 /* SceneDelegate.swift in Sources */,
+				CECC80CF2B910ED400F4312B /* SelectCityTableViewCell.swift in Sources */,
 				F36F407E2B86129300B2082B /* ResetPasswordViewController.swift in Sources */,
+				CECC80C72B910E3000F4312B /* SearchButton.swift in Sources */,
 				F36F408E2B86435500B2082B /* NewPasswordSuccessViewController.swift in Sources */,
 				F36F40912B864B1E00B2082B /* NewPasswordView.swift in Sources */,
+				CECC80D12B910ED400F4312B /* CityViewController.swift in Sources */,
 				F3BC5D402B853D1C00562C08 /* LoginViewController.swift in Sources */,
 				F30DA5A62B8E86D200E6571B /* NewPasswordModel.swift in Sources */,
 				F30170812B8CF57800A6921A /* SplashViewController.swift in Sources */,
