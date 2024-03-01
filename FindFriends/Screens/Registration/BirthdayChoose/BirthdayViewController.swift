@@ -14,11 +14,6 @@ final class BirthdayViewController: UIViewController {
         view = birthdayView
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        birthdayView.underLineTextField()
-    }
-    
     init(birthdayView: BirthdayView) {
         self.birthdayView = birthdayView
         super.init(nibName: nil, bundle: nil)

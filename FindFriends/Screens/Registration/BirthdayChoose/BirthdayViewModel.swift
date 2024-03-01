@@ -24,8 +24,11 @@ final class BirthdayViewModel {
             return false
         }
         
-        guard CharacterSet(charactersIn: "0123456789.").isSuperset(of: CharacterSet(charactersIn: replacementString)) else {
-            return false
+        switch TextValidator.validate(newString, with: .date) {
+            case.failure(_):
+                return false
+            case .success():
+                break
         }
         
         let newLength = text.count + replacementString.count - range.length
@@ -46,9 +49,10 @@ final class BirthdayViewModel {
     }
     
     private func switchErrorLabel(_ string: String) {
+        if string.count > 10 { return }
         guard let delegate = delegate else { return }
         if string == "" {
-            delegate.changeButtonAndErrorLabel(dateIsCorrect: true)
+            delegate.changeButtonAndErrorLabel(dateIsCorrect: false)
             return
         }
         let components = string.split(separator: ".")

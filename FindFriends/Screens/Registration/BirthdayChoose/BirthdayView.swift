@@ -24,29 +24,10 @@ final class BirthdayView: UIView {
         
         return label
     }()
-    private lazy var datePickTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "ДД.ММ.ГГГГ"
-        textField.font = .Regular.medium
-        textField.textColor = .primeDark
-        textField.keyboardType = .numberPad
-        textField.borderStyle = UITextField.BorderStyle.none
-        textField.delegate = self
-        textField.backgroundColor = .clear
-        textField.clearButtonMode = .whileEditing
-        
-        return textField
-    }()
-    private lazy var errorLabel: UILabel = {
-        let label = UILabel()
-        label.text = "недопустимое значение"
-        label.font = UIFont.Regular.small11
-        label.textAlignment = .left
-        label.textColor = .warning
-        label.isHidden = true
-        
-        return label
-    }()
+    private let datePickTextField = RegistrationTextField(
+        placeholder: "ДД.ММ.ГГГГ",
+        type: .date
+    )
     
     private let nextButton = PrimeOrangeButton(text: "Продолжить")
     
@@ -60,16 +41,16 @@ final class BirthdayView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    func underLineTextField() {
-        datePickTextField.underlined(color: UIColor.textFieldBorder)
-    }
 }
 
 private extension BirthdayView {
     func setupViews() {
         addTapGestureToHideKeyboard()
         backgroundColor = .white
+        
+        datePickTextField.keyboardType = .numberPad
+        datePickTextField.delegate = self
+        datePickTextField.clearButtonMode = .whileEditing
         
         nextButton.isEnabled = false
         nextButton.addTarget(self, action: #selector(nexButtonTap), for: .touchUpInside)
@@ -78,7 +59,6 @@ private extension BirthdayView {
     func setupLayout() {
         addSubviewWithoutAutoresizingMask(headerLabel)
         addSubviewWithoutAutoresizingMask(datePickTextField)
-        addSubviewWithoutAutoresizingMask(errorLabel)
         addSubviewWithoutAutoresizingMask(nextButton)
         
         NSLayoutConstraint.activate([
@@ -89,12 +69,6 @@ private extension BirthdayView {
             datePickTextField.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 52),
             datePickTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             datePickTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            datePickTextField.heightAnchor.constraint(equalToConstant: 44),
-            
-            errorLabel.topAnchor.constraint(equalTo: datePickTextField.bottomAnchor),
-            errorLabel.leadingAnchor.constraint(equalTo: datePickTextField.leadingAnchor),
-            errorLabel.trailingAnchor.constraint(equalTo: datePickTextField.trailingAnchor),
-            errorLabel.heightAnchor.constraint(equalToConstant: 13),
             
             nextButton.leadingAnchor.constraint(equalTo: datePickTextField.leadingAnchor),
             nextButton.trailingAnchor.constraint(equalTo: datePickTextField.trailingAnchor),
@@ -126,9 +100,13 @@ extension BirthdayView: BirthdayViewDelegate {
     }
     
     func changeButtonAndErrorLabel(dateIsCorrect: Bool) {
-        errorLabel.isHidden = dateIsCorrect
-        nextButton.isEnabled = dateIsCorrect
+        if dateIsCorrect {
+            datePickTextField.hideWarningLabel()
+        } else {
+            datePickTextField.showWarningForDate("недопустимое значение")
+        }
         
+        nextButton.isEnabled = dateIsCorrect
         if dateIsCorrect {
             nextButton.backgroundColor = .mainOrange
             return

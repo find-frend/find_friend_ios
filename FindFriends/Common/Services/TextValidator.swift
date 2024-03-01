@@ -21,6 +21,8 @@ struct TextValidator {
             validatePassword(text)
         case .confirmPassword:
             validateConfirmPassword(text)
+        case .date:
+            validateDate(text)
         }
     }
     private init() {}
@@ -90,6 +92,13 @@ struct TextValidator {
     private static func validateConfirmPassword(_ password: String) -> Result<Void, ValidateMessages> {
         if password.isEmpty {
             return .failure(.emptyField)
+        }
+        return .success(Void())
+    }
+    
+    private static func validateDate(_ Date: String) -> Result<Void, ValidateMessages> {
+        guard CharacterSet(charactersIn: "0123456789.").isSuperset(of: CharacterSet(charactersIn: Date)) else {
+            return .failure(.incorrectSymbols)
         }
         return .success(Void())
     }
