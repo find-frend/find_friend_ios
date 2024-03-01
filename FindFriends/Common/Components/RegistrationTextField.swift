@@ -13,6 +13,7 @@ enum TextFieldType {
     case email
     case password
     case confirmPassword
+    case date
 }
 
 final class RegistrationTextField: UITextField {
@@ -68,6 +69,12 @@ final class RegistrationTextField: UITextField {
         separator.backgroundColor = .borderGray
         textColor = .primeDark
         attributedPlaceholder = attributedText(attributedPlaceholder?.string ?? "", with: .placeholder)
+    }
+    
+    func showWarningForDate(_ text: String) {
+        warningLabel.text = text
+        warningLabel.isHidden = false
+        separator.backgroundColor = .warning
     }
 
     private func setupViews(placeholder text: String, type: TextFieldType) {
