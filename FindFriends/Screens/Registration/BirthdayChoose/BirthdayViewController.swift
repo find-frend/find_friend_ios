@@ -14,6 +14,11 @@ final class BirthdayViewController: UIViewController {
         view = birthdayView
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        hideKeyboardWhenTappedAround()
+    }
+    
     init(birthdayView: BirthdayView) {
         self.birthdayView = birthdayView
         super.init(nibName: nil, bundle: nil)

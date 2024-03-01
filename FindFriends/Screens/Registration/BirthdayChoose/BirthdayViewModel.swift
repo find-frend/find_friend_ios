@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import Combine
 
 final class BirthdayViewModel {
-    var delegate: BirthdayViewDelegate?
+    @Published var textFieldText: String = ""
+    @Published var buttonAndError: Bool = true
     
     func shouldChangeCharactersIn(text: String?, range: NSRange, replacementString: String) -> Bool {
         guard let text = text else { return false }
@@ -35,10 +37,7 @@ final class BirthdayViewModel {
         
         if (newLength == 2 || newLength == 5) && replacementString != "." && count < 2 {
             if range.length == 0 {
-                
-                guard let delegate = delegate else { return false }
-                delegate.changeTextFieldText(text: text + replacementString + ".")
-                
+                textFieldText = text + replacementString + "."
                 return false
             }
         }
@@ -50,14 +49,13 @@ final class BirthdayViewModel {
     
     private func switchErrorLabel(_ string: String) {
         if string.count > 10 { return }
-        guard let delegate = delegate else { return }
         if string == "" {
-            delegate.changeButtonAndErrorLabel(dateIsCorrect: false)
+            buttonAndError = false
             return
         }
         let components = string.split(separator: ".")
         if components.count < 3 {
-            delegate.changeButtonAndErrorLabel(dateIsCorrect: false)
+            buttonAndError = false
             return
         }
         
@@ -66,24 +64,24 @@ final class BirthdayViewModel {
         let y = components[2]
         
         if d.count < 2 || m.count < 2 || y.count < 4 {
-            delegate.changeButtonAndErrorLabel(dateIsCorrect: false)
+            buttonAndError = false
             return
         }
         
         guard let d = Int(d),
               let m = Int(m),
               let y = Int(y) else {
-            delegate.changeButtonAndErrorLabel(dateIsCorrect: false)
+            buttonAndError = false
             return
         }
         
         let currnetY = Int(Calendar.current.component(.year, from: Date()))
         
         if d > 31 || m > 12 || y > currnetY || y < 1900 {
-            delegate.changeButtonAndErrorLabel(dateIsCorrect: false)
+            buttonAndError = false
             return
         }
         
-        delegate.changeButtonAndErrorLabel(dateIsCorrect: true)
+        buttonAndError = true
     }
 }

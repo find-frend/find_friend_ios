@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 protocol BirthdayViewDelegate {
     func changeTextFieldText(text: String)
@@ -30,12 +31,13 @@ final class BirthdayView: UIView {
     )
     
     private let nextButton = PrimeOrangeButton(text: "Продолжить")
+    private var cancellables: Set<AnyCancellable> = []
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
         setupLayout()
-        viewModel.delegate = self
+        bind()
     }
     
     required init?(coder: NSCoder) {
@@ -45,7 +47,6 @@ final class BirthdayView: UIView {
 
 private extension BirthdayView {
     func setupViews() {
-        addTapGestureToHideKeyboard()
         backgroundColor = .white
         
         datePickTextField.keyboardType = .numberPad
@@ -78,14 +79,28 @@ private extension BirthdayView {
         
     }
     
-    func addTapGestureToHideKeyboard() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.endEditing))
-        self.addGestureRecognizer(tapGesture)
-    }
-    
-    @objc
-    func tapGesture() {
-        self.resignFirstResponder()
+    func bind() {
+        viewModel.$buttonAndError
+            .sink { [weak self] dateIsCorrect in
+                if dateIsCorrect {
+                    self?.datePickTextField.hideWarningLabel()
+                } else {
+                    self?.datePickTextField.showWarningForDate("недопустимое значение")
+                }
+                
+                self?.nextButton.isEnabled = dateIsCorrect
+                if dateIsCorrect {
+                    self?.nextButton.backgroundColor = .mainOrange
+                } else {
+                    self?.nextButton.backgroundColor = .lightOrange
+                }
+            }
+            .store(in: &cancellables)
+        viewModel.$textFieldText
+            .sink { [weak self] text in
+                self?.datePickTextField.text = text
+            }
+            .store(in: &cancellables)
     }
     
     @objc

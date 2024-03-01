@@ -10,7 +10,6 @@
 		D5E980BA2B8F0D5D00A17E0A /* BirthdayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E980B92B8F0D5D00A17E0A /* BirthdayView.swift */; };
 		D5E980BC2B8F0D6700A17E0A /* BirthdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E980BB2B8F0D6700A17E0A /* BirthdayViewController.swift */; };
 		D5E980BE2B8F0D7800A17E0A /* BirthdayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E980BD2B8F0D7800A17E0A /* BirthdayViewModel.swift */; };
-		D5E980C02B8F1E2F00A17E0A /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E980BF2B8F1E2F00A17E0A /* UITextField+Extension.swift */; };
 		D853CC262B7567AF00DA58D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D853CC252B7567AF00DA58D5 /* AppDelegate.swift */; };
 		D853CC282B7567AF00DA58D5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D853CC272B7567AF00DA58D5 /* SceneDelegate.swift */; };
 		D853CC2F2B7567B100DA58D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D853CC2E2B7567B100DA58D5 /* Assets.xcassets */; };
@@ -70,7 +69,6 @@
 		D5E980B92B8F0D5D00A17E0A /* BirthdayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayView.swift; sourceTree = "<group>"; };
 		D5E980BB2B8F0D6700A17E0A /* BirthdayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewController.swift; sourceTree = "<group>"; };
 		D5E980BD2B8F0D7800A17E0A /* BirthdayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewModel.swift; sourceTree = "<group>"; };
-		D5E980BF2B8F1E2F00A17E0A /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		D853CC222B7567AF00DA58D5 /* Найди друга.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Найди друга.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D853CC252B7567AF00DA58D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D853CC272B7567AF00DA58D5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -216,7 +214,6 @@
 				DDCAC7C62B84FB7900EC7D15 /* UIFont+CustomFonts.swift */,
 				F36F40792B85562800B2082B /* UIViewController+Extensions.swift */,
 				F36F40862B86287D00B2082B /* UITapGestureRecognizer+Extensions.swift */,
-				D5E980BF2B8F1E2F00A17E0A /* UITextField+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -520,7 +517,6 @@
 				D86387D92B8A7FF500692535 /* LoginUserDto.swift in Sources */,
 				F30170832B8CF6EB00A6921A /* SplashView.swift in Sources */,
 				DD3A2EA82B7E9836006A3B8E /* CaptionButton.swift in Sources */,
-				D5E980C02B8F1E2F00A17E0A /* UITextField+Extension.swift in Sources */,
 				DDCAC7D22B852B7B00EC7D15 /* RegistrationViewController.swift in Sources */,
 				D86387CA2B89F9A600692535 /* FriendDto.swift in Sources */,
 				DD3A2E9F2B7D2F65006A3B8E /* UIView+AutoresizingMask.swift in Sources */,
