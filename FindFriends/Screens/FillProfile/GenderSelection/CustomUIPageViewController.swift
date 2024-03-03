@@ -1,5 +1,5 @@
 //
-//  GenderSelectionViewConteroller.swift
+//  CustomUIPageViewController.swift
 //  FindFriends
 //
 //  Created by Ognerub on 3/3/24.
@@ -8,33 +8,52 @@
 import UIKit
 final class CustomUIPageViewController: UIPageViewController {
 
-    private let firstPageVC = GenderSelectionViewController(
-        label: NSLocalizedString("onboarding.firstPageVC.mainLabel", comment: ""),
-        infoText: NSLocalizedString("onboarding.firstPageVC.mainInfoText", comment: ""),
+    private lazy var firstPageVC = GenderSelectionViewController(
+        label: "Ваш пол",
+        infoText: "Влияет на события, \n которые Вам будут доступны",
         buttonShow: false,
-        image: UIImage(named: "email")!
+        image: UIImage(),
+        viewControllerNumber: 0
     )
 
-    private let secondPageVC = GenderSelectionViewController(
-        label: NSLocalizedString("onboarding.secondPageVC.mainLabel", comment: ""),
-        infoText: NSLocalizedString("onboarding.secondPageVC.mainInfoText", comment: ""),
+    private lazy var secondPageVC = GenderSelectionViewController(
+        label: "Введите дату рождения",
+        infoText: "",
         buttonShow: false,
-        image: UIImage(named: "success")!
+        image: UIImage(),
+        viewControllerNumber: 1
     )
 
-    private let thirdPageVC = GenderSelectionViewController(
-        label: NSLocalizedString("onboarding.thirdPageVC.mainLabel", comment: ""),
-        infoText: NSLocalizedString("onboarding.thirdPageVC.mainInfoText", comment: ""),
+    private lazy var thirdPageVC = GenderSelectionViewController(
+        label: "Интересы",
+        infoText: "Выберите свои увлечения, чтобы найти \n единомышленников",
         buttonShow: true,
-        image: UIImage(named: "back")!
+        image: UIImage(),
+        viewControllerNumber: 2
+    )
+    
+    private lazy var fourthPageVC = GenderSelectionViewController(
+        label: "Выберите город",
+        infoText: "Чтобы видеть события и друзей",
+        buttonShow: true,
+        image: UIImage(),
+        viewControllerNumber: 3
+    )
+    
+    private lazy var fifthPageVC = GenderSelectionViewController(
+        label: "Фото профиля",
+        infoText: "Добавьте фото, чтобы другим было проще Вас узнать",
+        buttonShow: true,
+        image: UIImage(),
+        viewControllerNumber: 4
     )
 
     private lazy var pages: [UIViewController] = {
-        return [firstPageVC, secondPageVC, thirdPageVC]
+        return [firstPageVC, secondPageVC, thirdPageVC, fourthPageVC, fifthPageVC]
     }()
 
     private lazy var customPageControl: CustomUIPageControl = {
-        let control = CustomPageControl(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
+        let control = CustomUIPageControl(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
         control.numberOfPages = pages.count
         control.currentPage = 0
         control.currentPageIndicatorTintColor = .clear
@@ -64,16 +83,25 @@ final class CustomUIPageViewController: UIPageViewController {
         }
         configConstraints()
         customPageControl.delegate = self
-        overrideUserInterfaceStyle = .dark
+        [firstPageVC, secondPageVC, thirdPageVC, fourthPageVC, fifthPageVC].forEach { $0.delegate = self }
+        removeSwipeGesture()
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
+    
+    private func removeSwipeGesture() {
+        for view in self.view.subviews {
+            if let subView = view as? UIScrollView {
+                subView.isScrollEnabled = false
+            }
+        }
+    }
 }
 
 // MARK: - CustomPageControlProtocol
-extension OnboardingViewController: CustomPageControlProtocol {
+extension CustomUIPageViewController: CustomUIPageControlProtocol {
     func send(currentPage: Int) {
         customPageControl.currentPage = currentPage
         let viewController = pages[currentPage]
@@ -81,8 +109,18 @@ extension OnboardingViewController: CustomPageControlProtocol {
     }
 }
 
+// MARK: - GenderSelectionViewControllerProtocol
+extension CustomUIPageViewController: GenderSelectionViewControllerProtocol
+{
+    func send(nextPage: Int) {
+        customPageControl.currentPage = nextPage
+        let viewController = pages[nextPage]
+        setViewControllers([viewController], direction: .forward, animated: true, completion: nil)
+    }
+}
+
 // MARK: - UIPageViewControllerDataSource
-extension OnboardingViewController: UIPageViewControllerDataSource {
+extension CustomUIPageViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController,
                             viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = pages.firstIndex(of: viewController) else {
@@ -111,7 +149,7 @@ extension OnboardingViewController: UIPageViewControllerDataSource {
 }
 
 // MARK: - UIPageViewControllerDelegate
-extension OnboardingViewController: UIPageViewControllerDelegate {
+extension CustomUIPageViewController: UIPageViewControllerDelegate {
     func pageViewController(_ pageViewController: UIPageViewController,
                             didFinishAnimating finished: Bool,
                             previousViewControllers: [UIViewController],
@@ -125,14 +163,14 @@ extension OnboardingViewController: UIPageViewControllerDelegate {
 }
 
 // MARK: - Configure constraints
-private extension OnboardingViewController {
+private extension CustomUIPageViewController {
     func configConstraints() {
         view.addSubview(customPageControl)
         NSLayoutConstraint.activate([
-            customPageControl.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            customPageControl.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            customPageControl.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            customPageControl.heightAnchor.constraint(equalToConstant: 28)
+            customPageControl.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
+            customPageControl.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 45),
+            customPageControl.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -45),
+            customPageControl.heightAnchor.constraint(equalToConstant: 36)
         ])
     }
 }

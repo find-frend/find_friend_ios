@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84531D152B94C38E002289C6 /* CustomUIPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84531D142B94C38E002289C6 /* CustomUIPageViewController.swift */; };
+		84531D182B94C41F002289C6 /* CustomUIPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84531D172B94C41F002289C6 /* CustomUIPageControl.swift */; };
+		84531D1A2B94C450002289C6 /* GenderSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84531D192B94C450002289C6 /* GenderSelectionViewController.swift */; };
+		84531D1C2B94E697002289C6 /* UIButton_Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84531D1B2B94E697002289C6 /* UIButton_Extensions.swift */; };
+		84531D1E2B94F42E002289C6 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84531D1D2B94F42E002289C6 /* UIColor+Extensions.swift */; };
+		84531D202B94F533002289C6 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84531D1F2B94F533002289C6 /* UIImage+Extensions.swift */; };
 		84C757252B94960B00BFF284 /* ProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 84C757242B94960B00BFF284 /* ProgressHUD */; };
 		D5E980BA2B8F0D5D00A17E0A /* BirthdayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E980B92B8F0D5D00A17E0A /* BirthdayView.swift */; };
 		D5E980BC2B8F0D6700A17E0A /* BirthdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E980BB2B8F0D6700A17E0A /* BirthdayViewController.swift */; };
@@ -73,6 +79,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		84531D142B94C38E002289C6 /* CustomUIPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIPageViewController.swift; sourceTree = "<group>"; };
+		84531D172B94C41F002289C6 /* CustomUIPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIPageControl.swift; sourceTree = "<group>"; };
+		84531D192B94C450002289C6 /* GenderSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderSelectionViewController.swift; sourceTree = "<group>"; };
+		84531D1B2B94E697002289C6 /* UIButton_Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton_Extensions.swift; sourceTree = "<group>"; };
+		84531D1D2B94F42E002289C6 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		84531D1F2B94F533002289C6 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		D5E980B92B8F0D5D00A17E0A /* BirthdayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayView.swift; sourceTree = "<group>"; };
 		D5E980BB2B8F0D6700A17E0A /* BirthdayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewController.swift; sourceTree = "<group>"; };
 		D5E980BD2B8F0D7800A17E0A /* BirthdayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewModel.swift; sourceTree = "<group>"; };
@@ -151,6 +163,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84531D132B94C369002289C6 /* FillProfile */ = {
+			isa = PBXGroup;
+			children = (
+				84531D162B94C3F6002289C6 /* GenderSelection */,
+			);
+			path = FillProfile;
+			sourceTree = "<group>";
+		};
+		84531D162B94C3F6002289C6 /* GenderSelection */ = {
+			isa = PBXGroup;
+			children = (
+				84531D192B94C450002289C6 /* GenderSelectionViewController.swift */,
+				84531D142B94C38E002289C6 /* CustomUIPageViewController.swift */,
+				84531D172B94C41F002289C6 /* CustomUIPageControl.swift */,
+			);
+			path = GenderSelection;
+			sourceTree = "<group>";
+		};
 		D5E980B82B8F0D0A00A17E0A /* BirthdayChoose */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +224,7 @@
 			children = (
 				F30170772B8CF2CE00A6921A /* Alert */,
 				F3BC5D3A2B8514DD00562C08 /* Registration */,
+				84531D132B94C369002289C6 /* FillProfile */,
 				F301707F2B8CF55E00A6921A /* SplashScreen */,
 				F301706C2B8CE07000A6921A /* TmpScreenViewController.swift */,
 				F30170862B8D1F3100A6921A /* TabBarControllerStub.swift */,
@@ -224,6 +255,9 @@
 		DD0C09A22B79019700792C29 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				84531D1D2B94F42E002289C6 /* UIColor+Extensions.swift */,
+				84531D1F2B94F533002289C6 /* UIImage+Extensions.swift */,
+				84531D1B2B94E697002289C6 /* UIButton_Extensions.swift */,
 				DD3A2E9E2B7D2F65006A3B8E /* UIView+AutoresizingMask.swift */,
 				DDCAC7C62B84FB7900EC7D15 /* UIFont+CustomFonts.swift */,
 				F36F40792B85562800B2082B /* UIViewController+Extensions.swift */,
@@ -541,6 +575,7 @@
 				D86387C72B87A16400692535 /* NetworkRequest.swift in Sources */,
 				F30170692B8CDF5C00A6921A /* CreateUserRequest.swift in Sources */,
 				F301707E2B8CF32500A6921A /* AlertButton.swift in Sources */,
+				84531D1C2B94E697002289C6 /* UIButton_Extensions.swift in Sources */,
 				F30170852B8D191000A6921A /* GetFriendsRequest.swift in Sources */,
 				D5E980BC2B8F0D6700A17E0A /* BirthdayViewController.swift in Sources */,
 				D86387C42B87A16400692535 /* NetworkTask.swift in Sources */,
@@ -572,9 +607,11 @@
 				F36F40852B861AE400B2082B /* CheckEmailViewController.swift in Sources */,
 				F36F408C2B86434C00B2082B /* NewPasswordSuccessView.swift in Sources */,
 				F33B4C8C2B8FBA0C002D27B5 /* ResetPasswordDto.swift in Sources */,
+				84531D1E2B94F42E002289C6 /* UIColor+Extensions.swift in Sources */,
 				F30170792B8CF2D600A6921A /* AlertPresenter.swift in Sources */,
 				F30170732B8CED2C00A6921A /* LoginViewModel.swift in Sources */,
 				D86387D22B8A754100692535 /* RegistrationService.swift in Sources */,
+				84531D1A2B94C450002289C6 /* GenderSelectionViewController.swift in Sources */,
 				D853CC282B7567AF00DA58D5 /* SceneDelegate.swift in Sources */,
 				F36F407E2B86129300B2082B /* ResetPasswordViewController.swift in Sources */,
 				F36F408E2B86435500B2082B /* NewPasswordSuccessViewController.swift in Sources */,
@@ -584,9 +621,12 @@
 				F30170812B8CF57800A6921A /* SplashViewController.swift in Sources */,
 				F30DA5A42B8E862300E6571B /* NewPasswordViewModel.swift in Sources */,
 				F3BC5D392B8514D700562C08 /* BaseRegistrationView.swift in Sources */,
+				84531D182B94C41F002289C6 /* CustomUIPageControl.swift in Sources */,
+				84531D152B94C38E002289C6 /* CustomUIPageViewController.swift in Sources */,
 				F36F40872B86287D00B2082B /* UITapGestureRecognizer+Extensions.swift in Sources */,
 				F36F40782B85503F00B2082B /* RegistrationNavigationController.swift in Sources */,
 				F33B4C872B8FB8DA002D27B5 /* ResetPasswordRequest.swift in Sources */,
+				84531D202B94F533002289C6 /* UIImage+Extensions.swift in Sources */,
 				F3BC5D3D2B8514F700562C08 /* LoginView.swift in Sources */,
 				DDCAC7C72B84FB7900EC7D15 /* UIFont+CustomFonts.swift in Sources */,
 			);

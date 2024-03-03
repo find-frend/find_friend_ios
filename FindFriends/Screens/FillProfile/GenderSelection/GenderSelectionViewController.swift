@@ -1,14 +1,22 @@
 //
-//  PageViewController.swift
+//  GenderSelectionViewController.swift
 //  FindFriends
 //
 //  Created by Ognerub on 3/3/24.
 //
 
+protocol GenderSelectionViewControllerProtocol: AnyObject {
+    func send(nextPage: Int)
+}
+
 import UIKit
 final class GenderSelectionViewController: UIViewController {
+    
+    weak var delegate: GenderSelectionViewControllerProtocol?
 
     private lazy var image = UIImage()
+    
+    private var viewControllerNumber: Int?
 
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
@@ -18,32 +26,37 @@ final class GenderSelectionViewController: UIViewController {
 
     private var mainLabel: UILabel = {
         let label = UILabel()
-        label.textAlignment = .left
-        label.adjustsFontSizeToFitWidth = true
-        label.font = UIFont.systemFont(ofSize: 32, weight: .bold)
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        label.textColor = UIColor(named: "primeDark")
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.adjustsFontSizeToFitWidth = true
         return label
     }()
 
     private var mainInfoText: UILabel = {
         let label = UILabel()
-        label.textAlignment = .left
-        label.adjustsFontSizeToFitWidth = true
+        label.textAlignment = .center
+        label.textColor = UIColor(named: "primeDark")
         label.numberOfLines = 2
         label.lineBreakMode = .byWordWrapping
-        label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.adjustsFontSizeToFitWidth = true
         return label
     }()
 
-    private var actionButtonShow: Bool = false
+    private var showActionButton: Bool = false
 
-    init(label: String, infoText: String, buttonShow: Bool, image: UIImage) {
+    init(
+        label: String,
+        infoText: String,
+        buttonShow: Bool,
+        image: UIImage,
+        viewControllerNumber: Int?
+    ) {
         self.mainLabel.text = label
         self.mainInfoText.text = infoText
-        self.actionButtonShow = buttonShow
+        self.showActionButton = buttonShow
+        self.viewControllerNumber = viewControllerNumber
 
         super.init(nibName: nil, bundle: nil)
         self.image = image
@@ -55,6 +68,7 @@ final class GenderSelectionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
         view.addSubview(imageView)
         configureConstraints()
     }
@@ -65,10 +79,10 @@ final class GenderSelectionViewController: UIViewController {
             target: self,
             action: #selector(didTapActionButton(sender: ))
         )
-        button.setTitle(NSLocalizedString("onboarding.thirdPageVC.actionButton", comment: ""), for: .normal)
+        button.setTitle("Продолжить", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .bold)
         button.setTitleColor(UIColor.white, for: .normal)
-        button.backgroundColor = UIColor.black
+        button.backgroundColor = UIColor(named: "mainOrange")
         button.layer.cornerRadius = 16
         button.layer.masksToBounds = true
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -83,7 +97,11 @@ final class GenderSelectionViewController: UIViewController {
     // MARK: - Objective-C functions
     @objc
     func didTapActionButton(sender: UIButton) {
-        print("Action button tapped")
+        guard let currentPage = viewControllerNumber else {
+            assertionFailure("Error main label")
+            return
+        }
+        delegate?.send(nextPage: currentPage == 4 ? 0 : currentPage + 1)
     }
 
     private func setNextViewControllerAsRoot() {
@@ -103,47 +121,25 @@ final class GenderSelectionViewController: UIViewController {
         keyWindow.rootViewController = nextViewController
     }
 
-    private func addGradient() {
-        let gradientView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height))
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [
-
-            blackColor(with: 1.0),
-            blackColor(with: 0.0)
-        ]
-        gradientLayer.locations = [0.0, 1.0]
-        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
-        gradientLayer.endPoint = CGPoint(x: 0.0, y: 1.0)
-        gradientLayer.frame = gradientView.bounds
-        gradientView.layer.addSublayer(gradientLayer)
-        view.addSubview(gradientView)
-    }
-
     private func blackColor(with alpha: CGFloat) -> CGColor {
         return UIColor.black.withAlphaComponent(alpha).cgColor
     }
 
-    private func addActionButton() {
-
-        
-    }
-
     private func configureConstraints() {
-
-        addGradient()
 
         view.addSubview(mainLabel)
         NSLayoutConstraint.activate([
-            mainLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 230),
-            mainLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            mainLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
+            mainLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 36),
+            mainLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            mainLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            mainLabel.heightAnchor.constraint(equalToConstant: 41)
         ])
 
         view.addSubview(mainInfoText)
         NSLayoutConstraint.activate([
-            mainInfoText.topAnchor.constraint(equalTo: mainLabel.bottomAnchor, constant: 12),
-            mainInfoText.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            mainInfoText.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
+            mainInfoText.topAnchor.constraint(equalTo: mainLabel.bottomAnchor),
+            mainInfoText.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            mainInfoText.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
         
         view.addSubview(actionButton)
