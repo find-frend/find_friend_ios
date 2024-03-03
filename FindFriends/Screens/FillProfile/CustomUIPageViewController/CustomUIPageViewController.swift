@@ -11,40 +11,30 @@ final class CustomUIPageViewController: UIPageViewController {
     private lazy var firstPageVC = GenderSelectionViewController(
         label: "Ваш пол",
         infoText: "Влияет на события, \n которые Вам будут доступны",
-        buttonShow: false,
-        image: UIImage(),
         viewControllerNumber: 0
     )
 
-    private lazy var secondPageVC = GenderSelectionViewController(
+    private lazy var secondPageVC = NextViewController(
         label: "Введите дату рождения",
         infoText: "",
-        buttonShow: false,
-        image: UIImage(),
         viewControllerNumber: 1
     )
 
-    private lazy var thirdPageVC = GenderSelectionViewController(
+    private lazy var thirdPageVC = NextViewController(
         label: "Интересы",
         infoText: "Выберите свои увлечения, чтобы найти \n единомышленников",
-        buttonShow: true,
-        image: UIImage(),
         viewControllerNumber: 2
     )
     
-    private lazy var fourthPageVC = GenderSelectionViewController(
+    private lazy var fourthPageVC = NextViewController(
         label: "Выберите город",
         infoText: "Чтобы видеть события и друзей",
-        buttonShow: true,
-        image: UIImage(),
         viewControllerNumber: 3
     )
     
-    private lazy var fifthPageVC = GenderSelectionViewController(
+    private lazy var fifthPageVC = NextViewController(
         label: "Фото профиля",
         infoText: "Добавьте фото, чтобы другим было проще Вас узнать",
-        buttonShow: true,
-        image: UIImage(),
         viewControllerNumber: 4
     )
 
@@ -83,7 +73,8 @@ final class CustomUIPageViewController: UIPageViewController {
         }
         configConstraints()
         customPageControl.delegate = self
-        [firstPageVC, secondPageVC, thirdPageVC, fourthPageVC, fifthPageVC].forEach { $0.delegate = self }
+        firstPageVC.delegate = self
+        [secondPageVC, thirdPageVC, fourthPageVC, fifthPageVC].forEach { $0.delegate = self }
         removeSwipeGesture()
     }
 
@@ -102,19 +93,9 @@ final class CustomUIPageViewController: UIPageViewController {
 
 // MARK: - CustomPageControlProtocol
 extension CustomUIPageViewController: CustomUIPageControlProtocol {
-    func send(currentPage: Int) {
-        customPageControl.currentPage = currentPage
-        let viewController = pages[currentPage]
-        setViewControllers([viewController], direction: .forward, animated: true, completion: nil)
-    }
-}
-
-// MARK: - GenderSelectionViewControllerProtocol
-extension CustomUIPageViewController: GenderSelectionViewControllerProtocol
-{
-    func send(nextPage: Int) {
-        customPageControl.currentPage = nextPage
-        let viewController = pages[nextPage]
+    func sendPage(number: Int) {
+        customPageControl.currentPage = number
+        let viewController = pages[number]
         setViewControllers([viewController], direction: .forward, animated: true, completion: nil)
     }
 }

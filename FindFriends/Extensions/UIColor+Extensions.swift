@@ -10,9 +10,11 @@ import UIKit
 extension UIColor {
     static let mainOrange = UIColor(named: "mainOrange") ?? UIColor()
     static let lightOrange = UIColor(named: "lightOrange") ?? UIColor()
-    static let primeDark = UIColor(named: "promeDark") ?? UIColor()
+    static let primeDark = UIColor(named: "primeDark") ?? UIColor()
     static let warning = UIColor(named: "warning") ?? UIColor()
     static let borderGray = UIColor(named: "borderGray") ?? UIColor()
     static let placeholder = UIColor(named: "placeholder") ?? UIColor()
     static let backgroundLaunchScreen = UIColor(named: "backgroundLaunchScreen") ?? UIColor()
+    static let textGray = UIColor(named: "textGray") ?? UIColor()
+    static let buttonGray = UIColor(named: "buttonGray") ?? UIColor()
 }

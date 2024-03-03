@@ -5,24 +5,12 @@
 //  Created by Ognerub on 3/3/24.
 //
 
-protocol GenderSelectionViewControllerProtocol: AnyObject {
-    func send(nextPage: Int)
-}
-
 import UIKit
 final class GenderSelectionViewController: UIViewController {
     
-    weak var delegate: GenderSelectionViewControllerProtocol?
-
-    private lazy var image = UIImage()
+    weak var delegate: CustomUIPageControlProtocol?
     
     private var viewControllerNumber: Int?
-
-    private lazy var imageView: UIImageView = {
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
-        imageView.image = image
-        return imageView
-    }()
 
     private var mainLabel: UILabel = {
         let label = UILabel()
@@ -43,36 +31,66 @@ final class GenderSelectionViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-
-    private var showActionButton: Bool = false
-
-    init(
-        label: String,
-        infoText: String,
-        buttonShow: Bool,
-        image: UIImage,
-        viewControllerNumber: Int?
-    ) {
-        self.mainLabel.text = label
-        self.mainInfoText.text = infoText
-        self.showActionButton = buttonShow
-        self.viewControllerNumber = viewControllerNumber
-
-        super.init(nibName: nil, bundle: nil)
-        self.image = image
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
-        view.addSubview(imageView)
-        configureConstraints()
-    }
-
+    
+    private lazy var stackView: UIStackView = {
+        let stack = UIStackView()
+        stack.spacing = 52
+        stack.axis = .horizontal
+        stack.distribution = .fillEqually
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
+    }()
+    
+    private lazy var genderManImageView: UIImageView = {
+        let image: UIImage = .genderMan
+        let imageView = UIImageView(image: image)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    private lazy var genderManButton: UIButton = {
+        let button = UIButton()
+        button.addTarget(self, action: #selector(genderManTapped), for: .touchUpInside)
+        var configuration = UIButton.Configuration.filled()
+        configuration.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 17, trailing: 0)
+        configuration.baseBackgroundColor = .white
+        button.configuration = configuration
+        button.setTitle("Мужской", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        button.setTitleColor(.textGray, for: .normal)
+        button.contentVerticalAlignment = .bottom
+        button.layer.cornerRadius = 20
+        button.layer.masksToBounds = true
+        button.isIncreasedHitAreaEnabled = false
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    private lazy var genderWomanImageView: UIImageView = {
+        let image: UIImage = .genderWoman
+        let imageView = UIImageView(image: image)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    private lazy var genderWomanButton: UIButton = {
+        let button = UIButton()
+        button.addTarget(self, action: #selector(genderWomanTapped), for: .touchUpInside)
+        var configuration = UIButton.Configuration.filled()
+        configuration.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 17, trailing: 0)
+        configuration.baseBackgroundColor = .white
+        button.configuration = configuration
+        button.setTitle("Женский", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        button.setTitleColor(.textGray, for: .normal)
+        button.contentVerticalAlignment = .bottom
+        button.layer.cornerRadius = 20
+        button.layer.masksToBounds = true
+        button.isIncreasedHitAreaEnabled = false
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
     private lazy var actionButton: UIButton = {
         let button = UIButton.systemButton(
             with: UIImage(),
@@ -89,9 +107,25 @@ final class GenderSelectionViewController: UIViewController {
         return button
     }()
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.actionButton.accessibilityIdentifier = "ActionButton"
+    init(
+        label: String,
+        infoText: String,
+        viewControllerNumber: Int?
+    ) {
+        self.mainLabel.text = label
+        self.mainInfoText.text = infoText
+        self.viewControllerNumber = viewControllerNumber
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+        configureConstraints()
     }
 
     // MARK: - Objective-C functions
@@ -101,28 +135,25 @@ final class GenderSelectionViewController: UIViewController {
             assertionFailure("Error main label")
             return
         }
-        delegate?.send(nextPage: currentPage == 4 ? 0 : currentPage + 1)
+        delegate?.sendPage(number: currentPage == 4 ? 0 : currentPage + 1)
     }
-
-    private func setNextViewControllerAsRoot() {
-        var keyWindow: UIWindow?
-        let allScenes = UIApplication.shared.connectedScenes
-          for scene in allScenes {
-            guard let windowScene = scene as? UIWindowScene else { continue }
-            for window in windowScene.windows where window.isKeyWindow {
-                keyWindow = window
-             }
-           }
-        guard let keyWindow = keyWindow else {
-            assertionFailure("Error to find keyWindow")
-            return
-        }
-        let nextViewController = RegistrationViewController(registrationView: RegistrationView())
-        keyWindow.rootViewController = nextViewController
+    
+    @objc
+    private func genderManTapped() {
+        genderManButton.configuration?.baseBackgroundColor = .buttonGray
+        genderManButton.setTitleColor(.primeDark, for: .normal)
+        genderWomanButton.configuration?.baseBackgroundColor = .white
+        genderWomanButton.setTitleColor(.textGray, for: .normal)
+        
+        
     }
-
-    private func blackColor(with alpha: CGFloat) -> CGColor {
-        return UIColor.black.withAlphaComponent(alpha).cgColor
+    
+    @objc
+    private func genderWomanTapped() {
+        genderManButton.configuration?.baseBackgroundColor = .white
+        genderManButton.setTitleColor(.textGray, for: .normal)
+        genderWomanButton.configuration?.baseBackgroundColor = .buttonGray
+        genderWomanButton.setTitleColor(.primeDark, for: .normal)
     }
 
     private func configureConstraints() {
@@ -148,6 +179,27 @@ final class GenderSelectionViewController: UIViewController {
             actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             actionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -84),
             actionButton.heightAnchor.constraint(equalToConstant: 60)
+        ])
+
+        view.addSubview(stackView)
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: mainInfoText.bottomAnchor, constant: 74),
+            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            stackView.heightAnchor.constraint(equalToConstant: 122)
+        ])
+        stackView.addArrangedSubview(genderWomanButton)
+        genderWomanButton.addSubview(genderWomanImageView)
+        NSLayoutConstraint.activate([
+            genderWomanButton.widthAnchor.constraint(equalToConstant: 97),
+            genderWomanImageView.centerXAnchor.constraint(equalTo: genderWomanButton.centerXAnchor),
+            genderWomanImageView.topAnchor.constraint(equalTo: genderWomanButton.topAnchor, constant: 5)
+        ])
+        stackView.addArrangedSubview(genderManButton)
+        genderManButton.addSubview(genderManImageView)
+        NSLayoutConstraint.activate([
+            genderManButton.widthAnchor.constraint(equalToConstant: 97),
+            genderManImageView.centerXAnchor.constraint(equalTo: genderManButton.centerXAnchor),
+            genderManImageView.topAnchor.constraint(equalTo: genderManButton.topAnchor, constant: 5)
         ])
     }
 }

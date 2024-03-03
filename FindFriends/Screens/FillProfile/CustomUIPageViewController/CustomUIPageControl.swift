@@ -8,7 +8,7 @@
 import UIKit
 
 protocol CustomUIPageControlProtocol: AnyObject {
-    func send(currentPage: Int)
+    func sendPage(number: Int)
 }
 
 final class CustomUIPageControl: UIPageControl {
@@ -103,7 +103,7 @@ final class CustomUIPageControl: UIPageControl {
     private func buttonTapped(_ sender: UIButton) {
         if let index = buttons.firstIndex(of: sender) {
             currentPage = index
-            delegate?.send(currentPage: currentPage)
+            delegate?.sendPage(number: currentPage)
             sendActions(for: .valueChanged)
         }
     }
