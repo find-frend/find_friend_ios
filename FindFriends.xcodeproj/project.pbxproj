@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84C757252B94960B00BFF284 /* ProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 84C757242B94960B00BFF284 /* ProgressHUD */; };
 		D5E980BA2B8F0D5D00A17E0A /* BirthdayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E980B92B8F0D5D00A17E0A /* BirthdayView.swift */; };
 		D5E980BC2B8F0D6700A17E0A /* BirthdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E980BB2B8F0D6700A17E0A /* BirthdayViewController.swift */; };
 		D5E980BE2B8F0D7800A17E0A /* BirthdayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E980BD2B8F0D7800A17E0A /* BirthdayViewModel.swift */; };
@@ -48,7 +49,6 @@
 		F30170852B8D191000A6921A /* GetFriendsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30170842B8D191000A6921A /* GetFriendsRequest.swift */; };
 		F30170872B8D1F3100A6921A /* TabBarControllerStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30170862B8D1F3100A6921A /* TabBarControllerStub.swift */; };
 		F30170892B8D290700A6921A /* UIBlockingProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30170882B8D290700A6921A /* UIBlockingProgressHUD.swift */; };
-		F301708C2B8D292100A6921A /* ProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = F301708B2B8D292100A6921A /* ProgressHUD */; };
 		F30DA5A22B8E7B2100E6571B /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30DA5A12B8E7B2100E6571B /* ResetPasswordViewModel.swift */; };
 		F30DA5A42B8E862300E6571B /* NewPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30DA5A32B8E862300E6571B /* NewPasswordViewModel.swift */; };
 		F30DA5A62B8E86D200E6571B /* NewPasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30DA5A52B8E86D200E6571B /* NewPasswordModel.swift */; };
@@ -144,7 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D86387D72B8A7ECA00692535 /* SwiftKeychainWrapper in Frameworks */,
-				F301708C2B8D292100A6921A /* ProgressHUD in Frameworks */,
+				84C757252B94960B00BFF284 /* ProgressHUD in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,7 +470,7 @@
 			name = FindFriends;
 			packageProductDependencies = (
 				D86387D62B8A7ECA00692535 /* SwiftKeychainWrapper */,
-				F301708B2B8D292100A6921A /* ProgressHUD */,
+				84C757242B94960B00BFF284 /* ProgressHUD */,
 			);
 			productName = FindFriends;
 			productReference = D853CC222B7567AF00DA58D5 /* Найди друга.app */;
@@ -502,7 +502,7 @@
 			mainGroup = D853CC192B7567AF00DA58D5;
 			packageReferences = (
 				D86387D52B8A7ECA00692535 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
-				F301708A2B8D292100A6921A /* XCRemoteSwiftPackageReference "ProgressHUD" */,
+				84C757232B94960B00BFF284 /* XCRemoteSwiftPackageReference "ProgressHUD" */,
 			);
 			productRefGroup = D853CC232B7567AF00DA58D5 /* Products */;
 			projectDirPath = "";
@@ -815,6 +815,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		84C757232B94960B00BFF284 /* XCRemoteSwiftPackageReference "ProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/relatedcode/ProgressHUD.git";
+			requirement = {
+				kind = exactVersion;
+				version = 13.8.6;
+			};
+		};
 		D86387D52B8A7ECA00692535 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jrendel/SwiftKeychainWrapper.git";
@@ -823,26 +831,18 @@
 				minimumVersion = 4.0.1;
 			};
 		};
-		F301708A2B8D292100A6921A /* XCRemoteSwiftPackageReference "ProgressHUD" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/relatedcode/ProgressHUD";
-			requirement = {
-				kind = exactVersion;
-				version = 14.1.1;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		84C757242B94960B00BFF284 /* ProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 84C757232B94960B00BFF284 /* XCRemoteSwiftPackageReference "ProgressHUD" */;
+			productName = ProgressHUD;
+		};
 		D86387D62B8A7ECA00692535 /* SwiftKeychainWrapper */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D86387D52B8A7ECA00692535 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */;
 			productName = SwiftKeychainWrapper;
-		};
-		F301708B2B8D292100A6921A /* ProgressHUD */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F301708A2B8D292100A6921A /* XCRemoteSwiftPackageReference "ProgressHUD" */;
-			productName = ProgressHUD;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
