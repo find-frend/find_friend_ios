@@ -732,7 +732,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6343C72SQK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FindFriends/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Найди друга";
@@ -746,7 +746,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ru.yandex.practicum.workshop.FindFriends;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.yandex.practicum.workshop.FindFriends.beta;
 				PRODUCT_NAME = "Найди друга";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -765,7 +765,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6343C72SQK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FindFriends/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Найди друга";
@@ -779,7 +779,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ru.yandex.practicum.workshop.FindFriends;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.yandex.practicum.workshop.FindFriends.beta;
 				PRODUCT_NAME = "Найди друга";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
