@@ -24,12 +24,18 @@ class TmpScreenViewController: UIViewController {
     let createUserButton = UIButton()
     let loginUserButton = UIButton()
 
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .yellow
         
-
+        
+        view.backgroundColor = .backgroundLaunchScreen
+     
+        
+        
+        
         tmpLabel.text = oAuthTokenStorage.token
         tmpLabel.font = .Regular.large
         tmpLabel.numberOfLines = 3
@@ -75,6 +81,7 @@ class TmpScreenViewController: UIViewController {
         loginUserButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         loginUserButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
         loginUserButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
         
     }
     

@@ -14,6 +14,12 @@
 		D853CC282B7567AF00DA58D5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D853CC272B7567AF00DA58D5 /* SceneDelegate.swift */; };
 		D853CC2F2B7567B100DA58D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D853CC2E2B7567B100DA58D5 /* Assets.xcassets */; };
 		D853CC322B7567B100DA58D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D853CC302B7567B100DA58D5 /* LaunchScreen.storyboard */; };
+		D854012A2B91F6940088C1E9 /* SelectInterestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85401292B91F6940088C1E9 /* SelectInterestsViewController.swift */; };
+		D854012C2B9312080088C1E9 /* TagsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D854012B2B9312080088C1E9 /* TagsCollectionViewCell.swift */; };
+		D854012E2B93125A0088C1E9 /* CellReusingUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D854012D2B93125A0088C1E9 /* CellReusingUtils.swift */; };
+		D85401302B95C7D80088C1E9 /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D854012F2B95C7D80088C1E9 /* NavigationBarView.swift */; };
+		D85401322B95D5720088C1E9 /* BaseFillProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85401312B95D5720088C1E9 /* BaseFillProfileView.swift */; };
+		D85401342B95DA890088C1E9 /* SelectInterestsBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85401332B95DA890088C1E9 /* SelectInterestsBaseView.swift */; };
 		D86387C32B87A16400692535 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86387BE2B87A16400692535 /* NetworkClient.swift */; };
 		D86387C42B87A16400692535 /* NetworkTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86387BF2B87A16400692535 /* NetworkTask.swift */; };
 		D86387C72B87A16400692535 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86387C22B87A16400692535 /* NetworkRequest.swift */; };
@@ -82,6 +88,12 @@
 		D853CC2E2B7567B100DA58D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D853CC312B7567B100DA58D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D853CC332B7567B100DA58D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D85401292B91F6940088C1E9 /* SelectInterestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectInterestsViewController.swift; sourceTree = "<group>"; };
+		D854012B2B9312080088C1E9 /* TagsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsCollectionViewCell.swift; sourceTree = "<group>"; };
+		D854012D2B93125A0088C1E9 /* CellReusingUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellReusingUtils.swift; sourceTree = "<group>"; };
+		D854012F2B95C7D80088C1E9 /* NavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
+		D85401312B95D5720088C1E9 /* BaseFillProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFillProfileView.swift; sourceTree = "<group>"; };
+		D85401332B95DA890088C1E9 /* SelectInterestsBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectInterestsBaseView.swift; sourceTree = "<group>"; };
 		D86387BE2B87A16400692535 /* NetworkClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		D86387BF2B87A16400692535 /* NetworkTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTask.swift; sourceTree = "<group>"; };
 		D86387C22B87A16400692535 /* NetworkRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
@@ -192,6 +204,7 @@
 		D853CC392B756BB500DA58D5 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				D85401272B91F3CF0088C1E9 /* FillProfile */,
 				F30170772B8CF2CE00A6921A /* Alert */,
 				F3BC5D3A2B8514DD00562C08 /* Registration */,
 				F301707F2B8CF55E00A6921A /* SplashScreen */,
@@ -199,6 +212,27 @@
 				F30170862B8D1F3100A6921A /* TabBarControllerStub.swift */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		D85401272B91F3CF0088C1E9 /* FillProfile */ = {
+			isa = PBXGroup;
+			children = (
+				D85401282B91F3EE0088C1E9 /* SelectInterests */,
+				D85401312B95D5720088C1E9 /* BaseFillProfileView.swift */,
+			);
+			path = FillProfile;
+			sourceTree = "<group>";
+		};
+		D85401282B91F3EE0088C1E9 /* SelectInterests */ = {
+			isa = PBXGroup;
+			children = (
+				D85401292B91F6940088C1E9 /* SelectInterestsViewController.swift */,
+				D854012B2B9312080088C1E9 /* TagsCollectionViewCell.swift */,
+				D854012D2B93125A0088C1E9 /* CellReusingUtils.swift */,
+				D854012F2B95C7D80088C1E9 /* NavigationBarView.swift */,
+				D85401332B95DA890088C1E9 /* SelectInterestsBaseView.swift */,
+			);
+			path = SelectInterests;
 			sourceTree = "<group>";
 		};
 		D86387BD2B87A16400692535 /* NetworkClient */ = {
@@ -546,6 +580,7 @@
 				D86387C42B87A16400692535 /* NetworkTask.swift in Sources */,
 				D5E980BE2B8F0D7800A17E0A /* BirthdayViewModel.swift in Sources */,
 				DD3A2EA62B7E9447006A3B8E /* PrimeOrangeButton.swift in Sources */,
+				D854012A2B91F6940088C1E9 /* SelectInterestsViewController.swift in Sources */,
 				F30170892B8D290700A6921A /* UIBlockingProgressHUD.swift in Sources */,
 				F301707C2B8CF2FF00A6921A /* AlertModel.swift in Sources */,
 				F36F407A2B85562800B2082B /* UIViewController+Extensions.swift in Sources */,
@@ -553,7 +588,9 @@
 				DDCAC7CF2B851F7700EC7D15 /* TextValidator.swift in Sources */,
 				F36F40802B86129900B2082B /* ResetPasswordView.swift in Sources */,
 				D86387D92B8A7FF500692535 /* LoginUserDto.swift in Sources */,
+				D854012C2B9312080088C1E9 /* TagsCollectionViewCell.swift in Sources */,
 				F30170832B8CF6EB00A6921A /* SplashView.swift in Sources */,
+				D85401302B95C7D80088C1E9 /* NavigationBarView.swift in Sources */,
 				DD3A2EA82B7E9836006A3B8E /* CaptionButton.swift in Sources */,
 				DDCAC7D22B852B7B00EC7D15 /* RegistrationViewController.swift in Sources */,
 				D86387CA2B89F9A600692535 /* FriendDto.swift in Sources */,
@@ -561,6 +598,8 @@
 				D5E980BA2B8F0D5D00A17E0A /* BirthdayView.swift in Sources */,
 				F36F40932B864B2300B2082B /* NewPasswordViewController.swift in Sources */,
 				F33B4C8E2B8FBA19002D27B5 /* NewPasswordDto.swift in Sources */,
+				D85401322B95D5720088C1E9 /* BaseFillProfileView.swift in Sources */,
+				D854012E2B93125A0088C1E9 /* CellReusingUtils.swift in Sources */,
 				DDCAC7CC2B851EF500EC7D15 /* RegistrationTextField.swift in Sources */,
 				D86387CF2B8A74A500692535 /* CreateUserDto.swift in Sources */,
 				D86387C32B87A16400692535 /* NetworkClient.swift in Sources */,
@@ -573,6 +612,7 @@
 				F36F408C2B86434C00B2082B /* NewPasswordSuccessView.swift in Sources */,
 				F33B4C8C2B8FBA0C002D27B5 /* ResetPasswordDto.swift in Sources */,
 				F30170792B8CF2D600A6921A /* AlertPresenter.swift in Sources */,
+				D85401342B95DA890088C1E9 /* SelectInterestsBaseView.swift in Sources */,
 				F30170732B8CED2C00A6921A /* LoginViewModel.swift in Sources */,
 				D86387D22B8A754100692535 /* RegistrationService.swift in Sources */,
 				D853CC282B7567AF00DA58D5 /* SceneDelegate.swift in Sources */,
