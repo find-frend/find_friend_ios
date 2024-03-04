@@ -17,7 +17,7 @@ struct CollectionLayout {
     static let countOfColumsCell: Double = 2
 }
 
-final class  SelectInterestsBaseView: BaseFillProfileView {
+final class  SelectInterestsView: BaseFillProfileView {
     
     private let tags = ["Бары и клубы", "Рыбалка", "Квесты", "Иностранные языки", "Литература", "Йога", "Настольные игры", "Сноуборд", "Мафия", "Фигурное катание", "Живопись", "Путешествия", "Шахматы"]
     
@@ -90,7 +90,7 @@ final class  SelectInterestsBaseView: BaseFillProfileView {
     }
 }
 
-extension SelectInterestsBaseView: UICollectionViewDataSource {
+extension SelectInterestsView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return tags.count
     }
@@ -104,7 +104,7 @@ extension SelectInterestsBaseView: UICollectionViewDataSource {
 }
 
 
-extension SelectInterestsBaseView: UICollectionViewDelegateFlowLayout {
+extension SelectInterestsView: UICollectionViewDelegateFlowLayout {
 
     // отступ между яейками в одном ряду  (горизонтальные отступы)   // отвечает за горизонтальные отступы между ячейками.
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -120,3 +120,18 @@ extension SelectInterestsBaseView: UICollectionViewDelegateFlowLayout {
     }
     
 }
+
+extension SelectInterestsView: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = tagsCollectionView.cellForItem(at: indexPath) as? tagsCollectionViewCell
+        cell?.isSelected = true
+        cell?.selectedBackgroundView
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let cell = tagsCollectionView.cellForItem(at: indexPath) as? tagsCollectionViewCell
+       // cell?.selectTag(isSelected: false)
+        cell?.isSelected = false
+    }
+}
+

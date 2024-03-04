@@ -14,6 +14,12 @@ final class tagsCollectionViewCell: UICollectionViewCell,  ReuseIdentifying  {
     
     var tagLabel = UILabel()
     
+    override var isSelected: Bool {
+        didSet {
+            contentView.backgroundColor = isSelected ? .selectedTag : .backgroundLaunchScreen
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -34,13 +40,11 @@ final class tagsCollectionViewCell: UICollectionViewCell,  ReuseIdentifying  {
         tagLabel.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor).isActive = true
         tagLabel.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor).isActive = true
          
-                
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }
 
 

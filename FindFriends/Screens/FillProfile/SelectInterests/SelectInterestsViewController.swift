@@ -34,7 +34,7 @@ class CustomViewFlowLayout: UICollectionViewFlowLayout {
 class SelectInterestsBaseViewController: UIViewController {
 
 
-    private var selectInterestsView = SelectInterestsBaseView()
+    private var selectInterestsView = SelectInterestsView()
     
     
     override func loadView() {
