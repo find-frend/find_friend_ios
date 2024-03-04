@@ -21,6 +21,12 @@
 		D86387D42B8A7E4F00692535 /* TokenStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86387D32B8A7E4F00692535 /* TokenStorageService.swift */; };
 		D86387D72B8A7ECA00692535 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = D86387D62B8A7ECA00692535 /* SwiftKeychainWrapper */; };
 		D86387D92B8A7FF500692535 /* LoginUserDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86387D82B8A7FF500692535 /* LoginUserDto.swift */; };
+		DD0412DE2B90E31E00984BA7 /* SearchFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0412DD2B90E31E00984BA7 /* SearchFriendsViewController.swift */; };
+		DD0412E02B90E32B00984BA7 /* SearchFriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0412DF2B90E32B00984BA7 /* SearchFriendsView.swift */; };
+		DD0412E22B90E33600984BA7 /* SearchFriendsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0412E12B90E33600984BA7 /* SearchFriendsViewModel.swift */; };
+		DD0412E42B90E78300984BA7 /* SearchFriendsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0412E32B90E78300984BA7 /* SearchFriendsNavigationController.swift */; };
+		DD0412E72B91056C00984BA7 /* SearchFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0412E62B91056C00984BA7 /* SearchFriendCell.swift */; };
+		DD0412EA2B9105BC00984BA7 /* RecomendationFriendDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0412E92B9105BC00984BA7 /* RecomendationFriendDto.swift */; };
 		DD3A2E9F2B7D2F65006A3B8E /* UIView+AutoresizingMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A2E9E2B7D2F65006A3B8E /* UIView+AutoresizingMask.swift */; };
 		DD3A2EA62B7E9447006A3B8E /* PrimeOrangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A2EA52B7E9447006A3B8E /* PrimeOrangeButton.swift */; };
 		DD3A2EA82B7E9836006A3B8E /* CaptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A2EA72B7E9836006A3B8E /* CaptionButton.swift */; };
@@ -85,6 +91,12 @@
 		D86387D12B8A754100692535 /* RegistrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationService.swift; sourceTree = "<group>"; };
 		D86387D32B8A7E4F00692535 /* TokenStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorageService.swift; sourceTree = "<group>"; };
 		D86387D82B8A7FF500692535 /* LoginUserDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserDto.swift; sourceTree = "<group>"; };
+		DD0412DD2B90E31E00984BA7 /* SearchFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendsViewController.swift; sourceTree = "<group>"; };
+		DD0412DF2B90E32B00984BA7 /* SearchFriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendsView.swift; sourceTree = "<group>"; };
+		DD0412E12B90E33600984BA7 /* SearchFriendsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendsViewModel.swift; sourceTree = "<group>"; };
+		DD0412E32B90E78300984BA7 /* SearchFriendsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendsNavigationController.swift; sourceTree = "<group>"; };
+		DD0412E62B91056C00984BA7 /* SearchFriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendCell.swift; sourceTree = "<group>"; };
+		DD0412E92B9105BC00984BA7 /* RecomendationFriendDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecomendationFriendDto.swift; sourceTree = "<group>"; };
 		DD3A2E9E2B7D2F65006A3B8E /* UIView+AutoresizingMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AutoresizingMask.swift"; sourceTree = "<group>"; };
 		DD3A2EA52B7E9447006A3B8E /* PrimeOrangeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimeOrangeButton.swift; sourceTree = "<group>"; };
 		DD3A2EA72B7E9836006A3B8E /* CaptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionButton.swift; sourceTree = "<group>"; };
@@ -178,6 +190,7 @@
 			children = (
 				F30170772B8CF2CE00A6921A /* Alert */,
 				F3BC5D3A2B8514DD00562C08 /* Registration */,
+				DD0412DC2B90E29400984BA7 /* SearchFriends */,
 				F301707F2B8CF55E00A6921A /* SplashScreen */,
 				F301706C2B8CE07000A6921A /* TmpScreenViewController.swift */,
 				F30170862B8D1F3100A6921A /* TabBarControllerStub.swift */,
@@ -203,6 +216,18 @@
 				F301706E2B8CE45400A6921A /* Network */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		DD0412DC2B90E29400984BA7 /* SearchFriends */ = {
+			isa = PBXGroup;
+			children = (
+				DD0412DD2B90E31E00984BA7 /* SearchFriendsViewController.swift */,
+				DD0412DF2B90E32B00984BA7 /* SearchFriendsView.swift */,
+				DD0412E12B90E33600984BA7 /* SearchFriendsViewModel.swift */,
+				DD0412E32B90E78300984BA7 /* SearchFriendsNavigationController.swift */,
+				DD0412E62B91056C00984BA7 /* SearchFriendCell.swift */,
+			);
+			path = SearchFriends;
 			sourceTree = "<group>";
 		};
 		DD0C09A22B79019700792C29 /* Extensions */ = {
@@ -356,6 +381,7 @@
 				D86387D82B8A7FF500692535 /* LoginUserDto.swift */,
 				F33B4C8B2B8FBA0C002D27B5 /* ResetPasswordDto.swift */,
 				F33B4C8D2B8FBA19002D27B5 /* NewPasswordDto.swift */,
+				DD0412E92B9105BC00984BA7 /* RecomendationFriendDto.swift */,
 			);
 			path = Dto;
 			sourceTree = "<group>";
@@ -516,6 +542,7 @@
 				F301706D2B8CE07000A6921A /* TmpScreenViewController.swift in Sources */,
 				F36F40832B861ADE00B2082B /* CheckEmailView.swift in Sources */,
 				F30170872B8D1F3100A6921A /* TabBarControllerStub.swift in Sources */,
+				DD0412E42B90E78300984BA7 /* SearchFriendsNavigationController.swift in Sources */,
 				DDCAC7D42B852B8600EC7D15 /* RegistrationView.swift in Sources */,
 				F30170762B8CF22F00A6921A /* Credentials.swift in Sources */,
 				F30DA5A22B8E7B2100E6571B /* ResetPasswordViewModel.swift in Sources */,
@@ -525,9 +552,11 @@
 				F30170692B8CDF5C00A6921A /* CreateUserRequest.swift in Sources */,
 				F301707E2B8CF32500A6921A /* AlertButton.swift in Sources */,
 				F30170852B8D191000A6921A /* GetFriendsRequest.swift in Sources */,
+				DD0412EA2B9105BC00984BA7 /* RecomendationFriendDto.swift in Sources */,
 				D86387C42B87A16400692535 /* NetworkTask.swift in Sources */,
 				DD3A2EA62B7E9447006A3B8E /* PrimeOrangeButton.swift in Sources */,
 				F30170892B8D290700A6921A /* UIBlockingProgressHUD.swift in Sources */,
+				DD0412DE2B90E31E00984BA7 /* SearchFriendsViewController.swift in Sources */,
 				F301707C2B8CF2FF00A6921A /* AlertModel.swift in Sources */,
 				F36F407A2B85562800B2082B /* UIViewController+Extensions.swift in Sources */,
 				D853CC262B7567AF00DA58D5 /* AppDelegate.swift in Sources */,
@@ -559,9 +588,12 @@
 				F36F407E2B86129300B2082B /* ResetPasswordViewController.swift in Sources */,
 				F36F408E2B86435500B2082B /* NewPasswordSuccessViewController.swift in Sources */,
 				F36F40912B864B1E00B2082B /* NewPasswordView.swift in Sources */,
+				DD0412E72B91056C00984BA7 /* SearchFriendCell.swift in Sources */,
+				DD0412E22B90E33600984BA7 /* SearchFriendsViewModel.swift in Sources */,
 				F3BC5D402B853D1C00562C08 /* LoginViewController.swift in Sources */,
 				F30DA5A62B8E86D200E6571B /* NewPasswordModel.swift in Sources */,
 				F30170812B8CF57800A6921A /* SplashViewController.swift in Sources */,
+				DD0412E02B90E32B00984BA7 /* SearchFriendsView.swift in Sources */,
 				F30DA5A42B8E862300E6571B /* NewPasswordViewModel.swift in Sources */,
 				F3BC5D392B8514D700562C08 /* BaseRegistrationView.swift in Sources */,
 				F36F40872B86287D00B2082B /* UITapGestureRecognizer+Extensions.swift in Sources */,
