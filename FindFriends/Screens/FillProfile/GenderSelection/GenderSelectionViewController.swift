@@ -61,7 +61,6 @@ final class GenderSelectionViewController: UIViewController {
         button.contentVerticalAlignment = .bottom
         button.layer.cornerRadius = 20
         button.layer.masksToBounds = true
-        button.isIncreasedHitAreaEnabled = false
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -86,7 +85,6 @@ final class GenderSelectionViewController: UIViewController {
         button.contentVerticalAlignment = .bottom
         button.layer.cornerRadius = 20
         button.layer.masksToBounds = true
-        button.isIncreasedHitAreaEnabled = false
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -100,12 +98,15 @@ final class GenderSelectionViewController: UIViewController {
         button.setTitle("Продолжить", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .bold)
         button.setTitleColor(UIColor.white, for: .normal)
-        button.backgroundColor = UIColor(named: "mainOrange")
+        button.backgroundColor = .lightOrange
+        button.isEnabled = false
         button.layer.cornerRadius = 16
         button.layer.masksToBounds = true
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    
+    private lazy var nextButtonActive: Bool = false
 
     init(
         label: String,
@@ -135,25 +136,36 @@ final class GenderSelectionViewController: UIViewController {
             assertionFailure("Error main label")
             return
         }
-        delegate?.sendPage(number: currentPage == 4 ? 0 : currentPage + 1)
+        if nextButtonActive {
+            delegate?.sendPage(number: currentPage == 4 ? 0 : currentPage + 1)
+        }
     }
     
     @objc
     private func genderManTapped() {
-        genderManButton.configuration?.baseBackgroundColor = .buttonGray
-        genderManButton.setTitleColor(.primeDark, for: .normal)
-        genderWomanButton.configuration?.baseBackgroundColor = .white
-        genderWomanButton.setTitleColor(.textGray, for: .normal)
-        
-        
+        genderManSelected(isTrue: true)
     }
     
     @objc
     private func genderWomanTapped() {
-        genderManButton.configuration?.baseBackgroundColor = .white
-        genderManButton.setTitleColor(.textGray, for: .normal)
-        genderWomanButton.configuration?.baseBackgroundColor = .buttonGray
-        genderWomanButton.setTitleColor(.primeDark, for: .normal)
+        genderManSelected(isTrue: false)
+    }
+    
+    private func genderManSelected(isTrue: Bool) {
+        if isTrue {
+            genderManButton.configuration?.baseBackgroundColor = .buttonGray
+            genderManButton.setTitleColor(.primeDark, for: .normal)
+            genderWomanButton.configuration?.baseBackgroundColor = .white
+            genderWomanButton.setTitleColor(.textGray, for: .normal)
+        } else {
+            genderManButton.configuration?.baseBackgroundColor = .white
+            genderManButton.setTitleColor(.textGray, for: .normal)
+            genderWomanButton.configuration?.baseBackgroundColor = .buttonGray
+            genderWomanButton.setTitleColor(.primeDark, for: .normal)
+        }
+        nextButtonActive = true
+        actionButton.backgroundColor = .mainOrange
+        actionButton.isEnabled = true
     }
 
     private func configureConstraints() {

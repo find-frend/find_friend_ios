@@ -86,7 +86,6 @@ final class CustomUIPageControl: UIPageControl {
             let buttonFrameX = startX + CGFloat(index) * (autoWidth + buttonSpacing)
 
             button.frame = CGRect(x: buttonFrameX, y: 0, width: autoWidth, height: frame.height)
-            button.isIncreasedHitAreaEnabled = true
             buttonsViews[index].frame = CGRect(x: 0, y: 20, width: button.frame.width, height: buttonHeight)
 
             buttonsViews[index].isUserInteractionEnabled = false

@@ -14,11 +14,7 @@ final class CustomUIPageViewController: UIPageViewController {
         viewControllerNumber: 0
     )
 
-    private lazy var secondPageVC = NextViewController(
-        label: "Введите дату рождения",
-        infoText: "",
-        viewControllerNumber: 1
-    )
+    private lazy var secondPageVC = BirthdayViewController(birthdayView: BirthdayView())
 
     private lazy var thirdPageVC = NextViewController(
         label: "Интересы",
@@ -74,7 +70,7 @@ final class CustomUIPageViewController: UIPageViewController {
         configConstraints()
         customPageControl.delegate = self
         firstPageVC.delegate = self
-        [secondPageVC, thirdPageVC, fourthPageVC, fifthPageVC].forEach { $0.delegate = self }
+        [thirdPageVC, fourthPageVC, fifthPageVC].forEach { $0.delegate = self }
         removeSwipeGesture()
     }
 
