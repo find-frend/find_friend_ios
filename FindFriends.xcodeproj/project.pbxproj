@@ -14,6 +14,8 @@
 		84531D202B94F533002289C6 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84531D1F2B94F533002289C6 /* UIImage+Extensions.swift */; };
 		84531D222B94F9C0002289C6 /* NextViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84531D212B94F9C0002289C6 /* NextViewControler.swift */; };
 		84CCA1BD2B95B6A6000BDC28 /* ProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 84CCA1BC2B95B6A6000BDC28 /* ProgressHUD */; };
+		84CCA1BF2B96409D000BDC28 /* GenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CCA1BE2B96409D000BDC28 /* GenderView.swift */; };
+		84CCA1C12B9640A4000BDC28 /* GenderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CCA1C02B9640A4000BDC28 /* GenderViewModel.swift */; };
 		D5E980BA2B8F0D5D00A17E0A /* BirthdayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E980B92B8F0D5D00A17E0A /* BirthdayView.swift */; };
 		D5E980BC2B8F0D6700A17E0A /* BirthdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E980BB2B8F0D6700A17E0A /* BirthdayViewController.swift */; };
 		D5E980BE2B8F0D7800A17E0A /* BirthdayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E980BD2B8F0D7800A17E0A /* BirthdayViewModel.swift */; };
@@ -85,6 +87,8 @@
 		84531D1D2B94F42E002289C6 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		84531D1F2B94F533002289C6 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		84531D212B94F9C0002289C6 /* NextViewControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextViewControler.swift; sourceTree = "<group>"; };
+		84CCA1BE2B96409D000BDC28 /* GenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderView.swift; sourceTree = "<group>"; };
+		84CCA1C02B9640A4000BDC28 /* GenderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViewModel.swift; sourceTree = "<group>"; };
 		D5E980B92B8F0D5D00A17E0A /* BirthdayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayView.swift; sourceTree = "<group>"; };
 		D5E980BB2B8F0D6700A17E0A /* BirthdayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewController.swift; sourceTree = "<group>"; };
 		D5E980BD2B8F0D7800A17E0A /* BirthdayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewModel.swift; sourceTree = "<group>"; };
@@ -186,7 +190,9 @@
 		84531D242B951472002289C6 /* GenderSelection */ = {
 			isa = PBXGroup;
 			children = (
+				84CCA1BE2B96409D000BDC28 /* GenderView.swift */,
 				84531D192B94C450002289C6 /* GenderSelectionViewController.swift */,
+				84CCA1C02B9640A4000BDC28 /* GenderViewModel.swift */,
 			);
 			path = GenderSelection;
 			sourceTree = "<group>";
@@ -599,6 +605,7 @@
 				DD3A2EA82B7E9836006A3B8E /* CaptionButton.swift in Sources */,
 				DDCAC7D22B852B7B00EC7D15 /* RegistrationViewController.swift in Sources */,
 				D86387CA2B89F9A600692535 /* FriendDto.swift in Sources */,
+				84CCA1BF2B96409D000BDC28 /* GenderView.swift in Sources */,
 				DD3A2E9F2B7D2F65006A3B8E /* UIView+AutoresizingMask.swift in Sources */,
 				D5E980BA2B8F0D5D00A17E0A /* BirthdayView.swift in Sources */,
 				F36F40932B864B2300B2082B /* NewPasswordViewController.swift in Sources */,
@@ -614,6 +621,7 @@
 				F36F40852B861AE400B2082B /* CheckEmailViewController.swift in Sources */,
 				F36F408C2B86434C00B2082B /* NewPasswordSuccessView.swift in Sources */,
 				84531D222B94F9C0002289C6 /* NextViewControler.swift in Sources */,
+				84CCA1C12B9640A4000BDC28 /* GenderViewModel.swift in Sources */,
 				F33B4C8C2B8FBA0C002D27B5 /* ResetPasswordDto.swift in Sources */,
 				84531D1E2B94F42E002289C6 /* UIColor+Extensions.swift in Sources */,
 				F30170792B8CF2D600A6921A /* AlertPresenter.swift in Sources */,
