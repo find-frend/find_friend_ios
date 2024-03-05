@@ -16,7 +16,7 @@ enum Endpoint {
     case resetPassword
     case newPassword
 
-    static let baseURL = URL(string: "http://213.189.221.246/")!
+    static let baseURL = URL(string: "http://158.160.60.2/")!
 
     var path: String {
         switch self {
