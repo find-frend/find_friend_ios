@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8445676E2B9740CB00114604 /* GenderSelectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8445676D2B9740CB00114604 /* GenderSelectionButton.swift */; };
+		844567702B978C1800114604 /* CustomUIPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8445676F2B978C1800114604 /* CustomUIPageView.swift */; };
+		844567722B978CCD00114604 /* CustomUIPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844567712B978CCD00114604 /* CustomUIPageViewModel.swift */; };
 		84531D152B94C38E002289C6 /* CustomUIPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84531D142B94C38E002289C6 /* CustomUIPageViewController.swift */; };
 		84531D182B94C41F002289C6 /* CustomUIPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84531D172B94C41F002289C6 /* CustomUIPageControl.swift */; };
 		84531D1A2B94C450002289C6 /* GenderSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84531D192B94C450002289C6 /* GenderSelectionViewController.swift */; };
@@ -81,6 +84,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8445676D2B9740CB00114604 /* GenderSelectionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderSelectionButton.swift; sourceTree = "<group>"; };
+		8445676F2B978C1800114604 /* CustomUIPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIPageView.swift; sourceTree = "<group>"; };
+		844567712B978CCD00114604 /* CustomUIPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIPageViewModel.swift; sourceTree = "<group>"; };
 		84531D142B94C38E002289C6 /* CustomUIPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIPageViewController.swift; sourceTree = "<group>"; };
 		84531D172B94C41F002289C6 /* CustomUIPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIPageControl.swift; sourceTree = "<group>"; };
 		84531D192B94C450002289C6 /* GenderSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderSelectionViewController.swift; sourceTree = "<group>"; };
@@ -180,7 +186,9 @@
 		84531D232B94FA61002289C6 /* CustomUIPageViewController */ = {
 			isa = PBXGroup;
 			children = (
+				8445676F2B978C1800114604 /* CustomUIPageView.swift */,
 				84531D142B94C38E002289C6 /* CustomUIPageViewController.swift */,
+				844567712B978CCD00114604 /* CustomUIPageViewModel.swift */,
 				84531D172B94C41F002289C6 /* CustomUIPageControl.swift */,
 				84531D212B94F9C0002289C6 /* NextViewControler.swift */,
 			);
@@ -285,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				DD3A2EA52B7E9447006A3B8E /* PrimeOrangeButton.swift */,
+				8445676D2B9740CB00114604 /* GenderSelectionButton.swift */,
 				DDCAC7C32B83C0BF00EC7D15 /* WhiteBorderButton.swift */,
 				DD3A2EA72B7E9836006A3B8E /* CaptionButton.swift */,
 				DDCAC7CB2B851EF500EC7D15 /* RegistrationTextField.swift */,
@@ -584,6 +593,7 @@
 				DDCAC7D42B852B8600EC7D15 /* RegistrationView.swift in Sources */,
 				F30170762B8CF22F00A6921A /* Credentials.swift in Sources */,
 				F30DA5A22B8E7B2100E6571B /* ResetPasswordViewModel.swift in Sources */,
+				844567702B978C1800114604 /* CustomUIPageView.swift in Sources */,
 				DDCAC7D62B8531EC00EC7D15 /* RegistrationViewModel.swift in Sources */,
 				D86387D42B8A7E4F00692535 /* TokenStorageService.swift in Sources */,
 				D86387C72B87A16400692535 /* NetworkRequest.swift in Sources */,
@@ -591,6 +601,7 @@
 				F301707E2B8CF32500A6921A /* AlertButton.swift in Sources */,
 				F30170852B8D191000A6921A /* GetFriendsRequest.swift in Sources */,
 				D5E980BC2B8F0D6700A17E0A /* BirthdayViewController.swift in Sources */,
+				8445676E2B9740CB00114604 /* GenderSelectionButton.swift in Sources */,
 				D86387C42B87A16400692535 /* NetworkTask.swift in Sources */,
 				D5E980BE2B8F0D7800A17E0A /* BirthdayViewModel.swift in Sources */,
 				DD3A2EA62B7E9447006A3B8E /* PrimeOrangeButton.swift in Sources */,
@@ -640,6 +651,7 @@
 				84531D182B94C41F002289C6 /* CustomUIPageControl.swift in Sources */,
 				84531D152B94C38E002289C6 /* CustomUIPageViewController.swift in Sources */,
 				F36F40872B86287D00B2082B /* UITapGestureRecognizer+Extensions.swift in Sources */,
+				844567722B978CCD00114604 /* CustomUIPageViewModel.swift in Sources */,
 				F36F40782B85503F00B2082B /* RegistrationNavigationController.swift in Sources */,
 				F33B4C872B8FB8DA002D27B5 /* ResetPasswordRequest.swift in Sources */,
 				84531D202B94F533002289C6 /* UIImage+Extensions.swift in Sources */,

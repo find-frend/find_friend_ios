@@ -1,13 +1,18 @@
 //
-//  CustomUIPageViewController.swift
+//  CustomUIPageView.swift
 //  FindFriends
 //
-//  Created by Ognerub on 3/3/24.
+//  Created by Ognerub on 3/5/24.
 //
 
 import UIKit
-final class CustomUIPageViewController: UIPageViewController {
+import Combine
 
+final class CustomUIPageView: UIView {
+    
+    // MARK: Properties
+    let viewModel = CustomUIPageViewModel()
+    
     private lazy var firstPageVC = GenderSelectionViewController(genderView: GenderView())
 
     private lazy var secondPageVC = BirthdayViewController(birthdayView: BirthdayView())
@@ -29,13 +34,13 @@ final class CustomUIPageViewController: UIPageViewController {
         infoText: "Добавьте фото, чтобы другим было проще Вас узнать",
         viewControllerNumber: 4
     )
-
+    
     private lazy var pages: [UIViewController] = {
         return [firstPageVC, secondPageVC, thirdPageVC, fourthPageVC, fifthPageVC]
     }()
-
+    
     private lazy var customPageControl: CustomUIPageControl = {
-        let control = CustomUIPageControl(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
+        let control = CustomUIPageControl(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
         control.numberOfPages = pages.count
         control.currentPage = 0
         control.currentPageIndicatorTintColor = .clear
@@ -43,56 +48,72 @@ final class CustomUIPageViewController: UIPageViewController {
         control.translatesAutoresizingMaskIntoConstraints = false
         return control
     }()
-
-    override init(
-        transitionStyle: UIPageViewController.TransitionStyle,
-        navigationOrientation: UIPageViewController.NavigationOrientation,
-        options: [UIPageViewController.OptionsKey: Any]? = nil
-    ) {
-        super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: options)
+    
+    private var cancelLables: Set<AnyCancellable> = []
+    
+    // MARK: Init
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupViews()
+        setupLayout()
+        bind()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        dataSource = self
-        delegate = self
-        if let first = pages.first {
-            setViewControllers([first], direction: .forward, animated: true, completion: nil)
-        }
-        configConstraints()
-        customPageControl.delegate = self
-        [thirdPageVC, fourthPageVC, fifthPageVC].forEach { $0.delegate = self }
-        removeSwipeGesture()
-    }
+private extension CustomUIPageView {
+    // MARK: Bind
+    func bind() {
 
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
     }
     
-    private func removeSwipeGesture() {
-        for view in self.view.subviews {
-            if let subView = view as? UIScrollView {
-                subView.isScrollEnabled = false
-            }
+    // MARK: Setup Views
+    func setupViews() {
+        
+        if let first = pages.first {
+            print("first")
+            //setViewControllers([first], direction: .forward, animated: true, completion: nil)
         }
+        
+        customPageControl.delegate = self
+        [thirdPageVC, fourthPageVC, fifthPageVC].forEach { $0.delegate = self }
+        
+        if let first = pages.first {
+            print("first")
+            //setViewControllers([first], direction: .forward, animated: true, completion: nil)
+        }
+        
+        
+        backgroundColor = .black
+    }
+    
+    // MARK: Setup Layout
+    func setupLayout() {
+        addSubviewWithoutAutoresizingMask(customPageControl)
+        NSLayoutConstraint.activate([
+            customPageControl.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 0),
+            customPageControl.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 45),
+            customPageControl.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -45),
+            customPageControl.heightAnchor.constraint(equalToConstant: 36)
+        ])
     }
 }
 
 // MARK: - CustomPageControlProtocol
-extension CustomUIPageViewController: CustomUIPageControlProtocol {
+extension CustomUIPageView: CustomUIPageControlProtocol {
     func sendPage(number: Int) {
         customPageControl.currentPage = number
         let viewController = pages[number]
-        setViewControllers([viewController], direction: .forward, animated: true, completion: nil)
+        print("delegate")
+        //setViewControllers([viewController], direction: .forward, animated: true, completion: nil)
     }
 }
 
 // MARK: - UIPageViewControllerDataSource
-extension CustomUIPageViewController: UIPageViewControllerDataSource {
+extension CustomUIPageView: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController,
                             viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = pages.firstIndex(of: viewController) else {
@@ -121,7 +142,7 @@ extension CustomUIPageViewController: UIPageViewControllerDataSource {
 }
 
 // MARK: - UIPageViewControllerDelegate
-extension CustomUIPageViewController: UIPageViewControllerDelegate {
+extension CustomUIPageView: UIPageViewControllerDelegate {
     func pageViewController(_ pageViewController: UIPageViewController,
                             didFinishAnimating finished: Bool,
                             previousViewControllers: [UIViewController],
@@ -133,63 +154,5 @@ extension CustomUIPageViewController: UIPageViewControllerDelegate {
         }
     }
 }
-
-// MARK: - Configure constraints
-private extension CustomUIPageViewController {
-    func configConstraints() {
-        view.addSubview(customPageControl)
-        NSLayoutConstraint.activate([
-            customPageControl.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
-            customPageControl.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 45),
-            customPageControl.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -45),
-            customPageControl.heightAnchor.constraint(equalToConstant: 36)
-        ])
-    }
-}
-
-//import UIKit
-//final class CustomUIPageViewController: UIPageViewController {
-//
-//    private var customUIPageView: CustomUIPageView
-//
-//    init(
-//        customUIPageView: CustomUIPageView,
-//        transitionStyle: UIPageViewController.TransitionStyle,
-//        navigationOrientation: UIPageViewController.NavigationOrientation,
-//        options: [UIPageViewController.OptionsKey: Any]? = nil
-//    ) {
-//        self.customUIPageView = customUIPageView
-//        super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: options)
-//    }
-//
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-//
-//    override func loadView() {
-//        view = customUIPageView
-//        removeSwipeGesture()
-//
-//    }
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//    }
-//
-//    /// переписываем предпочитаемый цвет статус бара на черный
-//    override var preferredStatusBarStyle: UIStatusBarStyle {
-//        return .darkContent
-//    }
-//
-//    private func removeSwipeGesture() {
-//        for view in self.view.subviews {
-//            if let subView = view as? UIScrollView {
-//                subView.isScrollEnabled = false
-//            }
-//        }
-//    }
-//}
-
 
 
