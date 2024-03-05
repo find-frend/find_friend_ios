@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-<<<<<<< HEAD
 		CECC80C52B910E2700F4312B /* SearchFieldText.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC80C42B910E2700F4312B /* SearchFieldText.swift */; };
 		CECC80C72B910E3000F4312B /* SearchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC80C62B910E3000F4312B /* SearchButton.swift */; };
 		CECC80CF2B910ED400F4312B /* SelectCityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC80CB2B910ED400F4312B /* SelectCityTableViewCell.swift */; };
@@ -15,11 +14,6 @@
 		CECC80D12B910ED400F4312B /* CityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC80CE2B910ED400F4312B /* CityViewController.swift */; };
 		CECC80D52B910F0900F4312B /* SelectPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC80D32B910F0800F4312B /* SelectPhotoViewController.swift */; };
 		CECC80D62B910F0900F4312B /* AcceptPhotoVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC80D42B910F0900F4312B /* AcceptPhotoVIewController.swift */; };
-=======
-		D5E980BA2B8F0D5D00A17E0A /* BirthdayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E980B92B8F0D5D00A17E0A /* BirthdayView.swift */; };
-		D5E980BC2B8F0D6700A17E0A /* BirthdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E980BB2B8F0D6700A17E0A /* BirthdayViewController.swift */; };
-		D5E980BE2B8F0D7800A17E0A /* BirthdayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E980BD2B8F0D7800A17E0A /* BirthdayViewModel.swift */; };
->>>>>>> bdc9ff7c67eeb179ace4bfa3c0777dbc32e9397c
 		D853CC262B7567AF00DA58D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D853CC252B7567AF00DA58D5 /* AppDelegate.swift */; };
 		D853CC282B7567AF00DA58D5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D853CC272B7567AF00DA58D5 /* SceneDelegate.swift */; };
 		D853CC2F2B7567B100DA58D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D853CC2E2B7567B100DA58D5 /* Assets.xcassets */; };
@@ -83,7 +77,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-<<<<<<< HEAD
 		CECC80C42B910E2700F4312B /* SearchFieldText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFieldText.swift; sourceTree = "<group>"; };
 		CECC80C62B910E3000F4312B /* SearchButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchButton.swift; sourceTree = "<group>"; };
 		CECC80CB2B910ED400F4312B /* SelectCityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCityTableViewCell.swift; sourceTree = "<group>"; };
@@ -91,11 +84,6 @@
 		CECC80CE2B910ED400F4312B /* CityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityViewController.swift; sourceTree = "<group>"; };
 		CECC80D32B910F0800F4312B /* SelectPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPhotoViewController.swift; sourceTree = "<group>"; };
 		CECC80D42B910F0900F4312B /* AcceptPhotoVIewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptPhotoVIewController.swift; sourceTree = "<group>"; };
-=======
-		D5E980B92B8F0D5D00A17E0A /* BirthdayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayView.swift; sourceTree = "<group>"; };
-		D5E980BB2B8F0D6700A17E0A /* BirthdayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewController.swift; sourceTree = "<group>"; };
-		D5E980BD2B8F0D7800A17E0A /* BirthdayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewModel.swift; sourceTree = "<group>"; };
->>>>>>> bdc9ff7c67eeb179ace4bfa3c0777dbc32e9397c
 		D853CC222B7567AF00DA58D5 /* Найди друга.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Найди друга.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D853CC252B7567AF00DA58D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D853CC272B7567AF00DA58D5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -171,7 +159,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-<<<<<<< HEAD
 		CECC80C82B910E4000F4312B /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,16 +201,6 @@
 				CECC80D42B910F0900F4312B /* AcceptPhotoVIewController.swift */,
 			);
 			path = SelectPhoto;
-=======
-		D5E980B82B8F0D0A00A17E0A /* BirthdayChoose */ = {
-			isa = PBXGroup;
-			children = (
-				D5E980B92B8F0D5D00A17E0A /* BirthdayView.swift */,
-				D5E980BB2B8F0D6700A17E0A /* BirthdayViewController.swift */,
-				D5E980BD2B8F0D7800A17E0A /* BirthdayViewModel.swift */,
-			);
-			path = BirthdayChoose;
->>>>>>> bdc9ff7c67eeb179ace4bfa3c0777dbc32e9397c
 			sourceTree = "<group>";
 		};
 		D853CC192B7567AF00DA58D5 = {
@@ -496,7 +473,6 @@
 		F3BC5D3A2B8514DD00562C08 /* Registration */ = {
 			isa = PBXGroup;
 			children = (
-				D5E980B82B8F0D0A00A17E0A /* BirthdayChoose */,
 				F3BC5D3E2B853D0E00562C08 /* LogIn */,
 				F36F407B2B855FAE00B2082B /* Register */,
 				F36F407C2B86127800B2082B /* ResetPassword */,
@@ -612,9 +588,7 @@
 				F30170692B8CDF5C00A6921A /* CreateUserRequest.swift in Sources */,
 				F301707E2B8CF32500A6921A /* AlertButton.swift in Sources */,
 				F30170852B8D191000A6921A /* GetFriendsRequest.swift in Sources */,
-				D5E980BC2B8F0D6700A17E0A /* BirthdayViewController.swift in Sources */,
 				D86387C42B87A16400692535 /* NetworkTask.swift in Sources */,
-				D5E980BE2B8F0D7800A17E0A /* BirthdayViewModel.swift in Sources */,
 				DD3A2EA62B7E9447006A3B8E /* PrimeOrangeButton.swift in Sources */,
 				F30170892B8D290700A6921A /* UIBlockingProgressHUD.swift in Sources */,
 				F301707C2B8CF2FF00A6921A /* AlertModel.swift in Sources */,
@@ -628,7 +602,6 @@
 				DDCAC7D22B852B7B00EC7D15 /* RegistrationViewController.swift in Sources */,
 				D86387CA2B89F9A600692535 /* FriendDto.swift in Sources */,
 				DD3A2E9F2B7D2F65006A3B8E /* UIView+AutoresizingMask.swift in Sources */,
-				D5E980BA2B8F0D5D00A17E0A /* BirthdayView.swift in Sources */,
 				F36F40932B864B2300B2082B /* NewPasswordViewController.swift in Sources */,
 				F33B4C8E2B8FBA19002D27B5 /* NewPasswordDto.swift in Sources */,
 				DDCAC7CC2B851EF500EC7D15 /* RegistrationTextField.swift in Sources */,
@@ -807,7 +780,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FindFriends/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Найди друга";
@@ -840,7 +812,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FindFriends/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Найди друга";
