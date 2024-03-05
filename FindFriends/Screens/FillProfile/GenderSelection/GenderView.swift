@@ -9,7 +9,10 @@ import UIKit
 import Combine
 
 final class GenderView: UIView {
+    
     // MARK: Properties
+    weak var delegate: CustomUIPageControlProtocol?
+    
     let viewModel = GenderViewModel()
     
     private var mainLabel: UILabel = {
@@ -100,13 +103,12 @@ private extension GenderView {
     
     @objc
     private func nextButtonTap() {
-        print("next")
+        delegate?.sendPage(number: 1)
     }
     
     // MARK: Setup Views
     func setupViews() {
         backgroundColor = .white
-        let falseValue = false
         genderWomanButton.addTarget(self, action: #selector(genderWomanSelected), for: .touchUpInside)
         genderManButton.addTarget(self, action: #selector(genderManSelected), for: .touchUpInside)
         
@@ -130,10 +132,10 @@ private extension GenderView {
             mainInfoText.leadingAnchor.constraint(equalTo: leadingAnchor),
             mainInfoText.trailingAnchor.constraint(equalTo: trailingAnchor),
             
-            nextButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            nextButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            nextButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -84),
-            nextButton.heightAnchor.constraint(equalToConstant: 60)
+            nextButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            nextButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            nextButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -102),
+            nextButton.heightAnchor.constraint(equalToConstant: 48)
         ])
         
         addSubviewWithoutAutoresizingMask(stackView)

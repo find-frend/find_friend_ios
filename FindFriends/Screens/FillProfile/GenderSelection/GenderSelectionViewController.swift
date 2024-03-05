@@ -9,7 +9,7 @@ import UIKit
 
 final class GenderSelectionViewController: UIViewController {
     
-    private var genderView: GenderView
+    var genderView: GenderView
     
     init(genderView: GenderView) {
         self.genderView = genderView
@@ -22,6 +22,7 @@ final class GenderSelectionViewController: UIViewController {
     
     override func loadView() {
         view = genderView
+        
     }
     
     override func viewDidLoad() {
