@@ -8,7 +8,7 @@
 import UIKit
 
 // MARK: - ResetPasswordViewController
-final class ResetPasswordViewController: UIViewController {
+final class ResetPasswordViewController: BaseRegistrationViewController {
 
     // MARK: - Private properties
     private let resetPasswordView: ResetPasswordView
@@ -17,11 +17,11 @@ final class ResetPasswordViewController: UIViewController {
     // MARK: - Initializers
     init(
         viewModel: ResetPasswordViewModelProtocol = ResetPasswordViewModel(),
-        loginView: ResetPasswordView = ResetPasswordView()
+        resetPasswordView: ResetPasswordView = ResetPasswordView()
     ) {
         self.viewModel = viewModel
-        self.resetPasswordView = loginView
-        super.init(nibName: nil, bundle: nil)
+        self.resetPasswordView = resetPasswordView
+        super.init(baseRegistrationView: resetPasswordView)
     }
 
     required init?(coder: NSCoder) {
@@ -36,7 +36,6 @@ final class ResetPasswordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
-        hideKeyboardWhenTappedAround()
         bind()
         resetPasswordView.delegate = self
     }
