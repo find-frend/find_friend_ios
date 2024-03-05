@@ -13,14 +13,14 @@ class BaseFillProfileView: UIView {
     private let nextButtonText = "Далее"
     private let passButtonText = "Пропустить"
     
-    public lazy var navigationBarView: NavigationBarView = {
-        var navigationBarView = NavigationBarView()
-        navigationBarView.translatesAutoresizingMaskIntoConstraints = false
-        navigationBarView.backgroundColor = .secondaryOrange
-        navigationBarView.layer.cornerRadius = 2
-        navigationBarView.layer.masksToBounds = true
-        return navigationBarView
-    }()
+//    public lazy var navigationBarView: NavigationBarView = {
+//        var navigationBarView = NavigationBarView()
+//        navigationBarView.translatesAutoresizingMaskIntoConstraints = false
+//        navigationBarView.backgroundColor = .secondaryOrange
+//        navigationBarView.layer.cornerRadius = 2
+//        navigationBarView.layer.masksToBounds = true
+//        return navigationBarView
+//    }()
     
     public lazy var screenHeader: UILabel = {
         let label = UILabel()
@@ -59,7 +59,7 @@ class BaseFillProfileView: UIView {
         screenHeader.text = header //"Интересы"
         screenSubheader.text = subheader //"Выберете свои увлечения, чтобы найти единомышленников"
         
-        navigationBarView.setRating(navBarPosition: screenPosition)
+    //    navigationBarView.setRating(navBarPosition: screenPosition)
         
         setConstraits()
 
@@ -71,18 +71,18 @@ class BaseFillProfileView: UIView {
     
     private func setConstraits() {
         
-        self.addSubview(navigationBarView)
-        NSLayoutConstraint.activate([
-            navigationBarView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 45),
-            navigationBarView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -45),
-            navigationBarView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 20),
-            navigationBarView.heightAnchor.constraint(equalToConstant: 4)
-        ])
+//        self.addSubview(navigationBarView)
+//        NSLayoutConstraint.activate([
+//            navigationBarView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 45),
+//            navigationBarView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -45),
+//            navigationBarView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 20),
+//            navigationBarView.heightAnchor.constraint(equalToConstant: 4)
+//        ])
         
        
         self.addSubview(screenHeader)
         screenHeader.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        screenHeader.topAnchor.constraint(equalTo: navigationBarView.bottomAnchor, constant: 12).isActive = true
+        screenHeader.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 36).isActive = true
         screenHeader.heightAnchor.constraint(equalToConstant: 41).isActive = true
         
         if screenSubheader.text?.isEmpty != nil  {
