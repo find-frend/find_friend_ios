@@ -7,7 +7,7 @@
 import SafariServices
 import UIKit
 
-final class RegistrationViewController: UIViewController {
+final class RegistrationViewController: BaseRegistrationViewController {
     private var registrationView: RegistrationView
 
     override func loadView() {
@@ -19,12 +19,11 @@ final class RegistrationViewController: UIViewController {
         
         setupNavigationItem()
         registrationView.delegate = self
-        hideKeyboardWhenTappedAround()
     }
     
     init(registrationView: RegistrationView) {
         self.registrationView = registrationView
-        super.init(nibName: nil, bundle: nil)
+        super.init(baseRegistrationView: registrationView)
     }
     
     required init?(coder: NSCoder) {
