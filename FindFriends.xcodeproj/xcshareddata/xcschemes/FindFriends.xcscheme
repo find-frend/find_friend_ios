@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D853CC212B7567AF00DA58D5"
-               BuildableName = "&#x41d;&#x430;&#x438;&#x306;&#x434;&#x438; &#x434;&#x440;&#x443;&#x433;&#x430;.app"
+               BuildableName = "FindFriends.app"
                BlueprintName = "FindFriends"
                ReferencedContainer = "container:FindFriends.xcodeproj">
             </BuildableReference>
@@ -44,7 +44,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D853CC212B7567AF00DA58D5"
-            BuildableName = "&#x41d;&#x430;&#x438;&#x306;&#x434;&#x438; &#x434;&#x440;&#x443;&#x433;&#x430;.app"
+            BuildableName = "FindFriends.app"
             BlueprintName = "FindFriends"
             ReferencedContainer = "container:FindFriends.xcodeproj">
          </BuildableReference>
@@ -61,7 +61,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D853CC212B7567AF00DA58D5"
-            BuildableName = "&#x41d;&#x430;&#x438;&#x306;&#x434;&#x438; &#x434;&#x440;&#x443;&#x433;&#x430;.app"
+            BuildableName = "FindFriends.app"
             BlueprintName = "FindFriends"
             ReferencedContainer = "container:FindFriends.xcodeproj">
          </BuildableReference>
