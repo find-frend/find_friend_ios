@@ -12,17 +12,17 @@ struct TextValidator {
     static func validate(_ text: String, with type: TextFieldType) -> Result<Void, ValidateMessages> {
         switch type {
         case .name:
-            validateName(text)
+            return validateName(text)
         case .lastName:
-            validateLastName(text)
+            return validateLastName(text)
         case .email:
-            validateEmail(text)
+            return validateEmail(text)
         case .password:
-            validatePassword(text)
+            return validatePassword(text)
         case .confirmPassword:
-            validateConfirmPassword(text)
+            return validateConfirmPassword(text)
         case .date:
-            validateDate(text)
+            return validateDate(text)
         }
     }
     private init() {}

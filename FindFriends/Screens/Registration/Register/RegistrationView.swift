@@ -79,7 +79,7 @@ final class RegistrationView: UIView {
     
     private lazy var topDecoration: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(resource: .topDecoration)
+        imageView.image = .topDecoration
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()

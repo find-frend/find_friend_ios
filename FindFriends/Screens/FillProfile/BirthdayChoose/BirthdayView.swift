@@ -14,12 +14,15 @@ protocol BirthdayViewDelegate {
 }
 
 final class BirthdayView: UIView {
+    
+    weak var delegate: CustomUIPageControlProtocol?
+    
     let viewModel = BirthdayViewModel()
     
     private lazy var headerLabel: UILabel = {
         let label = UILabel()
         label.text = "Введите дату рождения"
-        label.font = .systemFont(ofSize: 24, weight: .regular)
+        label.font = .systemFont(ofSize: 24, weight: .bold)
         label.textAlignment = .center
         label.textColor = .primeDark
         
@@ -65,7 +68,7 @@ private extension BirthdayView {
         NSLayoutConstraint.activate([
             headerLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             headerLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            headerLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 16),
+            headerLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 36),
             
             datePickTextField.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 52),
             datePickTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
@@ -105,7 +108,7 @@ private extension BirthdayView {
     
     @objc
     func nexButtonTap() {
-        //TODO: - Add next action
+        delegate?.sendPage(number: 2)
     }
 }
 
