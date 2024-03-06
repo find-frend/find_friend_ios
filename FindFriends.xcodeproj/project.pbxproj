@@ -91,7 +91,7 @@
 		D5E980B92B8F0D5D00A17E0A /* BirthdayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayView.swift; sourceTree = "<group>"; };
 		D5E980BB2B8F0D6700A17E0A /* BirthdayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewController.swift; sourceTree = "<group>"; };
 		D5E980BD2B8F0D7800A17E0A /* BirthdayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewModel.swift; sourceTree = "<group>"; };
-		D853CC222B7567AF00DA58D5 /* Найди друга.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Найди друга.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D853CC222B7567AF00DA58D5 /* FindFriends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindFriends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D853CC252B7567AF00DA58D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D853CC272B7567AF00DA58D5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D853CC2E2B7567B100DA58D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -218,7 +218,7 @@
 		D853CC232B7567AF00DA58D5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D853CC222B7567AF00DA58D5 /* Найди друга.app */,
+				D853CC222B7567AF00DA58D5 /* FindFriends.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -529,7 +529,7 @@
 				84CCA1BC2B95B6A6000BDC28 /* ProgressHUD */,
 			);
 			productName = FindFriends;
-			productReference = D853CC222B7567AF00DA58D5 /* Найди друга.app */;
+			productReference = D853CC222B7567AF00DA58D5 /* FindFriends.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -796,10 +796,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6343C72SQK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FindFriends/Resources/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Найди друга";
+				INFOPLIST_KEY_CFBundleDisplayName = FindFriends;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
@@ -810,8 +810,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ru.yandex.practicum.workshop.FindFriends;
-				PRODUCT_NAME = "Найди друга";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.yandex.practicum.workshop.FindFriends.beta;
+				PRODUCT_NAME = FindFriends;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -829,10 +829,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6343C72SQK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FindFriends/Resources/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Найди друга";
+				INFOPLIST_KEY_CFBundleDisplayName = FindFriends;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
@@ -843,8 +843,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ru.yandex.practicum.workshop.FindFriends;
-				PRODUCT_NAME = "Найди друга";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.yandex.practicum.workshop.FindFriends.beta;
+				PRODUCT_NAME = FindFriends;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
