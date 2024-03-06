@@ -19,6 +19,7 @@ final class SelectCityTableViewCell: UITableViewCell {
     }()
     
     override func didMoveToSuperview() {
+        super.didMoveToSuperview()
         selectedBackgroundView?.isHidden = true
     }
     

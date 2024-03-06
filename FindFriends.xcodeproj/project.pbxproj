@@ -22,7 +22,7 @@
 		CECC80F12B9898D600F4312B /* AcceptPhotoVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC80EF2B9898D600F4312B /* AcceptPhotoVIewController.swift */; };
 		CECC80F62B9899CF00F4312B /* SearchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC80F42B9899CF00F4312B /* SearchButton.swift */; };
 		CECC80F72B9899CF00F4312B /* SearchFieldText.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC80F52B9899CF00F4312B /* SearchFieldText.swift */; };
-		CECC80F92B989D6800F4312B /* SelectCityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC80F82B989D6800F4312B /* SelectCityViewModel.swift */; };
+		CECC80F92B989D6800F4312B /* CityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC80F82B989D6800F4312B /* CityViewModel.swift */; };
 		D5E980BA2B8F0D5D00A17E0A /* BirthdayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E980B92B8F0D5D00A17E0A /* BirthdayView.swift */; };
 		D5E980BC2B8F0D6700A17E0A /* BirthdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E980BB2B8F0D6700A17E0A /* BirthdayViewController.swift */; };
 		D5E980BE2B8F0D7800A17E0A /* BirthdayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E980BD2B8F0D7800A17E0A /* BirthdayViewModel.swift */; };
@@ -103,7 +103,7 @@
 		CECC80EF2B9898D600F4312B /* AcceptPhotoVIewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptPhotoVIewController.swift; sourceTree = "<group>"; };
 		CECC80F42B9899CF00F4312B /* SearchButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchButton.swift; sourceTree = "<group>"; };
 		CECC80F52B9899CF00F4312B /* SearchFieldText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFieldText.swift; sourceTree = "<group>"; };
-		CECC80F82B989D6800F4312B /* SelectCityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCityViewModel.swift; sourceTree = "<group>"; };
+		CECC80F82B989D6800F4312B /* CityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityViewModel.swift; sourceTree = "<group>"; };
 		D5E980B92B8F0D5D00A17E0A /* BirthdayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayView.swift; sourceTree = "<group>"; };
 		D5E980BB2B8F0D6700A17E0A /* BirthdayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewController.swift; sourceTree = "<group>"; };
 		D5E980BD2B8F0D7800A17E0A /* BirthdayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewModel.swift; sourceTree = "<group>"; };
@@ -261,7 +261,7 @@
 		CECC80F32B9899C000F4312B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				CECC80F82B989D6800F4312B /* SelectCityViewModel.swift */,
+				CECC80F82B989D6800F4312B /* CityViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -728,7 +728,7 @@
 				F36F408E2B86435500B2082B /* NewPasswordSuccessViewController.swift in Sources */,
 				F36F40912B864B1E00B2082B /* NewPasswordView.swift in Sources */,
 				CECC80F12B9898D600F4312B /* AcceptPhotoVIewController.swift in Sources */,
-				CECC80F92B989D6800F4312B /* SelectCityViewModel.swift in Sources */,
+				CECC80F92B989D6800F4312B /* CityViewModel.swift in Sources */,
 				F3BC5D402B853D1C00562C08 /* LoginViewController.swift in Sources */,
 				F30DA5A62B8E86D200E6571B /* NewPasswordModel.swift in Sources */,
 				F30170812B8CF57800A6921A /* SplashViewController.swift in Sources */,

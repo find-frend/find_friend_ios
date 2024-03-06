@@ -9,9 +9,10 @@ final class SelectCityViewController: UIViewController {
         setupSearchTF()
         setupButtonStack()
         view.backgroundColor = .systemBackground
+        viewModel.filteredCitiesList = viewModel.citiesList
     }
     
-    init(viewModel: SelectCityViewModelProtocol = SelectCityViewModel()) {
+    init(viewModel: CityViewModelProtocol = CityViewModel()) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -20,10 +21,11 @@ final class SelectCityViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private var viewModel: SelectCityViewModelProtocol
+    private var viewModel: CityViewModelProtocol
     
     private lazy var searchCityTextField: SearchFieldText = {
         let textField = SearchFieldText(placeholder: "Поиск")
+        textField.addTarget(self, action: #selector(searchCities(_:)), for: .editingChanged)
         textField.delegate = self
         return textField
     }()
@@ -105,6 +107,14 @@ final class SelectCityViewController: UIViewController {
         ])
     }
     
+    @objc func searchCities(_ textfield:UITextField) {
+        if let searchText = textfield.text {
+            viewModel.filteredCitiesList = searchText.isEmpty ? viewModel.citiesList :
+            viewModel.citiesList.filter{$0.lowercased().contains(searchText.lowercased())}
+            tableView.reloadData()
+        }
+    }
+    
     @objc private func didTapAcceptButton() {
         let vc = SelectPhotoViewController()
         navigationController?.pushViewController(vc, animated: true)
@@ -113,14 +123,14 @@ final class SelectCityViewController: UIViewController {
 
 extension SelectCityViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let count = viewModel.cities.count
+        let count = viewModel.filteredCitiesList.count
         return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SelectCityTableViewCell.identifier, for: indexPath) as? SelectCityTableViewCell else { return UITableViewCell() }
         let model = viewModel
-        cell.configureCells(name: model.cities[indexPath.row])
+        cell.configureCells(name: model.filteredCitiesList[indexPath.row])
         return cell
     }
     

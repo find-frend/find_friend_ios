@@ -18,9 +18,17 @@ final class CustomUIPageViewController: UIPageViewController {
         viewControllerNumber: 2
     )
     
-    private lazy var fourthPageVC = CityViewController()
+    private lazy var fourthPageVC = NextViewController(
+        label: "Выберите город",
+        infoText: "Чтобы видеть события и друзей",
+        viewControllerNumber: 3
+    )
     
-    private lazy var fifthPageVC = SelectPhotoViewController()
+    private lazy var fifthPageVC = NextViewController(
+        label: "Фото профиля",
+        infoText: "Добавьте фото, чтобы другим было проще Вас узнать",
+        viewControllerNumber: 4
+    )
 
     private lazy var pages: [UIViewController] = {
         return [firstPageVC, secondPageVC, thirdPageVC, fourthPageVC, fifthPageVC]
@@ -62,9 +70,7 @@ final class CustomUIPageViewController: UIPageViewController {
         customPageControl.delegate = self
         firstPageVC.genderView.delegate = self
         secondPageVC.birthdayView.delegate = self
-        fourthPageVC.delegate = self
-        fifthPageVC.delegate = self
-        [thirdPageVC].forEach { $0.delegate = self }
+        [thirdPageVC, fourthPageVC, fifthPageVC].forEach { $0.delegate = self }
         removeSwipeGesture()
     }
 

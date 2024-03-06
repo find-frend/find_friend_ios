@@ -19,11 +19,6 @@ final class SelectPhotoViewController: UIViewController {
         avatarView.layer.borderWidth = 4
     }
     
-    private let defaults = UserDefaults.standard
-    private let boundsX = UIScreen.main.bounds.width
-    private let boundsY = UIScreen.main.bounds.height
-    
-    
     private func loadImage() -> UIImage {
         let fileManager = FileManager.default
         let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
@@ -74,7 +69,7 @@ final class SelectPhotoViewController: UIViewController {
     
     private lazy var addPhotoButton: UIButton = {
         let button = UIButton()
-        button.adjustsImageWhenHighlighted = false
+        button.configuration = .plain()
         button.setImage(UIImage(named: "addPhoto"), for: .normal)
         button.addTarget(self, action: #selector(profileImageButtonTapped), for: .touchUpInside)
         return button
