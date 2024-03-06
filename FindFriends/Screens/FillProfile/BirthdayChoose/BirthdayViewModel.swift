@@ -10,10 +10,11 @@ import Combine
 
 final class BirthdayViewModel {
     @Published var textFieldText: String = ""
-    @Published var buttonAndError: Bool = true
+    @Published var buttonAndError: Bool = false
     
     func shouldChangeCharactersIn(text: String?, range: NSRange, replacementString: String) -> Bool {
         guard let text = text else { return false }
+        
         let newString = NSString(string: text).replacingCharacters(in: range, with: replacementString)
         
         var count = 0

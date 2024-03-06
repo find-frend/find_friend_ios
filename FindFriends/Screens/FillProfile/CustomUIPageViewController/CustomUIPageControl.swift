@@ -9,6 +9,7 @@ import UIKit
 
 protocol CustomUIPageControlProtocol: AnyObject {
     func sendPage(number: Int)
+    func currentPage(number: Int)
 }
 
 final class CustomUIPageControl: UIPageControl {
@@ -28,6 +29,7 @@ final class CustomUIPageControl: UIPageControl {
     override var currentPage: Int {
         didSet {
             updateButtonSelection()
+            delegate?.currentPage(number: currentPage)
         }
     }
 

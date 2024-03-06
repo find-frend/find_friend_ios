@@ -13,7 +13,7 @@ final class GenderSelectionViewController: UIViewController {
     
     init(genderView: GenderView) {
         self.genderView = genderView
-        super.init(nibName: nil, bundle: nil)
+        super.init(nibName: "GenderSelectionViewController", bundle: nil)
     }
     
     required init?(coder: NSCoder) {

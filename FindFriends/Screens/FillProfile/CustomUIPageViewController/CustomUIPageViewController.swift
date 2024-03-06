@@ -40,8 +40,15 @@ final class CustomUIPageViewController: UIPageViewController {
         control.currentPage = 0
         control.currentPageIndicatorTintColor = .clear
         control.pageIndicatorTintColor = .clear
-        control.translatesAutoresizingMaskIntoConstraints = false
         return control
+    }()
+    
+    private lazy var backButton: UIButton = {
+        let button = UIButton()
+        button.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        button.isHidden = true
+        button.setImage(.back, for: .normal)
+        return button
     }()
 
     override init(
@@ -62,6 +69,7 @@ final class CustomUIPageViewController: UIPageViewController {
         delegate = self
         customPageControl.delegate = self
         firstPageVC.genderView.delegate = self
+        secondPageVC.birthdayView.delegate = self
         [thirdPageVC, fourthPageVC, fifthPageVC].forEach { $0.delegate = self }
         removeSwipeGesture()
     }
@@ -85,10 +93,19 @@ final class CustomUIPageViewController: UIPageViewController {
             }
         }
     }
+    
+    @objc
+    private func backButtonTapped() {
+        moveToNextViewControllerWith(number: customPageControl.currentPage - 1)
+    }
 }
 
 // MARK: - CustomPageControlProtocol
 extension CustomUIPageViewController: CustomUIPageControlProtocol {
+    func currentPage(number: Int) {
+        backButton.isHidden = number == 0 ? true : false
+    }
+    
     func sendPage(number: Int) {
         moveToNextViewControllerWith(number: number)
     }
@@ -146,12 +163,19 @@ extension CustomUIPageViewController: UIPageViewControllerDelegate {
 // MARK: - Configure constraints
 private extension CustomUIPageViewController {
     func configConstraints() {
-        view.addSubview(customPageControl)
+        view.addSubviewWithoutAutoresizingMask(customPageControl)
         NSLayoutConstraint.activate([
             customPageControl.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
             customPageControl.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 45),
             customPageControl.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -45),
             customPageControl.heightAnchor.constraint(equalToConstant: 36)
+        ])
+        view.addSubviewWithoutAutoresizingMask(backButton)
+        NSLayoutConstraint.activate([
+            backButton.centerYAnchor.constraint(equalTo: customPageControl.centerYAnchor),
+            backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backButton.trailingAnchor.constraint(equalTo: customPageControl.leadingAnchor),
+            backButton.heightAnchor.constraint(equalToConstant: 44)
         ])
     }
 }

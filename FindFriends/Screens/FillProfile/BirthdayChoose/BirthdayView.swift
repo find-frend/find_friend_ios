@@ -14,6 +14,9 @@ protocol BirthdayViewDelegate {
 }
 
 final class BirthdayView: UIView {
+    
+    weak var delegate: CustomUIPageControlProtocol?
+    
     let viewModel = BirthdayViewModel()
     
     private lazy var headerLabel: UILabel = {
@@ -105,7 +108,7 @@ private extension BirthdayView {
     
     @objc
     func nexButtonTap() {
-        print("next 2")
+        delegate?.sendPage(number: 2)
     }
 }
 
