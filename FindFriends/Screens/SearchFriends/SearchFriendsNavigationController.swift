@@ -18,11 +18,13 @@ final class SearchFriendsNavigationController: UINavigationController {
     }
     
     private func setup() {
-        
-        navigationBar.prefersLargeTitles = true
-        navigationBar.largeTitleTextAttributes = [
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = .backgroundMain
+        appearance.largeTitleTextAttributes = [
             .foregroundColor: UIColor.primeDark,
             .font: UIFont.Medium.medium
         ]
+        navigationBar.standardAppearance = appearance
+        navigationBar.prefersLargeTitles = true
     }
 }

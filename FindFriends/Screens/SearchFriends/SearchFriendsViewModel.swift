@@ -12,20 +12,19 @@ protocol SearchFriendsViewModelProtocol {
 }
 
 final class SearchFriendsViewModel: SearchFriendsViewModelProtocol {
-    var friends: [RecomendationFriendDto] = [
-        RecomendationFriendDto(id: 1, firstName: "Vadim", lastName: "Shishkov", age: 30, avatar: "", purpose: "Привет! Ищу верного друга на долгие годы. Пишите в телеграм, буду рад каждому!"),
-        RecomendationFriendDto(id: 1, firstName: "Vadim", lastName: "Shishkov", age: 30, avatar: "", purpose: "Привет! Ищу верного друга на долгие годы. Пишите в телеграм, буду рад каждому!"),
-        RecomendationFriendDto(id: 1, firstName: "Vadim", lastName: "Shishkov", age: 30, avatar: "", purpose: "Привет! Ищу верного друга на долгие годы. Пишите в телеграм, буду рад каждому!"),
-        RecomendationFriendDto(id: 1, firstName: "Vadim", lastName: "Shishkov", age: 30, avatar: "", purpose: "Привет! Ищу верного друга на долгие годы. Пишите в телеграм, буду рад каждому!"),
-        RecomendationFriendDto(id: 1, firstName: "Vadim", lastName: "Shishkov", age: 30, avatar: "", purpose: "Привет! Ищу верного друга на долгие годы. Пишите в телеграм, буду рад каждому!"),
-        RecomendationFriendDto(id: 1, firstName: "Vadim", lastName: "Shishkov", age: 30, avatar: "", purpose: "Привет! Ищу верного друга на долгие годы. Пишите в телеграм, буду рад каждому!"),
-        RecomendationFriendDto(id: 1, firstName: "Vadim", lastName: "Shishkov", age: 30, avatar: "", purpose: "Привет! Ищу верного друга на долгие годы. Пишите в телеграм, буду рад каждому!"),
-        RecomendationFriendDto(id: 1, firstName: "Vadim", lastName: "Shishkov", age: 30, avatar: "", purpose: "Привет! Ищу верного друга на долгие годы. Пишите в телеграм, буду рад каждому!"),
-        RecomendationFriendDto(id: 1, firstName: "Vadim", lastName: "Shishkov", age: 30, avatar: "", purpose: "Привет! Ищу верного друга на долгие годы. Пишите в телеграм, буду рад каждому!"),
-        RecomendationFriendDto(id: 1, firstName: "Vadim", lastName: "Shishkov", age: 30, avatar: "", purpose: "Привет! Ищу верного друга на долгие годы. Пишите в телеграм, буду рад каждому!"),
-        RecomendationFriendDto(id: 1, firstName: "Vadim", lastName: "Shishkov", age: 30, avatar: "", purpose: "Привет! Ищу верного друга на долгие годы. Пишите в телеграм, буду рад каждому!"),
-        RecomendationFriendDto(id: 1, firstName: "Vadim", lastName: "Shishkov", age: 30, avatar: "", purpose: "Привет! Ищу верного друга на долгие годы. Пишите в телеграм, буду рад каждому!"),
-        RecomendationFriendDto(id: 1, firstName: "Vadim", lastName: "Shishkov", age: 30, avatar: "", purpose: "Привет! Ищу верного друга на долгие годы. Пишите в телеграм, буду рад каждому!")
+    var friends: [RecomendationFriend] = [
+        RecomendationFriend(fullName: "Vadim Shishkov", age: 30, avatar: "", purpose: "Привет! Ищу верного друга на долгие годы. Пишите в телеграм, буду рад каждому!"),
+        RecomendationFriend(fullName: "Vadim Shishkov", age: 30, avatar: "", purpose: "Привет! Ищу верного друга на долгие годы. Пишите в телеграм, буду рад каждому!"),
+        RecomendationFriend(fullName: "Vadim Shishkov", age: 30, avatar: "", purpose: "Привет! Ищу верного друга на долгие годы. Пишите в телеграм, буду рад каждому!"),
+        RecomendationFriend(fullName: "Vadim Shishkov", age: 30, avatar: "", purpose: "Привет! Ищу верного друга на долгие годы. Пишите в телеграм, буду рад каждому!"),
+        RecomendationFriend(fullName: "Vadim Shishkov", age: 30, avatar: "", purpose: "Привет! Ищу верного друга на долгие годы. Пишите в телеграм, буду рад каждому!"),
+        RecomendationFriend(fullName: "Vadim Shishkov", age: 30, avatar: "", purpose: "Привет! Ищу верного друга на долгие годы. Пишите в телеграм, буду рад каждому!"),
+        RecomendationFriend(fullName: "Vadim Shishkov", age: 30, avatar: "", purpose: "Привет! Ищу верного друга на долгие годы. Пишите в телеграм, буду рад каждому!"),
+        RecomendationFriend(fullName: "Vadim Shishkov", age: 30, avatar: "", purpose: "Привет! Ищу верного друга на долгие годы. Пишите в телеграм, буду рад каждому!"),
+        RecomendationFriend(fullName: "Vadim Shishkov", age: 30, avatar: "", purpose: "Привет! Ищу верного друга на долгие годы. Пишите в телеграм, буду рад каждому!"),
+        RecomendationFriend(fullName: "Vadim Shishkov", age: 30, avatar: "", purpose: "Привет! Ищу верного друга на долгие годы. Пишите в телеграм, буду рад каждому!"),
+        RecomendationFriend(fullName: "Vadim Shishkov", age: 30, avatar: "", purpose: "Привет! Ищу верного друга на долгие годы. Пишите в телеграм, буду рад каждому!"),
+        RecomendationFriend(fullName: "Vadim Shishkov", age: 30, avatar: "", purpose: "Привет! Ищу верного друга на долгие годы. Пишите в телеграм, буду рад каждому!")
     ]
 }
 

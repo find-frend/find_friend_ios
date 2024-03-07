@@ -60,7 +60,7 @@ final class SearchFriendCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(with model: RecomendationFriendDto) {
+    func configure(with model: RecomendationFriend) {
         fullName.text = model.fullName
         purpose.text = model.purpose
         age.text = "\(model.age) лет"
