@@ -13,7 +13,7 @@ protocol LoginViewControllerDelegate: AnyObject {
 }
 
 // MARK: - LoginViewController
-final class LoginViewController: UIViewController {
+final class LoginViewController: BaseRegistrationViewController {
 
     // MARK: - Public properties
     weak var delegate: LoginViewControllerDelegate?
@@ -29,11 +29,7 @@ final class LoginViewController: UIViewController {
     ) {
         self.viewModel = viewModel
         self.loginView = loginView
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    deinit {
-        print("LoginViewController deinited")
+        super.init(baseRegistrationView: loginView)
     }
 
     required init?(coder: NSCoder) {
@@ -48,7 +44,6 @@ final class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
-        hideKeyboardWhenTappedAround()
         bind()
         loginView.delegate = self
     }

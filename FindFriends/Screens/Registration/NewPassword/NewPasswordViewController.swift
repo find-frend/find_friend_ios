@@ -10,7 +10,7 @@ import UIKit
 
 
 // MARK: - NewPasswordViewController
-final class NewPasswordViewController: UIViewController {
+final class NewPasswordViewController: BaseRegistrationViewController {
 
     // MARK: - Private properties
     private let newPasswordView: NewPasswordView
@@ -23,7 +23,7 @@ final class NewPasswordViewController: UIViewController {
     ) {
         self.viewModel = viewModel
         self.newPasswordView = newPasswordView
-        super.init(nibName: nil, bundle: nil)
+        super.init(baseRegistrationView: newPasswordView)
     }
 
     required init?(coder: NSCoder) {
@@ -38,7 +38,6 @@ final class NewPasswordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
-        hideKeyboardWhenTappedAround()
         bind()
         newPasswordView.delegate = self
     }

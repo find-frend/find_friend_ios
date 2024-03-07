@@ -22,7 +22,7 @@ final class SplashViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 //        uncomment for testing
-//        oauthTokenStorage.token = nil
+        oauthTokenStorage.token = nil
         if let _ = oauthTokenStorage.token {
             presentTabBarController()
         } else {

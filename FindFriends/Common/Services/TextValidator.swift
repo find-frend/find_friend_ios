@@ -12,15 +12,17 @@ struct TextValidator {
     static func validate(_ text: String, with type: TextFieldType) -> Result<Void, ValidateMessages> {
         switch type {
         case .name:
-            validateName(text)
+            return validateName(text)
         case .lastName:
-            validateLastName(text)
+            return validateLastName(text)
         case .email:
-            validateEmail(text)
+            return validateEmail(text)
         case .password:
-            validatePassword(text)
+            return validatePassword(text)
         case .confirmPassword:
-            validateConfirmPassword(text)
+            return validateConfirmPassword(text)
+        case .date:
+            return validateDate(text)
         }
     }
     private init() {}
@@ -90,6 +92,13 @@ struct TextValidator {
     private static func validateConfirmPassword(_ password: String) -> Result<Void, ValidateMessages> {
         if password.isEmpty {
             return .failure(.emptyField)
+        }
+        return .success(Void())
+    }
+    
+    private static func validateDate(_ Date: String) -> Result<Void, ValidateMessages> {
+        guard CharacterSet(charactersIn: "0123456789.").isSuperset(of: CharacterSet(charactersIn: Date)) else {
+            return .failure(.incorrectSymbols)
         }
         return .success(Void())
     }

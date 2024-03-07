@@ -14,7 +14,7 @@ protocol RegistrationViewDelegate: AnyObject {
     func showAlert(_ model: AlertModel)
 }
 
-final class RegistrationView: UIView {
+final class RegistrationView: BaseRegistrationView {
     let viewModel = RegistrationViewModel(registrationService: RegistrationService())
     weak var delegate: RegistrationViewDelegate?
     
@@ -75,13 +75,6 @@ final class RegistrationView: UIView {
         text.addAttribute(.underlineStyle, value: 1, range: NSRange(location: 39, length: 21))
         label.attributedText = text
         return label
-    }()
-    
-    private lazy var topDecoration: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(resource: .topDecoration)
-        imageView.contentMode = .scaleAspectFill
-        return imageView
     }()
     
     private var cancellables: Set<AnyCancellable> = []
@@ -194,20 +187,15 @@ final class RegistrationView: UIView {
     }
     
     private func setupLayout() {
-        addSubviewWithoutAutoresizingMask(topDecoration)
-        addSubviewWithoutAutoresizingMask(nameTextField)
-        addSubviewWithoutAutoresizingMask(lastnameTextField)
-        addSubviewWithoutAutoresizingMask(emailTextField)
-        addSubviewWithoutAutoresizingMask(passwordTextField)
-        addSubviewWithoutAutoresizingMask(passwordConfirmationTextField)
-        addSubviewWithoutAutoresizingMask(registrationButton)
-        addSubviewWithoutAutoresizingMask(agreementLabel)
+        contentView.addSubviewWithoutAutoresizingMask(nameTextField)
+        contentView.addSubviewWithoutAutoresizingMask(lastnameTextField)
+        contentView.addSubviewWithoutAutoresizingMask(emailTextField)
+        contentView.addSubviewWithoutAutoresizingMask(passwordTextField)
+        contentView.addSubviewWithoutAutoresizingMask(passwordConfirmationTextField)
+        contentView.addSubviewWithoutAutoresizingMask(registrationButton)
+        contentView.addSubviewWithoutAutoresizingMask(agreementLabel)
         
         NSLayoutConstraint.activate([
-            topDecoration.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            topDecoration.topAnchor.constraint(equalTo: self.topAnchor),
-            topDecoration.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            
             nameTextField.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
             nameTextField.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
             nameTextField.topAnchor.constraint(equalTo: topDecoration.bottomAnchor, constant: 32),

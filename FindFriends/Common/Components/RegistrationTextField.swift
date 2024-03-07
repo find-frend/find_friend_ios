@@ -13,6 +13,7 @@ enum TextFieldType {
     case email
     case password
     case confirmPassword
+    case date
 }
 
 final class RegistrationTextField: UITextField {
@@ -36,7 +37,7 @@ final class RegistrationTextField: UITextField {
     private lazy var showPasswordButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height))
         button.imageView?.tintColor = .primeDark
-        button.setImage(UIImage(resource: .closedEye), for: .normal)
+        button.setImage(.closedEye, for: .normal)
         button.addTarget(self, action: #selector(showPassword), for: .touchUpInside)
         button.isHidden = true
         return button
@@ -68,6 +69,12 @@ final class RegistrationTextField: UITextField {
         separator.backgroundColor = .borderGray
         textColor = .primeDark
         attributedPlaceholder = attributedText(attributedPlaceholder?.string ?? "", with: .placeholder)
+    }
+    
+    func showWarningForDate(_ text: String) {
+        warningLabel.text = text
+        warningLabel.isHidden = false
+        separator.backgroundColor = .warning
     }
 
     private func setupViews(placeholder text: String, type: TextFieldType) {
@@ -109,7 +116,7 @@ final class RegistrationTextField: UITextField {
     @objc private func showPassword() {
         isSecureTextEntry.toggle()
         showPasswordButton.setImage(
-            isSecureTextEntry ? UIImage(resource: .closedEye) : UIImage(resource: .openEye),
+            isSecureTextEntry ? .closedEye : .openEye,
             for: .normal
         )
     }
