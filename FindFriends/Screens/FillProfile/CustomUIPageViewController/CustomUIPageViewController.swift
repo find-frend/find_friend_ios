@@ -57,7 +57,7 @@ final class CustomUIPageViewController: UIPageViewController {
         thirdPageVC.selectInterestsView.delegate = self
         fourthPageVC.delegate = self
         fifthPageVC.delegate = self
-        
+
         removeSwipeGesture()
     }
 
