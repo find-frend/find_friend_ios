@@ -34,6 +34,7 @@ final class InterestsServiceProvider: InterestsServiceProviderProtocol {
     /// Функция возвращает список друзей у текущего пользователя
     func getInterests(completion: @escaping (Result<[InterestsdDto], Error>) -> Void) {
         print("call getInterests()")
+        //oAuthTokenStorage.token = "84a981c5159b3b3b61dacbed95df8c9db75e237b"
         guard let token = oAuthTokenStorage.token else {
             print("No token. Error.")
             return

@@ -20,6 +20,10 @@ struct CollectionLayout {
 final class  SelectInterestsView: BaseFillProfileView {
     
     let interestsViewModel = SelectInterestsViewModel()
+
+    weak var delegate: CustomUIPageControlProtocol?
+    
+    
     
     private lazy var tagsSearchBar: UISearchBar = {
         var bar  = UISearchBar()
@@ -82,6 +86,12 @@ final class  SelectInterestsView: BaseFillProfileView {
             tagsCollectionView.topAnchor.constraint(equalTo: self.tagsSearchBar.bottomAnchor),
             tagsCollectionView.bottomAnchor.constraint(equalTo: self.nextButton.topAnchor)
         ])
+        
+        nextButton.addTarget(
+            self,
+            action: #selector(nextButtonTapped),
+            for: .touchUpInside
+        )
     }
     
     required init?(coder: NSCoder) {
@@ -94,6 +104,10 @@ final class  SelectInterestsView: BaseFillProfileView {
     
     func loadData() {
         interestsViewModel.getInterests()
+    }
+    
+    @objc private func nextButtonTapped() {
+        delegate?.sendPage(number: 4)
     }
 
 }

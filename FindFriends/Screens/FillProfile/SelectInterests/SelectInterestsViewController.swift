@@ -12,7 +12,7 @@ import UIKit
 
 class SelectInterestsViewController: UIViewController {
 
-    private var selectInterestsView = SelectInterestsView()
+    private (set) var selectInterestsView = SelectInterestsView()
     
     override func loadView() {
         view = selectInterestsView

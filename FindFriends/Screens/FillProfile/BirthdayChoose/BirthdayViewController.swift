@@ -8,7 +8,7 @@
 import UIKit
 
 final class BirthdayViewController: UIViewController {
-    private var birthdayView: BirthdayView
+    var birthdayView: BirthdayView
     
     override func loadView() {
         view = birthdayView
