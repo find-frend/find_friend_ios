@@ -15,8 +15,9 @@ enum Endpoint {
     case getFriends
     case resetPassword
     case newPassword
+    case getInterests
 
-    static let baseURL = URL(string: "http://213.189.221.246/")!
+    static let baseURL = URL(string: "http://158.160.60.2/")!
 
     var path: String {
         switch self {
@@ -25,6 +26,7 @@ enum Endpoint {
         case .getFriends: return "/api/v1/friends/"
         case .resetPassword: return "/api/v1/users/reset_password/"
         case .newPassword: return "/api/v1/users/reset_password_confirm/"
+        case .getInterests: return "/api/v1/interests/"
         }
     }
 
@@ -35,6 +37,7 @@ enum Endpoint {
         case .getFriends: return URL(string: Endpoint.getFriends.path, relativeTo: Endpoint.baseURL)
         case .resetPassword: return URL(string: Endpoint.resetPassword.path, relativeTo: Endpoint.baseURL)
         case .newPassword: return URL(string: Endpoint.newPassword.path, relativeTo: Endpoint.baseURL)
+        case .getInterests: return URL(string: Endpoint.getInterests.path, relativeTo: Endpoint.baseURL)
         }
     }
 }

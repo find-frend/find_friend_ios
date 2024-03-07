@@ -30,6 +30,10 @@
 		D86387D42B8A7E4F00692535 /* TokenStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86387D32B8A7E4F00692535 /* TokenStorageService.swift */; };
 		D86387D72B8A7ECA00692535 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = D86387D62B8A7ECA00692535 /* SwiftKeychainWrapper */; };
 		D86387D92B8A7FF500692535 /* LoginUserDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86387D82B8A7FF500692535 /* LoginUserDto.swift */; };
+		D87ED9262B97BC8C00B185FB /* InterestsServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87ED9252B97BC8C00B185FB /* InterestsServiceProvider.swift */; };
+		D87ED9282B97BDDD00B185FB /* InterestsDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87ED9272B97BDDD00B185FB /* InterestsDto.swift */; };
+		D87ED92A2B97C44B00B185FB /* SelectInterestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87ED9292B97C44B00B185FB /* SelectInterestViewModel.swift */; };
+		D87ED92C2B9A1B2300B185FB /* SelectInterestsView+tagCollectionViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87ED92B2B9A1B2300B185FB /* SelectInterestsView+tagCollectionViewExtensions.swift */; };
 		DD3A2E9F2B7D2F65006A3B8E /* UIView+AutoresizingMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A2E9E2B7D2F65006A3B8E /* UIView+AutoresizingMask.swift */; };
 		DD3A2EA62B7E9447006A3B8E /* PrimeOrangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A2EA52B7E9447006A3B8E /* PrimeOrangeButton.swift */; };
 		DD3A2EA82B7E9836006A3B8E /* CaptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A2EA72B7E9836006A3B8E /* CaptionButton.swift */; };
@@ -103,6 +107,10 @@
 		D86387D12B8A754100692535 /* RegistrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationService.swift; sourceTree = "<group>"; };
 		D86387D32B8A7E4F00692535 /* TokenStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorageService.swift; sourceTree = "<group>"; };
 		D86387D82B8A7FF500692535 /* LoginUserDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserDto.swift; sourceTree = "<group>"; };
+		D87ED9252B97BC8C00B185FB /* InterestsServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestsServiceProvider.swift; sourceTree = "<group>"; };
+		D87ED9272B97BDDD00B185FB /* InterestsDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestsDto.swift; sourceTree = "<group>"; };
+		D87ED9292B97C44B00B185FB /* SelectInterestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectInterestViewModel.swift; sourceTree = "<group>"; };
+		D87ED92B2B9A1B2300B185FB /* SelectInterestsView+tagCollectionViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SelectInterestsView+tagCollectionViewExtensions.swift"; sourceTree = "<group>"; };
 		DD3A2E9E2B7D2F65006A3B8E /* UIView+AutoresizingMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AutoresizingMask.swift"; sourceTree = "<group>"; };
 		DD3A2EA52B7E9447006A3B8E /* PrimeOrangeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimeOrangeButton.swift; sourceTree = "<group>"; };
 		DD3A2EA72B7E9836006A3B8E /* CaptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionButton.swift; sourceTree = "<group>"; };
@@ -218,7 +226,6 @@
 			isa = PBXGroup;
 			children = (
 				D85401282B91F3EE0088C1E9 /* SelectInterests */,
-				D85401312B95D5720088C1E9 /* BaseFillProfileView.swift */,
 			);
 			path = FillProfile;
 			sourceTree = "<group>";
@@ -226,11 +233,13 @@
 		D85401282B91F3EE0088C1E9 /* SelectInterests */ = {
 			isa = PBXGroup;
 			children = (
-				D85401292B91F6940088C1E9 /* SelectInterestsViewController.swift */,
-				D854012B2B9312080088C1E9 /* TagsCollectionViewCell.swift */,
-				D854012D2B93125A0088C1E9 /* CellReusingUtils.swift */,
-				D854012F2B95C7D80088C1E9 /* NavigationBarView.swift */,
+				D87ED92D2B9A1CF200B185FB /* tmp */,
+				D85401312B95D5720088C1E9 /* BaseFillProfileView.swift */,
 				D85401332B95DA890088C1E9 /* SelectInterestsView.swift */,
+				D87ED92B2B9A1B2300B185FB /* SelectInterestsView+tagCollectionViewExtensions.swift */,
+				D85401292B91F6940088C1E9 /* SelectInterestsViewController.swift */,
+				D87ED9292B97C44B00B185FB /* SelectInterestViewModel.swift */,
+				D854012B2B9312080088C1E9 /* TagsCollectionViewCell.swift */,
 			);
 			path = SelectInterests;
 			sourceTree = "<group>";
@@ -255,6 +264,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		D87ED92D2B9A1CF200B185FB /* tmp */ = {
+			isa = PBXGroup;
+			children = (
+				D854012F2B95C7D80088C1E9 /* NavigationBarView.swift */,
+			);
+			path = tmp;
+			sourceTree = "<group>";
+		};
 		DD0C09A22B79019700792C29 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,6 +291,7 @@
 				DD3A2EA72B7E9836006A3B8E /* CaptionButton.swift */,
 				DDCAC7CB2B851EF500EC7D15 /* RegistrationTextField.swift */,
 				F30170882B8D290700A6921A /* UIBlockingProgressHUD.swift */,
+				D854012D2B93125A0088C1E9 /* CellReusingUtils.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -352,6 +370,7 @@
 			children = (
 				D86387CC2B89FD2200692535 /* FriendsNetworkService.swift */,
 				D86387D12B8A754100692535 /* RegistrationService.swift */,
+				D87ED9252B97BC8C00B185FB /* InterestsServiceProvider.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -406,6 +425,7 @@
 				D86387D82B8A7FF500692535 /* LoginUserDto.swift */,
 				F33B4C8B2B8FBA0C002D27B5 /* ResetPasswordDto.swift */,
 				F33B4C8D2B8FBA19002D27B5 /* NewPasswordDto.swift */,
+				D87ED9272B97BDDD00B185FB /* InterestsDto.swift */,
 			);
 			path = Dto;
 			sourceTree = "<group>";
@@ -566,6 +586,7 @@
 			files = (
 				F301706D2B8CE07000A6921A /* TmpScreenViewController.swift in Sources */,
 				F36F40832B861ADE00B2082B /* CheckEmailView.swift in Sources */,
+				D87ED92A2B97C44B00B185FB /* SelectInterestViewModel.swift in Sources */,
 				F30170872B8D1F3100A6921A /* TabBarControllerStub.swift in Sources */,
 				DDCAC7D42B852B8600EC7D15 /* RegistrationView.swift in Sources */,
 				F30170762B8CF22F00A6921A /* Credentials.swift in Sources */,
@@ -598,6 +619,7 @@
 				D5E980BA2B8F0D5D00A17E0A /* BirthdayView.swift in Sources */,
 				F36F40932B864B2300B2082B /* NewPasswordViewController.swift in Sources */,
 				F33B4C8E2B8FBA19002D27B5 /* NewPasswordDto.swift in Sources */,
+				D87ED92C2B9A1B2300B185FB /* SelectInterestsView+tagCollectionViewExtensions.swift in Sources */,
 				D85401322B95D5720088C1E9 /* BaseFillProfileView.swift in Sources */,
 				D854012E2B93125A0088C1E9 /* CellReusingUtils.swift in Sources */,
 				DDCAC7CC2B851EF500EC7D15 /* RegistrationTextField.swift in Sources */,
@@ -606,8 +628,10 @@
 				F30170652B8CDCA300A6921A /* Endpoints.swift in Sources */,
 				F30170672B8CDD1C00A6921A /* LoginUserRequest.swift in Sources */,
 				D86387CD2B89FD2200692535 /* FriendsNetworkService.swift in Sources */,
+				D87ED9282B97BDDD00B185FB /* InterestsDto.swift in Sources */,
 				F33B4C892B8FB989002D27B5 /* NewPasswordRequest.swift in Sources */,
 				DDCAC7C42B83C0BF00EC7D15 /* WhiteBorderButton.swift in Sources */,
+				D87ED9262B97BC8C00B185FB /* InterestsServiceProvider.swift in Sources */,
 				F36F40852B861AE400B2082B /* CheckEmailViewController.swift in Sources */,
 				F36F408C2B86434C00B2082B /* NewPasswordSuccessView.swift in Sources */,
 				F33B4C8C2B8FBA0C002D27B5 /* ResetPasswordDto.swift in Sources */,

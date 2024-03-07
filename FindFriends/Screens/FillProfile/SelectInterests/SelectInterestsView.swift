@@ -19,7 +19,7 @@ struct CollectionLayout {
 
 final class  SelectInterestsView: BaseFillProfileView {
     
-    private let tags = ["Бары и клубы", "Рыбалка", "Квесты", "Иностранные языки", "Литература", "Йога", "Настольные игры", "Сноуборд", "Мафия", "Фигурное катание", "Живопись", "Путешествия", "Шахматы"]
+    let interestsViewModel = SelectInterestsViewModel()
     
     private lazy var tagsSearchBar: UISearchBar = {
         var bar  = UISearchBar()
@@ -34,6 +34,7 @@ final class  SelectInterestsView: BaseFillProfileView {
         bar.backgroundColor = .backgroundLaunchScreen
         bar.searchTextField.textColor = UIColor.searchBar
 
+        // убираем серый фон у tagsSearchBar
         for subview in bar.searchTextField.subviews {
             subview.backgroundColor = .clear
             subview.alpha = 0
@@ -44,7 +45,7 @@ final class  SelectInterestsView: BaseFillProfileView {
         return bar
     }()
     
-    private lazy var tagsCollectionView = {
+    private (set) lazy var tagsCollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.backgroundColor = .backgroundLaunchScreen
         collectionView.allowsMultipleSelection = true
@@ -54,6 +55,8 @@ final class  SelectInterestsView: BaseFillProfileView {
     
     required init() {
         super.init(header: "Интересы", screenPosition: 3, subheader: "Выберете свои увлечения, чтобы найти единомышленников")
+
+        interestsViewModel.delegate = self  
         
         let columnLayout = CustomViewFlowLayout()
         columnLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
@@ -88,50 +91,16 @@ final class  SelectInterestsView: BaseFillProfileView {
     required init(header: String, screenPosition: Int, subheader: String = "") {
         fatalError("init(header:screenPosition:subheader:) has not been implemented")
     }
-}
-
-extension SelectInterestsView: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return tags.count
-    }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: tagsCollectionViewCell = tagsCollectionView.dequeueReusableCell(indexPath: indexPath)
-
-        cell.tagLabel.text = tags[indexPath.row]
-        return cell
+    func loadData() {
+        interestsViewModel.getInterests()
     }
+
 }
 
-
-extension SelectInterestsView: UICollectionViewDelegateFlowLayout {
-
-    // отступ между яейками в одном ряду  (горизонтальные отступы)   // отвечает за горизонтальные отступы между ячейками.
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return CollectionLayout.spaceBetweenColumns
-    }
-    //    // отступы ячеек от краев  коллекции
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: CollectionLayout.topOffsetCell, left: CollectionLayout.leadingOffsetCell, bottom: 10, right: CollectionLayout.trailingOffsetCell)
-    }
-    // отвечает за вертикальные отступы  между яцейками в коллекции;
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return CollectionLayout.spaceBetweenRows
+extension SelectInterestsView: SelectInterestsViewModelDelegate {
+    func didUpdateInterests() {
+        tagsCollectionView.reloadData()
     }
     
 }
-
-extension SelectInterestsView: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = tagsCollectionView.cellForItem(at: indexPath) as? tagsCollectionViewCell
-        cell?.isSelected = true
-        cell?.selectedBackgroundView
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        let cell = tagsCollectionView.cellForItem(at: indexPath) as? tagsCollectionViewCell
-       // cell?.selectTag(isSelected: false)
-        cell?.isSelected = false
-    }
-}
-

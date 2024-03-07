@@ -34,7 +34,7 @@ struct DefaultNetworkClient: NetworkClient {
     @discardableResult
     func send(request: NetworkRequest, onResponse: @escaping (Result<Data, Error>) -> Void) -> NetworkTask? {
         guard let urlRequest = create(request: request) else { return nil }
-//
+
 //        print("urlRequest: \(urlRequest.debugDescription)")
 //        print("urlRequest: \(urlRequest.httpMethod)")
 //        let str = String(decoding: urlRequest.httpBody ?? Data(), as: UTF8.self)

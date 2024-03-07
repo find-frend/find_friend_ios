@@ -9,10 +9,10 @@ import UIKit
 
 class TmpScreenViewController: UIViewController {
     
-    let firstName =  "User1"
-    let lastName = "1User"
-    let email = "ert3@gmail.com"
-    let password =  "4379dfdfd44"
+    let firstName =  "Userr1"
+    let lastName = "1Userr"
+    let email = "userva2@yandex.ru"
+    let password =  "strinw111"
     
     var getFriendsNetworkService = FriendsServiceProvider()
     var usersServiceProvider = RegistrationService()
@@ -28,13 +28,9 @@ class TmpScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
+ 
         view.backgroundColor = .backgroundLaunchScreen
-     
-        
-        
+    
         
         tmpLabel.text = oAuthTokenStorage.token
         tmpLabel.font = .Regular.large
