@@ -93,8 +93,8 @@ final class CityViewController: UIViewController {
         let vc = SelectCityViewController()
         navigationController?.modalPresentationStyle = .none
         navigationController?.pushViewController(vc, animated: true)
-//        modalPresentationStyle = .currentContext
-//        present(vc, animated: true)
+        modalPresentationStyle = .currentContext
+        present(vc, animated: true)
     }
     
 }
