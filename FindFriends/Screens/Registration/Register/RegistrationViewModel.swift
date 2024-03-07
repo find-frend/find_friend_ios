@@ -153,7 +153,8 @@ final class RegistrationViewModel {
             let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
             let window = scene.windows.first
         else { fatalError("Invalid Configuration") }
-        let tabBarController = TabBarControllerStub()
-        window.rootViewController = tabBarController
+        
+        let fillProfile = CustomUIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
+        window.rootViewController = fillProfile
     }
 }

@@ -9,22 +9,10 @@ import UIKit
 final class CustomUIPageViewController: UIPageViewController {
 
     private lazy var firstPageVC = GenderSelectionViewController(genderView: GenderView())
-
     private lazy var secondPageVC = BirthdayViewController(birthdayView: BirthdayView())
-
     private lazy var thirdPageVC = SelectInterestsViewController()
-    
-    private lazy var fourthPageVC = NextViewController(
-        label: "Выберите город",
-        infoText: "Чтобы видеть события и друзей",
-        viewControllerNumber: 3
-    )
-    
-    private lazy var fifthPageVC = NextViewController(
-        label: "Фото профиля",
-        infoText: "Добавьте фото, чтобы другим было проще Вас узнать",
-        viewControllerNumber: 4
-    )
+    private lazy var fourthPageVC = CityViewController()
+    private lazy var fifthPageVC = SelectPhotoViewController()
 
     private lazy var pages: [UIViewController] = {
         return [firstPageVC, secondPageVC, thirdPageVC, fourthPageVC, fifthPageVC]
@@ -67,7 +55,9 @@ final class CustomUIPageViewController: UIPageViewController {
         firstPageVC.genderView.delegate = self
         secondPageVC.birthdayView.delegate = self
         thirdPageVC.selectInterestsView.delegate = self
-        [fourthPageVC, fifthPageVC].forEach { $0.delegate = self }
+        fourthPageVC.delegate = self
+        fifthPageVC.delegate = self
+        
         removeSwipeGesture()
     }
 

@@ -50,6 +50,12 @@
 		D87ED9282B97BDDD00B185FB /* InterestsDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87ED9272B97BDDD00B185FB /* InterestsDto.swift */; };
 		D87ED92A2B97C44B00B185FB /* SelectInterestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87ED9292B97C44B00B185FB /* SelectInterestViewModel.swift */; };
 		D87ED92C2B9A1B2300B185FB /* SelectInterestsView+tagCollectionViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87ED92B2B9A1B2300B185FB /* SelectInterestsView+tagCollectionViewExtensions.swift */; };
+		DD0412DE2B90E31E00984BA7 /* SearchFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0412DD2B90E31E00984BA7 /* SearchFriendsViewController.swift */; };
+		DD0412E02B90E32B00984BA7 /* SearchFriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0412DF2B90E32B00984BA7 /* SearchFriendsView.swift */; };
+		DD0412E22B90E33600984BA7 /* SearchFriendsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0412E12B90E33600984BA7 /* SearchFriendsViewModel.swift */; };
+		DD0412E42B90E78300984BA7 /* SearchFriendsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0412E32B90E78300984BA7 /* SearchFriendsNavigationController.swift */; };
+		DD0412E72B91056C00984BA7 /* SearchFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0412E62B91056C00984BA7 /* SearchFriendCell.swift */; };
+		DD0412EA2B9105BC00984BA7 /* RecomendationFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0412E92B9105BC00984BA7 /* RecomendationFriend.swift */; };
 		DD3A2E9F2B7D2F65006A3B8E /* UIView+AutoresizingMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A2E9E2B7D2F65006A3B8E /* UIView+AutoresizingMask.swift */; };
 		DD3A2EA62B7E9447006A3B8E /* PrimeOrangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A2EA52B7E9447006A3B8E /* PrimeOrangeButton.swift */; };
 		DD3A2EA82B7E9836006A3B8E /* CaptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A2EA72B7E9836006A3B8E /* CaptionButton.swift */; };
@@ -142,6 +148,12 @@
 		D87ED9272B97BDDD00B185FB /* InterestsDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestsDto.swift; sourceTree = "<group>"; };
 		D87ED9292B97C44B00B185FB /* SelectInterestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectInterestViewModel.swift; sourceTree = "<group>"; };
 		D87ED92B2B9A1B2300B185FB /* SelectInterestsView+tagCollectionViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SelectInterestsView+tagCollectionViewExtensions.swift"; sourceTree = "<group>"; };
+		DD0412DD2B90E31E00984BA7 /* SearchFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendsViewController.swift; sourceTree = "<group>"; };
+		DD0412DF2B90E32B00984BA7 /* SearchFriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendsView.swift; sourceTree = "<group>"; };
+		DD0412E12B90E33600984BA7 /* SearchFriendsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendsViewModel.swift; sourceTree = "<group>"; };
+		DD0412E32B90E78300984BA7 /* SearchFriendsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendsNavigationController.swift; sourceTree = "<group>"; };
+		DD0412E62B91056C00984BA7 /* SearchFriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendCell.swift; sourceTree = "<group>"; };
+		DD0412E92B9105BC00984BA7 /* RecomendationFriend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecomendationFriend.swift; sourceTree = "<group>"; };
 		DD3A2E9E2B7D2F65006A3B8E /* UIView+AutoresizingMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AutoresizingMask.swift"; sourceTree = "<group>"; };
 		DD3A2EA52B7E9447006A3B8E /* PrimeOrangeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimeOrangeButton.swift; sourceTree = "<group>"; };
 		DD3A2EA72B7E9836006A3B8E /* CaptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionButton.swift; sourceTree = "<group>"; };
@@ -339,6 +351,7 @@
 			children = (
 				F30170772B8CF2CE00A6921A /* Alert */,
 				F3BC5D3A2B8514DD00562C08 /* Registration */,
+				DD0412DC2B90E29400984BA7 /* SearchFriends */,
 				84531D132B94C369002289C6 /* FillProfile */,
 				F301707F2B8CF55E00A6921A /* SplashScreen */,
 				F301706C2B8CE07000A6921A /* TmpScreenViewController.swift */,
@@ -387,6 +400,19 @@
 				D854012F2B95C7D80088C1E9 /* NavigationBarView.swift */,
 			);
 			path = tmp;
+			sourceTree = "<group>";
+		};
+		DD0412DC2B90E29400984BA7 /* SearchFriends */ = {
+			isa = PBXGroup;
+			children = (
+				DDAF63B52B9A32BE009F9F87 /* Models */,
+				DD0412DD2B90E31E00984BA7 /* SearchFriendsViewController.swift */,
+				DD0412DF2B90E32B00984BA7 /* SearchFriendsView.swift */,
+				DD0412E12B90E33600984BA7 /* SearchFriendsViewModel.swift */,
+				DD0412E32B90E78300984BA7 /* SearchFriendsNavigationController.swift */,
+				DD0412E62B91056C00984BA7 /* SearchFriendCell.swift */,
+			);
+			path = SearchFriends;
 			sourceTree = "<group>";
 		};
 		DD0C09A22B79019700792C29 /* Extensions */ = {
@@ -444,6 +470,14 @@
 				D853CC332B7567B100DA58D5 /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		DDAF63B52B9A32BE009F9F87 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DD0412E92B9105BC00984BA7 /* RecomendationFriend.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		DDCAC7CD2B851F4200EC7D15 /* Services */ = {
@@ -717,6 +751,7 @@
 				F36F40832B861ADE00B2082B /* CheckEmailView.swift in Sources */,
 				D87ED92A2B97C44B00B185FB /* SelectInterestViewModel.swift in Sources */,
 				F30170872B8D1F3100A6921A /* TabBarControllerStub.swift in Sources */,
+				DD0412E42B90E78300984BA7 /* SearchFriendsNavigationController.swift in Sources */,
 				DDCAC7D42B852B8600EC7D15 /* RegistrationView.swift in Sources */,
 				F30170762B8CF22F00A6921A /* Credentials.swift in Sources */,
 				F30DA5A22B8E7B2100E6571B /* ResetPasswordViewModel.swift in Sources */,
@@ -727,6 +762,7 @@
 				F30170692B8CDF5C00A6921A /* CreateUserRequest.swift in Sources */,
 				F301707E2B8CF32500A6921A /* AlertButton.swift in Sources */,
 				F30170852B8D191000A6921A /* GetFriendsRequest.swift in Sources */,
+				DD0412EA2B9105BC00984BA7 /* RecomendationFriend.swift in Sources */,
 				D5E980BC2B8F0D6700A17E0A /* BirthdayViewController.swift in Sources */,
 				8445676E2B9740CB00114604 /* GenderSelectionButton.swift in Sources */,
 				D86387C42B87A16400692535 /* NetworkTask.swift in Sources */,
@@ -734,6 +770,7 @@
 				DD3A2EA62B7E9447006A3B8E /* PrimeOrangeButton.swift in Sources */,
 				D854012A2B91F6940088C1E9 /* SelectInterestsViewController.swift in Sources */,
 				F30170892B8D290700A6921A /* UIBlockingProgressHUD.swift in Sources */,
+				DD0412DE2B90E31E00984BA7 /* SearchFriendsViewController.swift in Sources */,
 				F301707C2B8CF2FF00A6921A /* AlertModel.swift in Sources */,
 				F36F407A2B85562800B2082B /* UIViewController+Extensions.swift in Sources */,
 				D853CC262B7567AF00DA58D5 /* AppDelegate.swift in Sources */,
@@ -783,11 +820,14 @@
 				D853CC282B7567AF00DA58D5 /* SceneDelegate.swift in Sources */,
 				F36F408E2B86435500B2082B /* NewPasswordSuccessViewController.swift in Sources */,
 				F36F40912B864B1E00B2082B /* NewPasswordView.swift in Sources */,
+				DD0412E72B91056C00984BA7 /* SearchFriendCell.swift in Sources */,
+				DD0412E22B90E33600984BA7 /* SearchFriendsViewModel.swift in Sources */,
 				CECC80F12B9898D600F4312B /* AcceptPhotoVIewController.swift in Sources */,
 				CECC80F92B989D6800F4312B /* CityViewModel.swift in Sources */,
 				F3BC5D402B853D1C00562C08 /* LoginViewController.swift in Sources */,
 				F30DA5A62B8E86D200E6571B /* NewPasswordModel.swift in Sources */,
 				F30170812B8CF57800A6921A /* SplashViewController.swift in Sources */,
+				DD0412E02B90E32B00984BA7 /* SearchFriendsView.swift in Sources */,
 				F30DA5A42B8E862300E6571B /* NewPasswordViewModel.swift in Sources */,
 				F3BC5D392B8514D700562C08 /* BaseRegistrationView.swift in Sources */,
 				84531D182B94C41F002289C6 /* CustomUIPageControl.swift in Sources */,
