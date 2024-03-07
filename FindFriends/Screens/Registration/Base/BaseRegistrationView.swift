@@ -30,6 +30,7 @@ class BaseRegistrationView: UIView {
         scrollView.contentInsetAdjustmentBehavior = .never
         scrollView.backgroundColor = .white
         scrollView.scrollsToTop = false
+        scrollView.showsVerticalScrollIndicator = false
         return scrollView
     }()
 
@@ -76,7 +77,7 @@ class BaseRegistrationView: UIView {
             topDecoration.topAnchor.constraint(
                 equalTo: contentView.topAnchor,
                 constant: Constants.topDecorationInset
-            ),
+            )
         ])
     }
 
