@@ -8,11 +8,6 @@
 import UIKit
 import Combine
 
-protocol BirthdayViewDelegate {
-    func changeTextFieldText(text: String)
-    func changeButtonAndErrorLabel(dateIsCorrect: Bool)
-}
-
 final class BirthdayView: UIView {
     
     weak var delegate: CustomUIPageControlProtocol?
@@ -38,9 +33,9 @@ final class BirthdayView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        bind()
         setupViews()
         setupLayout()
-        bind()
     }
     
     required init?(coder: NSCoder) {
@@ -55,6 +50,7 @@ private extension BirthdayView {
         datePickTextField.keyboardType = .numberPad
         datePickTextField.delegate = self
         datePickTextField.clearButtonMode = .whileEditing
+        datePickTextField.hideWarningLabel()
         
         nextButton.isEnabled = false
         nextButton.addTarget(self, action: #selector(nexButtonTap), for: .touchUpInside)
@@ -68,9 +64,11 @@ private extension BirthdayView {
         NSLayoutConstraint.activate([
             headerLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             headerLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            headerLabel.heightAnchor.constraint(equalToConstant: 41),
             headerLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 36),
             
             datePickTextField.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 52),
+            datePickTextField.heightAnchor.constraint(equalToConstant: 44),
             datePickTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             datePickTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             
@@ -87,15 +85,10 @@ private extension BirthdayView {
             .sink { [weak self] dateIsCorrect in
                 if dateIsCorrect {
                     self?.datePickTextField.hideWarningLabel()
+                    self?.nextButtonOn()
                 } else {
                     self?.datePickTextField.showWarningForDate("недопустимое значение")
-                }
-                
-                self?.nextButton.isEnabled = dateIsCorrect
-                if dateIsCorrect {
-                    self?.nextButton.backgroundColor = .mainOrange
-                } else {
-                    self?.nextButton.backgroundColor = .lightOrange
+                    self?.nextButtonOff()
                 }
             }
             .store(in: &cancellables)
@@ -106,30 +99,19 @@ private extension BirthdayView {
             .store(in: &cancellables)
     }
     
+    func nextButtonOff() {
+        nextButton.isEnabled = false
+        nextButton.backgroundColor = .lightOrange
+    }
+    
+    func nextButtonOn() {
+        nextButton.isEnabled = true
+        nextButton.backgroundColor = .mainOrange
+    }
+    
     @objc
     func nexButtonTap() {
         delegate?.sendPage(number: 2)
-    }
-}
-
-extension BirthdayView: BirthdayViewDelegate {
-    func changeTextFieldText(text: String) {
-        datePickTextField.text = text
-    }
-    
-    func changeButtonAndErrorLabel(dateIsCorrect: Bool) {
-        if dateIsCorrect {
-            datePickTextField.hideWarningLabel()
-        } else {
-            datePickTextField.showWarningForDate("недопустимое значение")
-        }
-        
-        nextButton.isEnabled = dateIsCorrect
-        if dateIsCorrect {
-            nextButton.backgroundColor = .mainOrange
-            return
-        }
-        nextButton.backgroundColor = .lightOrange
     }
 }
 
@@ -139,6 +121,21 @@ extension BirthdayView: UITextFieldDelegate {
         shouldChangeCharactersIn range: NSRange,
         replacementString string: String
     ) -> Bool {
-        return viewModel.shouldChangeCharactersIn(text: textField.text, range: range, replacementString: string)
+        guard let text = textField.text else { return false }
+        let shouldChangeCharactersIn = viewModel.shouldChangeCharactersIn(text: text, range: range, replacementString: string)
+        
+        if viewModel.shouldHideKeyboard() {
+            textField.text = NSString(string: text).replacingCharacters(in: range, with: string)
+            textField.resignFirstResponder()
+        }
+        
+        return shouldChangeCharactersIn
+    }
+    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        datePickTextField.hideWarningLabel()
+        nextButtonOff()
+        
+        return true
     }
 }
