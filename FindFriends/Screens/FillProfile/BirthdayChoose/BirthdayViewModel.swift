@@ -12,6 +12,10 @@ final class BirthdayViewModel {
     @Published var textFieldText: String = ""
     @Published var buttonAndError: Bool = false
     
+    func shouldHideKeyboard() -> Bool {
+        return buttonAndError
+    }
+    
     func shouldChangeCharactersIn(text: String?, range: NSRange, replacementString: String) -> Bool {
         guard let text = text else { return false }
         
