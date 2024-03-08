@@ -9,10 +9,10 @@ import UIKit
 
 class TmpScreenViewController: UIViewController {
     
-    let firstName =  "User1"
-    let lastName = "1User"
-    let email = "ert3@gmail.com"
-    let password =  "4379dfdfd44"
+    let firstName =  "Userr1"
+    let lastName = "1Userr"
+    let email = "userva2@yandex.ru"
+    let password =  "strinw111"
     
     var getFriendsNetworkService = FriendsServiceProvider()
     var usersServiceProvider = RegistrationService()
@@ -24,12 +24,14 @@ class TmpScreenViewController: UIViewController {
     let createUserButton = UIButton()
     let loginUserButton = UIButton()
 
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+ 
+        view.backgroundColor = .backgroundLaunchScreen
+    
         
-        view.backgroundColor = .yellow
-        
-
         tmpLabel.text = oAuthTokenStorage.token
         tmpLabel.font = .Regular.large
         tmpLabel.numberOfLines = 3
@@ -75,6 +77,7 @@ class TmpScreenViewController: UIViewController {
         loginUserButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         loginUserButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
         loginUserButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
         
     }
     
