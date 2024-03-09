@@ -1,7 +1,11 @@
 import UIKit
 
+protocol ModalViewControllerDelegate: AnyObject {
+    func modalControllerWillDisapear(_ model: SelectCityViewController, withDismiss param: Bool)
+}
+
 final class SelectCityViewController: UIViewController {
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         addView()
@@ -11,7 +15,7 @@ final class SelectCityViewController: UIViewController {
         view.backgroundColor = .systemBackground
         viewModel.filteredCitiesList = viewModel.citiesList
     }
-    
+
     init(viewModel: CityViewModelProtocol = CityViewModel()) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -20,6 +24,8 @@ final class SelectCityViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    weak var delegate: ModalViewControllerDelegate?
     
     private var viewModel: CityViewModelProtocol
     
@@ -52,6 +58,7 @@ final class SelectCityViewController: UIViewController {
     
     private lazy var cancelButton: WhiteBorderButton = {
         let button = WhiteBorderButton(text: "Отменить")
+        button.addTarget(self, action: #selector(didTapCancelButton), for: .touchUpInside)
         return button
     }()
     
@@ -116,8 +123,13 @@ final class SelectCityViewController: UIViewController {
     }
     
     @objc private func didTapAcceptButton() {
-        let vc = SelectPhotoViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        delegate?.modalControllerWillDisapear(self, withDismiss: true)
+        dismiss(animated: true)
+    }
+    
+    @objc private func didTapCancelButton() {
+        delegate?.modalControllerWillDisapear(self, withDismiss: false)
+        dismiss(animated: true)
     }
 }
 
@@ -135,6 +147,10 @@ extension SelectCityViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? SelectCityTableViewCell else {
+            return
+        }
+        viewModel.selectCity = cell.label.text ?? ""
         acceptButton.backgroundColor = .mainOrange
         acceptButton.isEnabled = true
     }

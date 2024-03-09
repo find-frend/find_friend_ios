@@ -3,12 +3,18 @@ import UIKit
 final class AcceptPhotoVIewController: UIViewController {
     
     override func viewDidLoad() {
-        avatarView.image = loadImage()
         super.viewDidLoad()
+        avatarView.image = loadImage()
         view.backgroundColor = .systemBackground
         addView()
         applyConstraints()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        avatarView.image = loadImage()
+    }
+    weak var delegate: CustomUIPageControlProtocol?
     
     private lazy var firstLabel: UILabel = {
         let label = UILabel()
@@ -36,6 +42,7 @@ final class AcceptPhotoVIewController: UIViewController {
         view.contentMode = .center
         view.layer.frame.size.width = view.layer.frame.size.height
         view.layer.cornerRadius = view.bounds.height / 2
+        view.layer.borderColor = UIColor.lightGray.cgColor
         view.clipsToBounds = true
         return view
     }()
@@ -57,20 +64,24 @@ final class AcceptPhotoVIewController: UIViewController {
         let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let imageUrl = documentsURL.appendingPathComponent("avatar.png")
         continueButton.backgroundColor = .mainOrange
+        avatarView.layer.borderWidth = 0
         guard fileManager.fileExists(atPath: imageUrl.path) else {
             continueButton.backgroundColor = .lightOrange
             continueButton.isEnabled = false 
+            avatarView.layer.borderWidth = 4
+            
             return UIImage(named: "plugPhoto")!
         }
         return UIImage(contentsOfFile: imageUrl.path)!
     }
-    
+
     private func deleteImage() {
         let fileManager = FileManager.default
         let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let imageUrl = documentsURL.appendingPathComponent("avatar.png")
         do {
-            try fileManager.removeItem(atPath: imageUrl.path)
+            try fileManager.removeItem(at: imageUrl)
+            print("Фотография успешно удалена")
         } catch {
             print("Ошибка удаления фотографии")
         }
@@ -84,7 +95,7 @@ final class AcceptPhotoVIewController: UIViewController {
         NSLayoutConstraint.activate([
             firstLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             firstLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            firstLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 80),
+            firstLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 36),
             secondLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             secondLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             secondLabel.topAnchor.constraint(equalTo: firstLabel.bottomAnchor, constant: 10),
@@ -103,6 +114,6 @@ final class AcceptPhotoVIewController: UIViewController {
     
     @objc private func didTapCancelPhotoButton() {
         deleteImage()
-        navigationController?.popViewController(animated: true)
+        delegate?.sendPage(number: 4)
     }
 }

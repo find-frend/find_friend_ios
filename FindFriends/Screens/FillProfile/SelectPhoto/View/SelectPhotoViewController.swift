@@ -5,7 +5,7 @@ final class SelectPhotoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        avatarView.image = UIImage(named: "plugPhoto")
+        avatarView.image = loadImage()
         view.backgroundColor = .systemBackground
         addView()
         applyConstraints()
@@ -15,8 +15,7 @@ final class SelectPhotoViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        avatarView.image = UIImage(named: "plugPhoto")
-        avatarView.layer.borderWidth = 4
+        avatarView.image = loadImage()
     }
     
     private func loadImage() -> UIImage {
@@ -34,6 +33,7 @@ final class SelectPhotoViewController: UIViewController {
         }
         return UIImage(contentsOfFile: imageUrl.path)!
     }
+    
     
     private lazy var firstLabel: UILabel = {
         let label = UILabel()
@@ -86,6 +86,7 @@ final class SelectPhotoViewController: UIViewController {
         let button = UIButton()
         button.setTitle("Пропустить", for: .normal)
         button.setTitleColor(UIColor.black, for: .normal)
+        button.addTarget(self, action: #selector(didTapSkipButton), for: .touchUpInside)
         return button
     }()
     
@@ -97,7 +98,7 @@ final class SelectPhotoViewController: UIViewController {
         NSLayoutConstraint.activate([
             firstLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             firstLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            firstLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 80),
+            firstLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 36),
             secondLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             secondLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             secondLabel.topAnchor.constraint(equalTo: firstLabel.bottomAnchor, constant: 10),
@@ -121,8 +122,11 @@ final class SelectPhotoViewController: UIViewController {
     }
     
     @objc private func didTapContinueButton() {
-        let vc = AcceptPhotoVIewController()
-        navigationController?.pushViewController(vc, animated: true)
+        delegate?.sendPage(number: 5)
+    }
+    
+    @objc private func didTapSkipButton() {
+        delegate?.sendPage(number: 5)
     }
 }
 
