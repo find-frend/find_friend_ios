@@ -30,6 +30,12 @@
 		D853CC282B7567AF00DA58D5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D853CC272B7567AF00DA58D5 /* SceneDelegate.swift */; };
 		D853CC2F2B7567B100DA58D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D853CC2E2B7567B100DA58D5 /* Assets.xcassets */; };
 		D853CC322B7567B100DA58D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D853CC302B7567B100DA58D5 /* LaunchScreen.storyboard */; };
+		D854012A2B91F6940088C1E9 /* SelectInterestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85401292B91F6940088C1E9 /* SelectInterestsViewController.swift */; };
+		D854012C2B9312080088C1E9 /* TagsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D854012B2B9312080088C1E9 /* TagsCollectionViewCell.swift */; };
+		D854012E2B93125A0088C1E9 /* CellReusingUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D854012D2B93125A0088C1E9 /* CellReusingUtils.swift */; };
+		D85401302B95C7D80088C1E9 /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D854012F2B95C7D80088C1E9 /* NavigationBarView.swift */; };
+		D85401322B95D5720088C1E9 /* BaseFillProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85401312B95D5720088C1E9 /* BaseFillProfileView.swift */; };
+		D85401342B95DA890088C1E9 /* SelectInterestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85401332B95DA890088C1E9 /* SelectInterestsView.swift */; };
 		D86387C32B87A16400692535 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86387BE2B87A16400692535 /* NetworkClient.swift */; };
 		D86387C42B87A16400692535 /* NetworkTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86387BF2B87A16400692535 /* NetworkTask.swift */; };
 		D86387C72B87A16400692535 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86387C22B87A16400692535 /* NetworkRequest.swift */; };
@@ -40,6 +46,10 @@
 		D86387D42B8A7E4F00692535 /* TokenStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86387D32B8A7E4F00692535 /* TokenStorageService.swift */; };
 		D86387D72B8A7ECA00692535 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = D86387D62B8A7ECA00692535 /* SwiftKeychainWrapper */; };
 		D86387D92B8A7FF500692535 /* LoginUserDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86387D82B8A7FF500692535 /* LoginUserDto.swift */; };
+		D87ED9262B97BC8C00B185FB /* InterestsServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87ED9252B97BC8C00B185FB /* InterestsServiceProvider.swift */; };
+		D87ED9282B97BDDD00B185FB /* InterestsDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87ED9272B97BDDD00B185FB /* InterestsDto.swift */; };
+		D87ED92A2B97C44B00B185FB /* SelectInterestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87ED9292B97C44B00B185FB /* SelectInterestViewModel.swift */; };
+		D87ED92C2B9A1B2300B185FB /* SelectInterestsView+tagCollectionViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87ED92B2B9A1B2300B185FB /* SelectInterestsView+tagCollectionViewExtensions.swift */; };
 		DD0412DE2B90E31E00984BA7 /* SearchFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0412DD2B90E31E00984BA7 /* SearchFriendsViewController.swift */; };
 		DD0412E02B90E32B00984BA7 /* SearchFriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0412DF2B90E32B00984BA7 /* SearchFriendsView.swift */; };
 		DD0412E22B90E33600984BA7 /* SearchFriendsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0412E12B90E33600984BA7 /* SearchFriendsViewModel.swift */; };
@@ -119,6 +129,12 @@
 		D853CC2E2B7567B100DA58D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D853CC312B7567B100DA58D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D853CC332B7567B100DA58D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D85401292B91F6940088C1E9 /* SelectInterestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectInterestsViewController.swift; sourceTree = "<group>"; };
+		D854012B2B9312080088C1E9 /* TagsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsCollectionViewCell.swift; sourceTree = "<group>"; };
+		D854012D2B93125A0088C1E9 /* CellReusingUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellReusingUtils.swift; sourceTree = "<group>"; };
+		D854012F2B95C7D80088C1E9 /* NavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
+		D85401312B95D5720088C1E9 /* BaseFillProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFillProfileView.swift; sourceTree = "<group>"; };
+		D85401332B95DA890088C1E9 /* SelectInterestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectInterestsView.swift; sourceTree = "<group>"; };
 		D86387BE2B87A16400692535 /* NetworkClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		D86387BF2B87A16400692535 /* NetworkTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTask.swift; sourceTree = "<group>"; };
 		D86387C22B87A16400692535 /* NetworkRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
@@ -128,6 +144,10 @@
 		D86387D12B8A754100692535 /* RegistrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationService.swift; sourceTree = "<group>"; };
 		D86387D32B8A7E4F00692535 /* TokenStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorageService.swift; sourceTree = "<group>"; };
 		D86387D82B8A7FF500692535 /* LoginUserDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserDto.swift; sourceTree = "<group>"; };
+		D87ED9252B97BC8C00B185FB /* InterestsServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestsServiceProvider.swift; sourceTree = "<group>"; };
+		D87ED9272B97BDDD00B185FB /* InterestsDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestsDto.swift; sourceTree = "<group>"; };
+		D87ED9292B97C44B00B185FB /* SelectInterestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectInterestViewModel.swift; sourceTree = "<group>"; };
+		D87ED92B2B9A1B2300B185FB /* SelectInterestsView+tagCollectionViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SelectInterestsView+tagCollectionViewExtensions.swift"; sourceTree = "<group>"; };
 		DD0412DD2B90E31E00984BA7 /* SearchFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendsViewController.swift; sourceTree = "<group>"; };
 		DD0412DF2B90E32B00984BA7 /* SearchFriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendsView.swift; sourceTree = "<group>"; };
 		DD0412E12B90E33600984BA7 /* SearchFriendsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendsViewModel.swift; sourceTree = "<group>"; };
@@ -198,6 +218,7 @@
 		84531D132B94C369002289C6 /* FillProfile */ = {
 			isa = PBXGroup;
 			children = (
+				D85401282B91F3EE0088C1E9 /* SelectInterests */,
 				CECC80E42B98984B00F4312B /* SelectCity */,
 				CECC80ED2B9898BF00F4312B /* SelectPhoto */,
 				84531D232B94FA61002289C6 /* CustomUIPageViewController */,
@@ -339,6 +360,20 @@
 			path = Screens;
 			sourceTree = "<group>";
 		};
+		D85401282B91F3EE0088C1E9 /* SelectInterests */ = {
+			isa = PBXGroup;
+			children = (
+				D87ED92D2B9A1CF200B185FB /* tmp */,
+				D85401312B95D5720088C1E9 /* BaseFillProfileView.swift */,
+				D85401332B95DA890088C1E9 /* SelectInterestsView.swift */,
+				D87ED92B2B9A1B2300B185FB /* SelectInterestsView+tagCollectionViewExtensions.swift */,
+				D85401292B91F6940088C1E9 /* SelectInterestsViewController.swift */,
+				D87ED9292B97C44B00B185FB /* SelectInterestViewModel.swift */,
+				D854012B2B9312080088C1E9 /* TagsCollectionViewCell.swift */,
+			);
+			path = SelectInterests;
+			sourceTree = "<group>";
+		};
 		D86387BD2B87A16400692535 /* NetworkClient */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,6 +392,14 @@
 				F301706E2B8CE45400A6921A /* Network */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		D87ED92D2B9A1CF200B185FB /* tmp */ = {
+			isa = PBXGroup;
+			children = (
+				D854012F2B95C7D80088C1E9 /* NavigationBarView.swift */,
+			);
+			path = tmp;
 			sourceTree = "<group>";
 		};
 		DD0412DC2B90E29400984BA7 /* SearchFriends */ = {
@@ -394,6 +437,7 @@
 				DD3A2EA72B7E9836006A3B8E /* CaptionButton.swift */,
 				DDCAC7CB2B851EF500EC7D15 /* RegistrationTextField.swift */,
 				F30170882B8D290700A6921A /* UIBlockingProgressHUD.swift */,
+				D854012D2B93125A0088C1E9 /* CellReusingUtils.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -480,6 +524,7 @@
 			children = (
 				D86387CC2B89FD2200692535 /* FriendsNetworkService.swift */,
 				D86387D12B8A754100692535 /* RegistrationService.swift */,
+				D87ED9252B97BC8C00B185FB /* InterestsServiceProvider.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -544,6 +589,7 @@
 				D86387D82B8A7FF500692535 /* LoginUserDto.swift */,
 				F33B4C8B2B8FBA0C002D27B5 /* ResetPasswordDto.swift */,
 				F33B4C8D2B8FBA19002D27B5 /* NewPasswordDto.swift */,
+				D87ED9272B97BDDD00B185FB /* InterestsDto.swift */,
 			);
 			path = Dto;
 			sourceTree = "<group>";
@@ -703,6 +749,7 @@
 				F31111272B968D5D00A97B80 /* BaseRegistrationViewController.swift in Sources */,
 				F301706D2B8CE07000A6921A /* TmpScreenViewController.swift in Sources */,
 				F36F40832B861ADE00B2082B /* CheckEmailView.swift in Sources */,
+				D87ED92A2B97C44B00B185FB /* SelectInterestViewModel.swift in Sources */,
 				F30170872B8D1F3100A6921A /* TabBarControllerStub.swift in Sources */,
 				DD0412E42B90E78300984BA7 /* SearchFriendsNavigationController.swift in Sources */,
 				DDCAC7D42B852B8600EC7D15 /* RegistrationView.swift in Sources */,
@@ -721,6 +768,7 @@
 				D86387C42B87A16400692535 /* NetworkTask.swift in Sources */,
 				D5E980BE2B8F0D7800A17E0A /* BirthdayViewModel.swift in Sources */,
 				DD3A2EA62B7E9447006A3B8E /* PrimeOrangeButton.swift in Sources */,
+				D854012A2B91F6940088C1E9 /* SelectInterestsViewController.swift in Sources */,
 				F30170892B8D290700A6921A /* UIBlockingProgressHUD.swift in Sources */,
 				DD0412DE2B90E31E00984BA7 /* SearchFriendsViewController.swift in Sources */,
 				F301707C2B8CF2FF00A6921A /* AlertModel.swift in Sources */,
@@ -729,9 +777,11 @@
 				DDCAC7CF2B851F7700EC7D15 /* TextValidator.swift in Sources */,
 				F36F40802B86129900B2082B /* ResetPasswordView.swift in Sources */,
 				D86387D92B8A7FF500692535 /* LoginUserDto.swift in Sources */,
+				D854012C2B9312080088C1E9 /* TagsCollectionViewCell.swift in Sources */,
 				CECC80EB2B98988200F4312B /* SelectCityViewController.swift in Sources */,
 				CECC80F72B9899CF00F4312B /* SearchFieldText.swift in Sources */,
 				F30170832B8CF6EB00A6921A /* SplashView.swift in Sources */,
+				D85401302B95C7D80088C1E9 /* NavigationBarView.swift in Sources */,
 				DD3A2EA82B7E9836006A3B8E /* CaptionButton.swift in Sources */,
 				DDCAC7D22B852B7B00EC7D15 /* RegistrationViewController.swift in Sources */,
 				F311112A2B9692CC00A97B80 /* ResetPasswordViewController.swift in Sources */,
@@ -742,6 +792,9 @@
 				D5E980BA2B8F0D5D00A17E0A /* BirthdayView.swift in Sources */,
 				F36F40932B864B2300B2082B /* NewPasswordViewController.swift in Sources */,
 				F33B4C8E2B8FBA19002D27B5 /* NewPasswordDto.swift in Sources */,
+				D87ED92C2B9A1B2300B185FB /* SelectInterestsView+tagCollectionViewExtensions.swift in Sources */,
+				D85401322B95D5720088C1E9 /* BaseFillProfileView.swift in Sources */,
+				D854012E2B93125A0088C1E9 /* CellReusingUtils.swift in Sources */,
 				DDCAC7CC2B851EF500EC7D15 /* RegistrationTextField.swift in Sources */,
 				D86387CF2B8A74A500692535 /* CreateUserDto.swift in Sources */,
 				D86387C32B87A16400692535 /* NetworkClient.swift in Sources */,
@@ -749,14 +802,17 @@
 				CECC80EC2B98988200F4312B /* CityViewController.swift in Sources */,
 				F30170672B8CDD1C00A6921A /* LoginUserRequest.swift in Sources */,
 				D86387CD2B89FD2200692535 /* FriendsNetworkService.swift in Sources */,
+				D87ED9282B97BDDD00B185FB /* InterestsDto.swift in Sources */,
 				F33B4C892B8FB989002D27B5 /* NewPasswordRequest.swift in Sources */,
 				DDCAC7C42B83C0BF00EC7D15 /* WhiteBorderButton.swift in Sources */,
+				D87ED9262B97BC8C00B185FB /* InterestsServiceProvider.swift in Sources */,
 				F36F40852B861AE400B2082B /* CheckEmailViewController.swift in Sources */,
 				F36F408C2B86434C00B2082B /* NewPasswordSuccessView.swift in Sources */,
 				84531D222B94F9C0002289C6 /* NextViewControler.swift in Sources */,
 				84CCA1C12B9640A4000BDC28 /* GenderViewModel.swift in Sources */,
 				F33B4C8C2B8FBA0C002D27B5 /* ResetPasswordDto.swift in Sources */,
 				F30170792B8CF2D600A6921A /* AlertPresenter.swift in Sources */,
+				D85401342B95DA890088C1E9 /* SelectInterestsView.swift in Sources */,
 				F30170732B8CED2C00A6921A /* LoginViewModel.swift in Sources */,
 				CECC80F02B9898D600F4312B /* SelectPhotoViewController.swift in Sources */,
 				D86387D22B8A754100692535 /* RegistrationService.swift in Sources */,
@@ -924,7 +980,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6343C72SQK;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FindFriends/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = FindFriends;
@@ -957,7 +1013,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6343C72SQK;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FindFriends/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = FindFriends;

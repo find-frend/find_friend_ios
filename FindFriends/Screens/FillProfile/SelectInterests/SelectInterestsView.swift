@@ -107,7 +107,7 @@ final class  SelectInterestsView: BaseFillProfileView {
     }
     
     @objc private func nextButtonTapped() {
-        delegate?.sendPage(number: 4)
+        delegate?.sendPage(number: 3)
     }
 
 }
