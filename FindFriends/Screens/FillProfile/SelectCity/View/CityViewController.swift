@@ -116,8 +116,8 @@ final class CityViewController: UIViewController {
 }
 
 extension CityViewController: ModalViewControllerDelegate {
-    func modalControllerWillDisapear(_ model: SelectCityViewController, withDismiss param: Bool) {
-        if param {
+    func modalControllerWillDisapear(_ model: SelectCityViewController, withDismiss result: Bool) {
+        if result {
             continueButton.backgroundColor = .mainOrange
             continueButton.isEnabled = true
         } else {
