@@ -11,7 +11,6 @@
 		84531D152B94C38E002289C6 /* CustomUIPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84531D142B94C38E002289C6 /* CustomUIPageViewController.swift */; };
 		84531D182B94C41F002289C6 /* CustomUIPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84531D172B94C41F002289C6 /* CustomUIPageControl.swift */; };
 		84531D1A2B94C450002289C6 /* GenderSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84531D192B94C450002289C6 /* GenderSelectionViewController.swift */; };
-		84531D222B94F9C0002289C6 /* NextViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84531D212B94F9C0002289C6 /* NextViewControler.swift */; };
 		84CCA1BD2B95B6A6000BDC28 /* ProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 84CCA1BC2B95B6A6000BDC28 /* ProgressHUD */; };
 		84CCA1BF2B96409D000BDC28 /* GenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CCA1BE2B96409D000BDC28 /* GenderView.swift */; };
 		84CCA1C12B9640A4000BDC28 /* GenderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CCA1C02B9640A4000BDC28 /* GenderViewModel.swift */; };
@@ -109,7 +108,6 @@
 		84531D142B94C38E002289C6 /* CustomUIPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIPageViewController.swift; sourceTree = "<group>"; };
 		84531D172B94C41F002289C6 /* CustomUIPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIPageControl.swift; sourceTree = "<group>"; };
 		84531D192B94C450002289C6 /* GenderSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderSelectionViewController.swift; sourceTree = "<group>"; };
-		84531D212B94F9C0002289C6 /* NextViewControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextViewControler.swift; sourceTree = "<group>"; };
 		84CCA1BE2B96409D000BDC28 /* GenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderView.swift; sourceTree = "<group>"; };
 		84CCA1C02B9640A4000BDC28 /* GenderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViewModel.swift; sourceTree = "<group>"; };
 		CECC80E62B98988200F4312B /* SelectCityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCityTableViewCell.swift; sourceTree = "<group>"; };
@@ -233,7 +231,6 @@
 			children = (
 				84531D142B94C38E002289C6 /* CustomUIPageViewController.swift */,
 				84531D172B94C41F002289C6 /* CustomUIPageControl.swift */,
-				84531D212B94F9C0002289C6 /* NextViewControler.swift */,
 			);
 			path = CustomUIPageViewController;
 			sourceTree = "<group>";
@@ -808,7 +805,6 @@
 				D87ED9262B97BC8C00B185FB /* InterestsServiceProvider.swift in Sources */,
 				F36F40852B861AE400B2082B /* CheckEmailViewController.swift in Sources */,
 				F36F408C2B86434C00B2082B /* NewPasswordSuccessView.swift in Sources */,
-				84531D222B94F9C0002289C6 /* NextViewControler.swift in Sources */,
 				84CCA1C12B9640A4000BDC28 /* GenderViewModel.swift in Sources */,
 				F33B4C8C2B8FBA0C002D27B5 /* ResetPasswordDto.swift in Sources */,
 				F30170792B8CF2D600A6921A /* AlertPresenter.swift in Sources */,
