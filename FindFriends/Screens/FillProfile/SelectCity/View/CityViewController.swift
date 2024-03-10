@@ -10,7 +10,18 @@ final class CityViewController: UIViewController {
         setupSearchTF()
     }
     
+    init(viewModel: CityViewModelProtocol = CityViewModel()) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     weak var delegate: CustomUIPageControlProtocol?
+
+    private var viewModel: CityViewModelProtocol
     
     private lazy var firstLabel: UILabel = {
         let label = UILabel()
@@ -46,6 +57,7 @@ final class CityViewController: UIViewController {
         let button = UIButton()
         button.setTitle("Пропустить", for: .normal)
         button.setTitleColor(UIColor.black, for: .normal)
+        button.addTarget(self, action: #selector(didTapSkipButton), for: .touchUpInside)
         return button
     }()
     
@@ -63,7 +75,7 @@ final class CityViewController: UIViewController {
         NSLayoutConstraint.activate([
             firstLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             firstLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            firstLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 80),
+            firstLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 36),
             secondLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             secondLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             secondLabel.topAnchor.constraint(equalTo: firstLabel.bottomAnchor, constant: 10),
@@ -89,14 +101,30 @@ final class CityViewController: UIViewController {
         delegate?.sendPage(number: 4)
     }
     
+    @objc private func didTapSkipButton() {
+        delegate?.sendPage(number: 4)
+        continueButton.backgroundColor = .lightOrange
+        continueButton.isEnabled = false
+    }
+    
     @objc private func didTapSearchCityText() {
         let vc = SelectCityViewController()
-        navigationController?.modalPresentationStyle = .none
-        navigationController?.pushViewController(vc, animated: true)
+        vc.delegate = self
         modalPresentationStyle = .currentContext
         present(vc, animated: true)
     }
-    
+}
+
+extension CityViewController: ModalViewControllerDelegate {
+    func modalControllerWillDisapear(_ model: SelectCityViewController, withDismiss result: Bool) {
+        if result {
+            continueButton.backgroundColor = .mainOrange
+            continueButton.isEnabled = true
+        } else {
+            continueButton.backgroundColor = .lightOrange
+            continueButton.isEnabled = false
+        }
+    }
 }
 
 extension CityViewController: UITextFieldDelegate {
