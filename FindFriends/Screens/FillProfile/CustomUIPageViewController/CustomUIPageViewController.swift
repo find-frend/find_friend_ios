@@ -16,7 +16,7 @@ final class CustomUIPageViewController: UIPageViewController {
     private lazy var sixPageVC = AcceptPhotoVIewController()
 
     private lazy var pages: [UIViewController] = {
-        return [firstPageVC, secondPageVC, thirdPageVC, fourthPageVC, fifthPageVC, sixPageVC]
+        [firstPageVC, secondPageVC, thirdPageVC, fourthPageVC, fifthPageVC, sixPageVC]
     }()
 
     private lazy var customPageControl: CustomUIPageControl = {
@@ -47,9 +47,22 @@ final class CustomUIPageViewController: UIPageViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setDelegates()
+        removeSwipeGesture()
+        configConstraints()
+        if let firstPage = pages.first {
+            setViewControllers([firstPage], direction: .forward, animated: true, completion: nil)
+        }
+    }
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     
-    override func loadView() {
-        super.loadView()
+    private func setDelegates() {
         dataSource = self
         delegate = self
         customPageControl.delegate = self
@@ -59,19 +72,6 @@ final class CustomUIPageViewController: UIPageViewController {
         fourthPageVC.delegate = self
         fifthPageVC.delegate = self
         sixPageVC.delegate = self
-        removeSwipeGesture()
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configConstraints()
-        if let first = pages.first {
-            setViewControllers([first], direction: .forward, animated: true, completion: nil)
-        }
-    }
-
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
     }
     
     private func removeSwipeGesture() {
@@ -84,7 +84,7 @@ final class CustomUIPageViewController: UIPageViewController {
     
     @objc
     private func backButtonTapped() {
-        moveToNextViewControllerWith(number: customPageControl.currentPage - 1)
+        moveToViewControllerWith(index: customPageControl.currentPage - 1, direction: .reverse)
     }
 }
 
@@ -95,51 +95,46 @@ extension CustomUIPageViewController: CustomUIPageControlProtocol {
     }
     
     func sendPage(number: Int) {
-        moveToNextViewControllerWith(number: number)
+        moveToViewControllerWith(index: number, direction: .forward)
     }
     
-    private func moveToNextViewControllerWith(number: Int) {
-        customPageControl.currentPage = number
-        let viewController = pages[number]
-        setViewControllers([viewController], direction: .forward, animated: true, completion: nil)
+    private func moveToViewControllerWith(index: Int, direction: NavigationDirection) {
+        customPageControl.currentPage = index
+        let viewController = pages[index]
+        setViewControllers([viewController], direction: direction, animated: true, completion: nil)
     }
 }
 
 // MARK: - UIPageViewControllerDataSource
 extension CustomUIPageViewController: UIPageViewControllerDataSource {
-    func pageViewController(_ pageViewController: UIPageViewController,
-                            viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerIndex = pages.firstIndex(of: viewController) else {
-            return nil
-        }
-        let previousIndex = viewControllerIndex - 1
-
-        guard previousIndex >= 0 else {
-            return pages.last
-        }
-
-        return pages[previousIndex]
+    func pageViewController(
+        _ pageViewController: UIPageViewController,
+        viewControllerBefore viewController: UIViewController
+    ) -> UIViewController? {
+        guard let currentIndex = pages.firstIndex(of: viewController),
+            currentIndex > 0
+        else { return nil }
+        return pages[currentIndex - 1]
     }
 
-    func pageViewController(_ pageViewController: UIPageViewController,
-                            viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerIndex = pages.firstIndex(of: viewController) else {
-            return nil
-        }
-        let nextIndex = viewControllerIndex + 1
-        guard nextIndex < pages.count else {
-            return pages.first
-        }
-        return pages[nextIndex]
+    func pageViewController(
+        _ pageViewController: UIPageViewController,
+        viewControllerAfter viewController: UIViewController)
+    -> UIViewController? {
+        guard let currentIndex = pages.firstIndex(of: viewController),
+              currentIndex < pages.count
+        else { return nil }
+        return pages[currentIndex + 1]
     }
 }
 
 // MARK: - UIPageViewControllerDelegate
 extension CustomUIPageViewController: UIPageViewControllerDelegate {
-    func pageViewController(_ pageViewController: UIPageViewController,
-                            didFinishAnimating finished: Bool,
-                            previousViewControllers: [UIViewController],
-                            transitionCompleted completed: Bool
+    func pageViewController(
+        _ pageViewController: UIPageViewController,
+        didFinishAnimating finished: Bool,
+        previousViewControllers: [UIViewController],
+        transitionCompleted completed: Bool
     ) {
         if let currentViewController = pageViewController.viewControllers?.first,
            let currentIndex = pages.firstIndex(of: currentViewController) {
@@ -152,14 +147,12 @@ extension CustomUIPageViewController: UIPageViewControllerDelegate {
 private extension CustomUIPageViewController {
     func configConstraints() {
         view.addSubviewWithoutAutoresizingMask(customPageControl)
+        view.addSubviewWithoutAutoresizingMask(backButton)
         NSLayoutConstraint.activate([
             customPageControl.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
             customPageControl.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 45),
             customPageControl.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -45),
-            customPageControl.heightAnchor.constraint(equalToConstant: 36)
-        ])
-        view.addSubviewWithoutAutoresizingMask(backButton)
-        NSLayoutConstraint.activate([
+            customPageControl.heightAnchor.constraint(equalToConstant: 36),
             backButton.centerYAnchor.constraint(equalTo: customPageControl.centerYAnchor),
             backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             backButton.trailingAnchor.constraint(equalTo: customPageControl.leadingAnchor),
