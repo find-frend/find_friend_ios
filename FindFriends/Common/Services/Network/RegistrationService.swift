@@ -11,7 +11,7 @@ import Foundation
 protocol RegistrationServiceProtocol {
     func createUser(
         _ dto: CreateUserRequestDto,
-        completion: @escaping (Result<CreateUserResponseDto, Error>) -> Void
+        completion: @escaping (Result<CreateUserResponseDto, NetworkClientError>) -> Void
     )
     func loginUser(
         _ dto: LoginRequestDto,
@@ -46,14 +46,14 @@ final class RegistrationService: RegistrationServiceProtocol {
     // MARK: - Public methods
     func createUser(
         _ dto: CreateUserRequestDto,
-        completion: @escaping (Result<CreateUserResponseDto, Error>) -> Void
+        completion: @escaping (Result<CreateUserResponseDto, NetworkClientError>) -> Void
     ) {
         let request = CreateUserRequest(dto: dto)
         networkClient.send(request: request, type: CreateUserResponseDto.self) { result in
             DispatchQueue.main.async {
                 switch result {
-                case let .success(data):
-                    completion(.success(data))
+                case let .success(user):
+                    completion(.success(user))
                 case let .failure(error):
                     completion(.failure(error))
                 }
