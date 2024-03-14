@@ -19,6 +19,9 @@
 		CECC80EC2B98988200F4312B /* CityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC80E92B98988200F4312B /* CityViewController.swift */; };
 		CECC80F02B9898D600F4312B /* SelectPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC80EE2B9898D500F4312B /* SelectPhotoViewController.swift */; };
 		CECC80F92B989D6800F4312B /* CityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC80F82B989D6800F4312B /* CityViewModel.swift */; };
+		CECC81062BA319F400F4312B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC81022BA319F300F4312B /* TabBarController.swift */; };
+		CECC81072BA319F400F4312B /* TabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC81032BA319F400F4312B /* TabBarButton.swift */; };
+		CECC81082BA319F400F4312B /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC81042BA319F400F4312B /* TabBar.swift */; };
 		D5E980BA2B8F0D5D00A17E0A /* BirthdayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E980B92B8F0D5D00A17E0A /* BirthdayView.swift */; };
 		D5E980BC2B8F0D6700A17E0A /* BirthdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E980BB2B8F0D6700A17E0A /* BirthdayViewController.swift */; };
 		D5E980BE2B8F0D7800A17E0A /* BirthdayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E980BD2B8F0D7800A17E0A /* BirthdayViewModel.swift */; };
@@ -113,6 +116,9 @@
 		CECC80E92B98988200F4312B /* CityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityViewController.swift; sourceTree = "<group>"; };
 		CECC80EE2B9898D500F4312B /* SelectPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPhotoViewController.swift; sourceTree = "<group>"; };
 		CECC80F82B989D6800F4312B /* CityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityViewModel.swift; sourceTree = "<group>"; };
+		CECC81022BA319F300F4312B /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		CECC81032BA319F400F4312B /* TabBarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarButton.swift; sourceTree = "<group>"; };
+		CECC81042BA319F400F4312B /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		D5E980B92B8F0D5D00A17E0A /* BirthdayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayView.swift; sourceTree = "<group>"; };
 		D5E980BB2B8F0D6700A17E0A /* BirthdayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewController.swift; sourceTree = "<group>"; };
 		D5E980BD2B8F0D7800A17E0A /* BirthdayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewModel.swift; sourceTree = "<group>"; };
@@ -300,6 +306,16 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		CECC80FD2BA3192A00F4312B /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				CECC81042BA319F400F4312B /* TabBar.swift */,
+				CECC81032BA319F400F4312B /* TabBarButton.swift */,
+				CECC81022BA319F300F4312B /* TabBarController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
 		D5E980B82B8F0D0A00A17E0A /* BirthdayChoose */ = {
 			isa = PBXGroup;
 			children = (
@@ -341,6 +357,7 @@
 		D853CC392B756BB500DA58D5 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				CECC80FD2BA3192A00F4312B /* TabBar */,
 				F30170772B8CF2CE00A6921A /* Alert */,
 				F3BC5D3A2B8514DD00562C08 /* Registration */,
 				DD0412DC2B90E29400984BA7 /* SearchFriends */,
@@ -750,6 +767,7 @@
 				F36F40832B861ADE00B2082B /* CheckEmailView.swift in Sources */,
 				D87ED92A2B97C44B00B185FB /* SelectInterestViewModel.swift in Sources */,
 				F30170872B8D1F3100A6921A /* TabBarControllerStub.swift in Sources */,
+				CECC81062BA319F400F4312B /* TabBarController.swift in Sources */,
 				DD0412E42B90E78300984BA7 /* SearchFriendsNavigationController.swift in Sources */,
 				DDCAC7D42B852B8600EC7D15 /* RegistrationView.swift in Sources */,
 				F30170762B8CF22F00A6921A /* Credentials.swift in Sources */,
@@ -809,6 +827,7 @@
 				F33B4C8C2B8FBA0C002D27B5 /* ResetPasswordDto.swift in Sources */,
 				F30170792B8CF2D600A6921A /* AlertPresenter.swift in Sources */,
 				D85401342B95DA890088C1E9 /* SelectInterestsView.swift in Sources */,
+				CECC81072BA319F400F4312B /* TabBarButton.swift in Sources */,
 				F30170732B8CED2C00A6921A /* LoginViewModel.swift in Sources */,
 				CECC80F02B9898D600F4312B /* SelectPhotoViewController.swift in Sources */,
 				D86387D22B8A754100692535 /* RegistrationService.swift in Sources */,
@@ -816,6 +835,7 @@
 				DDC2551B2BA2249F0037FA7E /* ErrorDescriptionModel.swift in Sources */,
 				D853CC282B7567AF00DA58D5 /* SceneDelegate.swift in Sources */,
 				F36F408E2B86435500B2082B /* NewPasswordSuccessViewController.swift in Sources */,
+				CECC81082BA319F400F4312B /* TabBar.swift in Sources */,
 				F36F40912B864B1E00B2082B /* NewPasswordView.swift in Sources */,
 				DD0412E72B91056C00984BA7 /* SearchFriendCell.swift in Sources */,
 				DD0412E22B90E33600984BA7 /* SearchFriendsViewModel.swift in Sources */,
