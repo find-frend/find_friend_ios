@@ -18,8 +18,6 @@
 		CECC80EB2B98988200F4312B /* SelectCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC80E82B98988200F4312B /* SelectCityViewController.swift */; };
 		CECC80EC2B98988200F4312B /* CityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC80E92B98988200F4312B /* CityViewController.swift */; };
 		CECC80F02B9898D600F4312B /* SelectPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC80EE2B9898D500F4312B /* SelectPhotoViewController.swift */; };
-		CECC80F62B9899CF00F4312B /* SearchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC80F42B9899CF00F4312B /* SearchButton.swift */; };
-		CECC80F72B9899CF00F4312B /* SearchFieldText.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC80F52B9899CF00F4312B /* SearchFieldText.swift */; };
 		CECC80F92B989D6800F4312B /* CityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC80F82B989D6800F4312B /* CityViewModel.swift */; };
 		D5E980BA2B8F0D5D00A17E0A /* BirthdayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E980B92B8F0D5D00A17E0A /* BirthdayView.swift */; };
 		D5E980BC2B8F0D6700A17E0A /* BirthdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E980BB2B8F0D6700A17E0A /* BirthdayViewController.swift */; };
@@ -113,8 +111,6 @@
 		CECC80E82B98988200F4312B /* SelectCityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCityViewController.swift; sourceTree = "<group>"; };
 		CECC80E92B98988200F4312B /* CityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityViewController.swift; sourceTree = "<group>"; };
 		CECC80EE2B9898D500F4312B /* SelectPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPhotoViewController.swift; sourceTree = "<group>"; };
-		CECC80F42B9899CF00F4312B /* SearchButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchButton.swift; sourceTree = "<group>"; };
-		CECC80F52B9899CF00F4312B /* SearchFieldText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFieldText.swift; sourceTree = "<group>"; };
 		CECC80F82B989D6800F4312B /* CityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityViewModel.swift; sourceTree = "<group>"; };
 		D5E980B92B8F0D5D00A17E0A /* BirthdayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayView.swift; sourceTree = "<group>"; };
 		D5E980BB2B8F0D6700A17E0A /* BirthdayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewController.swift; sourceTree = "<group>"; };
@@ -423,8 +419,6 @@
 		DD0C09A32B7901AB00792C29 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				CECC80F42B9899CF00F4312B /* SearchButton.swift */,
-				CECC80F52B9899CF00F4312B /* SearchFieldText.swift */,
 				DD3A2EA52B7E9447006A3B8E /* PrimeOrangeButton.swift */,
 				8445676D2B9740CB00114604 /* GenderSelectionButton.swift */,
 				DDCAC7C32B83C0BF00EC7D15 /* WhiteBorderButton.swift */,
@@ -773,7 +767,6 @@
 				D86387D92B8A7FF500692535 /* LoginUserDto.swift in Sources */,
 				D854012C2B9312080088C1E9 /* TagsCollectionViewCell.swift in Sources */,
 				CECC80EB2B98988200F4312B /* SelectCityViewController.swift in Sources */,
-				CECC80F72B9899CF00F4312B /* SearchFieldText.swift in Sources */,
 				F30170832B8CF6EB00A6921A /* SplashView.swift in Sources */,
 				D85401302B95C7D80088C1E9 /* NavigationBarView.swift in Sources */,
 				DD3A2EA82B7E9836006A3B8E /* CaptionButton.swift in Sources */,
@@ -782,7 +775,6 @@
 				D86387CA2B89F9A600692535 /* FriendDto.swift in Sources */,
 				84CCA1BF2B96409D000BDC28 /* GenderView.swift in Sources */,
 				DD3A2E9F2B7D2F65006A3B8E /* UIView+AutoresizingMask.swift in Sources */,
-				CECC80F62B9899CF00F4312B /* SearchButton.swift in Sources */,
 				D5E980BA2B8F0D5D00A17E0A /* BirthdayView.swift in Sources */,
 				F36F40932B864B2300B2082B /* NewPasswordViewController.swift in Sources */,
 				F33B4C8E2B8FBA19002D27B5 /* NewPasswordDto.swift in Sources */,

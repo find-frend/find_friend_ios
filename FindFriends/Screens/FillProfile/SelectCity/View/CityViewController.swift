@@ -53,8 +53,6 @@ final class CityViewController: UIViewController {
         return textField
     }()
     
-    private lazy var searchButton = SearchButton()
-    
     private lazy var continueButton: PrimeOrangeButton = {
         let button = PrimeOrangeButton(text: "Далее")
         button.addTarget(self, action: #selector(didTapContinueButton), for: .touchUpInside)
