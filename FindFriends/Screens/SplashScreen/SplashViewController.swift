@@ -45,7 +45,8 @@ final class SplashViewController: UIViewController {
             let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
             let window = scene.windows.first
         else { fatalError("Invalid Configuration") }
-        let tabBarController = TabBarControllerStub()
+        let tabBar = TabBar()
+        let tabBarController = TabBarController(customTabBar: tabBar)
         window.rootViewController = tabBarController
     }
 

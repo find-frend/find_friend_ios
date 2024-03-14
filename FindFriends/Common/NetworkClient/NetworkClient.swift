@@ -1,7 +1,7 @@
 import Foundation
 
 enum NetworkClientError: Error {
-    case httpStatusCode(Int)
+    case httpStatusCode(Int, Data)
     case urlRequestError(Error)
     case urlSessionError
     case parsingError
@@ -9,13 +9,17 @@ enum NetworkClientError: Error {
 
 protocol NetworkClient {
     @discardableResult
-    func send(request: NetworkRequest,
-              onResponse: @escaping (Result<Data, Error>) -> Void) -> NetworkTask?
+    func send(
+        request: NetworkRequest,
+        onResponse: @escaping (Result<Data, NetworkClientError>) -> Void
+    ) -> NetworkTask?
 
     @discardableResult
-    func send<T: Decodable>(request: NetworkRequest,
-                            type: T.Type,
-                            onResponse: @escaping (Result<T, Error>) -> Void) -> NetworkTask?
+    func send<T: Decodable>(
+        request: NetworkRequest,
+        type: T.Type,
+        onResponse: @escaping (Result<T, NetworkClientError>) -> Void
+    ) -> NetworkTask?
 }
 
 struct DefaultNetworkClient: NetworkClient {
@@ -30,42 +34,31 @@ struct DefaultNetworkClient: NetworkClient {
         self.decoder = decoder
         self.encoder = encoder
     }
-
+    
     @discardableResult
-    func send(request: NetworkRequest, onResponse: @escaping (Result<Data, Error>) -> Void) -> NetworkTask? {
+    func send(
+        request: NetworkRequest,
+        onResponse: @escaping (Result<Data, NetworkClientError>) -> Void
+    ) -> NetworkTask? {
+        
         guard let urlRequest = create(request: request) else { return nil }
-//
-//        print("urlRequest: \(urlRequest.debugDescription)")
-//        print("urlRequest: \(urlRequest.httpMethod)")
-//        let str = String(decoding: urlRequest.httpBody ?? Data(), as: UTF8.self)
-//        print("urlRequest: \(str)")
-//        print("urlRequest: \(urlRequest.allHTTPHeaderFields)")
-//        
 
         let task = session.dataTask(with: urlRequest) { data, response, error in
-            guard let response = response as? HTTPURLResponse else {
-                onResponse(.failure(NetworkClientError.urlSessionError))
+            if let error {
+                onResponse(.failure(.urlRequestError(error)))
                 return
             }
             
-//            let strData = String(decoding: data!, as: UTF8.self)
-//            print("response: \(strData)")
-//            print("response: \(response.statusCode)")
+            guard let code = (response as? HTTPURLResponse)?.statusCode else { return }
             
-            guard 200 ..< 300 ~= response.statusCode else {
-                onResponse(.failure(NetworkClientError.httpStatusCode(response.statusCode)))
-                return
-            }
-
             if let data = data {
-                onResponse(.success(data))
-                return
-            } else if let error = error {
-                onResponse(.failure(NetworkClientError.urlRequestError(error)))
-                return
+                if 200..<300 ~= code {
+                    onResponse(.success(data))
+                } else {
+                    onResponse(.failure(.httpStatusCode(code, data)))
+                }
             } else {
-                assertionFailure("Unexpected condition!")
-                return
+                onResponse(.failure(.urlSessionError))
             }
         }
 
@@ -74,7 +67,12 @@ struct DefaultNetworkClient: NetworkClient {
     }
 
     @discardableResult
-    func send<T: Decodable>(request: NetworkRequest, type: T.Type, onResponse: @escaping (Result<T, Error>) -> Void) -> NetworkTask? {
+    func send<T: Decodable>(
+        request: NetworkRequest,
+        type: T.Type,
+        onResponse: @escaping (Result<T, NetworkClientError>) -> Void
+    ) -> NetworkTask? {
+        
         return send(request: request) { result in
             switch result {
             case let .success(data):
@@ -109,12 +107,12 @@ struct DefaultNetworkClient: NetworkClient {
         return urlRequest
     }
 
-    private func parse<T: Decodable>(data: Data, type _: T.Type, onResponse: @escaping (Result<T, Error>) -> Void) {
+    private func parse<T: Decodable>(data: Data, type _: T.Type, onResponse: @escaping (Result<T, NetworkClientError>) -> Void) {
         do {
             let response = try decoder.decode(T.self, from: data)
             onResponse(.success(response))
         } catch {
-            onResponse(.failure(NetworkClientError.parsingError))
+            onResponse(.failure(.parsingError))
         }
     }
 

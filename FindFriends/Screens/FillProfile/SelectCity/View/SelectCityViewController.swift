@@ -1,14 +1,18 @@
 import UIKit
 
+protocol ModalViewControllerDelegate: AnyObject {
+    func modalControllerWillDisapear(_ model: SelectCityViewController, withDismiss param: Bool)
+    func updateSearchTextField(name: String, withDismiss param: Bool)
+}
+
 final class SelectCityViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
         addView()
         applyConstraints()
-        setupSearchTF()
         setupButtonStack()
-        view.backgroundColor = .systemBackground
         viewModel.filteredCitiesList = viewModel.citiesList
     }
     
@@ -21,16 +25,45 @@ final class SelectCityViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private var viewModel: CityViewModelProtocol
+    weak var delegate: ModalViewControllerDelegate?
     
-    private lazy var searchCityTextField: SearchFieldText = {
-        let textField = SearchFieldText(placeholder: "Поиск")
-        textField.addTarget(self, action: #selector(searchCities(_:)), for: .editingChanged)
-        textField.delegate = self
+    private var viewModel: CityViewModelProtocol
+
+    private lazy var searchCityTextField: UISearchBar = {
+        let textField = UISearchBar()
+        textField.placeholder = "Поиск"
+        textField.searchBarStyle = UISearchBar.Style.minimal
+        textField.searchTextField.attributedPlaceholder = NSAttributedString(string: "Поиск", attributes: [
+            .foregroundColor: UIColor.searchBar,
+            .font: UIFont.Regular.medium
+        ])
+        textField.layer.cornerRadius = 12
+        textField.layer.masksToBounds = true
+        textField.searchTextField.textColor = .black
+        textField.searchTextField.addTarget(self, action: #selector(searchCities(_:)), for: .editingChanged)
+        textField.backgroundColor = .searchTextFieldBackground
+        for subview in textField.searchTextField.subviews {
+            subview.backgroundColor = .clear
+            subview.alpha = 0
+        }
         return textField
     }()
     
-    private lazy var searchButton = SearchButton()
+    private lazy var warningLabel: UILabel = {
+        let label = UILabel()
+        label.font = .Regular.small11
+        label.textColor = .warning
+        label.text = "Не найдено"
+        label.numberOfLines = 0
+        label.isHidden = true
+        return label
+    }()
+    
+    private lazy var separator: UIView = {
+        let view = UIView()
+        view.backgroundColor = .lightGray
+        return view
+    }()
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -52,12 +85,14 @@ final class SelectCityViewController: UIViewController {
     
     private lazy var cancelButton: WhiteBorderButton = {
         let button = WhiteBorderButton(text: "Отменить")
+        button.addTarget(self, action: #selector(didTapCancelButton), for: .touchUpInside)
         return button
     }()
     
     private lazy var borderView: UIView = {
         let view = UIView()
-        view.layer.cornerRadius = 16
+        view.layer.cornerRadius = 10
+        view.layer.masksToBounds = true
         view.layer.borderColor = UIColor.lightGray.cgColor
         view.layer.borderWidth = 0.5
         view.backgroundColor = .clear
@@ -72,11 +107,6 @@ final class SelectCityViewController: UIViewController {
         return buttonStackView
     }()
     
-    private func setupSearchTF() {
-        searchCityTextField.leftView = searchButton
-        searchCityTextField.leftViewMode = .always
-    }
-    
     private func setupButtonStack() {
         borderView.addSubview(buttonStackView)
         buttonStackView.addArrangedSubview(cancelButton)
@@ -84,7 +114,7 @@ final class SelectCityViewController: UIViewController {
     }
     
     private func addView() {
-        [searchCityTextField, tableView, acceptButton, cancelButton, borderView, buttonStackView ].forEach(view.addSubviewWithoutAutoresizingMask(_:))
+        [searchCityTextField, warningLabel, separator, tableView, acceptButton, cancelButton, borderView, buttonStackView ].forEach(view.addSubviewWithoutAutoresizingMask(_:))
     }
     
     private func applyConstraints() {
@@ -92,32 +122,57 @@ final class SelectCityViewController: UIViewController {
             searchCityTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             searchCityTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             searchCityTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            searchCityTextField.heightAnchor.constraint(equalToConstant: 38),
+            warningLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 28),
+            warningLabel.topAnchor.constraint(equalTo: searchCityTextField.bottomAnchor, constant: 4),
+            separator.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            separator.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            separator.topAnchor.constraint(equalTo: warningLabel.bottomAnchor, constant: 4),
+            separator.heightAnchor.constraint(equalToConstant: 0.5),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            tableView.topAnchor.constraint(equalTo: searchCityTextField.bottomAnchor, constant: 20),
+            tableView.topAnchor.constraint(equalTo: separator.bottomAnchor, constant: 20),
             tableView.bottomAnchor.constraint(equalTo: borderView.topAnchor, constant: -2),
             borderView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             borderView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             borderView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            borderView.heightAnchor.constraint(equalToConstant: 100),
+            borderView.heightAnchor.constraint(equalToConstant: 140),
             buttonStackView.leadingAnchor.constraint(equalTo: borderView.leadingAnchor, constant: 16),
             buttonStackView.trailingAnchor.constraint(equalTo: borderView.trailingAnchor, constant: -16),
-            buttonStackView.bottomAnchor.constraint(equalTo: borderView.bottomAnchor, constant: -24),
+            buttonStackView.bottomAnchor.constraint(equalTo: borderView.bottomAnchor, constant: -60),
             buttonStackView.topAnchor.constraint(equalTo: borderView.topAnchor, constant: 24)
         ])
     }
     
-    @objc func searchCities(_ textfield:UITextField) {
+    @objc func searchCities(_ textfield: UITextField) {
         if let searchText = textfield.text {
             viewModel.filteredCitiesList = searchText.isEmpty ? viewModel.citiesList :
             viewModel.citiesList.filter{$0.lowercased().contains(searchText.lowercased())}
             tableView.reloadData()
+            if viewModel.filteredCitiesList.isEmpty {
+                warningLabel.isHidden = false
+                searchCityTextField.layer.borderColor = UIColor.red.cgColor
+                searchCityTextField.layer.borderWidth = 1
+                searchCityTextField.searchTextField.textColor = .red
+            } else {
+                warningLabel.isHidden = true
+                searchCityTextField.layer.borderColor = UIColor.clear.cgColor
+                searchCityTextField.layer.borderWidth = 0
+                searchCityTextField.searchTextField.textColor = .black
+            }
         }
     }
     
     @objc private func didTapAcceptButton() {
-        let vc = SelectPhotoViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        delegate?.modalControllerWillDisapear(self, withDismiss: true)
+        delegate?.updateSearchTextField(name: viewModel.selectCity, withDismiss: true)
+        dismiss(animated: true)
+    }
+    
+    @objc private func didTapCancelButton() {
+        delegate?.modalControllerWillDisapear(self, withDismiss: false)
+        delegate?.updateSearchTextField(name: "Поиск по названию", withDismiss: false)
+        dismiss(animated: true)
     }
 }
 
@@ -135,35 +190,11 @@ extension SelectCityViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? SelectCityTableViewCell else {
+            return
+        }
+        viewModel.selectCity = cell.label.text ?? ""
         acceptButton.backgroundColor = .mainOrange
         acceptButton.isEnabled = true
-    }
-}
-
-extension SelectCityViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        searchCityTextField.endEditing(true)
-        return true
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        searchCityTextField.text = ""
-    }
-    
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        if searchCityTextField.text != "" {
-            return true
-        } else {
-            searchCityTextField.placeholder = "Поиск"
-            return false
-        }
-    }
-    
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        return true
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField){
-        
     }
 }

@@ -2,21 +2,20 @@ import UIKit
 
 final class SelectPhotoViewController: UIViewController {
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        avatarView.image = UIImage(named: "plugPhoto")
         view.backgroundColor = .systemBackground
         addView()
         applyConstraints()
+        avatarView.image = loadImage()
+        updateUI()
     }
     
     weak var delegate: CustomUIPageControlProtocol?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        avatarView.image = UIImage(named: "plugPhoto")
-        avatarView.layer.borderWidth = 4
+        avatarView.image = loadImage()
     }
     
     private func loadImage() -> UIImage {
@@ -86,18 +85,26 @@ final class SelectPhotoViewController: UIViewController {
         let button = UIButton()
         button.setTitle("Пропустить", for: .normal)
         button.setTitleColor(UIColor.black, for: .normal)
+        button.addTarget(self, action: #selector(didTapSkipButton), for: .touchUpInside)
+        return button
+    }()
+    
+    private lazy var cancelPhotoButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "cancelPhoto"), for: .normal)
+        button.addTarget(self, action: #selector(didTapCancelPhotoButton), for: .touchUpInside)
         return button
     }()
     
     private func addView() {
-        [firstLabel, secondLabel, avatarView, addPhotoButton, continueButton, skipButton].forEach(view.addSubviewWithoutAutoresizingMask(_:))
+        [firstLabel, secondLabel, avatarView, addPhotoButton, continueButton, skipButton, cancelPhotoButton].forEach(view.addSubviewWithoutAutoresizingMask(_:))
     }
     
     private func applyConstraints() {
         NSLayoutConstraint.activate([
             firstLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             firstLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            firstLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 80),
+            firstLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 36),
             secondLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             secondLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             secondLabel.topAnchor.constraint(equalTo: firstLabel.bottomAnchor, constant: 10),
@@ -105,6 +112,8 @@ final class SelectPhotoViewController: UIViewController {
             avatarView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             avatarView.widthAnchor.constraint(equalToConstant: avatarView.frame.width),
             avatarView.heightAnchor.constraint(equalToConstant: avatarView.frame.height),
+            cancelPhotoButton.centerYAnchor.constraint(equalTo: avatarView.centerYAnchor, constant: -60),
+            cancelPhotoButton.centerXAnchor.constraint(equalTo: avatarView.centerXAnchor, constant: 60),
             addPhotoButton.topAnchor.constraint(equalTo: avatarView.bottomAnchor, constant: -25),
             addPhotoButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             skipButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -15),
@@ -116,19 +125,50 @@ final class SelectPhotoViewController: UIViewController {
         ])
     }
     
+    private func updateUI() {
+        if avatarView.image != UIImage(named: "plugPhoto") {
+            continueButton.backgroundColor = .mainOrange
+            continueButton.isEnabled = true
+            avatarView.layer.borderWidth = 0
+            cancelPhotoButton.isHidden = false
+            addPhotoButton.isHidden = true
+            secondLabel.text = "Отлично! Все готово для поиска\n новых друзей"
+        } else {
+            continueButton.backgroundColor = .lightOrange
+            continueButton.isEnabled = false
+            avatarView.layer.borderWidth = 4
+            cancelPhotoButton.isHidden = true
+            addPhotoButton.isHidden = false
+            secondLabel.text = "Добавьте фото, чтобы другим было\n проще вас узнать"
+        }
+    }
+    
     @objc private func profileImageButtonTapped() {
         showImagePickerControleActionSheet()
     }
     
     @objc private func didTapContinueButton() {
-        let vc = AcceptPhotoVIewController()
-        navigationController?.pushViewController(vc, animated: true)
+        guard
+            let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+            let window = scene.windows.first
+        else { fatalError("Invalid Configuration") }
+        let tabBar = TabBar()
+        let tabBarController = TabBarController(customTabBar: tabBar)
+        window.rootViewController = tabBarController
+    }
+    
+    @objc private func didTapSkipButton() {
+        
+    }
+    
+    @objc private func didTapCancelPhotoButton() {
+        deleteImage()
     }
 }
 
 extension SelectPhotoViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    func showImagePickerControleActionSheet() {
+    private func showImagePickerControleActionSheet() {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         actionSheet.addAction(UIAlertAction(title: "Камера", style: .default, handler: { (action:UIAlertAction) in
             if UIImagePickerController.isSourceTypeAvailable(.camera) {
@@ -142,13 +182,39 @@ extension SelectPhotoViewController: UIImagePickerControllerDelegate, UINavigati
         self.present(actionSheet, animated: true)
     }
     
-    func choosePicker(sourceType: UIImagePickerController.SourceType){
+    private func choosePicker(sourceType: UIImagePickerController.SourceType){
         let imagePickerController = UIImagePickerController()
         UINavigationBar.appearance().backgroundColor = .white
         imagePickerController.delegate = self
         imagePickerController.allowsEditing = true
         imagePickerController.sourceType = sourceType
         present(imagePickerController, animated: true)
+    }
+    
+    private func saveImage(_ image: UIImage) {
+        guard let data = image.pngData() else { return }
+        let fileManager = FileManager.default
+        let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let imageUrl = documentsURL.appendingPathComponent("avatar.png")
+        do {
+            try data.write(to: imageUrl)
+            updateUI()
+        } catch {
+            updateUI()
+        }
+    }
+    
+    private func deleteImage() {
+        let fileManager = FileManager.default
+        let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let imageUrl = documentsURL.appendingPathComponent("avatar.png")
+        do {
+            try fileManager.removeItem(at: imageUrl)
+            avatarView.image = UIImage(named: "plugPhoto")
+            updateUI()
+        } catch {
+            updateUI()
+        }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -159,26 +225,9 @@ extension SelectPhotoViewController: UIImagePickerControllerDelegate, UINavigati
             avatarView.image = originalImage
             saveImage(originalImage)
         }
-        avatarView.layer.borderWidth = 0
+        updateUI()
         dismiss(animated: true, completion: nil)
     }
-    
-    func saveImage(_ image: UIImage) {
-        guard let data = image.pngData() else { return }
-        let fileManager = FileManager.default
-        let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let imageUrl = documentsURL.appendingPathComponent("avatar.png")
-        do {
-            try data.write(to: imageUrl)
-            continueButton.isEnabled = true
-            continueButton.backgroundColor = .mainOrange
-        } catch {
-            continueButton.isEnabled = false
-            continueButton.backgroundColor = .lightOrange
-            print("Ошибка сохранения изображения")
-        }
-    }
-    
 }
 
 
