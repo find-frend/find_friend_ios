@@ -13,10 +13,9 @@ final class CustomUIPageViewController: UIPageViewController {
     private lazy var thirdPageVC = SelectInterestsViewController()
     private lazy var fourthPageVC = CityViewController()
     private lazy var fifthPageVC = SelectPhotoViewController()
-    private lazy var sixPageVC = AcceptPhotoVIewController()
 
     private lazy var pages: [UIViewController] = {
-        [firstPageVC, secondPageVC, thirdPageVC, fourthPageVC, fifthPageVC, sixPageVC]
+        [firstPageVC, secondPageVC, thirdPageVC, fourthPageVC, fifthPageVC]
     }()
 
     private lazy var customPageControl: CustomUIPageControl = {
@@ -71,7 +70,6 @@ final class CustomUIPageViewController: UIPageViewController {
         thirdPageVC.selectInterestsView.delegate = self
         fourthPageVC.delegate = self
         fifthPageVC.delegate = self
-        sixPageVC.delegate = self
     }
     
     private func removeSwipeGesture() {
