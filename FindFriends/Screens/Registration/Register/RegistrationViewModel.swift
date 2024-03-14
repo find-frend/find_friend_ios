@@ -134,12 +134,26 @@ final class RegistrationViewModel {
         }
     }
     
-    private func showAlert(_ error: Error) {
+    private func showAlert(_ error: NetworkClientError) {
+        var description = ""
+        
+        switch error {
+        case let .httpStatusCode(code, data):
+            let model = try? JSONDecoder().decode(RegistrationErrorModel.self, from: data)
+            description = model?.password.joined(separator: " ") ?? ""
+        case .urlRequestError(let error):
+            assertionFailure("Ошибка составления запроса: \(error.localizedDescription)")
+        case .urlSessionError:
+            assertionFailure("Непредвиденная ошибка")
+        case .parsingError:
+            assertionFailure("Ошибка парсинга")
+        }
+        
         let alert = AlertModel(
             title: "Внимание",
-            message: error.localizedDescription,
+            message: description,
             buttons: [AlertButton(
-                text: "Ок",
+                text: "Понятно",
                 style: .cancel,
                 completion: { _ in })
             ],
