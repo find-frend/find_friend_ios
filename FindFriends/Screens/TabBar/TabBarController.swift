@@ -1,11 +1,3 @@
-//
-//  TabBarController.swift
-//  MovieApp
-//
-//  Created by Vanopr on 24.12.2023.
-//
-
-
 import UIKit
 
 open class TabBarController: UITabBarController  {
