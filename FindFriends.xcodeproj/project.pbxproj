@@ -18,7 +18,6 @@
 		CECC80EB2B98988200F4312B /* SelectCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC80E82B98988200F4312B /* SelectCityViewController.swift */; };
 		CECC80EC2B98988200F4312B /* CityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC80E92B98988200F4312B /* CityViewController.swift */; };
 		CECC80F02B9898D600F4312B /* SelectPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC80EE2B9898D500F4312B /* SelectPhotoViewController.swift */; };
-		CECC80F12B9898D600F4312B /* AcceptPhotoVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC80EF2B9898D600F4312B /* AcceptPhotoVIewController.swift */; };
 		CECC80F62B9899CF00F4312B /* SearchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC80F42B9899CF00F4312B /* SearchButton.swift */; };
 		CECC80F72B9899CF00F4312B /* SearchFieldText.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC80F52B9899CF00F4312B /* SearchFieldText.swift */; };
 		CECC80F92B989D6800F4312B /* CityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC80F82B989D6800F4312B /* CityViewModel.swift */; };
@@ -114,7 +113,6 @@
 		CECC80E82B98988200F4312B /* SelectCityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCityViewController.swift; sourceTree = "<group>"; };
 		CECC80E92B98988200F4312B /* CityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityViewController.swift; sourceTree = "<group>"; };
 		CECC80EE2B9898D500F4312B /* SelectPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPhotoViewController.swift; sourceTree = "<group>"; };
-		CECC80EF2B9898D600F4312B /* AcceptPhotoVIewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptPhotoVIewController.swift; sourceTree = "<group>"; };
 		CECC80F42B9899CF00F4312B /* SearchButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchButton.swift; sourceTree = "<group>"; };
 		CECC80F52B9899CF00F4312B /* SearchFieldText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFieldText.swift; sourceTree = "<group>"; };
 		CECC80F82B989D6800F4312B /* CityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityViewModel.swift; sourceTree = "<group>"; };
@@ -300,7 +298,6 @@
 			isa = PBXGroup;
 			children = (
 				CECC80EE2B9898D500F4312B /* SelectPhotoViewController.swift */,
-				CECC80EF2B9898D600F4312B /* AcceptPhotoVIewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -818,7 +815,6 @@
 				F36F40912B864B1E00B2082B /* NewPasswordView.swift in Sources */,
 				DD0412E72B91056C00984BA7 /* SearchFriendCell.swift in Sources */,
 				DD0412E22B90E33600984BA7 /* SearchFriendsViewModel.swift in Sources */,
-				CECC80F12B9898D600F4312B /* AcceptPhotoVIewController.swift in Sources */,
 				CECC80F92B989D6800F4312B /* CityViewModel.swift in Sources */,
 				F3BC5D402B853D1C00562C08 /* LoginViewController.swift in Sources */,
 				F30DA5A62B8E86D200E6571B /* NewPasswordModel.swift in Sources */,

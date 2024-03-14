@@ -7,7 +7,6 @@ final class CityViewController: UIViewController {
         view.backgroundColor = .systemBackground
         addView()
         applyConstraints()
-        setupSearchTF()
     }
     
     init(viewModel: CityViewModelProtocol = CityViewModel()) {
@@ -20,7 +19,7 @@ final class CityViewController: UIViewController {
     }
     
     weak var delegate: CustomUIPageControlProtocol?
-
+    
     private var viewModel: CityViewModelProtocol
     
     private lazy var firstLabel: UILabel = {
@@ -39,8 +38,17 @@ final class CityViewController: UIViewController {
         return label
     }()
     
-    private lazy var searchCityTextField: SearchFieldText = {
-        let textField = SearchFieldText(placeholder: "Поиск по названию")
+    private lazy var searchCityTextField: UISearchBar = {
+        let textField = UISearchBar()
+        textField.placeholder = "Поиск по названию"
+        textField.searchBarStyle = UISearchBar.Style.minimal
+        textField.searchTextField.attributedPlaceholder = NSAttributedString(string: "Поиск по названию", attributes: [
+            .foregroundColor: UIColor.searchBar,
+            .font: UIFont.Regular.medium
+        ])
+        textField.setShowsCancelButton(false, animated: false)
+        textField.backgroundColor = .systemBackground
+        textField.searchTextField.textColor = .black
         textField.delegate = self
         return textField
     }()
@@ -61,12 +69,6 @@ final class CityViewController: UIViewController {
         return button
     }()
     
-    private func setupSearchTF() {
-        searchCityTextField.leftView = searchButton
-        searchCityTextField.leftViewMode = .always
-        tapGesture()
-    }
-    
     private func addView() {
         [firstLabel, secondLabel, searchCityTextField, continueButton, skipButton].forEach(view.addSubviewWithoutAutoresizingMask(_:))
     }
@@ -81,7 +83,7 @@ final class CityViewController: UIViewController {
             secondLabel.topAnchor.constraint(equalTo: firstLabel.bottomAnchor, constant: 10),
             searchCityTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             searchCityTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            searchCityTextField.topAnchor.constraint(equalTo: secondLabel.bottomAnchor, constant: 30),
+            searchCityTextField.topAnchor.constraint(equalTo: secondLabel.bottomAnchor, constant: 20),
             skipButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -15),
             skipButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             continueButton.bottomAnchor.constraint(equalTo: skipButton.topAnchor, constant: -10),
@@ -92,9 +94,11 @@ final class CityViewController: UIViewController {
     }
     
     private func tapGesture() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(didTapSearchCityText))
+        continueButton.isEnabled = false
+        continueButton.backgroundColor = .lightOrange
+        searchCityTextField.searchTextField.placeholder = "Поиск по названию"
         searchCityTextField.isUserInteractionEnabled = true
-        searchCityTextField.addGestureRecognizer(tap)
+        searchCityTextField.searchTextField.addTarget(self, action: #selector(didTapSearchCityText), for: .allEvents)
     }
     
     @objc private func didTapContinueButton() {
@@ -115,7 +119,24 @@ final class CityViewController: UIViewController {
     }
 }
 
+extension CityViewController: UISearchBarDelegate {
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        tapGesture()
+        return false
+    }
+}
+
 extension CityViewController: ModalViewControllerDelegate {
+    func updateSearchTextField(name: String, withDismiss result: Bool) {
+        if result {
+            searchCityTextField.text = name
+            searchCityTextField.searchTextField.placeholder = ""
+        } else {
+            searchCityTextField.text = ""
+            searchCityTextField.searchTextField.placeholder = "Поиск по названию"
+        }
+    }
+    
     func modalControllerWillDisapear(_ model: SelectCityViewController, withDismiss result: Bool) {
         if result {
             continueButton.backgroundColor = .mainOrange
@@ -127,32 +148,4 @@ extension CityViewController: ModalViewControllerDelegate {
     }
 }
 
-extension CityViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        searchCityTextField.endEditing(false)
-        return true
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        searchCityTextField.text = ""
-    }
-    
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        if searchCityTextField.text != "" {
-            return true
-        } else {
-            searchCityTextField.placeholder = "Поиск по названию"
-            return false
-        }
-    }
-    
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        
-        return true
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField){
-        
-    }
-}
 

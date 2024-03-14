@@ -16,5 +16,7 @@ final class SearchButton: UIButton {
         setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
         tintColor = .placeholder
         widthAnchor.constraint(equalToConstant: 50).isActive = true
+        setNeedsLayout()
+        layoutIfNeeded()
     }
 }

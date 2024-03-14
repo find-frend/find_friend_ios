@@ -2,13 +2,13 @@ import UIKit
 
 final class SelectPhotoViewController: UIViewController {
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        avatarView.image = loadImage()
         view.backgroundColor = .systemBackground
         addView()
         applyConstraints()
+        avatarView.image = loadImage()
+        updateUI()
     }
     
     weak var delegate: CustomUIPageControlProtocol?
@@ -33,7 +33,6 @@ final class SelectPhotoViewController: UIViewController {
         }
         return UIImage(contentsOfFile: imageUrl.path)!
     }
-    
     
     private lazy var firstLabel: UILabel = {
         let label = UILabel()
@@ -90,8 +89,15 @@ final class SelectPhotoViewController: UIViewController {
         return button
     }()
     
+    private lazy var cancelPhotoButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "cancelPhoto"), for: .normal)
+        button.addTarget(self, action: #selector(didTapCancelPhotoButton), for: .touchUpInside)
+        return button
+    }()
+    
     private func addView() {
-        [firstLabel, secondLabel, avatarView, addPhotoButton, continueButton, skipButton].forEach(view.addSubviewWithoutAutoresizingMask(_:))
+        [firstLabel, secondLabel, avatarView, addPhotoButton, continueButton, skipButton, cancelPhotoButton].forEach(view.addSubviewWithoutAutoresizingMask(_:))
     }
     
     private func applyConstraints() {
@@ -106,6 +112,8 @@ final class SelectPhotoViewController: UIViewController {
             avatarView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             avatarView.widthAnchor.constraint(equalToConstant: avatarView.frame.width),
             avatarView.heightAnchor.constraint(equalToConstant: avatarView.frame.height),
+            cancelPhotoButton.centerYAnchor.constraint(equalTo: avatarView.centerYAnchor, constant: -60),
+            cancelPhotoButton.centerXAnchor.constraint(equalTo: avatarView.centerXAnchor, constant: 60),
             addPhotoButton.topAnchor.constraint(equalTo: avatarView.bottomAnchor, constant: -25),
             addPhotoButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             skipButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -15),
@@ -117,22 +125,44 @@ final class SelectPhotoViewController: UIViewController {
         ])
     }
     
+    private func updateUI() {
+        if avatarView.image != UIImage(named: "plugPhoto") {
+            continueButton.backgroundColor = .mainOrange
+            continueButton.isEnabled = true
+            avatarView.layer.borderWidth = 0
+            cancelPhotoButton.isHidden = false
+            addPhotoButton.isHidden = true
+            secondLabel.text = "Отлично! Все готово для поиска\n новых друзей"
+        } else {
+            continueButton.backgroundColor = .lightOrange
+            continueButton.isEnabled = false
+            avatarView.layer.borderWidth = 4
+            cancelPhotoButton.isHidden = true
+            addPhotoButton.isHidden = false
+            secondLabel.text = "Добавьте фото, чтобы другим было\n проще вас узнать"
+        }
+    }
+    
     @objc private func profileImageButtonTapped() {
         showImagePickerControleActionSheet()
     }
     
     @objc private func didTapContinueButton() {
-        delegate?.sendPage(number: 5)
+        
     }
     
     @objc private func didTapSkipButton() {
-        delegate?.sendPage(number: 5)
+        
+    }
+    
+    @objc private func didTapCancelPhotoButton() {
+        deleteImage()
     }
 }
 
 extension SelectPhotoViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    func showImagePickerControleActionSheet() {
+    private func showImagePickerControleActionSheet() {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         actionSheet.addAction(UIAlertAction(title: "Камера", style: .default, handler: { (action:UIAlertAction) in
             if UIImagePickerController.isSourceTypeAvailable(.camera) {
@@ -146,13 +176,39 @@ extension SelectPhotoViewController: UIImagePickerControllerDelegate, UINavigati
         self.present(actionSheet, animated: true)
     }
     
-    func choosePicker(sourceType: UIImagePickerController.SourceType){
+    private func choosePicker(sourceType: UIImagePickerController.SourceType){
         let imagePickerController = UIImagePickerController()
         UINavigationBar.appearance().backgroundColor = .white
         imagePickerController.delegate = self
         imagePickerController.allowsEditing = true
         imagePickerController.sourceType = sourceType
         present(imagePickerController, animated: true)
+    }
+    
+    private func saveImage(_ image: UIImage) {
+        guard let data = image.pngData() else { return }
+        let fileManager = FileManager.default
+        let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let imageUrl = documentsURL.appendingPathComponent("avatar.png")
+        do {
+            try data.write(to: imageUrl)
+            updateUI()
+        } catch {
+            updateUI()
+        }
+    }
+    
+    private func deleteImage() {
+        let fileManager = FileManager.default
+        let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let imageUrl = documentsURL.appendingPathComponent("avatar.png")
+        do {
+            try fileManager.removeItem(at: imageUrl)
+            avatarView.image = UIImage(named: "plugPhoto")
+            updateUI()
+        } catch {
+            updateUI()
+        }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -163,26 +219,9 @@ extension SelectPhotoViewController: UIImagePickerControllerDelegate, UINavigati
             avatarView.image = originalImage
             saveImage(originalImage)
         }
-        avatarView.layer.borderWidth = 0
+        updateUI()
         dismiss(animated: true, completion: nil)
     }
-    
-    func saveImage(_ image: UIImage) {
-        guard let data = image.pngData() else { return }
-        let fileManager = FileManager.default
-        let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let imageUrl = documentsURL.appendingPathComponent("avatar.png")
-        do {
-            try data.write(to: imageUrl)
-            continueButton.isEnabled = true
-            continueButton.backgroundColor = .mainOrange
-        } catch {
-            continueButton.isEnabled = false
-            continueButton.backgroundColor = .lightOrange
-            print("Ошибка сохранения изображения")
-        }
-    }
-    
 }
 
 
