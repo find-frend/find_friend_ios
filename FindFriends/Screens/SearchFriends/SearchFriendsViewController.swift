@@ -52,9 +52,15 @@ final class SearchFriendsViewController: UIViewController {
     }
     
     private func setupNavigationItem() {
-        title = "Рекомендации"
+        navigationItem.title = "Рекомендации"
         navigationItem.titleView = searchTextField
-   
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = .backgroundMain
+        appearance.largeTitleTextAttributes = [
+            .foregroundColor: UIColor.primeDark,
+            .font: UIFont.Medium.medium
+        ]
+        navigationItem.standardAppearance = appearance
     }
     
     override func viewWillLayoutSubviews() {

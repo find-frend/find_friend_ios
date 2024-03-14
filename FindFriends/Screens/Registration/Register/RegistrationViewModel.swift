@@ -135,19 +135,7 @@ final class RegistrationViewModel {
     }
     
     private func showAlert(_ error: NetworkClientError) {
-        var description = ""
-        
-        switch error {
-        case let .httpStatusCode(code, data):
-            let model = try? JSONDecoder().decode(RegistrationErrorModel.self, from: data)
-            description = model?.password.joined(separator: " ") ?? ""
-        case .urlRequestError(let error):
-            assertionFailure("Ошибка составления запроса: \(error.localizedDescription)")
-        case .urlSessionError:
-            assertionFailure("Непредвиденная ошибка")
-        case .parsingError:
-            assertionFailure("Ошибка парсинга")
-        }
+        var description = checkError(error)
         
         let alert = AlertModel(
             title: "Внимание",
@@ -170,5 +158,23 @@ final class RegistrationViewModel {
         
         let fillProfile = CustomUIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
         window.rootViewController = fillProfile
+    }
+    
+    private func checkError(_ error: NetworkClientError) -> String {
+        var description = ""
+        
+        switch error {
+        case let .httpStatusCode(_, data):
+            let model = try? JSONDecoder().decode(RegistrationErrorModel.self, from: data)
+            description = model?.currentError ?? ""
+        case .urlRequestError(let error):
+            assertionFailure("Ошибка составления запроса: \(error.localizedDescription)")
+        case .urlSessionError:
+            assertionFailure("Непредвиденная ошибка")
+        case .parsingError:
+            assertionFailure("Ошибка парсинга")
+        }
+        
+        return description
     }
 }

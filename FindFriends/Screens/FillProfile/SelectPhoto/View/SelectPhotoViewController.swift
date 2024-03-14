@@ -148,7 +148,13 @@ final class SelectPhotoViewController: UIViewController {
     }
     
     @objc private func didTapContinueButton() {
-        
+        guard
+            let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+            let window = scene.windows.first
+        else { fatalError("Invalid Configuration") }
+        let tabBar = TabBar()
+        let tabBarController = TabBarController(customTabBar: tabBar)
+        window.rootViewController = tabBarController
     }
     
     @objc private func didTapSkipButton() {

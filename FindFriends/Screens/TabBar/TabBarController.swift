@@ -97,6 +97,7 @@ open class TabBarController: UITabBarController  {
         viewController.tabBarItem.title = title
         viewController.tabBarItem.image = image
         let vc = UINavigationController(rootViewController: viewController)
+        vc.navigationBar.prefersLargeTitles = true
         return vc
     }
     
@@ -105,10 +106,10 @@ open class TabBarController: UITabBarController  {
     private func createTabBar() {
         
         viewControllers = [
-            generateVC(CustomUIPageViewController(), "Сообщения", UIImage(named: "loupe")),
-            generateVC(CustomUIPageViewController(), "Поиск друзей", UIImage(named: "loupe")),
-            generateVC(CustomUIPageViewController(), "Мероприятия", UIImage(named: "loupe")),
-            generateVC(CustomUIPageViewController(), "Мой профиль", UIImage(named: "loupe"))
+            generateVC(TmpScreenViewController(), "Сообщения", UIImage(resource: .messagesWithoutNotification)),
+            generateVC(SearchFriendsViewController(), "Поиск друзей", UIImage(resource: .searchFriends)),
+            generateVC(TmpScreenViewController(), "Мероприятия", UIImage(resource: .events)),
+            generateVC(TmpScreenViewController(), "Мой профиль", UIImage(resource: .myProfile))
         ]
     }
 
