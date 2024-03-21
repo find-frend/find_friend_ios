@@ -9,7 +9,7 @@ import Foundation
 
 struct ResetPasswordRequest: NetworkRequestProtocol {
     let httpMethod: HttpMethod = .post
-    let endpoint = Endpoints.resetPassword.url
+    let endpoint: Endpoint = .resetPassword
     let dto: Encodable?
     let token: String? = nil
 }

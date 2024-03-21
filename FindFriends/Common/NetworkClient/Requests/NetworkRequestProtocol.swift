@@ -1,7 +1,7 @@
 import Foundation
 
 protocol NetworkRequestProtocol {
-    var endpoint: URL? { get }
+    var endpoint: Endpoint { get }
     var httpMethod: HttpMethod { get }
     var token: String? { get }
     var dto: Encodable? { get }

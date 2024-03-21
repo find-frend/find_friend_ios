@@ -84,12 +84,12 @@ struct DefaultNetworkClient: NetworkClient {
     }
     
     private func create(request: NetworkRequestProtocol) -> URLRequest? {
-        guard let endpoint = request.endpoint else {
+        guard let url = request.endpoint.url else {
             assertionFailure("Empty endpoint")
             return nil
         }
 
-        var urlRequest = URLRequest(url: endpoint)
+        var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = request.httpMethod.rawValue
 
         if let token = request.token {

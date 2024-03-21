@@ -9,7 +9,7 @@ import Foundation
 
 struct NewPasswordRequest: NetworkRequestProtocol {
     let httpMethod: HttpMethod = .post
-    let endpoint = Endpoints.newPassword.url
+    let endpoint: Endpoint = .newPassword
     let dto: Encodable?
     let token: String? = nil
 }

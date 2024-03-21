@@ -65,7 +65,7 @@
 		DDCAC7D22B852B7B00EC7D15 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCAC7D12B852B7B00EC7D15 /* RegistrationViewController.swift */; };
 		DDCAC7D42B852B8600EC7D15 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCAC7D32B852B8600EC7D15 /* RegistrationView.swift */; };
 		DDCAC7D62B8531EC00EC7D15 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCAC7D52B8531EC00EC7D15 /* RegistrationViewModel.swift */; };
-		F30170652B8CDCA300A6921A /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30170642B8CDCA300A6921A /* Endpoints.swift */; };
+		F30170652B8CDCA300A6921A /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30170642B8CDCA300A6921A /* Endpoint.swift */; };
 		F30170672B8CDD1C00A6921A /* LoginUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30170662B8CDD1C00A6921A /* LoginUserRequest.swift */; };
 		F30170692B8CDF5C00A6921A /* CreateUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30170682B8CDF5C00A6921A /* CreateUserRequest.swift */; };
 		F30170732B8CED2C00A6921A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30170722B8CED2C00A6921A /* LoginViewModel.swift */; };
@@ -160,7 +160,7 @@
 		DDCAC7D12B852B7B00EC7D15 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		DDCAC7D32B852B8600EC7D15 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		DDCAC7D52B8531EC00EC7D15 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
-		F30170642B8CDCA300A6921A /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
+		F30170642B8CDCA300A6921A /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		F30170662B8CDD1C00A6921A /* LoginUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserRequest.swift; sourceTree = "<group>"; };
 		F30170682B8CDF5C00A6921A /* CreateUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserRequest.swift; sourceTree = "<group>"; };
 		F30170722B8CED2C00A6921A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -353,7 +353,6 @@
 				F33B4C8A2B8FB9EE002D27B5 /* Dto */,
 				D86387BE2B87A16400692535 /* NetworkClient.swift */,
 				D86387BF2B87A16400692535 /* NetworkTask.swift */,
-				F30170642B8CDCA300A6921A /* Endpoints.swift */,
 			);
 			path = NetworkClient;
 			sourceTree = "<group>";
@@ -490,6 +489,7 @@
 			isa = PBXGroup;
 			children = (
 				D86387C22B87A16400692535 /* NetworkRequestProtocol.swift */,
+				F30170642B8CDCA300A6921A /* Endpoint.swift */,
 				F30170662B8CDD1C00A6921A /* LoginUserRequest.swift */,
 				F30170682B8CDF5C00A6921A /* CreateUserRequest.swift */,
 				F30170842B8D191000A6921A /* GetFriendsRequest.swift */,
@@ -761,7 +761,7 @@
 				DDCAC7CC2B851EF500EC7D15 /* RegistrationTextField.swift in Sources */,
 				D86387CF2B8A74A500692535 /* CreateUserDto.swift in Sources */,
 				D86387C32B87A16400692535 /* NetworkClient.swift in Sources */,
-				F30170652B8CDCA300A6921A /* Endpoints.swift in Sources */,
+				F30170652B8CDCA300A6921A /* Endpoint.swift in Sources */,
 				CECC80EC2B98988200F4312B /* CityViewController.swift in Sources */,
 				F30170672B8CDD1C00A6921A /* LoginUserRequest.swift in Sources */,
 				D86387CD2B89FD2200692535 /* FriendsNetworkService.swift in Sources */,
