@@ -7,15 +7,11 @@
 
 import SwiftKeychainWrapper
 
-// MARK: - OAuthTokenStorageProtocol
 protocol OAuthTokenStorageProtocol: AnyObject {
     var token: String? { get set }
 }
 
-// MARK: - OAuthTokenStorage
 final class OAuthTokenStorage: OAuthTokenStorageProtocol {
-
-    // MARK: - Public  properties
     static let shared = OAuthTokenStorage()
 
     var token: String? {
@@ -31,14 +27,10 @@ final class OAuthTokenStorage: OAuthTokenStorageProtocol {
         }
     }
 
-    // MARK: - Private  properties
     private enum Keys: String {
-        case authToken = "Auth token"
+        case authToken = "Token"
     }
 
     private let keychain = KeychainWrapper.standard
-
-    // MARK: - Initializers
     private init() {}
-
 }

@@ -30,7 +30,7 @@ final class BirthdayViewModel {
             return false
         }
         
-        switch TextValidator.validate(newString, with: .date) {
+        switch ValidationService.validate(newString, type: .date) {
             case.failure(_):
                 return false
             case .success():

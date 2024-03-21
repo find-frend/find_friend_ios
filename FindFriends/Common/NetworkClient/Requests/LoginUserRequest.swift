@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct LoginUserRequest: NetworkRequest {
+struct LoginUserRequest: NetworkRequestProtocol {
     let httpMethod: HttpMethod = .post
-    let endpoint = Endpoint.login.url
+    let endpoint = Endpoints.login.url
     let dto: Encodable?
     let token: String? = nil
 }

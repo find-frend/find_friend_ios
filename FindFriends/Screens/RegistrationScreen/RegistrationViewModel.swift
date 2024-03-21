@@ -94,28 +94,28 @@ final class RegistrationViewModel {
     }
     
     private func validateFields() {
-        switch TextValidator.validate(name, with: .name) {
+        switch ValidationService.validate(name, type: .name) {
         case .success(_):
             errorTextForName = ValidateMessages.emptyMessage.rawValue
         case .failure(let message):
             errorTextForName = message.rawValue
         }
         
-        switch TextValidator.validate(lastName, with: .lastName) {
+        switch ValidationService.validate(lastName, type: .lastName) {
         case .success(_):
             errorTextForLastName = ValidateMessages.emptyMessage.rawValue
         case .failure(let message):
             errorTextForLastName = message.rawValue
         }
         
-        switch TextValidator.validate(email, with: .email) {
+        switch ValidationService.validate(email, type: .email) {
         case .success(_):
             errorTextForEmail = ValidateMessages.emptyMessage.rawValue
         case .failure(let message):
             errorTextForEmail = message.rawValue
         }
         
-        switch TextValidator.validate(password, with: .password) {
+        switch ValidationService.validate(password, type: .password) {
         case .success(_):
             errorTextForPassword = ValidateMessages.emptyMessage.rawValue
         case .failure(let message):
@@ -125,7 +125,7 @@ final class RegistrationViewModel {
         if password != confirmPassword {
             errorTextForConfirmPassword = ValidateMessages.passwordsNotEqual.rawValue
         } else {
-            switch TextValidator.validate(confirmPassword, with: .confirmPassword) {
+            switch ValidationService.validate(confirmPassword, type: .confirmPassword) {
             case .success(_):
                 errorTextForConfirmPassword = ValidateMessages.emptyMessage.rawValue
             case .failure(let message):

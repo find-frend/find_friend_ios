@@ -46,7 +46,7 @@ final class ResetPasswordViewModel: ResetPasswordViewModelProtocol {
     }
 
     func validateEmail() -> Bool {
-        switch TextValidator.validate(email, with: .email) {
+        switch ValidationService.validate(email, type: .email) {
         case .success:
             onEmailErrorStateChange?(ValidateMessages.emptyMessage.rawValue)
             return true

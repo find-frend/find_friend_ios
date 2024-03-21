@@ -7,7 +7,6 @@
 
 import Foundation
 
-// MARK: - RegistrationServiceProtocol
 protocol RegistrationServiceProtocol {
     func createUser(
         _ dto: CreateUserRequestDto,
@@ -27,14 +26,11 @@ protocol RegistrationServiceProtocol {
     )
 }
 
-// MARK: - RegistrationService
 final class RegistrationService: RegistrationServiceProtocol {
 
-    // MARK: - Private  properties
     private let networkClient: NetworkClient
     private let oAuthTokenStorage: OAuthTokenStorageProtocol
 
-    // MARK: - Initializers
     init(
         networkClient: NetworkClient = DefaultNetworkClient(),
         oAuthTokenStorage: OAuthTokenStorageProtocol = OAuthTokenStorage.shared
@@ -43,7 +39,6 @@ final class RegistrationService: RegistrationServiceProtocol {
         self.oAuthTokenStorage = oAuthTokenStorage
     }
 
-    // MARK: - Public methods
     func createUser(
         _ dto: CreateUserRequestDto,
         completion: @escaping (Result<CreateUserResponseDto, NetworkClientError>) -> Void
@@ -112,5 +107,4 @@ final class RegistrationService: RegistrationServiceProtocol {
             }
         }
     }
-
 }

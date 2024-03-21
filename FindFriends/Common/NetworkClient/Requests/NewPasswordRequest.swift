@@ -1,5 +1,5 @@
 //
-//  ResetPasswordRequest.swift
+//  NewPasswordRequest.swift
 //  FindFriends
 //
 //  Created by Artem Novikov on 28.02.2024.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct ResetPasswordRequest: NetworkRequest {
+struct NewPasswordRequest: NetworkRequestProtocol {
     let httpMethod: HttpMethod = .post
-    let endpoint = Endpoint.resetPassword.url
+    let endpoint = Endpoints.newPassword.url
     let dto: Encodable?
     let token: String? = nil
 }

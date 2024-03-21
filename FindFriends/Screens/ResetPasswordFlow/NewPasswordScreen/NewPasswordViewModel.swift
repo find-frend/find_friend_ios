@@ -61,7 +61,7 @@ final class NewPasswordViewModel: NewPasswordViewModelProtocol {
     }
 
     private func validatePassword() -> Bool {
-        switch TextValidator.validate(newPasswordModel.password, with: .password) {
+        switch ValidationService.validate(newPasswordModel.password, type: .password) {
         case .success:
             onPasswordErrorStateChange?(ValidateMessages.emptyMessage.rawValue)
             return true
@@ -76,7 +76,7 @@ final class NewPasswordViewModel: NewPasswordViewModelProtocol {
             onPasswordConfirmationErrorStateChange?(ValidateMessages.passwordsNotEqual.rawValue)
             return false
         }
-        switch TextValidator.validate(newPasswordModel.passwordConfirmation, with: .confirmPassword) {
+        switch ValidationService.validate(newPasswordModel.passwordConfirmation, type: .confirmPassword) {
         case .success(_):
             onPasswordConfirmationErrorStateChange?(ValidateMessages.emptyMessage.rawValue)
             return true

@@ -7,9 +7,6 @@
 
 import Foundation
 
-
-import Foundation
-
 struct InterestsdDto: Codable {
     let id: Int
     let name: String

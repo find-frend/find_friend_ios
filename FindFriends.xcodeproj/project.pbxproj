@@ -37,7 +37,7 @@
 		D85401342B95DA890088C1E9 /* SelectInterestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85401332B95DA890088C1E9 /* SelectInterestsView.swift */; };
 		D86387C32B87A16400692535 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86387BE2B87A16400692535 /* NetworkClient.swift */; };
 		D86387C42B87A16400692535 /* NetworkTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86387BF2B87A16400692535 /* NetworkTask.swift */; };
-		D86387C72B87A16400692535 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86387C22B87A16400692535 /* NetworkRequest.swift */; };
+		D86387C72B87A16400692535 /* NetworkRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86387C22B87A16400692535 /* NetworkRequestProtocol.swift */; };
 		D86387CA2B89F9A600692535 /* FriendDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86387C92B89F9A600692535 /* FriendDto.swift */; };
 		D86387CD2B89FD2200692535 /* FriendsNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86387CC2B89FD2200692535 /* FriendsNetworkService.swift */; };
 		D86387CF2B8A74A500692535 /* CreateUserDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86387CE2B8A74A500692535 /* CreateUserDto.swift */; };
@@ -61,7 +61,7 @@
 		DDCAC7C42B83C0BF00EC7D15 /* WhiteBorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCAC7C32B83C0BF00EC7D15 /* WhiteBorderButton.swift */; };
 		DDCAC7C72B84FB7900EC7D15 /* UIFont+CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCAC7C62B84FB7900EC7D15 /* UIFont+CustomFonts.swift */; };
 		DDCAC7CC2B851EF500EC7D15 /* RegistrationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCAC7CB2B851EF500EC7D15 /* RegistrationTextField.swift */; };
-		DDCAC7CF2B851F7700EC7D15 /* TextValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCAC7CE2B851F7700EC7D15 /* TextValidator.swift */; };
+		DDCAC7CF2B851F7700EC7D15 /* ValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCAC7CE2B851F7700EC7D15 /* ValidationService.swift */; };
 		DDCAC7D22B852B7B00EC7D15 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCAC7D12B852B7B00EC7D15 /* RegistrationViewController.swift */; };
 		DDCAC7D42B852B8600EC7D15 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCAC7D32B852B8600EC7D15 /* RegistrationView.swift */; };
 		DDCAC7D62B8531EC00EC7D15 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCAC7D52B8531EC00EC7D15 /* RegistrationViewModel.swift */; };
@@ -133,7 +133,7 @@
 		D85401332B95DA890088C1E9 /* SelectInterestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectInterestsView.swift; sourceTree = "<group>"; };
 		D86387BE2B87A16400692535 /* NetworkClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		D86387BF2B87A16400692535 /* NetworkTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTask.swift; sourceTree = "<group>"; };
-		D86387C22B87A16400692535 /* NetworkRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
+		D86387C22B87A16400692535 /* NetworkRequestProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequestProtocol.swift; sourceTree = "<group>"; };
 		D86387C92B89F9A600692535 /* FriendDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDto.swift; sourceTree = "<group>"; };
 		D86387CC2B89FD2200692535 /* FriendsNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsNetworkService.swift; sourceTree = "<group>"; };
 		D86387CE2B8A74A500692535 /* CreateUserDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserDto.swift; sourceTree = "<group>"; };
@@ -156,7 +156,7 @@
 		DDCAC7C32B83C0BF00EC7D15 /* WhiteBorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteBorderButton.swift; sourceTree = "<group>"; };
 		DDCAC7C62B84FB7900EC7D15 /* UIFont+CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+CustomFonts.swift"; sourceTree = "<group>"; };
 		DDCAC7CB2B851EF500EC7D15 /* RegistrationTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationTextField.swift; sourceTree = "<group>"; };
-		DDCAC7CE2B851F7700EC7D15 /* TextValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextValidator.swift; sourceTree = "<group>"; };
+		DDCAC7CE2B851F7700EC7D15 /* ValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationService.swift; sourceTree = "<group>"; };
 		DDCAC7D12B852B7B00EC7D15 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		DDCAC7D32B852B8600EC7D15 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		DDCAC7D52B8531EC00EC7D15 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
@@ -348,10 +348,11 @@
 		D86387BD2B87A16400692535 /* NetworkClient */ = {
 			isa = PBXGroup;
 			children = (
-				DD5F38162BAB7A22004AF6B2 /* Models */,
+				F30170632B8CDC9700A6921A /* Requests */,
+				DDC2551C2BA22B8E0037FA7E /* ErrorModel */,
+				F33B4C8A2B8FB9EE002D27B5 /* Dto */,
 				D86387BE2B87A16400692535 /* NetworkClient.swift */,
 				D86387BF2B87A16400692535 /* NetworkTask.swift */,
-				D86387C22B87A16400692535 /* NetworkRequest.swift */,
 				F30170642B8CDCA300A6921A /* Endpoints.swift */,
 			);
 			path = NetworkClient;
@@ -432,14 +433,12 @@
 			path = MainFlow;
 			sourceTree = "<group>";
 		};
-		DD5F38162BAB7A22004AF6B2 /* Models */ = {
+		DD5F38172BAC96D4004AF6B2 /* Validation */ = {
 			isa = PBXGroup;
 			children = (
-				DDC2551C2BA22B8E0037FA7E /* Errors */,
-				F33B4C8A2B8FB9EE002D27B5 /* Dto */,
-				F30170632B8CDC9700A6921A /* Requests */,
+				DDCAC7CE2B851F7700EC7D15 /* ValidationService.swift */,
 			);
-			path = Models;
+			path = Validation;
 			sourceTree = "<group>";
 		};
 		DD67CE3B2B769EC1008B2A9C /* App */ = {
@@ -469,20 +468,20 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		DDC2551C2BA22B8E0037FA7E /* Errors */ = {
+		DDC2551C2BA22B8E0037FA7E /* ErrorModel */ = {
 			isa = PBXGroup;
 			children = (
 				DDC2551A2BA2249F0037FA7E /* RegistrationErrorModel.swift */,
 			);
-			path = Errors;
+			path = ErrorModel;
 			sourceTree = "<group>";
 		};
 		DDCAC7CD2B851F4200EC7D15 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				DD5F38172BAC96D4004AF6B2 /* Validation */,
 				F30170712B8CE68700A6921A /* Network */,
 				F30170702B8CE4D300A6921A /* Storage */,
-				DDCAC7CE2B851F7700EC7D15 /* TextValidator.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -490,6 +489,7 @@
 		F30170632B8CDC9700A6921A /* Requests */ = {
 			isa = PBXGroup;
 			children = (
+				D86387C22B87A16400692535 /* NetworkRequestProtocol.swift */,
 				F30170662B8CDD1C00A6921A /* LoginUserRequest.swift */,
 				F30170682B8CDF5C00A6921A /* CreateUserRequest.swift */,
 				F30170842B8D191000A6921A /* GetFriendsRequest.swift */,
@@ -723,7 +723,7 @@
 				DDCAC7D62B8531EC00EC7D15 /* RegistrationViewModel.swift in Sources */,
 				CECC80EA2B98988200F4312B /* SelectCityTableViewCell.swift in Sources */,
 				D86387D42B8A7E4F00692535 /* TokenStorageService.swift in Sources */,
-				D86387C72B87A16400692535 /* NetworkRequest.swift in Sources */,
+				D86387C72B87A16400692535 /* NetworkRequestProtocol.swift in Sources */,
 				F30170692B8CDF5C00A6921A /* CreateUserRequest.swift in Sources */,
 				F301707E2B8CF32500A6921A /* AlertButton.swift in Sources */,
 				F30170852B8D191000A6921A /* GetFriendsRequest.swift in Sources */,
@@ -739,7 +739,7 @@
 				F301707C2B8CF2FF00A6921A /* AlertModel.swift in Sources */,
 				F36F407A2B85562800B2082B /* UIViewController+Extensions.swift in Sources */,
 				D853CC262B7567AF00DA58D5 /* AppDelegate.swift in Sources */,
-				DDCAC7CF2B851F7700EC7D15 /* TextValidator.swift in Sources */,
+				DDCAC7CF2B851F7700EC7D15 /* ValidationService.swift in Sources */,
 				F36F40802B86129900B2082B /* ResetPasswordView.swift in Sources */,
 				D86387D92B8A7FF500692535 /* LoginUserDto.swift in Sources */,
 				D854012C2B9312080088C1E9 /* TagsCollectionViewCell.swift in Sources */,

@@ -61,7 +61,7 @@ final class LoginViewModel: LoginViewModelProtocol {
     }
 
     private func validateLogin() -> Bool {
-        switch TextValidator.validate(credentials.email, with: .email) {
+        switch ValidationService.validate(credentials.email, type: .email) {
         case .success:
             onEmailErrorStateChange?(ValidateMessages.emptyMessage.rawValue)
             return true
@@ -72,7 +72,7 @@ final class LoginViewModel: LoginViewModelProtocol {
     }
 
     private func validatePassword() -> Bool {
-        switch TextValidator.validate(credentials.password, with: .password) {
+        switch ValidationService.validate(credentials.password, type: .password) {
         case .success:
             onPasswordErrorStateChange?(ValidateMessages.emptyMessage.rawValue)
             return true

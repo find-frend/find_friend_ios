@@ -10,13 +10,13 @@ enum NetworkClientError: Error {
 protocol NetworkClient {
     @discardableResult
     func send(
-        request: NetworkRequest,
+        request: NetworkRequestProtocol,
         onResponse: @escaping (Result<Data, NetworkClientError>) -> Void
     ) -> NetworkTask?
 
     @discardableResult
     func send<T: Decodable>(
-        request: NetworkRequest,
+        request: NetworkRequestProtocol,
         type: T.Type,
         onResponse: @escaping (Result<T, NetworkClientError>) -> Void
     ) -> NetworkTask?
@@ -37,7 +37,7 @@ struct DefaultNetworkClient: NetworkClient {
     
     @discardableResult
     func send(
-        request: NetworkRequest,
+        request: NetworkRequestProtocol,
         onResponse: @escaping (Result<Data, NetworkClientError>) -> Void
     ) -> NetworkTask? {
         
@@ -68,7 +68,7 @@ struct DefaultNetworkClient: NetworkClient {
 
     @discardableResult
     func send<T: Decodable>(
-        request: NetworkRequest,
+        request: NetworkRequestProtocol,
         type: T.Type,
         onResponse: @escaping (Result<T, NetworkClientError>) -> Void
     ) -> NetworkTask? {
@@ -82,9 +82,8 @@ struct DefaultNetworkClient: NetworkClient {
             }
         }
     }
-
-    // MARK: - Private
-    private func create(request: NetworkRequest) -> URLRequest? {
+    
+    private func create(request: NetworkRequestProtocol) -> URLRequest? {
         guard let endpoint = request.endpoint else {
             assertionFailure("Empty endpoint")
             return nil
@@ -115,5 +114,4 @@ struct DefaultNetworkClient: NetworkClient {
             onResponse(.failure(.parsingError))
         }
     }
-
 }

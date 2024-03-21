@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Endpoint {
+enum Endpoints {
 
     case login
     case createUser
@@ -32,12 +32,12 @@ enum Endpoint {
 
     var url: URL? {
         switch self {
-        case .login: return URL(string: Endpoint.login.path, relativeTo: Endpoint.baseURL)
-        case .createUser: return URL(string: Endpoint.createUser.path, relativeTo: Endpoint.baseURL)
-        case .getFriends: return URL(string: Endpoint.getFriends.path, relativeTo: Endpoint.baseURL)
-        case .resetPassword: return URL(string: Endpoint.resetPassword.path, relativeTo: Endpoint.baseURL)
-        case .newPassword: return URL(string: Endpoint.newPassword.path, relativeTo: Endpoint.baseURL)
-        case .getInterests: return URL(string: Endpoint.getInterests.path, relativeTo: Endpoint.baseURL)
+        case .login: return URL(string: Endpoints.login.path, relativeTo: Endpoints.baseURL)
+        case .createUser: return URL(string: Endpoints.createUser.path, relativeTo: Endpoints.baseURL)
+        case .getFriends: return URL(string: Endpoints.getFriends.path, relativeTo: Endpoints.baseURL)
+        case .resetPassword: return URL(string: Endpoints.resetPassword.path, relativeTo: Endpoints.baseURL)
+        case .newPassword: return URL(string: Endpoints.newPassword.path, relativeTo: Endpoints.baseURL)
+        case .getInterests: return URL(string: Endpoints.getInterests.path, relativeTo: Endpoints.baseURL)
         }
     }
 }
