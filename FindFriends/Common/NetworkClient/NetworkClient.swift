@@ -5,6 +5,20 @@ enum NetworkClientError: Error {
     case urlRequestError(Error)
     case urlSessionError
     case parsingError
+    
+    var message: String {
+        switch self {
+        case let .httpStatusCode(_, data):
+            let model = try? JSONDecoder().decode(RegistrationErrorModel.self, from: data)
+            return model?.currentError ?? ""
+        case .urlRequestError(let error):
+            return "Ошибка составления запроса: \(error.localizedDescription)"
+        case .urlSessionError:
+            return "Непредвиденная ошибка"
+        case .parsingError:
+            return "Ошибка парсинга"
+        }
+    }
 }
 
 protocol NetworkClient {

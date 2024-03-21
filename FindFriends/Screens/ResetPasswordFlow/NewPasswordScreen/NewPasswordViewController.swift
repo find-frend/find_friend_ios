@@ -64,10 +64,10 @@ final class NewPasswordViewController: BaseRegistrationViewController {
                 self.navigationController?.pushViewController(viewController, animated: true)
             case .failure(let error):
                 UIBlockingProgressHUD.dismiss()
-                AlertPresenter.show(
-                    in: self,
-                    model: .resetPasswordError(message: error.localizedDescription)
-                )
+//                AlertPresenter.show(
+//                    in: self,
+//                    model: .resetPasswordError(message: error.localizedDescription)
+//                )
             }
         }
     }

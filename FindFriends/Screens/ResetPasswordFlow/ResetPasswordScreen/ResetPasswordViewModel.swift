@@ -12,7 +12,7 @@ protocol ResetPasswordViewModelProtocol {
     var onEmailErrorStateChange: Binding<String>? { get set }
     var email: String { get set }
 
-    func resetPassword(completion: @escaping (Result<ResetPasswordDto, Error>) -> Void)
+    func resetPassword(completion: @escaping (Result<Void, NetworkClientError>) -> Void)
     func validateEmail() -> Bool
 }
 
@@ -34,11 +34,11 @@ final class ResetPasswordViewModel: ResetPasswordViewModelProtocol {
         self.registrationService = registrationService
     }
 
-    func resetPassword(completion: @escaping (Result<ResetPasswordDto, Error>) -> Void) {
+    func resetPassword(completion: @escaping (Result<Void, NetworkClientError>) -> Void) {
         registrationService.resetPassword(ResetPasswordDto(email: email)) { result in
             switch result {
             case .success(let model):
-                completion(.success(model))
+                completion(.success(Void()))
             case .failure(let error):
                 completion(.failure(error))
             }
