@@ -17,7 +17,7 @@ final class CheckEmailView: BaseRegistrationView {
 
     private enum Constants {
         enum ImageView {
-            static let topInset: CGFloat = 74
+            static let centerYInset: CGFloat = -80
             static let widthAndHeight: CGFloat = 120
         }
         enum Label {
@@ -32,8 +32,8 @@ final class CheckEmailView: BaseRegistrationView {
             static let height: CGFloat = 48
         }
         enum Caption {
-            static let topInset: CGFloat = 25
-            static let bottomInset: CGFloat = 21
+            static let topInset: CGFloat = 20
+            static let bottomInset: CGFloat = 4
             static let text = """
                             Не получили письмо? Проверьте папку Спам
                             или Введите другой почтовый адрес
@@ -59,18 +59,28 @@ final class CheckEmailView: BaseRegistrationView {
 
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .primeDark
         label.numberOfLines = 0
-        label.font = .Regular.medium
-        label.text = """
+        let text = """
                 Мы отправили инструкцию по сбросу пароля на вашу электронную почту.
                 Пройдите по ссылке из письма, чтобы установить новый пароль для входа.
                 """
-        label.textAlignment = .center
+        let attributedText = NSMutableAttributedString(string: text)
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 4
+        style.alignment = .center
+        attributedText.addAttributes(
+            [
+                .font: UIFont.Regular.medium,
+                .foregroundColor: UIColor.primeDark,
+                .paragraphStyle: style
+            ],
+            range: NSRange(location: 0, length: attributedText.length)
+        )
+        label.attributedText = attributedText
         return label
     }()
 
-    private let backToLogInButton = PrimeOrangeButton(text: "Вернуться ко входу")
+    private let backToLogInButton = PrimeOrangeButton(text: "Вернуться ко входу", isEnabled: true)
 
     private lazy var caption: UILabel = {
         let label = UILabel()
@@ -140,9 +150,9 @@ final class CheckEmailView: BaseRegistrationView {
             imageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             imageView.widthAnchor.constraint(equalToConstant: Constants.ImageView.widthAndHeight),
             imageView.heightAnchor.constraint(equalToConstant: Constants.ImageView.widthAndHeight),
-            contentView.centerYAnchor.constraint(
-                equalTo: imageView.centerYAnchor,
-                constant: Constants.ImageView.widthAndHeight / 2
+            imageView.centerYAnchor.constraint(
+                equalTo: contentView.centerYAnchor,
+                constant: Constants.ImageView.centerYInset
             ),
 
             titleLabel.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
