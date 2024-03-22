@@ -35,10 +35,14 @@ final class ResetPasswordViewModel: ResetPasswordViewModelProtocol {
     }
 
     func resetPassword(completion: @escaping (Result<Void, NetworkClientError>) -> Void) {
-        registrationService.resetPassword(ResetPasswordDto(email: email)) { result in
+        registrationService.resetPassword(ResetPasswordRequestDto(email: email)) { result in
             switch result {
-            case .success(let model):
-                completion(.success(Void()))
+            case .success(let response):
+                if response.status == "OK" {
+                    completion(.success(Void()))
+                } else {
+                    completion(.failure(.parsingError))
+                }
             case .failure(let error):
                 completion(.failure(error))
             }

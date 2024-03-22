@@ -20,7 +20,7 @@ final class SplashViewController: UIViewController {
         super.viewDidAppear(animated)
         
 //        раскоментировать, чтобы при каждом входе сбрасывался вход
-//        oauthTokenStorage.token = nil
+        oauthTokenStorage.token = nil
         if let _ = oauthTokenStorage.token {
             presentTabBarController()
         } else {

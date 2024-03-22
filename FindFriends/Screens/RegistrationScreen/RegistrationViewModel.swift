@@ -51,9 +51,9 @@ final class RegistrationViewModel {
             UIBlockingProgressHUD.show()
             registrationService.createUser(user) { [unowned self] result in
                 switch result {
-                case .success(_):
+                case .success(let model):
                     registrationService.loginUser(
-                        LoginRequestDto(email: email, password: confirmPassword)) { [unowned self] _ in
+                        LoginRequestDto(email: model.email, password: confirmPassword)) { [unowned self] _ in
                             switchToGenderScreen()
                         }
                 case .failure(let error):

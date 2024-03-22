@@ -17,8 +17,8 @@ protocol RegistrationServiceProtocol {
         completion: @escaping (Result<LoginResponseDto, NetworkClientError>) -> Void
     )
     func resetPassword(
-        _ dto: ResetPasswordDto,
-        completion: @escaping (Result<Void, NetworkClientError>) -> Void
+        _ dto: ResetPasswordRequestDto,
+        completion: @escaping (Result<ResetPasswordResponseDto, NetworkClientError>) -> Void
     )
     func setNewPassword(
         _ dto: NewPasswordDto,
@@ -43,7 +43,7 @@ final class RegistrationService: RegistrationServiceProtocol {
         _ dto: CreateUserRequestDto,
         completion: @escaping (Result<CreateUserResponseDto, NetworkClientError>) -> Void
     ) {
-        let request = CreateUserRequest(dto: dto)
+        let request = UsersRequest(httpMethod: .post, dto: dto)
         networkClient.send(request: request, type: CreateUserResponseDto.self) { result in
             DispatchQueue.main.async {
                 switch result {
@@ -75,15 +75,15 @@ final class RegistrationService: RegistrationServiceProtocol {
     }
 
     func resetPassword(
-        _ dto: ResetPasswordDto,
-        completion: @escaping (Result<Void, NetworkClientError>) -> Void
+        _ dto: ResetPasswordRequestDto,
+        completion: @escaping (Result<ResetPasswordResponseDto, NetworkClientError>) -> Void
     ) {
         let request = ResetPasswordRequest(dto: dto)
-        networkClient.send(request: request) { result in
+        networkClient.send(request: request, type: ResetPasswordResponseDto.self) { result in
             DispatchQueue.main.async {
                 switch result {
-                case let .success(data):
-                    completion(.success(Void()))
+                case let .success(response):
+                    completion(.success(response))
                 case let .failure(error):
                     completion(.failure(error))
                 }

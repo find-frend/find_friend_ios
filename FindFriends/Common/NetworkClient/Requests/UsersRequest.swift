@@ -7,8 +7,10 @@
 
 import Foundation
 
-struct CreateUserRequest: NetworkRequestProtocol {
-    let httpMethod: HttpMethod = .post
+struct UsersRequest: NetworkRequestProtocol {
+    // get - все пользователи
+    // post - создать пользователя при регистрации 
+    let httpMethod: HttpMethod
     let endpoint: Endpoint = .createUser
     let dto: Encodable?
     let token: String? = nil
