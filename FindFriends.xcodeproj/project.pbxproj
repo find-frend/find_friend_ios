@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4CB304BB2BAC471D00D08003 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB304BA2BAC471C00D08003 /* WelcomeViewController.swift */; };
+		4CB304BD2BAC49C900D08003 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB304BC2BAC49C900D08003 /* WelcomeViewModel.swift */; };
+		4CB304C12BADAE5500D08003 /* ProfileRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB304C02BADAE5500D08003 /* ProfileRequest.swift */; };
+		4CB304C32BADB43800D08003 /* ProfileDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB304C22BADB43800D08003 /* ProfileDto.swift */; };
 		8445676E2B9740CB00114604 /* GenderSelectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8445676D2B9740CB00114604 /* GenderSelectionButton.swift */; };
 		84531D152B94C38E002289C6 /* CustomUIPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84531D142B94C38E002289C6 /* CustomUIPageViewController.swift */; };
 		84531D182B94C41F002289C6 /* CustomUIPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84531D172B94C41F002289C6 /* CustomUIPageControl.swift */; };
@@ -103,6 +107,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4CB304BA2BAC471C00D08003 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		4CB304BC2BAC49C900D08003 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
+		4CB304C02BADAE5500D08003 /* ProfileRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRequest.swift; sourceTree = "<group>"; };
+		4CB304C22BADB43800D08003 /* ProfileDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDto.swift; sourceTree = "<group>"; };
 		8445676D2B9740CB00114604 /* GenderSelectionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderSelectionButton.swift; sourceTree = "<group>"; };
 		84531D142B94C38E002289C6 /* CustomUIPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIPageViewController.swift; sourceTree = "<group>"; };
 		84531D172B94C41F002289C6 /* CustomUIPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIPageControl.swift; sourceTree = "<group>"; };
@@ -211,6 +219,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4CB304B92BAC466700D08003 /* WelcomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				4CB304BA2BAC471C00D08003 /* WelcomeViewController.swift */,
+				4CB304BC2BAC49C900D08003 /* WelcomeViewModel.swift */,
+			);
+			path = WelcomeScreen;
+			sourceTree = "<group>";
+		};
 		84531D132B94C369002289C6 /* FillProfileFlow */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,6 +338,7 @@
 		D853CC392B756BB500DA58D5 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				4CB304B92BAC466700D08003 /* WelcomeScreen */,
 				F301707F2B8CF55E00A6921A /* SplashScreen */,
 				F3BC5D3E2B853D0E00562C08 /* LoginScreen */,
 				F31111282B9690F800A97B80 /* BaseRegistration */,
@@ -507,6 +525,7 @@
 				F30170842B8D191000A6921A /* FriendsRequest.swift */,
 				F33B4C862B8FB8DA002D27B5 /* ResetPasswordRequest.swift */,
 				F33B4C882B8FB989002D27B5 /* NewPasswordRequest.swift */,
+				4CB304C02BADAE5500D08003 /* ProfileRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -577,6 +596,7 @@
 		F33B4C8A2B8FB9EE002D27B5 /* Dto */ = {
 			isa = PBXGroup;
 			children = (
+				4CB304C22BADB43800D08003 /* ProfileDto.swift */,
 				D86387CE2B8A74A500692535 /* CreateUserDto.swift */,
 				D86387D82B8A7FF500692535 /* LoginUserDto.swift */,
 				F33B4C8B2B8FBA0C002D27B5 /* ResetPasswordDto.swift */,
@@ -717,10 +737,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F31111272B968D5D00A97B80 /* BaseRegistrationViewController.swift in Sources */,
+				4CB304BD2BAC49C900D08003 /* WelcomeViewModel.swift in Sources */,
 				D87ED92A2B97C44B00B185FB /* SelectInterestViewModel.swift in Sources */,
 				CECC81062BA319F400F4312B /* TabBarController.swift in Sources */,
 				DDCAC7D42B852B8600EC7D15 /* RegistrationView.swift in Sources */,
 				F30170762B8CF22F00A6921A /* Credentials.swift in Sources */,
+				4CB304C12BADAE5500D08003 /* ProfileRequest.swift in Sources */,
 				F30DA5A22B8E7B2100E6571B /* ResetPasswordViewModel.swift in Sources */,
 				DDCAC7D62B8531EC00EC7D15 /* RegistrationViewModel.swift in Sources */,
 				CECC80EA2B98988200F4312B /* SelectCityTableViewCell.swift in Sources */,
@@ -762,6 +784,7 @@
 				D85401322B95D5720088C1E9 /* BaseFillProfileView.swift in Sources */,
 				D854012E2B93125A0088C1E9 /* CellReusingUtils.swift in Sources */,
 				DDCAC7CC2B851EF500EC7D15 /* RegistrationTextField.swift in Sources */,
+				4CB304BB2BAC471D00D08003 /* WelcomeViewController.swift in Sources */,
 				D86387CF2B8A74A500692535 /* CreateUserDto.swift in Sources */,
 				D86387C32B87A16400692535 /* NetworkClient.swift in Sources */,
 				F30170652B8CDCA300A6921A /* Endpoint.swift in Sources */,
@@ -797,6 +820,7 @@
 				F30170812B8CF57800A6921A /* SplashViewController.swift in Sources */,
 				DD0412E02B90E32B00984BA7 /* SearchFriendsView.swift in Sources */,
 				F30DA5A42B8E862300E6571B /* NewPasswordViewModel.swift in Sources */,
+				4CB304C32BADB43800D08003 /* ProfileDto.swift in Sources */,
 				F3BC5D392B8514D700562C08 /* BaseRegistrationView.swift in Sources */,
 				84531D182B94C41F002289C6 /* CustomUIPageControl.swift in Sources */,
 				84531D152B94C38E002289C6 /* CustomUIPageViewController.swift in Sources */,
