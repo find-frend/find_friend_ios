@@ -19,8 +19,8 @@ final class SplashViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-//        раскоментировать, чтобы при каждом входе сбрасывался вход
-        oauthTokenStorage.token = nil
+//        раскоментировать, чтобы при каждом входе сбрасывался token
+//        oauthTokenStorage.token = nil
         if let _ = oauthTokenStorage.token {
             presentTabBarController()
         } else {

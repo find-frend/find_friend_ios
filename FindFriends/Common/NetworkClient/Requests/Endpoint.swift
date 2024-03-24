@@ -18,28 +18,21 @@ enum Endpoint {
     case interests
 
     var baseURL: URL? {
-        URL(string: "http://158.160.60.2/")
+        URL(string: "http://158.160.60.2/api/v1/")
     }
 
     var path: String {
         switch self {
-        case .login: "api/v1/auth/token/login/"
-        case .createUser: "api/v1/users/"
-        case .friends: "api/v1/friends/"
-        case .resetPassword: "api/v1/users/reset_password/"
-        case .newPassword: "api/v1/users/reset_password_confirm/"
-        case .interests: "api/v1/interests/"
+        case .login: "auth/token/login/"
+        case .createUser: "users/"
+        case .friends: "friends/"
+        case .resetPassword: "users/reset_password/"
+        case .newPassword: "users/reset_password_confirm/"
+        case .interests: "interests/"
         }
     }
 
     var url: URL? {
-        switch self {
-        case .login: return URL(string: Endpoint.login.path, relativeTo: baseURL)
-        case .createUser: return URL(string: Endpoint.createUser.path, relativeTo: baseURL)
-        case .friends: return URL(string: Endpoint.friends.path, relativeTo: baseURL)
-        case .resetPassword: return URL(string: Endpoint.resetPassword.path, relativeTo: baseURL)
-        case .newPassword: return URL(string: Endpoint.newPassword.path, relativeTo: baseURL)
-        case .interests: return URL(string: Endpoint.interests.path, relativeTo: baseURL)
-        }
+        URL(string: path, relativeTo: baseURL)
     }
 }

@@ -57,6 +57,9 @@
 		DD3A2E9F2B7D2F65006A3B8E /* UIView+AutoresizingMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A2E9E2B7D2F65006A3B8E /* UIView+AutoresizingMask.swift */; };
 		DD3A2EA62B7E9447006A3B8E /* PrimeOrangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A2EA52B7E9447006A3B8E /* PrimeOrangeButton.swift */; };
 		DD3A2EA82B7E9836006A3B8E /* CaptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A2EA72B7E9836006A3B8E /* CaptionButton.swift */; };
+		DD5F38232BAE045A004AF6B2 /* EnterVerificationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5F38202BAE045A004AF6B2 /* EnterVerificationCodeView.swift */; };
+		DD5F38242BAE045A004AF6B2 /* EnterVerificationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5F38212BAE045A004AF6B2 /* EnterVerificationCodeViewController.swift */; };
+		DD5F38262BAE1F16004AF6B2 /* EnterVerificationCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5F38252BAE1F16004AF6B2 /* EnterVerificationCodeViewModel.swift */; };
 		DDC2551B2BA2249F0037FA7E /* RegistrationErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC2551A2BA2249F0037FA7E /* RegistrationErrorModel.swift */; };
 		DDCAC7C42B83C0BF00EC7D15 /* WhiteBorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCAC7C32B83C0BF00EC7D15 /* WhiteBorderButton.swift */; };
 		DDCAC7C72B84FB7900EC7D15 /* UIFont+CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCAC7C62B84FB7900EC7D15 /* UIFont+CustomFonts.swift */; };
@@ -89,8 +92,6 @@
 		F36F40782B85503F00B2082B /* RegistrationNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36F40772B85503F00B2082B /* RegistrationNavigationController.swift */; };
 		F36F407A2B85562800B2082B /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36F40792B85562800B2082B /* UIViewController+Extensions.swift */; };
 		F36F40802B86129900B2082B /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36F407F2B86129900B2082B /* ResetPasswordView.swift */; };
-		F36F40832B861ADE00B2082B /* CheckEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36F40822B861ADE00B2082B /* CheckEmailView.swift */; };
-		F36F40852B861AE400B2082B /* CheckEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36F40842B861AE400B2082B /* CheckEmailViewController.swift */; };
 		F36F40872B86287D00B2082B /* UITapGestureRecognizer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36F40862B86287D00B2082B /* UITapGestureRecognizer+Extensions.swift */; };
 		F36F408C2B86434C00B2082B /* NewPasswordSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36F408B2B86434C00B2082B /* NewPasswordSuccessView.swift */; };
 		F36F408E2B86435500B2082B /* NewPasswordSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36F408D2B86435500B2082B /* NewPasswordSuccessViewController.swift */; };
@@ -152,6 +153,9 @@
 		DD3A2E9E2B7D2F65006A3B8E /* UIView+AutoresizingMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AutoresizingMask.swift"; sourceTree = "<group>"; };
 		DD3A2EA52B7E9447006A3B8E /* PrimeOrangeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimeOrangeButton.swift; sourceTree = "<group>"; };
 		DD3A2EA72B7E9836006A3B8E /* CaptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionButton.swift; sourceTree = "<group>"; };
+		DD5F38202BAE045A004AF6B2 /* EnterVerificationCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterVerificationCodeView.swift; sourceTree = "<group>"; };
+		DD5F38212BAE045A004AF6B2 /* EnterVerificationCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterVerificationCodeViewController.swift; sourceTree = "<group>"; };
+		DD5F38252BAE1F16004AF6B2 /* EnterVerificationCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterVerificationCodeViewModel.swift; sourceTree = "<group>"; };
 		DDC2551A2BA2249F0037FA7E /* RegistrationErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationErrorModel.swift; sourceTree = "<group>"; };
 		DDCAC7C32B83C0BF00EC7D15 /* WhiteBorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteBorderButton.swift; sourceTree = "<group>"; };
 		DDCAC7C62B84FB7900EC7D15 /* UIFont+CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+CustomFonts.swift"; sourceTree = "<group>"; };
@@ -184,8 +188,6 @@
 		F36F40772B85503F00B2082B /* RegistrationNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationNavigationController.swift; sourceTree = "<group>"; };
 		F36F40792B85562800B2082B /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		F36F407F2B86129900B2082B /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
-		F36F40822B861ADE00B2082B /* CheckEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckEmailView.swift; sourceTree = "<group>"; };
-		F36F40842B861AE400B2082B /* CheckEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckEmailViewController.swift; sourceTree = "<group>"; };
 		F36F40862B86287D00B2082B /* UITapGestureRecognizer+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITapGestureRecognizer+Extensions.swift"; sourceTree = "<group>"; };
 		F36F408B2B86434C00B2082B /* NewPasswordSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordSuccessView.swift; sourceTree = "<group>"; };
 		F36F408D2B86435500B2082B /* NewPasswordSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordSuccessViewController.swift; sourceTree = "<group>"; };
@@ -417,7 +419,7 @@
 			isa = PBXGroup;
 			children = (
 				F36F407C2B86127800B2082B /* ResetPasswordScreen */,
-				F36F40812B861ACA00B2082B /* CheckEmailScreen */,
+				DD5F38222BAE045A004AF6B2 /* EnterVerificationCodeScreen */,
 				F36F408F2B864B0E00B2082B /* NewPasswordScreen */,
 				F36F408A2B86433A00B2082B /* NewPasswordSuccess */,
 			);
@@ -438,6 +440,16 @@
 				DDCAC7CE2B851F7700EC7D15 /* ValidationService.swift */,
 			);
 			path = Validation;
+			sourceTree = "<group>";
+		};
+		DD5F38222BAE045A004AF6B2 /* EnterVerificationCodeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				DD5F38202BAE045A004AF6B2 /* EnterVerificationCodeView.swift */,
+				DD5F38212BAE045A004AF6B2 /* EnterVerificationCodeViewController.swift */,
+				DD5F38252BAE1F16004AF6B2 /* EnterVerificationCodeViewModel.swift */,
+			);
+			path = EnterVerificationCodeScreen;
 			sourceTree = "<group>";
 		};
 		DD67CE3B2B769EC1008B2A9C /* App */ = {
@@ -595,15 +607,6 @@
 			path = ResetPasswordScreen;
 			sourceTree = "<group>";
 		};
-		F36F40812B861ACA00B2082B /* CheckEmailScreen */ = {
-			isa = PBXGroup;
-			children = (
-				F36F40822B861ADE00B2082B /* CheckEmailView.swift */,
-				F36F40842B861AE400B2082B /* CheckEmailViewController.swift */,
-			);
-			path = CheckEmailScreen;
-			sourceTree = "<group>";
-		};
 		F36F408A2B86433A00B2082B /* NewPasswordSuccess */ = {
 			isa = PBXGroup;
 			children = (
@@ -714,7 +717,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F31111272B968D5D00A97B80 /* BaseRegistrationViewController.swift in Sources */,
-				F36F40832B861ADE00B2082B /* CheckEmailView.swift in Sources */,
 				D87ED92A2B97C44B00B185FB /* SelectInterestViewModel.swift in Sources */,
 				CECC81062BA319F400F4312B /* TabBarController.swift in Sources */,
 				DDCAC7D42B852B8600EC7D15 /* RegistrationView.swift in Sources */,
@@ -749,6 +751,7 @@
 				DD3A2EA82B7E9836006A3B8E /* CaptionButton.swift in Sources */,
 				DDCAC7D22B852B7B00EC7D15 /* RegistrationViewController.swift in Sources */,
 				F311112A2B9692CC00A97B80 /* ResetPasswordViewController.swift in Sources */,
+				DD5F38262BAE1F16004AF6B2 /* EnterVerificationCodeViewModel.swift in Sources */,
 				D86387CA2B89F9A600692535 /* FriendDto.swift in Sources */,
 				84CCA1BF2B96409D000BDC28 /* GenderView.swift in Sources */,
 				DD3A2E9F2B7D2F65006A3B8E /* UIView+AutoresizingMask.swift in Sources */,
@@ -769,7 +772,6 @@
 				F33B4C892B8FB989002D27B5 /* NewPasswordRequest.swift in Sources */,
 				DDCAC7C42B83C0BF00EC7D15 /* WhiteBorderButton.swift in Sources */,
 				D87ED9262B97BC8C00B185FB /* InterestsServiceProvider.swift in Sources */,
-				F36F40852B861AE400B2082B /* CheckEmailViewController.swift in Sources */,
 				F36F408C2B86434C00B2082B /* NewPasswordSuccessView.swift in Sources */,
 				84CCA1C12B9640A4000BDC28 /* GenderViewModel.swift in Sources */,
 				F33B4C8C2B8FBA0C002D27B5 /* ResetPasswordDto.swift in Sources */,
@@ -778,10 +780,12 @@
 				CECC81072BA319F400F4312B /* TabBarButton.swift in Sources */,
 				F30170732B8CED2C00A6921A /* LoginViewModel.swift in Sources */,
 				CECC80F02B9898D600F4312B /* PhotoViewController.swift in Sources */,
+				DD5F38242BAE045A004AF6B2 /* EnterVerificationCodeViewController.swift in Sources */,
 				D86387D22B8A754100692535 /* RegistrationService.swift in Sources */,
 				84531D1A2B94C450002289C6 /* GenderViewController.swift in Sources */,
 				DDC2551B2BA2249F0037FA7E /* RegistrationErrorModel.swift in Sources */,
 				D853CC282B7567AF00DA58D5 /* SceneDelegate.swift in Sources */,
+				DD5F38232BAE045A004AF6B2 /* EnterVerificationCodeView.swift in Sources */,
 				F36F408E2B86435500B2082B /* NewPasswordSuccessViewController.swift in Sources */,
 				CECC81082BA319F400F4312B /* TabBar.swift in Sources */,
 				F36F40912B864B1E00B2082B /* NewPasswordView.swift in Sources */,

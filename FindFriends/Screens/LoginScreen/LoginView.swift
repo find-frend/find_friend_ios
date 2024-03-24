@@ -50,7 +50,7 @@ final class LoginView: BaseRegistrationView {
         }
         enum Button {
             enum Forgot {
-                static let height: CGFloat = 44
+                static let height: CGFloat = 48
                 static let topInset: CGFloat = 4
             }
             enum LogIn {

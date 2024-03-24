@@ -55,8 +55,13 @@ final class ResetPasswordViewController: BaseRegistrationViewController {
             switch result {
             case .success:
                 UIBlockingProgressHUD.dismiss()
-                let viewController = CheckEmailViewController()
+                
+                let viewModel = EnterVerificationCodeViewModel(email: viewModel.email, service: RegistrationService())
+                let view = EnterVerificationCodeView(viewModel: viewModel)
+                let viewController = EnterVerificationCodeViewController(enterVerficationCodeView: view)
+                
                 self.navigationController?.pushViewController(viewController, animated: true)
+                
             case .failure(let error):
                 UIBlockingProgressHUD.dismiss()
                 AlertPresenter.show(in: self, model: AlertModel(message: error.message))

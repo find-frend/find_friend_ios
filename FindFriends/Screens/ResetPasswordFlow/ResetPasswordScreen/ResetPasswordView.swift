@@ -38,7 +38,7 @@ final class ResetPasswordView: BaseRegistrationView {
         label.numberOfLines = 0
         label.font = .Regular.medium
         label.text = "Укажите электронную почту, связанную с вашей учетной записью. " +
-                     "Мы отправим вам письмо с инструкциями по сбросу пароля."
+                     "Мы отправим вам письмо с кодом для сброса пароля."
         return label
     }()
     
@@ -46,7 +46,7 @@ final class ResetPasswordView: BaseRegistrationView {
         placeholder: "Электронная почта", type: .email
     )
     
-    private let sendInstructionButton = PrimeOrangeButton(text: "Отправить инструкцию")
+    private let sendInstructionButton = PrimeOrangeButton(text: "Отправить код")
 
     override init(frame: CGRect) {
         super.init(frame: frame)
