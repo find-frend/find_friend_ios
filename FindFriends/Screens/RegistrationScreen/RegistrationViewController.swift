@@ -32,7 +32,6 @@ final class RegistrationViewController: BaseRegistrationViewController {
     
     private func setupNavigationItem() {
         navigationItem.title = "Регистрация"
-       
     }
     
     @objc private func backButtonTapped() {

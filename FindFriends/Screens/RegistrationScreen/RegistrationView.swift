@@ -172,12 +172,6 @@ final class RegistrationView: BaseRegistrationView {
         passwordTextField.delegate = self
         passwordConfirmationTextField.delegate = self
         
-        nameTextField.returnKeyType = .done
-        lastnameTextField.returnKeyType = .done
-        emailTextField.returnKeyType = .done
-        passwordTextField.returnKeyType = .done
-        passwordConfirmationTextField.returnKeyType = .done
-        
         registrationButton
             .addTarget(
                 self,
@@ -281,7 +275,21 @@ extension RegistrationView {
 
 extension RegistrationView: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        let fields = [
+            nameTextField,
+            lastnameTextField,
+            emailTextField,
+            passwordTextField,
+            passwordConfirmationTextField
+        ] as [UITextField]
+        if let index = fields.firstIndex(of: textField) {
+            if index < fields.count - 1 {
+                let textField = fields[index + 1]
+                textField.becomeFirstResponder()
+            } else {
+                fields[index].resignFirstResponder()
+            }
+        }
         return true
     }
 }

@@ -64,10 +64,7 @@ final class LoginViewController: BaseRegistrationViewController {
                 dismiss(animated: true)
             case .failure(let error):
                 UIBlockingProgressHUD.dismiss()
-                AlertPresenter.show(
-                    in: self,
-                    model: .loginError(message: error.localizedDescription)
-                )
+                AlertPresenter.show(in: self, model: AlertModel(message: error.message))
             }
         }
     }

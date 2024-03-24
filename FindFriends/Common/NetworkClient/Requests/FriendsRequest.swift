@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct GetFriendsRequest: NetworkRequestProtocol {
+struct FriendsRequest: NetworkRequestProtocol {
     let httpMethod: HttpMethod = .get
-    let endpoint = Endpoints.getFriends.url
+    let endpoint: Endpoint = .friends
     let dto: Encodable? = nil
     let token: String?
 }

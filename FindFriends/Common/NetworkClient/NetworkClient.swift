@@ -5,6 +5,20 @@ enum NetworkClientError: Error {
     case urlRequestError(Error)
     case urlSessionError
     case parsingError
+    
+    var message: String {
+        switch self {
+        case let .httpStatusCode(_, data):
+            let model = try? JSONDecoder().decode(RegistrationErrorModel.self, from: data)
+            return model?.currentError ?? ""
+        case .urlRequestError(let error):
+            return "Ошибка составления запроса: \(error.localizedDescription)"
+        case .urlSessionError:
+            return "Непредвиденная ошибка"
+        case .parsingError:
+            return "Ошибка парсинга"
+        }
+    }
 }
 
 protocol NetworkClient {
@@ -84,12 +98,12 @@ struct DefaultNetworkClient: NetworkClient {
     }
     
     private func create(request: NetworkRequestProtocol) -> URLRequest? {
-        guard let endpoint = request.endpoint else {
+        guard let url = request.endpoint.url else {
             assertionFailure("Empty endpoint")
             return nil
         }
 
-        var urlRequest = URLRequest(url: endpoint)
+        var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = request.httpMethod.rawValue
 
         if let token = request.token {
@@ -99,7 +113,6 @@ struct DefaultNetworkClient: NetworkClient {
 
         if let dto = request.dto,
            let dtoEncoded = try? encoder.encode(dto) {
-            urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
             urlRequest.httpBody = dtoEncoded
         }
 

@@ -57,6 +57,9 @@
 		DD3A2E9F2B7D2F65006A3B8E /* UIView+AutoresizingMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A2E9E2B7D2F65006A3B8E /* UIView+AutoresizingMask.swift */; };
 		DD3A2EA62B7E9447006A3B8E /* PrimeOrangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A2EA52B7E9447006A3B8E /* PrimeOrangeButton.swift */; };
 		DD3A2EA82B7E9836006A3B8E /* CaptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3A2EA72B7E9836006A3B8E /* CaptionButton.swift */; };
+		DD5F38232BAE045A004AF6B2 /* EnterVerificationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5F38202BAE045A004AF6B2 /* EnterVerificationCodeView.swift */; };
+		DD5F38242BAE045A004AF6B2 /* EnterVerificationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5F38212BAE045A004AF6B2 /* EnterVerificationCodeViewController.swift */; };
+		DD5F38262BAE1F16004AF6B2 /* EnterVerificationCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5F38252BAE1F16004AF6B2 /* EnterVerificationCodeViewModel.swift */; };
 		DDC2551B2BA2249F0037FA7E /* RegistrationErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC2551A2BA2249F0037FA7E /* RegistrationErrorModel.swift */; };
 		DDCAC7C42B83C0BF00EC7D15 /* WhiteBorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCAC7C32B83C0BF00EC7D15 /* WhiteBorderButton.swift */; };
 		DDCAC7C72B84FB7900EC7D15 /* UIFont+CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCAC7C62B84FB7900EC7D15 /* UIFont+CustomFonts.swift */; };
@@ -65,9 +68,9 @@
 		DDCAC7D22B852B7B00EC7D15 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCAC7D12B852B7B00EC7D15 /* RegistrationViewController.swift */; };
 		DDCAC7D42B852B8600EC7D15 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCAC7D32B852B8600EC7D15 /* RegistrationView.swift */; };
 		DDCAC7D62B8531EC00EC7D15 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCAC7D52B8531EC00EC7D15 /* RegistrationViewModel.swift */; };
-		F30170652B8CDCA300A6921A /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30170642B8CDCA300A6921A /* Endpoints.swift */; };
+		F30170652B8CDCA300A6921A /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30170642B8CDCA300A6921A /* Endpoint.swift */; };
 		F30170672B8CDD1C00A6921A /* LoginUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30170662B8CDD1C00A6921A /* LoginUserRequest.swift */; };
-		F30170692B8CDF5C00A6921A /* CreateUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30170682B8CDF5C00A6921A /* CreateUserRequest.swift */; };
+		F30170692B8CDF5C00A6921A /* UsersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30170682B8CDF5C00A6921A /* UsersRequest.swift */; };
 		F30170732B8CED2C00A6921A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30170722B8CED2C00A6921A /* LoginViewModel.swift */; };
 		F30170762B8CF22F00A6921A /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30170752B8CF22F00A6921A /* Credentials.swift */; };
 		F30170792B8CF2D600A6921A /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30170782B8CF2D600A6921A /* AlertPresenter.swift */; };
@@ -75,7 +78,7 @@
 		F301707E2B8CF32500A6921A /* AlertButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F301707D2B8CF32500A6921A /* AlertButton.swift */; };
 		F30170812B8CF57800A6921A /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30170802B8CF57800A6921A /* SplashViewController.swift */; };
 		F30170832B8CF6EB00A6921A /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30170822B8CF6EB00A6921A /* SplashView.swift */; };
-		F30170852B8D191000A6921A /* GetFriendsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30170842B8D191000A6921A /* GetFriendsRequest.swift */; };
+		F30170852B8D191000A6921A /* FriendsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30170842B8D191000A6921A /* FriendsRequest.swift */; };
 		F30170892B8D290700A6921A /* UIBlockingProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30170882B8D290700A6921A /* UIBlockingProgressHUD.swift */; };
 		F30DA5A22B8E7B2100E6571B /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30DA5A12B8E7B2100E6571B /* ResetPasswordViewModel.swift */; };
 		F30DA5A42B8E862300E6571B /* NewPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30DA5A32B8E862300E6571B /* NewPasswordViewModel.swift */; };
@@ -89,8 +92,6 @@
 		F36F40782B85503F00B2082B /* RegistrationNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36F40772B85503F00B2082B /* RegistrationNavigationController.swift */; };
 		F36F407A2B85562800B2082B /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36F40792B85562800B2082B /* UIViewController+Extensions.swift */; };
 		F36F40802B86129900B2082B /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36F407F2B86129900B2082B /* ResetPasswordView.swift */; };
-		F36F40832B861ADE00B2082B /* CheckEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36F40822B861ADE00B2082B /* CheckEmailView.swift */; };
-		F36F40852B861AE400B2082B /* CheckEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36F40842B861AE400B2082B /* CheckEmailViewController.swift */; };
 		F36F40872B86287D00B2082B /* UITapGestureRecognizer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36F40862B86287D00B2082B /* UITapGestureRecognizer+Extensions.swift */; };
 		F36F408C2B86434C00B2082B /* NewPasswordSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36F408B2B86434C00B2082B /* NewPasswordSuccessView.swift */; };
 		F36F408E2B86435500B2082B /* NewPasswordSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36F408D2B86435500B2082B /* NewPasswordSuccessViewController.swift */; };
@@ -152,6 +153,9 @@
 		DD3A2E9E2B7D2F65006A3B8E /* UIView+AutoresizingMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AutoresizingMask.swift"; sourceTree = "<group>"; };
 		DD3A2EA52B7E9447006A3B8E /* PrimeOrangeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimeOrangeButton.swift; sourceTree = "<group>"; };
 		DD3A2EA72B7E9836006A3B8E /* CaptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionButton.swift; sourceTree = "<group>"; };
+		DD5F38202BAE045A004AF6B2 /* EnterVerificationCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterVerificationCodeView.swift; sourceTree = "<group>"; };
+		DD5F38212BAE045A004AF6B2 /* EnterVerificationCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterVerificationCodeViewController.swift; sourceTree = "<group>"; };
+		DD5F38252BAE1F16004AF6B2 /* EnterVerificationCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterVerificationCodeViewModel.swift; sourceTree = "<group>"; };
 		DDC2551A2BA2249F0037FA7E /* RegistrationErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationErrorModel.swift; sourceTree = "<group>"; };
 		DDCAC7C32B83C0BF00EC7D15 /* WhiteBorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteBorderButton.swift; sourceTree = "<group>"; };
 		DDCAC7C62B84FB7900EC7D15 /* UIFont+CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+CustomFonts.swift"; sourceTree = "<group>"; };
@@ -160,9 +164,9 @@
 		DDCAC7D12B852B7B00EC7D15 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		DDCAC7D32B852B8600EC7D15 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		DDCAC7D52B8531EC00EC7D15 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
-		F30170642B8CDCA300A6921A /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
+		F30170642B8CDCA300A6921A /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		F30170662B8CDD1C00A6921A /* LoginUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserRequest.swift; sourceTree = "<group>"; };
-		F30170682B8CDF5C00A6921A /* CreateUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserRequest.swift; sourceTree = "<group>"; };
+		F30170682B8CDF5C00A6921A /* UsersRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRequest.swift; sourceTree = "<group>"; };
 		F30170722B8CED2C00A6921A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		F30170752B8CF22F00A6921A /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		F30170782B8CF2D600A6921A /* AlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenter.swift; sourceTree = "<group>"; };
@@ -170,7 +174,7 @@
 		F301707D2B8CF32500A6921A /* AlertButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertButton.swift; sourceTree = "<group>"; };
 		F30170802B8CF57800A6921A /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		F30170822B8CF6EB00A6921A /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
-		F30170842B8D191000A6921A /* GetFriendsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFriendsRequest.swift; sourceTree = "<group>"; };
+		F30170842B8D191000A6921A /* FriendsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsRequest.swift; sourceTree = "<group>"; };
 		F30170882B8D290700A6921A /* UIBlockingProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBlockingProgressHUD.swift; sourceTree = "<group>"; };
 		F30DA5A12B8E7B2100E6571B /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
 		F30DA5A32B8E862300E6571B /* NewPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordViewModel.swift; sourceTree = "<group>"; };
@@ -184,8 +188,6 @@
 		F36F40772B85503F00B2082B /* RegistrationNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationNavigationController.swift; sourceTree = "<group>"; };
 		F36F40792B85562800B2082B /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		F36F407F2B86129900B2082B /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
-		F36F40822B861ADE00B2082B /* CheckEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckEmailView.swift; sourceTree = "<group>"; };
-		F36F40842B861AE400B2082B /* CheckEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckEmailViewController.swift; sourceTree = "<group>"; };
 		F36F40862B86287D00B2082B /* UITapGestureRecognizer+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITapGestureRecognizer+Extensions.swift"; sourceTree = "<group>"; };
 		F36F408B2B86434C00B2082B /* NewPasswordSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordSuccessView.swift; sourceTree = "<group>"; };
 		F36F408D2B86435500B2082B /* NewPasswordSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordSuccessViewController.swift; sourceTree = "<group>"; };
@@ -353,7 +355,6 @@
 				F33B4C8A2B8FB9EE002D27B5 /* Dto */,
 				D86387BE2B87A16400692535 /* NetworkClient.swift */,
 				D86387BF2B87A16400692535 /* NetworkTask.swift */,
-				F30170642B8CDCA300A6921A /* Endpoints.swift */,
 			);
 			path = NetworkClient;
 			sourceTree = "<group>";
@@ -418,7 +419,7 @@
 			isa = PBXGroup;
 			children = (
 				F36F407C2B86127800B2082B /* ResetPasswordScreen */,
-				F36F40812B861ACA00B2082B /* CheckEmailScreen */,
+				DD5F38222BAE045A004AF6B2 /* EnterVerificationCodeScreen */,
 				F36F408F2B864B0E00B2082B /* NewPasswordScreen */,
 				F36F408A2B86433A00B2082B /* NewPasswordSuccess */,
 			);
@@ -439,6 +440,16 @@
 				DDCAC7CE2B851F7700EC7D15 /* ValidationService.swift */,
 			);
 			path = Validation;
+			sourceTree = "<group>";
+		};
+		DD5F38222BAE045A004AF6B2 /* EnterVerificationCodeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				DD5F38202BAE045A004AF6B2 /* EnterVerificationCodeView.swift */,
+				DD5F38212BAE045A004AF6B2 /* EnterVerificationCodeViewController.swift */,
+				DD5F38252BAE1F16004AF6B2 /* EnterVerificationCodeViewModel.swift */,
+			);
+			path = EnterVerificationCodeScreen;
 			sourceTree = "<group>";
 		};
 		DD67CE3B2B769EC1008B2A9C /* App */ = {
@@ -490,9 +501,10 @@
 			isa = PBXGroup;
 			children = (
 				D86387C22B87A16400692535 /* NetworkRequestProtocol.swift */,
+				F30170642B8CDCA300A6921A /* Endpoint.swift */,
 				F30170662B8CDD1C00A6921A /* LoginUserRequest.swift */,
-				F30170682B8CDF5C00A6921A /* CreateUserRequest.swift */,
-				F30170842B8D191000A6921A /* GetFriendsRequest.swift */,
+				F30170682B8CDF5C00A6921A /* UsersRequest.swift */,
+				F30170842B8D191000A6921A /* FriendsRequest.swift */,
 				F33B4C862B8FB8DA002D27B5 /* ResetPasswordRequest.swift */,
 				F33B4C882B8FB989002D27B5 /* NewPasswordRequest.swift */,
 			);
@@ -565,12 +577,12 @@
 		F33B4C8A2B8FB9EE002D27B5 /* Dto */ = {
 			isa = PBXGroup;
 			children = (
-				D86387C92B89F9A600692535 /* FriendDto.swift */,
 				D86387CE2B8A74A500692535 /* CreateUserDto.swift */,
 				D86387D82B8A7FF500692535 /* LoginUserDto.swift */,
 				F33B4C8B2B8FBA0C002D27B5 /* ResetPasswordDto.swift */,
 				F33B4C8D2B8FBA19002D27B5 /* NewPasswordDto.swift */,
 				D87ED9272B97BDDD00B185FB /* InterestsDto.swift */,
+				D86387C92B89F9A600692535 /* FriendDto.swift */,
 			);
 			path = Dto;
 			sourceTree = "<group>";
@@ -593,15 +605,6 @@
 				F30DA5A12B8E7B2100E6571B /* ResetPasswordViewModel.swift */,
 			);
 			path = ResetPasswordScreen;
-			sourceTree = "<group>";
-		};
-		F36F40812B861ACA00B2082B /* CheckEmailScreen */ = {
-			isa = PBXGroup;
-			children = (
-				F36F40822B861ADE00B2082B /* CheckEmailView.swift */,
-				F36F40842B861AE400B2082B /* CheckEmailViewController.swift */,
-			);
-			path = CheckEmailScreen;
 			sourceTree = "<group>";
 		};
 		F36F408A2B86433A00B2082B /* NewPasswordSuccess */ = {
@@ -714,7 +717,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F31111272B968D5D00A97B80 /* BaseRegistrationViewController.swift in Sources */,
-				F36F40832B861ADE00B2082B /* CheckEmailView.swift in Sources */,
 				D87ED92A2B97C44B00B185FB /* SelectInterestViewModel.swift in Sources */,
 				CECC81062BA319F400F4312B /* TabBarController.swift in Sources */,
 				DDCAC7D42B852B8600EC7D15 /* RegistrationView.swift in Sources */,
@@ -724,9 +726,9 @@
 				CECC80EA2B98988200F4312B /* SelectCityTableViewCell.swift in Sources */,
 				D86387D42B8A7E4F00692535 /* TokenStorageService.swift in Sources */,
 				D86387C72B87A16400692535 /* NetworkRequestProtocol.swift in Sources */,
-				F30170692B8CDF5C00A6921A /* CreateUserRequest.swift in Sources */,
+				F30170692B8CDF5C00A6921A /* UsersRequest.swift in Sources */,
 				F301707E2B8CF32500A6921A /* AlertButton.swift in Sources */,
-				F30170852B8D191000A6921A /* GetFriendsRequest.swift in Sources */,
+				F30170852B8D191000A6921A /* FriendsRequest.swift in Sources */,
 				DD0412EA2B9105BC00984BA7 /* RecomendationFriend.swift in Sources */,
 				D5E980BC2B8F0D6700A17E0A /* BirthdayViewController.swift in Sources */,
 				8445676E2B9740CB00114604 /* GenderSelectionButton.swift in Sources */,
@@ -749,6 +751,7 @@
 				DD3A2EA82B7E9836006A3B8E /* CaptionButton.swift in Sources */,
 				DDCAC7D22B852B7B00EC7D15 /* RegistrationViewController.swift in Sources */,
 				F311112A2B9692CC00A97B80 /* ResetPasswordViewController.swift in Sources */,
+				DD5F38262BAE1F16004AF6B2 /* EnterVerificationCodeViewModel.swift in Sources */,
 				D86387CA2B89F9A600692535 /* FriendDto.swift in Sources */,
 				84CCA1BF2B96409D000BDC28 /* GenderView.swift in Sources */,
 				DD3A2E9F2B7D2F65006A3B8E /* UIView+AutoresizingMask.swift in Sources */,
@@ -761,7 +764,7 @@
 				DDCAC7CC2B851EF500EC7D15 /* RegistrationTextField.swift in Sources */,
 				D86387CF2B8A74A500692535 /* CreateUserDto.swift in Sources */,
 				D86387C32B87A16400692535 /* NetworkClient.swift in Sources */,
-				F30170652B8CDCA300A6921A /* Endpoints.swift in Sources */,
+				F30170652B8CDCA300A6921A /* Endpoint.swift in Sources */,
 				CECC80EC2B98988200F4312B /* CityViewController.swift in Sources */,
 				F30170672B8CDD1C00A6921A /* LoginUserRequest.swift in Sources */,
 				D86387CD2B89FD2200692535 /* FriendsNetworkService.swift in Sources */,
@@ -769,7 +772,6 @@
 				F33B4C892B8FB989002D27B5 /* NewPasswordRequest.swift in Sources */,
 				DDCAC7C42B83C0BF00EC7D15 /* WhiteBorderButton.swift in Sources */,
 				D87ED9262B97BC8C00B185FB /* InterestsServiceProvider.swift in Sources */,
-				F36F40852B861AE400B2082B /* CheckEmailViewController.swift in Sources */,
 				F36F408C2B86434C00B2082B /* NewPasswordSuccessView.swift in Sources */,
 				84CCA1C12B9640A4000BDC28 /* GenderViewModel.swift in Sources */,
 				F33B4C8C2B8FBA0C002D27B5 /* ResetPasswordDto.swift in Sources */,
@@ -778,10 +780,12 @@
 				CECC81072BA319F400F4312B /* TabBarButton.swift in Sources */,
 				F30170732B8CED2C00A6921A /* LoginViewModel.swift in Sources */,
 				CECC80F02B9898D600F4312B /* PhotoViewController.swift in Sources */,
+				DD5F38242BAE045A004AF6B2 /* EnterVerificationCodeViewController.swift in Sources */,
 				D86387D22B8A754100692535 /* RegistrationService.swift in Sources */,
 				84531D1A2B94C450002289C6 /* GenderViewController.swift in Sources */,
 				DDC2551B2BA2249F0037FA7E /* RegistrationErrorModel.swift in Sources */,
 				D853CC282B7567AF00DA58D5 /* SceneDelegate.swift in Sources */,
+				DD5F38232BAE045A004AF6B2 /* EnterVerificationCodeView.swift in Sources */,
 				F36F408E2B86435500B2082B /* NewPasswordSuccessViewController.swift in Sources */,
 				CECC81082BA319F400F4312B /* TabBar.swift in Sources */,
 				F36F40912B864B1E00B2082B /* NewPasswordView.swift in Sources */,
