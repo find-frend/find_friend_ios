@@ -15,7 +15,7 @@ protocol LoginViewModelProtocol {
     var onPasswordErrorStateChange: Binding<String>? { get set }
     var credentials: Credentials { get set }
 
-    func loginUser(completion: @escaping (Result<LoginResponseDto, Error>) -> Void)
+    func loginUser(completion: @escaping (Result<LoginResponseDto, NetworkClientError>) -> Void)
     func validateFields() -> Bool
 }
 
@@ -43,7 +43,7 @@ final class LoginViewModel: LoginViewModelProtocol {
         self.credentials = credentials
     }
 
-    func loginUser(completion: @escaping (Result<LoginResponseDto, Error>) -> Void) {
+    func loginUser(completion: @escaping (Result<LoginResponseDto, NetworkClientError>) -> Void) {
         registrationService.loginUser(credentials.toLoginRequestDto) { result in
             switch result {
             case .success(let model):
@@ -61,7 +61,7 @@ final class LoginViewModel: LoginViewModelProtocol {
     }
 
     private func validateLogin() -> Bool {
-        switch TextValidator.validate(credentials.email, with: .email) {
+        switch ValidationService.validate(credentials.email, type: .email) {
         case .success:
             onEmailErrorStateChange?(ValidateMessages.emptyMessage.rawValue)
             return true
@@ -72,7 +72,7 @@ final class LoginViewModel: LoginViewModelProtocol {
     }
 
     private func validatePassword() -> Bool {
-        switch TextValidator.validate(credentials.password, with: .password) {
+        switch ValidationService.validate(credentials.password, type: .password) {
         case .success:
             onPasswordErrorStateChange?(ValidateMessages.emptyMessage.rawValue)
             return true

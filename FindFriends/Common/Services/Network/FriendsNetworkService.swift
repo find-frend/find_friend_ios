@@ -21,10 +21,9 @@ final class FriendsServiceProvider: FriendsServiceProviderProtocol {
         self.oAuthTokenStorage = oAuthTokenStorage
     }
 
-    /// Функция возвращает список Интересов с вервера
     func getFriends(completion: @escaping (Result<[FriendDto], Error>) -> Void) {
         guard let token = oAuthTokenStorage.token else { return }
-        let request = GetFriendsRequest(token: token)
+        let request = FriendsRequest(token: token)
         networkClient.send(request: request, type: [FriendDto].self) { result in
             DispatchQueue.main.async {
                 switch result {
@@ -36,5 +35,4 @@ final class FriendsServiceProvider: FriendsServiceProviderProtocol {
             }
         }
     }
-
 }

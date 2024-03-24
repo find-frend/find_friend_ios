@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct TextValidator {
+struct ValidationService {
     
-    static func validate(_ text: String, with type: TextFieldType) -> Result<Void, ValidateMessages> {
+    static func validate(_ text: String, type: TextFieldType) -> Result<Void, ValidateMessages> {
         switch type {
         case .name:
             return validateName(text)

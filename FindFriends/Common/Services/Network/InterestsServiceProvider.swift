@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct InterstsRequest: NetworkRequest {
+struct InterstsRequest: NetworkRequestProtocol {
     let httpMethod: HttpMethod = .get
-    let endpoint = Endpoint.getInterests.url
+    let endpoint = Endpoint.interests
     let dto: Encodable? = nil
     let token: String?
 }
@@ -51,5 +51,4 @@ final class InterestsServiceProvider: InterestsServiceProviderProtocol {
             }
         }
     }
-
 }

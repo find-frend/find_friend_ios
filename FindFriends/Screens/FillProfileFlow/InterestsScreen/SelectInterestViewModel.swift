@@ -13,18 +13,16 @@ protocol SelectInterestsViewModelDelegate: AnyObject {
 }
 
 protocol SelectInterestsViewModelProtocol {
-    var delegate: SelectInterestsViewModelDelegate? {get set}
-    var interests: [Interest] {get} // список всех интересов
-    var showInterests: [Interest] {get} // список интересов для показа
+    var delegate: SelectInterestsViewModelDelegate? { get set }
+    var interests: [Interest] { get }
+    var showInterests: [Interest] { get }
     
     func getInterests()
 }
 
 final class SelectInterestsViewModel: SelectInterestsViewModelProtocol {
     private var defaultCountIntrerests = 15
-    
     weak var delegate: SelectInterestsViewModelDelegate?
-    
     private (set) var interestsProvider: InterestsServiceProviderProtocol?
     
     private (set) var showInterests: [Interest] = [] {
@@ -32,7 +30,6 @@ final class SelectInterestsViewModel: SelectInterestsViewModelProtocol {
             delegate?.didUpdateInterests()
         }
     }
-
 
     private (set) var interests: [Interest] = [] {
         didSet {
@@ -42,7 +39,6 @@ final class SelectInterestsViewModel: SelectInterestsViewModelProtocol {
     
     init(interestsProvider: InterestsServiceProviderProtocol? = InterestsServiceProvider()) {
         self.interestsProvider = interestsProvider
-        
     }
     
     func getInterests() {
@@ -50,11 +46,10 @@ final class SelectInterestsViewModel: SelectInterestsViewModelProtocol {
             guard let self = self else { return }
             switch result {
             case let .success(data):
-                self.interests = data.compactMap( { Interest($0) })   // конечно можно написать просто   self.currencies = data, но так как-то "правильнее"
+                self.interests = data.map( { Interest(id: $0.id, name: $0.name) })
             case let .failure(error):
                 print("getInterests error: \(error)")
             }
         }
     }
-    
 }

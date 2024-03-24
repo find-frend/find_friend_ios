@@ -51,9 +51,9 @@ final class RegistrationViewModel {
             UIBlockingProgressHUD.show()
             registrationService.createUser(user) { [unowned self] result in
                 switch result {
-                case .success(_):
+                case .success(let model):
                     registrationService.loginUser(
-                        LoginRequestDto(email: email, password: confirmPassword)) { [unowned self] _ in
+                        LoginRequestDto(email: model.email, password: confirmPassword)) { [unowned self] _ in
                             switchToGenderScreen()
                         }
                 case .failure(let error):
@@ -94,28 +94,28 @@ final class RegistrationViewModel {
     }
     
     private func validateFields() {
-        switch TextValidator.validate(name, with: .name) {
+        switch ValidationService.validate(name, type: .name) {
         case .success(_):
             errorTextForName = ValidateMessages.emptyMessage.rawValue
         case .failure(let message):
             errorTextForName = message.rawValue
         }
         
-        switch TextValidator.validate(lastName, with: .lastName) {
+        switch ValidationService.validate(lastName, type: .lastName) {
         case .success(_):
             errorTextForLastName = ValidateMessages.emptyMessage.rawValue
         case .failure(let message):
             errorTextForLastName = message.rawValue
         }
         
-        switch TextValidator.validate(email, with: .email) {
+        switch ValidationService.validate(email, type: .email) {
         case .success(_):
             errorTextForEmail = ValidateMessages.emptyMessage.rawValue
         case .failure(let message):
             errorTextForEmail = message.rawValue
         }
         
-        switch TextValidator.validate(password, with: .password) {
+        switch ValidationService.validate(password, type: .password) {
         case .success(_):
             errorTextForPassword = ValidateMessages.emptyMessage.rawValue
         case .failure(let message):
@@ -125,7 +125,7 @@ final class RegistrationViewModel {
         if password != confirmPassword {
             errorTextForConfirmPassword = ValidateMessages.passwordsNotEqual.rawValue
         } else {
-            switch TextValidator.validate(confirmPassword, with: .confirmPassword) {
+            switch ValidationService.validate(confirmPassword, type: .confirmPassword) {
             case .success(_):
                 errorTextForConfirmPassword = ValidateMessages.emptyMessage.rawValue
             case .failure(let message):
@@ -135,19 +135,7 @@ final class RegistrationViewModel {
     }
     
     private func showAlert(_ error: NetworkClientError) {
-        let description = checkError(error)
-        
-        let alert = AlertModel(
-            title: "Внимание",
-            message: description,
-            buttons: [AlertButton(
-                text: "Понятно",
-                style: .cancel,
-                completion: { _ in })
-            ],
-            preferredStyle: .alert
-        )
-        self.alert = alert
+        self.alert = AlertModel(message: error.message)
     }
     
     private func switchToGenderScreen() {
@@ -158,23 +146,5 @@ final class RegistrationViewModel {
         
         let fillProfile = CustomUIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
         window.rootViewController = fillProfile
-    }
-    
-    private func checkError(_ error: NetworkClientError) -> String {
-        var description = ""
-        
-        switch error {
-        case let .httpStatusCode(_, data):
-            let model = try? JSONDecoder().decode(RegistrationErrorModel.self, from: data)
-            description = model?.currentError ?? ""
-        case .urlRequestError(let error):
-            assertionFailure("Ошибка составления запроса: \(error.localizedDescription)")
-        case .urlSessionError:
-            assertionFailure("Непредвиденная ошибка")
-        case .parsingError:
-            assertionFailure("Ошибка парсинга")
-        }
-        
-        return description
     }
 }
