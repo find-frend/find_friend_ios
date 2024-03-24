@@ -9,18 +9,19 @@
 import Foundation
 
 enum Endpoint {
-
+    
     case login
     case createUser
     case friends
     case resetPassword
     case newPassword
     case interests
-
+    case getUser
+    
     var baseURL: URL? {
         URL(string: "http://158.160.60.2/api/v1/")
     }
-
+    
     var path: String {
         switch self {
         case .login: "auth/token/login/"
@@ -29,9 +30,10 @@ enum Endpoint {
         case .resetPassword: "users/reset_password/"
         case .newPassword: "users/reset_password_confirm/"
         case .interests: "interests/"
+        case .getUser: "users/me"
         }
     }
-
+    
     var url: URL? {
         URL(string: path, relativeTo: baseURL)
     }
