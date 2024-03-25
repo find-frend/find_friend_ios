@@ -28,14 +28,14 @@ final class ResetPasswordViewModel: ResetPasswordViewModelProtocol {
         }
     }
 
-    private let registrationService: RegistrationServiceProtocol
+    private let resetPasswordService: ResetPasswordServiceProtocol
 
-    init(registrationService: RegistrationServiceProtocol = RegistrationService()) {
-        self.registrationService = registrationService
+    init(resetPasswordService: ResetPasswordServiceProtocol = ResetPasswordService()) {
+        self.resetPasswordService = resetPasswordService
     }
 
     func resetPassword(completion: @escaping (Result<Void, NetworkClientError>) -> Void) {
-        registrationService.resetPassword(ResetPasswordRequestDto(email: email)) { result in
+        resetPasswordService.resetPassword(ResetPasswordRequestDto(email: email)) { result in
             switch result {
             case .success(let response):
                 if response.status == "OK" {

@@ -31,20 +31,20 @@ final class NewPasswordViewModel: NewPasswordViewModelProtocol {
         }
     }
 
-    private let registrationService: RegistrationServiceProtocol
+    private let resetPasswordService: ResetPasswordServiceProtocol
 
     init(
-        registrationService: RegistrationServiceProtocol = RegistrationService(),
+        resetPasswordService: ResetPasswordServiceProtocol = ResetPasswordService(),
         newPasswordModel: NewPasswordModel = NewPasswordModel.empty
     ) {
-        self.registrationService = registrationService
+        self.resetPasswordService = resetPasswordService
         self.newPasswordModel = newPasswordModel
     }
 
     func setNewPassword(completion: @escaping (Result<NewPasswordDto, Error>) -> Void) {
         // TODO: wait till backend be done
         let dto = NewPasswordDto(uid: "", token: "", new_password: newPasswordModel.password)
-        registrationService.setNewPassword(dto) { result in
+        resetPasswordService.setNewPassword(dto) { result in
             switch result {
             case .success(let model):
                 completion(.success(model))

@@ -11,7 +11,19 @@ final class EnterVerificationCodeView: BaseRegistrationView {
     let viewModel: EnterVerificationCodeViewModel
     
     private let confirmButton = PrimeOrangeButton(text: "Подтвердить")
-    private let sendCodeAgainButton = CaptionButton(text: "Отправить код еще раз")
+    private let sendCodeAgainButton: UIButton = {
+        let button = UIButton()
+        
+        let attrString = NSAttributedString(string: "Отправить код еще раз", attributes: [
+            .foregroundColor: UIColor.primeDark,
+            .font: UIFont.systemFont(ofSize: 15, weight: .medium),
+            .underlineStyle: NSUnderlineStyle.single.rawValue
+        ])
+
+        button.setAttributedTitle(attrString, for: .normal)
+        return button
+    }()
+    
     private var fields: [UITextField] = []
     private var cancellables: Set<AnyCancellable> = []
     

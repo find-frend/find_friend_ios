@@ -21,11 +21,11 @@ final class EnterVerificationCodeViewModel {
         CurrentValueSubject<String, Never>("")
     ]
     
-    private let service: RegistrationServiceProtocol
+    private let service: ResetPasswordServiceProtocol
     private var code = Array(repeating: "", count: 6)
     private var cancellables: Set<AnyCancellable> = []
     
-    init(email: String, service: RegistrationServiceProtocol) {
+    init(email: String, service: ResetPasswordServiceProtocol) {
         self.email = email
         self.service = service
         bind()
