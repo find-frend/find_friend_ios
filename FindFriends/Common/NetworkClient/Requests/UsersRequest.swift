@@ -12,6 +12,5 @@ struct UsersRequest: NetworkRequestProtocol {
     // post - создать пользователя при регистрации 
     let httpMethod: HttpMethod
     let endpoint: Endpoint = .createUser
-    let dto: Encodable?
-    let token: String? = nil
+    let body: Encodable?
 }

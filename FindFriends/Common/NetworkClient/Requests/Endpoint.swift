@@ -17,6 +17,7 @@ enum Endpoint {
     case newPassword
     case interests
     case getUser
+    case validateToken
     
     var baseURL: URL? {
         URL(string: "http://158.160.60.2/api/v1/")
@@ -28,9 +29,10 @@ enum Endpoint {
         case .createUser: "users/"
         case .friends: "friends/"
         case .resetPassword: "users/reset_password/"
-        case .newPassword: "users/reset_password_confirm/"
+        case .newPassword: "users/reset_password/confirm/"
         case .interests: "interests/"
-        case .getUser: "users/me"
+        case .getUser: "users/me/"
+        case .validateToken: "users/reset_password/validate_token/"
         }
     }
     

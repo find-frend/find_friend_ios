@@ -7,11 +7,29 @@
 import Combine
 import UIKit
 
+protocol EnterVerificationViewDelegate: AnyObject {
+    func showNewPasswordScreen(_ token: String)
+    func showAlert(_ message: String)
+}
+
 final class EnterVerificationCodeView: BaseRegistrationView {
     let viewModel: EnterVerificationCodeViewModel
+    var delegate: EnterVerificationViewDelegate?
     
     private let confirmButton = PrimeOrangeButton(text: "Подтвердить")
-    private let sendCodeAgainButton = CaptionButton(text: "Отправить код еще раз")
+    private let sendCodeAgainButton: UIButton = {
+        let button = UIButton()
+        
+        let attrString = NSAttributedString(string: "Отправить код еще раз", attributes: [
+            .foregroundColor: UIColor.primeDark,
+            .font: UIFont.systemFont(ofSize: 15, weight: .medium),
+            .underlineStyle: NSUnderlineStyle.single.rawValue
+        ])
+
+        button.setAttributedTitle(attrString, for: .normal)
+        return button
+    }()
+    
     private var fields: [UITextField] = []
     private var cancellables: Set<AnyCancellable> = []
     
@@ -112,6 +130,31 @@ final class EnterVerificationCodeView: BaseRegistrationView {
             .receive(on: DispatchQueue.main)
             .sink { [unowned self] isFullfill in
                 confirmButton.setEnabled(isFullfill)
+            }
+            .store(in: &cancellables)
+        
+        viewModel.$tokenIsValid
+            .sink { [unowned self] isValid in
+                if isValid {
+                    delegate?.showNewPasswordScreen(viewModel.token.joined())
+                }
+            }
+            .store(in: &cancellables)
+        
+        viewModel.$error
+            .sink { [unowned self] error in
+                guard let error else { return }
+                delegate?.showAlert(error.message)
+            }
+            .store(in: &cancellables)
+        
+        viewModel.$isLoading
+            .sink { isLoading in
+                if isLoading {
+                    UIBlockingProgressHUD.show()
+                } else {
+                    UIBlockingProgressHUD.dismiss()
+                }
             }
             .store(in: &cancellables)
     }

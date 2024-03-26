@@ -7,88 +7,80 @@
 
 import Foundation
 
-protocol NewPasswordViewModelProtocol {
-    var onSavePasswordAllowedStateChange: Binding<Bool>? { get set }
-    var onPasswordErrorStateChange: Binding<String>? { get set }
-    var onPasswordConfirmationErrorStateChange: Binding<String>? { get set }
-    var newPasswordModel: NewPasswordModel { get set }
+final class NewPasswordViewModel {
+    @Published var fieldsAreFilling = false
+    @Published var errorForPassword = ""
+    @Published var errorForConfirmPassword = ""
+    @Published var isSuccess = false
+    @Published var isLoading = false
+    var password = ""
+    var confirmPassword = ""
+    let token: String
 
-    func setNewPassword(completion: @escaping (Result<NewPasswordDto, Error>) -> Void)
-    func validateFields() -> Bool
-}
-
-final class NewPasswordViewModel: NewPasswordViewModelProtocol {
-    var onSavePasswordAllowedStateChange: Binding<Bool>?
-    var onPasswordErrorStateChange: Binding<String>?
-    var onPasswordConfirmationErrorStateChange: Binding<String>?
-
-    var newPasswordModel: NewPasswordModel {
-        didSet {
-            let allFieldsAreFilled = !newPasswordModel.password.isEmpty
-                                  && !newPasswordModel.passwordConfirmation.isEmpty
-            onSavePasswordAllowedStateChange?(allFieldsAreFilled)
-            hideErrorMessages()
-        }
-    }
-
-    private let registrationService: RegistrationServiceProtocol
+    private let resetPasswordService: ResetPasswordServiceProtocol
 
     init(
-        registrationService: RegistrationServiceProtocol = RegistrationService(),
-        newPasswordModel: NewPasswordModel = NewPasswordModel.empty
+        resetPasswordService: ResetPasswordServiceProtocol = ResetPasswordService(),
+        token: String
     ) {
-        self.registrationService = registrationService
-        self.newPasswordModel = newPasswordModel
+        self.resetPasswordService = resetPasswordService
+        self.token = token
     }
-
-    func setNewPassword(completion: @escaping (Result<NewPasswordDto, Error>) -> Void) {
-        // TODO: wait till backend be done
-        let dto = NewPasswordDto(uid: "", token: "", new_password: newPasswordModel.password)
-        registrationService.setNewPassword(dto) { result in
-            switch result {
-            case .success(let model):
-                completion(.success(model))
-            case .failure(let error):
-                completion(.failure(error))
+    
+    func saveButtonTapped() {
+        if validateFields() {
+            isLoading = true
+            let dto = NewPasswordDto(token: token, password: confirmPassword)
+            resetPasswordService.setNewPassword(dto) { [unowned self] result in
+                switch result {
+                case .success(let model):
+                    isSuccess = true
+                case .failure(let error):
+                    isSuccess = false
+                }
+                isLoading = false
             }
         }
     }
-
-    func validateFields() -> Bool {
+    
+    func textFieldsDidChanged(_ password: String?,_ confirmPassword: String?) {
+        guard let password,
+              let confirmPassword else { return }
+        self.password = password
+        self.confirmPassword = confirmPassword
+        fieldsAreFilling = !password.isEmpty && !confirmPassword.isEmpty
+    }
+    
+    private func validateFields() -> Bool {
         let isPasswordValid = validatePassword()
         let isPasswordConfirmationValid = validatePasswordConfirmation()
         return isPasswordValid && isPasswordConfirmationValid
     }
 
     private func validatePassword() -> Bool {
-        switch ValidationService.validate(newPasswordModel.password, type: .password) {
+        switch ValidationService.validate(password, type: .password) {
         case .success:
-            onPasswordErrorStateChange?(ValidateMessages.emptyMessage.rawValue)
+            errorForPassword = ValidateMessages.emptyMessage.rawValue
             return true
         case .failure(let message):
-            onPasswordErrorStateChange?(message.rawValue)
+            errorForPassword = message.rawValue
             return false
         }
     }
 
     private func validatePasswordConfirmation() -> Bool {
-        if newPasswordModel.password != newPasswordModel.passwordConfirmation {
-            onPasswordConfirmationErrorStateChange?(ValidateMessages.passwordsNotEqual.rawValue)
+        if password != confirmPassword {
+            errorForConfirmPassword = ValidateMessages.passwordsNotEqual.rawValue
             return false
         }
-        switch ValidationService.validate(newPasswordModel.passwordConfirmation, type: .confirmPassword) {
+        switch ValidationService.validate(confirmPassword, type: .confirmPassword) {
         case .success(_):
-            onPasswordConfirmationErrorStateChange?(ValidateMessages.emptyMessage.rawValue)
+            errorForConfirmPassword = ValidateMessages.emptyMessage.rawValue
             return true
         case .failure(let message):
-            onPasswordConfirmationErrorStateChange?(message.rawValue)
+            errorForConfirmPassword = message.rawValue
             return false
         }
-    }
-
-    private func hideErrorMessages() {
-        onPasswordErrorStateChange?(ValidateMessages.emptyMessage.rawValue)
-        onPasswordConfirmationErrorStateChange?(ValidateMessages.emptyMessage.rawValue)
     }
 }
 

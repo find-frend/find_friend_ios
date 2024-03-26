@@ -32,3 +32,16 @@ final class EnterVerificationCodeViewController: BaseRegistrationViewController 
     }
 }
 
+extension EnterVerificationCodeViewController: EnterVerificationViewDelegate {
+    func showNewPasswordScreen(_ token: String) {
+        let viewModel = NewPasswordViewModel(token: token)
+        let view = NewPasswordView(viewModel: viewModel)
+        let viewController = NewPasswordViewController(newPasswordView: view)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func showAlert(_ message: String) {
+        let alert = AlertModel(message: message)
+        AlertPresenter.show(in: self, model: alert)
+    }
+}

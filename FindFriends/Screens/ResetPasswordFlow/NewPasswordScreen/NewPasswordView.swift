@@ -5,23 +5,18 @@
 //  Created by Artem Novikov on 21.02.2024.
 //
 
+import Combine
 import UIKit
 
 protocol NewPasswordViewDelegate: AnyObject {
-    func didTapSavePasswordButton()
-    func didChangeTextField()
+    func showSuccessScreen()
 }
 
 final class NewPasswordView: BaseRegistrationView {
     weak var delegate: NewPasswordViewDelegate?
+    let viewModel: NewPasswordViewModel
+    private var cancellables: Set<AnyCancellable> = []
     
-    var newPasswordModel: NewPasswordModel {
-        NewPasswordModel(
-            password: passwordTextField.text ?? "",
-            passwordConfirmation: passwordConfirmationTextField.text ?? ""
-        )
-    }
-
     private enum Constants {
         enum Label {
             static let topInset: CGFloat = 32
@@ -56,10 +51,12 @@ final class NewPasswordView: BaseRegistrationView {
     
     private let savePasswordButton = PrimeOrangeButton(text: "Сохранить пароль")
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(viewModel: NewPasswordViewModel) {
+        self.viewModel = viewModel
+        super.init(frame: .zero)
         setupViews()
         setupLayout()
+        bind()
         passwordTextField.delegate = self
         passwordConfirmationTextField.delegate = self
     }
@@ -86,6 +83,44 @@ final class NewPasswordView: BaseRegistrationView {
         } else {
             textField.showWarningLabel(message)
         }
+    }
+    
+    private func bind() {
+        viewModel.$fieldsAreFilling
+            .sink { [unowned self] isFilling in
+                setSavePasswordButton(enabled: isFilling)
+            }
+            .store(in: &cancellables)
+
+        viewModel.$errorForPassword
+            .sink { [unowned self] error in
+                setPasswordTextFieldError(message: error)
+            }
+            .store(in: &cancellables)
+        
+        viewModel.$errorForConfirmPassword
+            .sink { [unowned self] error in
+                setPasswordConfirmationTextFieldError(message: error)
+            }
+            .store(in: &cancellables)
+        
+        viewModel.$isLoading
+            .sink { isLoading in
+                if isLoading {
+                    UIBlockingProgressHUD.show()
+                } else {
+                    UIBlockingProgressHUD.dismiss()
+                }
+            }
+            .store(in: &cancellables)
+        
+        viewModel.$isSuccess
+            .sink { [unowned self] isSuccess in
+                if isSuccess {
+                    delegate?.showSuccessScreen()
+                }
+            }
+            .store(in: &cancellables)
     }
 
     private func setupViews() {
@@ -144,11 +179,11 @@ final class NewPasswordView: BaseRegistrationView {
     }
 
     @objc private func savePasswordButtonTapped() {
-        delegate?.didTapSavePasswordButton()
+        viewModel.saveButtonTapped()
     }
 
     @objc private func textFieldChanged() {
-        delegate?.didChangeTextField()
+        viewModel.textFieldsDidChanged(passwordTextField.text, passwordConfirmationTextField.text)
     }
 }
 

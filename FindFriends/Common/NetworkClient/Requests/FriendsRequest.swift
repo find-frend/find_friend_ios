@@ -10,6 +10,5 @@ import Foundation
 struct FriendsRequest: NetworkRequestProtocol {
     let httpMethod: HttpMethod = .get
     let endpoint: Endpoint = .friends
-    let dto: Encodable? = nil
-    let token: String?
+    let body: Encodable? = nil
 }

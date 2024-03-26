@@ -58,7 +58,7 @@ final class NewPasswordSuccessView: BaseRegistrationView {
         return label
     }()
 
-    private let logInButton = PrimeOrangeButton(text: "Войти")
+    private let logInButton = PrimeOrangeButton(text: "Войти", isEnabled: true)
 
     override init(frame: CGRect) {
         super.init(frame: frame)
