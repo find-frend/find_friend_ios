@@ -7,10 +7,8 @@
 
 import UIKit
 
-// MARK: - SplashView
 final class SplashView: UIView {
 
-    // MARK: - Private properties
     private enum Constants {
         static let width: CGFloat = 164
         static let height: CGFloat = 183
@@ -23,7 +21,6 @@ final class SplashView: UIView {
         return imageView
     }()
 
-    // MARK: - Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -34,7 +31,6 @@ final class SplashView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: - Private methods
     private func setupViews() {
         backgroundColor = .backgroundLaunchScreen
         addSubviewWithoutAutoresizingMask(logoImageView)

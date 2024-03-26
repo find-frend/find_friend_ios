@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct InterstsRequest: NetworkRequest {
+struct InterstsRequest: NetworkRequestProtocol {
     let httpMethod: HttpMethod = .get
-    let endpoint = Endpoint.getInterests.url
-    let dto: Encodable? = nil
+    let endpoint = Endpoint.interests
+    let body: Encodable? = nil
     let token: String?
 }
 
@@ -33,12 +33,7 @@ final class InterestsServiceProvider: InterestsServiceProviderProtocol {
 
     /// Функция возвращает список друзей у текущего пользователя
     func getInterests(completion: @escaping (Result<[InterestsdDto], Error>) -> Void) {
-        print("call getInterests()")
-        //oAuthTokenStorage.token = "84a981c5159b3b3b61dacbed95df8c9db75e237b"
-        guard let token = oAuthTokenStorage.token else {
-            print("No token. Error.")
-            return
-        }
+        guard let token = oAuthTokenStorage.token else { return }
         let request = InterstsRequest(token: token)
         networkClient.send(request: request, type: [InterestsdDto].self) { result in
             DispatchQueue.main.async {
@@ -51,5 +46,4 @@ final class InterestsServiceProvider: InterestsServiceProviderProtocol {
             }
         }
     }
-
 }

@@ -106,10 +106,10 @@ open class TabBarController: UITabBarController  {
     private func createTabBar() {
         
         viewControllers = [
-            generateVC(TmpScreenViewController(), "Сообщения", UIImage(resource: .messagesWithoutNotification)),
+            generateVC(UIViewController(), "Сообщения", UIImage(resource: .messagesWithoutNotification)),
             generateVC(SearchFriendsViewController(), "Поиск друзей", UIImage(resource: .searchFriends)),
-            generateVC(TmpScreenViewController(), "Мероприятия", UIImage(resource: .events)),
-            generateVC(TmpScreenViewController(), "Мой профиль", UIImage(resource: .myProfile))
+            generateVC(UIViewController(), "Мероприятия", UIImage(resource: .events)),
+            generateVC(UIViewController(), "Мой профиль", UIImage(resource: .myProfile))
         ]
     }
 

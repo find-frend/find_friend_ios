@@ -7,7 +7,6 @@
 
 import Foundation
 
-// MARK: - RegistrationServiceProtocol
 protocol RegistrationServiceProtocol {
     func createUser(
         _ dto: CreateUserRequestDto,
@@ -15,26 +14,15 @@ protocol RegistrationServiceProtocol {
     )
     func loginUser(
         _ dto: LoginRequestDto,
-        completion: @escaping (Result<LoginResponseDto, Error>) -> Void
-    )
-    func resetPassword(
-        _ dto: ResetPasswordDto,
-        completion: @escaping (Result<ResetPasswordDto, Error>) -> Void
-    )
-    func setNewPassword(
-        _ dto: NewPasswordDto,
-        completion: @escaping (Result<NewPasswordDto, Error>) -> Void
+        completion: @escaping (Result<LoginResponseDto, NetworkClientError>) -> Void
     )
 }
 
-// MARK: - RegistrationService
 final class RegistrationService: RegistrationServiceProtocol {
 
-    // MARK: - Private  properties
     private let networkClient: NetworkClient
     private let oAuthTokenStorage: OAuthTokenStorageProtocol
 
-    // MARK: - Initializers
     init(
         networkClient: NetworkClient = DefaultNetworkClient(),
         oAuthTokenStorage: OAuthTokenStorageProtocol = OAuthTokenStorage.shared
@@ -43,12 +31,11 @@ final class RegistrationService: RegistrationServiceProtocol {
         self.oAuthTokenStorage = oAuthTokenStorage
     }
 
-    // MARK: - Public methods
     func createUser(
         _ dto: CreateUserRequestDto,
         completion: @escaping (Result<CreateUserResponseDto, NetworkClientError>) -> Void
     ) {
-        let request = CreateUserRequest(dto: dto)
+        let request = UsersRequest(httpMethod: .post, body: dto)
         networkClient.send(request: request, type: CreateUserResponseDto.self) { result in
             DispatchQueue.main.async {
                 switch result {
@@ -63,9 +50,9 @@ final class RegistrationService: RegistrationServiceProtocol {
 
     func loginUser(
         _ dto: LoginRequestDto,
-        completion: @escaping (Result<LoginResponseDto, Error>) -> Void
+        completion: @escaping (Result<LoginResponseDto, NetworkClientError>) -> Void
     ) {
-        let request = LoginUserRequest(dto: dto)
+        let request = LoginUserRequest(body: dto)
         networkClient.send(request: request, type: LoginResponseDto.self) { result in
             DispatchQueue.main.async {
                 switch result {
@@ -78,39 +65,4 @@ final class RegistrationService: RegistrationServiceProtocol {
             }
         }
     }
-
-    func resetPassword(
-        _ dto: ResetPasswordDto,
-        completion: @escaping (Result<ResetPasswordDto, Error>) -> Void
-    ) {
-        let request = ResetPasswordRequest(dto: dto)
-        networkClient.send(request: request, type: ResetPasswordDto.self) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case let .success(data):
-                    completion(.success(data))
-                case let .failure(error):
-                    completion(.failure(error))
-                }
-            }
-        }
-    }
-
-    func setNewPassword(
-        _ dto: NewPasswordDto,
-        completion: @escaping (Result<NewPasswordDto, Error>) -> Void
-    ) {
-        let request = NewPasswordRequest(dto: dto)
-        networkClient.send(request: request, type: NewPasswordDto.self) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case let .success(data):
-                    completion(.success(data))
-                case let .failure(error):
-                    completion(.failure(error))
-                }
-            }
-        }
-    }
-
 }
