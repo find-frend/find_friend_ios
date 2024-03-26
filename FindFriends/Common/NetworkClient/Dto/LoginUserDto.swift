@@ -11,11 +11,3 @@ struct LoginRequestDto: Encodable {
     let email: String
     let password: String
 }
-
-struct LoginResponseDto: Decodable {
-    let authToken: String
-
-    enum CodingKeys: String, CodingKey {
-        case authToken = "auth_token"
-    }
-}

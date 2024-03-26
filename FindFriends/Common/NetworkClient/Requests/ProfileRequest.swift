@@ -10,6 +10,5 @@ import Foundation
 struct ProfileRequest: NetworkRequestProtocol {
     let httpMethod: HttpMethod = .get
     let endpoint = Endpoint.getUser
-    let dto: Encodable?
-    let token: String? = nil
+    let body: Encodable? = nil
 }

@@ -14,16 +14,13 @@ protocol FriendsServiceProviderProtocol {
 final class FriendsServiceProvider: FriendsServiceProviderProtocol {
 
     private let networkClient: NetworkClient
-    private let oAuthTokenStorage: OAuthTokenStorageProtocol
 
-    init(networkClient: NetworkClient = DefaultNetworkClient(), oAuthTokenStorage: OAuthTokenStorageProtocol = OAuthTokenStorage.shared) {
+    init(networkClient: NetworkClient = DefaultNetworkClient()) {
         self.networkClient = networkClient
-        self.oAuthTokenStorage = oAuthTokenStorage
     }
 
     func getFriends(completion: @escaping (Result<[FriendDto], Error>) -> Void) {
-        guard let token = oAuthTokenStorage.token else { return }
-        let request = FriendsRequest(token: token)
+        let request = FriendsRequest()
         networkClient.send(request: request, type: [FriendDto].self) { result in
             DispatchQueue.main.async {
                 switch result {

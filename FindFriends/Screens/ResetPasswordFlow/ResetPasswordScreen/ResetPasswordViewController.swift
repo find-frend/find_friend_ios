@@ -59,6 +59,7 @@ final class ResetPasswordViewController: BaseRegistrationViewController {
                 let viewModel = EnterVerificationCodeViewModel(email: viewModel.email, service: ResetPasswordService())
                 let view = EnterVerificationCodeView(viewModel: viewModel)
                 let viewController = EnterVerificationCodeViewController(enterVerficationCodeView: view)
+                view.delegate = viewController
                 
                 self.navigationController?.pushViewController(viewController, animated: true)
                 

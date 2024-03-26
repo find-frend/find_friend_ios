@@ -111,9 +111,9 @@ struct DefaultNetworkClient: NetworkClient {
         }
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
-        if let dto = request.dto,
-           let dtoEncoded = try? encoder.encode(dto) {
-            urlRequest.httpBody = dtoEncoded
+        if let body = request.body,
+           let data = try? encoder.encode(body) {
+            urlRequest.httpBody = data
         }
 
         return urlRequest

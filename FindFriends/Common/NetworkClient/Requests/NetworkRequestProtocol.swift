@@ -4,7 +4,13 @@ protocol NetworkRequestProtocol {
     var endpoint: Endpoint { get }
     var httpMethod: HttpMethod { get }
     var token: String? { get }
-    var dto: Encodable? { get }
+    var body: Encodable? { get }
+}
+
+extension NetworkRequestProtocol {
+    var token: String? {
+        OAuthTokenStorage.shared.token
+    }
 }
 
 enum HttpMethod: String {

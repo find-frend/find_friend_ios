@@ -65,6 +65,11 @@
 		DD5F38232BAE045A004AF6B2 /* EnterVerificationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5F38202BAE045A004AF6B2 /* EnterVerificationCodeView.swift */; };
 		DD5F38242BAE045A004AF6B2 /* EnterVerificationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5F38212BAE045A004AF6B2 /* EnterVerificationCodeViewController.swift */; };
 		DD5F38262BAE1F16004AF6B2 /* EnterVerificationCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5F38252BAE1F16004AF6B2 /* EnterVerificationCodeViewModel.swift */; };
+		DD64AB6F2BB33C420011E7D4 /* ValidateCodeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD64AB6E2BB33C420011E7D4 /* ValidateCodeRequest.swift */; };
+		DD64AB712BB341B10011E7D4 /* TokenDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD64AB702BB341B10011E7D4 /* TokenDto.swift */; };
+		DD64AB742BB346720011E7D4 /* CreateUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD64AB732BB346720011E7D4 /* CreateUserResponse.swift */; };
+		DD64AB762BB3469E0011E7D4 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD64AB752BB3469E0011E7D4 /* LoginResponse.swift */; };
+		DD64AB782BB346CA0011E7D4 /* SuccessResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD64AB772BB346CA0011E7D4 /* SuccessResponse.swift */; };
 		DDC2551B2BA2249F0037FA7E /* RegistrationErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC2551A2BA2249F0037FA7E /* RegistrationErrorModel.swift */; };
 		DDCAC7C42B83C0BF00EC7D15 /* WhiteBorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCAC7C32B83C0BF00EC7D15 /* WhiteBorderButton.swift */; };
 		DDCAC7C72B84FB7900EC7D15 /* UIFont+CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCAC7C62B84FB7900EC7D15 /* UIFont+CustomFonts.swift */; };
@@ -87,7 +92,6 @@
 		F30170892B8D290700A6921A /* UIBlockingProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30170882B8D290700A6921A /* UIBlockingProgressHUD.swift */; };
 		F30DA5A22B8E7B2100E6571B /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30DA5A12B8E7B2100E6571B /* ResetPasswordViewModel.swift */; };
 		F30DA5A42B8E862300E6571B /* NewPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30DA5A32B8E862300E6571B /* NewPasswordViewModel.swift */; };
-		F30DA5A62B8E86D200E6571B /* NewPasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30DA5A52B8E86D200E6571B /* NewPasswordModel.swift */; };
 		F31111272B968D5D00A97B80 /* BaseRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31111262B968D5D00A97B80 /* BaseRegistrationViewController.swift */; };
 		F311112A2B9692CC00A97B80 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31111292B9692CC00A97B80 /* ResetPasswordViewController.swift */; };
 		F33B4C872B8FB8DA002D27B5 /* ResetPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33B4C862B8FB8DA002D27B5 /* ResetPasswordRequest.swift */; };
@@ -166,6 +170,11 @@
 		DD5F38202BAE045A004AF6B2 /* EnterVerificationCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterVerificationCodeView.swift; sourceTree = "<group>"; };
 		DD5F38212BAE045A004AF6B2 /* EnterVerificationCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterVerificationCodeViewController.swift; sourceTree = "<group>"; };
 		DD5F38252BAE1F16004AF6B2 /* EnterVerificationCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterVerificationCodeViewModel.swift; sourceTree = "<group>"; };
+		DD64AB6E2BB33C420011E7D4 /* ValidateCodeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateCodeRequest.swift; sourceTree = "<group>"; };
+		DD64AB702BB341B10011E7D4 /* TokenDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenDto.swift; sourceTree = "<group>"; };
+		DD64AB732BB346720011E7D4 /* CreateUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserResponse.swift; sourceTree = "<group>"; };
+		DD64AB752BB3469E0011E7D4 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		DD64AB772BB346CA0011E7D4 /* SuccessResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessResponse.swift; sourceTree = "<group>"; };
 		DDC2551A2BA2249F0037FA7E /* RegistrationErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationErrorModel.swift; sourceTree = "<group>"; };
 		DDCAC7C32B83C0BF00EC7D15 /* WhiteBorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteBorderButton.swift; sourceTree = "<group>"; };
 		DDCAC7C62B84FB7900EC7D15 /* UIFont+CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+CustomFonts.swift"; sourceTree = "<group>"; };
@@ -188,7 +197,6 @@
 		F30170882B8D290700A6921A /* UIBlockingProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBlockingProgressHUD.swift; sourceTree = "<group>"; };
 		F30DA5A12B8E7B2100E6571B /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
 		F30DA5A32B8E862300E6571B /* NewPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordViewModel.swift; sourceTree = "<group>"; };
-		F30DA5A52B8E86D200E6571B /* NewPasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordModel.swift; sourceTree = "<group>"; };
 		F31111262B968D5D00A97B80 /* BaseRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRegistrationViewController.swift; sourceTree = "<group>"; };
 		F31111292B9692CC00A97B80 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		F33B4C862B8FB8DA002D27B5 /* ResetPasswordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordRequest.swift; sourceTree = "<group>"; };
@@ -370,6 +378,7 @@
 		D86387BD2B87A16400692535 /* NetworkClient */ = {
 			isa = PBXGroup;
 			children = (
+				DD64AB722BB346350011E7D4 /* ResponseModels */,
 				F30170632B8CDC9700A6921A /* Requests */,
 				DDC2551C2BA22B8E0037FA7E /* ErrorModel */,
 				F33B4C8A2B8FB9EE002D27B5 /* Dto */,
@@ -472,6 +481,16 @@
 			path = EnterVerificationCodeScreen;
 			sourceTree = "<group>";
 		};
+		DD64AB722BB346350011E7D4 /* ResponseModels */ = {
+			isa = PBXGroup;
+			children = (
+				DD64AB732BB346720011E7D4 /* CreateUserResponse.swift */,
+				DD64AB752BB3469E0011E7D4 /* LoginResponse.swift */,
+				DD64AB772BB346CA0011E7D4 /* SuccessResponse.swift */,
+			);
+			path = ResponseModels;
+			sourceTree = "<group>";
+		};
 		DD67CE3B2B769EC1008B2A9C /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -528,6 +547,7 @@
 				F33B4C862B8FB8DA002D27B5 /* ResetPasswordRequest.swift */,
 				F33B4C882B8FB989002D27B5 /* NewPasswordRequest.swift */,
 				4CB304C02BADAE5500D08003 /* ProfileRequest.swift */,
+				DD64AB6E2BB33C420011E7D4 /* ValidateCodeRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -578,14 +598,6 @@
 			path = SplashScreen;
 			sourceTree = "<group>";
 		};
-		F30DA5A72B8E880200E6571B /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				F30DA5A52B8E86D200E6571B /* NewPasswordModel.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		F31111282B9690F800A97B80 /* BaseRegistration */ = {
 			isa = PBXGroup;
 			children = (
@@ -606,6 +618,7 @@
 				F33B4C8D2B8FBA19002D27B5 /* NewPasswordDto.swift */,
 				D87ED9272B97BDDD00B185FB /* InterestsDto.swift */,
 				D86387C92B89F9A600692535 /* FriendDto.swift */,
+				DD64AB702BB341B10011E7D4 /* TokenDto.swift */,
 			);
 			path = Dto;
 			sourceTree = "<group>";
@@ -642,7 +655,6 @@
 		F36F408F2B864B0E00B2082B /* NewPasswordScreen */ = {
 			isa = PBXGroup;
 			children = (
-				F30DA5A72B8E880200E6571B /* Models */,
 				F36F40902B864B1E00B2082B /* NewPasswordView.swift */,
 				F36F40922B864B2300B2082B /* NewPasswordViewController.swift */,
 				F30DA5A32B8E862300E6571B /* NewPasswordViewModel.swift */,
@@ -764,6 +776,7 @@
 				F30170892B8D290700A6921A /* UIBlockingProgressHUD.swift in Sources */,
 				DD0412DE2B90E31E00984BA7 /* SearchFriendsViewController.swift in Sources */,
 				F301707C2B8CF2FF00A6921A /* AlertModel.swift in Sources */,
+				DD64AB742BB346720011E7D4 /* CreateUserResponse.swift in Sources */,
 				F36F407A2B85562800B2082B /* UIViewController+Extensions.swift in Sources */,
 				D853CC262B7567AF00DA58D5 /* AppDelegate.swift in Sources */,
 				DDCAC7CF2B851F7700EC7D15 /* ValidationService.swift in Sources */,
@@ -772,6 +785,7 @@
 				D86387D92B8A7FF500692535 /* LoginUserDto.swift in Sources */,
 				D854012C2B9312080088C1E9 /* TagsCollectionViewCell.swift in Sources */,
 				CECC80EB2B98988200F4312B /* SelectCityViewController.swift in Sources */,
+				DD64AB762BB3469E0011E7D4 /* LoginResponse.swift in Sources */,
 				F30170832B8CF6EB00A6921A /* SplashView.swift in Sources */,
 				D85401302B95C7D80088C1E9 /* NavigationBarView.swift in Sources */,
 				DD3A2EA82B7E9836006A3B8E /* CaptionButton.swift in Sources */,
@@ -786,7 +800,9 @@
 				F33B4C8E2B8FBA19002D27B5 /* NewPasswordDto.swift in Sources */,
 				D87ED92C2B9A1B2300B185FB /* SelectInterestsView+tagCollectionViewExtensions.swift in Sources */,
 				D85401322B95D5720088C1E9 /* BaseFillProfileView.swift in Sources */,
+				DD64AB6F2BB33C420011E7D4 /* ValidateCodeRequest.swift in Sources */,
 				D854012E2B93125A0088C1E9 /* CellReusingUtils.swift in Sources */,
+				DD64AB712BB341B10011E7D4 /* TokenDto.swift in Sources */,
 				DDCAC7CC2B851EF500EC7D15 /* RegistrationTextField.swift in Sources */,
 				4CB304BB2BAC471D00D08003 /* WelcomeViewController.swift in Sources */,
 				D86387CF2B8A74A500692535 /* CreateUserDto.swift in Sources */,
@@ -799,6 +815,7 @@
 				F33B4C892B8FB989002D27B5 /* NewPasswordRequest.swift in Sources */,
 				DDCAC7C42B83C0BF00EC7D15 /* WhiteBorderButton.swift in Sources */,
 				D87ED9262B97BC8C00B185FB /* InterestsServiceProvider.swift in Sources */,
+				DD64AB782BB346CA0011E7D4 /* SuccessResponse.swift in Sources */,
 				F36F408C2B86434C00B2082B /* NewPasswordSuccessView.swift in Sources */,
 				84CCA1C12B9640A4000BDC28 /* GenderViewModel.swift in Sources */,
 				F33B4C8C2B8FBA0C002D27B5 /* ResetPasswordDto.swift in Sources */,
@@ -820,7 +837,6 @@
 				DD0412E22B90E33600984BA7 /* SearchFriendsViewModel.swift in Sources */,
 				CECC80F92B989D6800F4312B /* CityViewModel.swift in Sources */,
 				F3BC5D402B853D1C00562C08 /* LoginViewController.swift in Sources */,
-				F30DA5A62B8E86D200E6571B /* NewPasswordModel.swift in Sources */,
 				F30170812B8CF57800A6921A /* SplashViewController.swift in Sources */,
 				DD0412E02B90E32B00984BA7 /* SearchFriendsView.swift in Sources */,
 				F30DA5A42B8E862300E6571B /* NewPasswordViewModel.swift in Sources */,

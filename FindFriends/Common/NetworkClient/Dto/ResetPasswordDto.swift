@@ -10,7 +10,3 @@ import Foundation
 struct ResetPasswordRequestDto: Encodable {
     let email: String
 }
-
-struct ResetPasswordResponseDto: Decodable {
-    let status: String
-}

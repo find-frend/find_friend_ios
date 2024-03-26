@@ -8,7 +8,6 @@
 import Foundation
 
 struct NewPasswordDto: Codable {
-    let uid: String
     let token: String
-    let new_password: String
+    let password: String
 }

@@ -16,7 +16,7 @@ class WelcomeViewModel {
     //получение имени пользователя
     func fetchUserData(completion: @escaping (Bool) -> Void) {
         let networkClient = DefaultNetworkClient()
-        let userRequest = ProfileRequest(dto: nil)
+        let userRequest = ProfileRequest()
         
         networkClient.send(request: userRequest, type: ProfileDto.self) { result in
             switch result {

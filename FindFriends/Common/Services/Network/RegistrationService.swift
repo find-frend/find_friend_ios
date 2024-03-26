@@ -35,7 +35,7 @@ final class RegistrationService: RegistrationServiceProtocol {
         _ dto: CreateUserRequestDto,
         completion: @escaping (Result<CreateUserResponseDto, NetworkClientError>) -> Void
     ) {
-        let request = UsersRequest(httpMethod: .post, dto: dto)
+        let request = UsersRequest(httpMethod: .post, body: dto)
         networkClient.send(request: request, type: CreateUserResponseDto.self) { result in
             DispatchQueue.main.async {
                 switch result {
@@ -52,7 +52,7 @@ final class RegistrationService: RegistrationServiceProtocol {
         _ dto: LoginRequestDto,
         completion: @escaping (Result<LoginResponseDto, NetworkClientError>) -> Void
     ) {
-        let request = LoginUserRequest(dto: dto)
+        let request = LoginUserRequest(body: dto)
         networkClient.send(request: request, type: LoginResponseDto.self) { result in
             DispatchQueue.main.async {
                 switch result {

@@ -10,11 +10,15 @@ import Foundation
 protocol ResetPasswordServiceProtocol {
     func resetPassword(
         _ dto: ResetPasswordRequestDto,
-        completion: @escaping (Result<ResetPasswordResponseDto, NetworkClientError>) -> Void
+        completion: @escaping (Result<SuccessResponse, NetworkClientError>) -> Void
+    )
+    func validateCode(
+        _ token: String,
+        completion: @escaping (Result<Void, NetworkClientError>) -> Void
     )
     func setNewPassword(
         _ dto: NewPasswordDto,
-        completion: @escaping (Result<NewPasswordDto, NetworkClientError>) -> Void
+        completion: @escaping (Result<Void, NetworkClientError>) -> Void
     )
 }
 
@@ -28,10 +32,10 @@ final class ResetPasswordService: ResetPasswordServiceProtocol {
 
     func resetPassword(
         _ dto: ResetPasswordRequestDto,
-        completion: @escaping (Result<ResetPasswordResponseDto, NetworkClientError>) -> Void
+        completion: @escaping (Result<SuccessResponse, NetworkClientError>) -> Void
     ) {
-        let request = ResetPasswordRequest(dto: dto)
-        networkClient.send(request: request, type: ResetPasswordResponseDto.self) { result in
+        let request = ResetPasswordRequest(body: dto)
+        networkClient.send(request: request, type: SuccessResponse.self) { result in
             DispatchQueue.main.async {
                 switch result {
                 case let .success(response):
@@ -42,34 +46,40 @@ final class ResetPasswordService: ResetPasswordServiceProtocol {
             }
         }
     }
-
-    func setNewPassword(
-        _ dto: NewPasswordDto,
-        completion: @escaping (Result<NewPasswordDto, NetworkClientError>) -> Void
-    ) {
-        let request = NewPasswordRequest(dto: dto)
-        networkClient.send(request: request, type: NewPasswordDto.self) { result in
+    
+    func validateCode(_ token: String, completion: @escaping (Result<Void, NetworkClientError>) -> Void) {
+        let dto = TokenDto(token: token)
+        let request = ValidateCodeRequest(body: dto)
+        networkClient.send(request: request, type: SuccessResponse.self) { result in
             DispatchQueue.main.async {
                 switch result {
-                case let .success(data):
-                    completion(.success(data))
-                case let .failure(error):
+                case .success(let success):
+                    if success.status == "OK" {
+                        completion(.success(Void()))
+                    } else {
+                        completion(.failure(.parsingError))
+                    }
+                case .failure(let error):
                     completion(.failure(error))
                 }
             }
         }
-    } 
+    }
     
-    func confirmPassword(
+    func setNewPassword(
         _ dto: NewPasswordDto,
-        completion: @escaping (Result<NewPasswordDto, NetworkClientError>) -> Void
+        completion: @escaping (Result<Void, NetworkClientError>) -> Void
     ) {
-        let request = NewPasswordRequest(dto: dto)
-        networkClient.send(request: request, type: NewPasswordDto.self) { result in
+        let request = NewPasswordRequest(body: dto)
+        networkClient.send(request: request, type: SuccessResponse.self) { result in
             DispatchQueue.main.async {
                 switch result {
-                case let .success(data):
-                    completion(.success(data))
+                case let .success(success):
+                    if success.status == "OK" {
+                        completion(.success(Void()))
+                    } else {
+                        completion(.failure(.parsingError))
+                    }
                 case let .failure(error):
                     completion(.failure(error))
                 }

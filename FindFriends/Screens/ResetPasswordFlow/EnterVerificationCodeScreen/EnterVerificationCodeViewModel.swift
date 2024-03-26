@@ -10,7 +10,11 @@ import Combine
 
 final class EnterVerificationCodeViewModel {
     let email: String
+    var token = Array(repeating: "", count: 6)
     @Published var isFullfill = false
+    @Published var tokenIsValid = false
+    @Published var error: NetworkClientError?
+    @Published var isLoading = false 
     
     var fields: [CurrentValueSubject<String, Never>] = [
         CurrentValueSubject<String, Never>(""),
@@ -22,7 +26,6 @@ final class EnterVerificationCodeViewModel {
     ]
     
     private let service: ResetPasswordServiceProtocol
-    private var code = Array(repeating: "", count: 6)
     private var cancellables: Set<AnyCancellable> = []
     
     init(email: String, service: ResetPasswordServiceProtocol) {
@@ -37,7 +40,16 @@ final class EnterVerificationCodeViewModel {
     }
     
     func confirmButtonTapped() {
-        
+        isLoading = true
+        service.validateCode(token.joined()) { [unowned self] result in
+            switch result {
+            case .success(_):
+                tokenIsValid = true
+            case .failure(let error):
+                self.error = error
+            }
+            isLoading = false
+        }
     }
     
     private func bind() {
@@ -45,7 +57,7 @@ final class EnterVerificationCodeViewModel {
             field.element
                 .drop { $0.count > 1 }
                 .sink { [unowned self] num in
-                    code[field.offset] = num
+                    token[field.offset] = num
                     checkCode()
                 }
                 .store(in: &cancellables)
@@ -53,6 +65,6 @@ final class EnterVerificationCodeViewModel {
     }
     
     private func checkCode() {
-        isFullfill = code.allSatisfy { !$0.isEmpty }
+        isFullfill = token.allSatisfy { !$0.isEmpty }
     }
 }
